@@ -10,11 +10,11 @@ export const onEscClickHandler = (evt: any, htmlElement: HTMLElement | null = nu
   }
 }
 
-export const getZero = (num: number): number | string => {
+export const getZero = (num: number): string => {
   if (num >= 0 && num < 10) {
     return `0${num}`;
   } else {
-    return num;
+    return `${num}`;
   }
 };
 

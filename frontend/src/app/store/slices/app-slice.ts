@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 //types
-import type { AppThunk } from '../../../../types/store-types';
-import type { IIncrementType } from '../../../../types/action-types';
+import type { AppThunk } from '../../types/store-types';
+import type { IIncrementType } from '../../types/action-types';
 
 interface testIncrement {
 	number: number
