@@ -1,5 +1,6 @@
 //components
 import RootNavigation from '../../navigation/root-navigation/root-navigation';
+import RootExitButton from '../../controls/root-exit-button/root-exit-button';
 //variables
 import { AppTitles } from '../../../variables/text';
 //styles
@@ -11,6 +12,7 @@ const RootHeader = (): JSX.Element => {
       <div className='root-header__wrap container'>
         <h1 className='visually-hidden'>{AppTitles.HEADER_TITLE}</h1>
         <RootNavigation/>
+				<RootExitButton/>
       </div>
     </header>
   )

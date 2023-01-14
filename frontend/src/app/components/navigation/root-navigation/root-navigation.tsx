@@ -5,17 +5,17 @@ const RootNavigation = (): JSX.Element => {
 		<nav className='root-navigation'>
 			<ul className='root-navigation__list'>
 				<li className='root-navigation__item'>
-					<a href="#" className='root-navigation__link'>
+					<a href="#" className='root-navigation__link global-root-nav-item'>
 						Weather
 					</a>
 				</li>
 				<li className='root-navigation__item'>
-					<a href="#" className='root-navigation__link'>
+					<a href="#" className='root-navigation__link global-root-nav-item'>
 						Movies
 					</a>
 				</li>
 				<li className='root-navigation__item'>
-					<a href="#" className='root-navigation__link'>
+					<a href="#" className='root-navigation__link global-root-nav-item'>
 						Converter
 					</a>
 				</li>

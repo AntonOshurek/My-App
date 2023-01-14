@@ -9,7 +9,7 @@
 	height: min-content;
 
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr min-content;
 	grid-template-rows: repeat(2, 1fr);
 	padding: 0 $standart-side-padding;
 }
