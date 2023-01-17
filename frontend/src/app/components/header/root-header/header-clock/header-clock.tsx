@@ -1,12 +1,33 @@
+import { useEffect, useState } from 'react';
+//api
+import ApiTime from '../../../../api/time/api-time';
+//types
+// import { IGetTime } from '../../../../types/generic-utils-types';
+import { IGetTime } from '../../../../types/api-types';
+//styles
 import './header-clock.scss';
 
 const HeaderClock = (): JSX.Element => {
+	const [currentTime, setCurrentTime] = useState<IGetTime>();
+
+	useEffect(() => {
+		//for first launch
+		setCurrentTime(ApiTime.getTime());
+
+		const interval = setInterval(() => {
+			console.log(ApiTime.getTime());
+			setCurrentTime(ApiTime.getTime());
+		}, 60000);
+
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
 		<div className='header-clock'>
 			<div className='header-clock__time'>
-				<span className='header-clock__time-text'>11</span>
+				<span className='header-clock__time-text'>{currentTime?.hours}</span>
 				<span className='header-clock__time-text header-clock__time-text--separator'>:</span>
-				<span className='header-clock__time-text'>01</span>
+				<span className='header-clock__time-text'>{currentTime?.minutes}</span>
 			</div>
 			<p className='header-clock__time-info'>
 				<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20">
