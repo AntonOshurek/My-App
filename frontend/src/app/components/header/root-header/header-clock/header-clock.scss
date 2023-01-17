@@ -9,6 +9,7 @@
 	font-size: 100px;
 	font-weight: 500;
 	color: $smoke-text-color;
+	text-shadow: 10px 12px 12px rgba(0, 0, 0, 0.2);
 
 	&--separator {
 		font-weight: 400;
@@ -24,5 +25,5 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
+	gap: 5px;
 }
