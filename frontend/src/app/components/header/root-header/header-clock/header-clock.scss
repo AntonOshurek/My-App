@@ -1,4 +1,29 @@
+@import '../../../../variables/variables.scss';
+
 .header-clock {
-	width: min-content;
-	color: white;
+	width: max-content;
+	color: $smoke-text-color;
+}
+.header-clock__time-text {
+	font-family: $basic-font;
+	font-size: 100px;
+	font-weight: 500;
+	color: $smoke-text-color;
+	text-shadow: 10px 12px 12px rgba(0, 0, 0, 0.2);
+
+	&--separator {
+		font-weight: 400;
+		font-size: 80px;
+	}
+}
+
+.header-clock__time-info {
+	font-family: $basic-font;
+	font-weight: 400;
+	font-size: 16px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
 }
