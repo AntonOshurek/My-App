@@ -7,7 +7,7 @@ const AppHeader = (): JSX.Element => {
   return (
     <header className="app-header">
       <div className='app-header__wrap container'>
-        <h1 className='visually-hidden'>{AppTitles.HEADER_TITLE}</h1>
+        <h2 className='visually-hidden'>{AppTitles.ROOT_HEADER_TITLE}</h2>
         {/* <Navigation/> */}
       </div>
     </header>
