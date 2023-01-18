@@ -9,15 +9,15 @@ import './header-clock.scss';
 
 const HeaderClock = (): JSX.Element => {
 	const [currentTime, setCurrentTime] = useState<IGetTime>();
+	const millisecondsInOneMinute: number = 60000;
 
 	useEffect(() => {
 		//for first launch
 		setCurrentTime(ApiTime.getTime());
 
 		const interval = setInterval(() => {
-			console.log(ApiTime.getTime());
 			setCurrentTime(ApiTime.getTime());
-		}, 60000);
+		}, millisecondsInOneMinute);
 
 		return () => clearInterval(interval);
 	}, []);

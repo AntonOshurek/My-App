@@ -12,7 +12,7 @@ class APITime {
 			minutes: getZero(currentTime.getMinutes()),
 			seconds: getZero(currentTime.getSeconds()),
 		};
-	}
+	};
 };
 
 const ApiTime = new APITime();
