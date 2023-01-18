@@ -30,20 +30,20 @@
 
 .root-weather__subtitle {
 	font-family: $basic-font;
-	color: $smoke-text-color;
-	font-feature-settings: 16px;
+	font-size: 16px;
 	font-weight: 400;
-	text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+	color: $smoke-text-color;
+	text-shadow: $root-weather-text-shadow;
 }
 
 .root-weather__list {
 	width: 100%;
 	min-width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 20px;
-	overflow: auto;
+	overflow-x: auto;
 	padding: 10px 0;
 
 	&::-webkit-scrollbar-track {
@@ -58,8 +58,8 @@
   }
 
   &::-webkit-scrollbar {
-    height: 10px;
-    width: 10px;
+    height: 15px;
+    width: 15px;
 		cursor: grab;
   }
 
@@ -74,21 +74,15 @@
 	min-height: 140px;
 	min-width: 180px;
 
-	list-style: none;
-	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
 
-	backdrop-filter: blur(3px);
-	background-color: rgba(255, 255, 255, 0.2);
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	padding: 10px;
 	border-radius: 10px;
-
-	box-shadow: .3rem .3rem .8rem rgb(0 0 0 / 51%),
-  -.3rem -.3rem .8rem rgb(255 255 255 / 5%);
+	list-style: none;
 
 	@media (max-width: $big-screen) {
 		&:nth-child(1) {
@@ -106,8 +100,7 @@
 	font-size: 20px;
 	font-weight: 500;
 	color: $smoke-text-color;
-	text-align: center;
-	text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+	text-shadow: $root-weather-text-shadow;
 }
 
 .root-weather__icon {
@@ -119,6 +112,5 @@
 	font-size: 18px;
 	font-weight: 400;
 	color: $smoke-text-color;
-	text-align: center;
-	text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+	text-shadow: $root-weather-text-shadow;
 }

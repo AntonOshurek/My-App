@@ -1,14 +1,20 @@
 @import '../../variables/variables.scss';
 
-.global-root-nav-item {
+.global-glass-card-bg {
+	backdrop-filter: blur(5px);
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+	box-shadow: $black-shadow;
+}
+
+.global-glass-button-bg {
 	backdrop-filter: blur(5px);
 	background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: 100px;
-	// box-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 
-	box-shadow: .3rem .3rem .8rem rgb(0 0 0 / 51%),
-  -.3rem -.3rem .8rem rgb(255 255 255 / 5%);
+	box-shadow: $black-shadow;
 
 	&:hover {
     background-color: rgba($smoke-text-color, 0.4);
@@ -16,7 +22,6 @@
   }
 
 	&:active {
-		box-shadow: inset .2rem .2rem .5rem rgb(0 0 0 / 60%),
-		inset -.2rem -.2rem .5rem rgb(255 255 255 / 90%);
+		box-shadow: $black-inner-shadow;
 	}
 }

@@ -21,10 +21,11 @@
 
 .root-navigation__link {
 	display: flex;
-	color: $smoke-text-color;
-	text-decoration: none;
-	text-shadow: 0px 0px 2px rgb(0 0 0 / 10%);
-	font-family: $basic-font;
-	font-weight: 400;
 	padding: 10px 20px;
+	font-family: $basic-font;
+	font-size: 16px;
+	font-weight: 400;
+	color: $smoke-text-color;
+	text-shadow: $root-navigation-text-shadow;
+	text-decoration: none;
 }

@@ -12,37 +12,37 @@ const RootWeather = (): JSX.Element => {
 					<p className='root-weather__subtitle'>How's it look out there?</p>
 				</div>
 				<ul className='root-weather__list'>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>14:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>15:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>16:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>17:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>18:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>19:00</time>
 					</li>
-					<li className='root-weather__item'>
+					<li className='root-weather__item global-glass-card-bg'>
 						<p className='root-weather__degree'>26&#176;c</p>
 						<span className='root-weather__icon'></span>
 						<time className='root-weather__time' dateTime='2008-02-14 20:00'>20:00</time>
