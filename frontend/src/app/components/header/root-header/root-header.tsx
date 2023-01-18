@@ -11,7 +11,7 @@ const RootHeader = (): JSX.Element => {
   return (
     <header className="root-header">
       <div className='root-header__wrap container'>
-        <h1 className='visually-hidden'>{AppTitles.HEADER_TITLE}</h1>
+        <h2 className='visually-hidden'>{AppTitles.ROOT_HEADER_TITLE}</h2>
 				<HeaderClock/>
         <RootNavigation/>
 				<RootExitButton/>

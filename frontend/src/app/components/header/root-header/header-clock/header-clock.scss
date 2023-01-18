@@ -9,7 +9,7 @@
 	font-size: 100px;
 	font-weight: 500;
 	color: $smoke-text-color;
-	text-shadow: 10px 12px 12px rgba(0, 0, 0, 0.2);
+	text-shadow: $root-clock-text-shadow;
 
 	&--separator {
 		font-weight: 400;
@@ -19,8 +19,9 @@
 
 .header-clock__time-info {
 	font-family: $basic-font;
-	font-weight: 400;
 	font-size: 16px;
+	font-weight: 400;
+	color: $smoke-text-color;
 
 	display: flex;
 	justify-content: center;
