@@ -10,6 +10,7 @@ const RootWeather = (): JSX.Element => {
 				<div className='root-weather__titles'>
 					<h2 className='visually-hidden'>{AppTitles.ROOT_WEATHER_TITLE}</h2>
 					<p className='root-weather__subtitle'>How's it look out there?</p>
+					<button className='root-weather__more-button global-glass-button-bg' type='button'>more</button>
 				</div>
 				<ul className='root-weather__list'>
 					<li className='root-weather__item global-glass-card-bg'>

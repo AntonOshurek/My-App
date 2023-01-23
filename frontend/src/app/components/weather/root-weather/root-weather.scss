@@ -21,6 +21,7 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	gap: 20px;
 	padding: 0;
 
 	@media (max-width: $big-screen) {
@@ -34,6 +35,18 @@
 	font-weight: 400;
 	color: $smoke-text-color;
 	text-shadow: $root-weather-text-shadow;
+}
+
+.root-weather__more-button {
+	padding: 5px 20px;
+	cursor: pointer;
+
+	font-family: $basic-font;
+	font-size: 14px;
+	font-weight: 400;
+	color: $smoke-text-color;
+	text-shadow: $root-weather-text-shadow;
+	text-transform: capitalize;
 }
 
 .root-weather__list {
