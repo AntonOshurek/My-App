@@ -11,9 +11,9 @@ import './root-page.scss';
 const RootPage = (): JSX.Element => {
 	return (
 		<div className="root-page">
+			<RootHeader/>
 			<main className="root-page__main">
 				<h1 className='visually-hidden'>{AppTitles.ROOT_PAGE_TITLE}</h1>
-				<RootHeader/>
 				<RootWeather/>
 			</main>
 		</div>
