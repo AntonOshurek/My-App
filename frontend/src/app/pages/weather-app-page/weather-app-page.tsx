@@ -2,7 +2,7 @@ import './weather-app-page';
 
 const WeatherAppPage = (): JSX.Element => {
 	return (
-		<div>
+		<div className='weather-app-page'>
 
 		</div>
 	);
