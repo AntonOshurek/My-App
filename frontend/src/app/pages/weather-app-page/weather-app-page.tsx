@@ -1,10 +1,10 @@
-import './weather-app-page';
+import './weather-app.page.scss';
 
 const WeatherAppPage = (): JSX.Element => {
 	return (
-		<div className='weather-app-page'>
+		<main className='weather-app-page'>
 
-		</div>
+		</main>
 	);
 };
 
