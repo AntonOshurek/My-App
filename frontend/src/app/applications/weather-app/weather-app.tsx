@@ -39,6 +39,46 @@ const WeatherApp = (): JSX.Element => {
 						<span className='weather-additional__info-content'>0 km/h</span>
 					</p>
 				</article>
+
+				<ul className='weather-days'>
+					<li className='weather-days__item'>
+						{/* Monday Tuesday Wednesday Thursday Friday Saturday Sunday */}
+						{/* Mon. Tue. Wed. Thu. Fri. Sat. Sun. */}
+						<h4 className='visually-hidden'>Monday</h4>
+						<p className='weather-days__days-name'>Mon.</p>
+						<p className='weather-days__temperature'>
+							29
+							<span className='weather-days__temperature-symbol'>°C</span>
+						</p>
+						<img className='weather-days__image' src="" alt="" />
+
+						<a href="#"></a>
+					</li>
+					<li className='weather-days__item'>
+						<h4 className='visually-hidden'>Monday</h4>
+						<p className='weather-days__days-name'>Mon.</p>
+						<p className='weather-days__temperature'>
+							29
+							<span className='weather-days__temperature-symbol'>°C</span>
+						</p>
+						<img className='weather-days__image' src="" alt="" />
+
+						<a href="#"></a>
+					</li>
+					<li className='weather-days__item'>
+						<h4 className='visually-hidden'>Monday</h4>
+						<p className='weather-days__days-name'>Mon.</p>
+						<p className='weather-days__temperature'>
+							29
+							<span className='weather-days__temperature-symbol'>°C</span>
+						</p>
+						<img className='weather-days__image' src="" alt="" />
+
+						<a href="#"></a>
+					</li>
+				</ul>
+
+				<button className='weather-controls__change-location-button' type='button'>Change location</button>
 			</div>
 		</section>
 	);
