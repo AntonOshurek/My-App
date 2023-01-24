@@ -15,7 +15,7 @@ const WeatherApp = (): JSX.Element => {
 
 					<p className='current-weather__city'>Paris, FR</p>
 
-					<img className='current-weather__image' src="" alt="" />
+					<span className='current-weather__image'></span>
 
 					<p className='current-weather__temperature'>29°C</p>
 					<p className='current-weather__temperature-info'>Sunny</p>
