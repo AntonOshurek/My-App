@@ -41,7 +41,7 @@ const WeatherApp = (): JSX.Element => {
 				</article>
 
 				<ul className='weather-days'>
-					<li className='weather-days__item'>
+					<li className='weather-days__item weather-days__item--current'>
 						{/* Monday Tuesday Wednesday Thursday Friday Saturday Sunday */}
 						{/* Mon. Tue. Wed. Thu. Fri. Sat. Sun. */}
 						<h4 className='visually-hidden'>Monday</h4>
@@ -50,9 +50,9 @@ const WeatherApp = (): JSX.Element => {
 							29
 							<span className='weather-days__temperature-symbol'>°C</span>
 						</p>
-						<img className='weather-days__image' src="" alt="" />
+						<span className='weather-days__image'></span>
 
-						<a href="#"></a>
+						<a className='weather-days__link' href="#"></a>
 					</li>
 					<li className='weather-days__item'>
 						<h4 className='visually-hidden'>Monday</h4>
@@ -61,9 +61,9 @@ const WeatherApp = (): JSX.Element => {
 							29
 							<span className='weather-days__temperature-symbol'>°C</span>
 						</p>
-						<img className='weather-days__image' src="" alt="" />
+						<span className='weather-days__image'></span>
 
-						<a href="#"></a>
+						<a className='weather-days__link' href="#"></a>
 					</li>
 					<li className='weather-days__item'>
 						<h4 className='visually-hidden'>Monday</h4>
@@ -72,9 +72,9 @@ const WeatherApp = (): JSX.Element => {
 							29
 							<span className='weather-days__temperature-symbol'>°C</span>
 						</p>
-						<img className='weather-days__image' src="" alt="" />
+						<span className='weather-days__image'></span>
 
-						<a href="#"></a>
+						<a className='weather-days__link' href="#"></a>
 					</li>
 				</ul>
 
