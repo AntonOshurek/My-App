@@ -1,5 +1,3 @@
-@import '../../../../variables/variables.scss';
-
 .weather-additional {
 	display: grid;
 	grid-template-columns: 1fr max-content;
@@ -12,8 +10,9 @@
 	height: min-content;
 	align-self: center;
 	justify-self: start;
-	font-family: $basic-font;
-	color: #fff;
+
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -22,8 +21,9 @@
 	height: min-content;
 	align-self: center;
 	justify-self: end;
-	font-family: $basic-font;
-	color: #fff;
+
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
 	font-size: 18px;
 	font-weight: 300;
 }

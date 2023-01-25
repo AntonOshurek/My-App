@@ -1,6 +1,7 @@
 //components
 import { CurrentWeather, WeatherControls } from './components/';
 //styles
+import './weather-app-variables.css';
 import './weather-app.scss';
 
 const WeatherApp = (): JSX.Element => {

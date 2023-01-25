@@ -1,13 +1,10 @@
-@import '../../../../variables/variables.scss';
-
 .weather-days {
 	width: min-content;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	border-radius: 10px;
-	background: #2a323d;
-	// padding: 10px 0;
+	border-radius: var(--weather-basic-border-radius);
+	background: var(--weather-days-card-background-color);
 }
 
 .weather-days__item {
@@ -17,43 +14,43 @@
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
+	padding: 10px;
 
 	list-style: none;
-	padding: 10px;
-	border-radius: 10px;
+	border-radius: var(--weather-basic-border-radius);
 
-	transition: 200ms ease;
+	transition: all 0.2s ease;
 
 	&:hover,
 	&--current  {
 		transform: scale(1.05);
-		background: #fff;
+		background: var(--weather-basic-font-color);
 
-		box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+		box-shadow: var(--weather-days-card-shadow);
 
 		& .weather-days__days-name,
 		& .weather-days__temperature {
-			color: #222831;
+			color: var(--weather-days-card-hover-color);
 		}
 	}
 }
 
 .weather-days__days-name {
-	font-family: $basic-font;
-	color: #fff;
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
 	font-size: 16px;
 	font-weight: 400;
 }
 
 .weather-days__temperature {
-	font-family: $basic-font;
-	color: #fff;
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
 	font-size: 20px;
 }
 
-.weather-days__temperature-symbol {
+// .weather-days__temperature-symbol {
 
-}
+// }
 
 .weather-days__image {
 	width: 30px;
