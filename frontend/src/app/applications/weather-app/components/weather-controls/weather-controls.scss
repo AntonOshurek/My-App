@@ -1,0 +1,27 @@
+@import '../../../../variables/variables.scss';
+
+.weather-controls {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr min-content;
+	gap: 30px;
+	padding: 30px;
+}
+
+.weather-controls__change-location-button {
+	width: 100%;
+	box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+	background-image: var(--gradient);
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: transform 200ms ease;
+
+	&:hover {
+		-webkit-transform: scale(0.95);
+				-ms-transform: scale(0.95);
+						transform: scale(0.95);
+	}
+}

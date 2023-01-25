@@ -1,0 +1,30 @@
+@import '../../../../variables/variables.scss';
+
+.weather-additional {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(3, min-content);
+	grid-row-gap: 10px;
+}
+
+.weather-additional__info {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+}
+
+.weather-additional__info-subject {
+	font-family: $basic-font;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.weather-additional__info-content {
+	font-family: $basic-font;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 300;
+}
