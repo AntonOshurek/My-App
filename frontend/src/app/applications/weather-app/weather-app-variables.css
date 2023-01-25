@@ -1,0 +1,13 @@
+:root {
+	--weather-basic-font: 'Rubik', 'Arial', sans-serif;
+	--weather-background-color: #222831;
+	--weather-basic-font-color: #ffffff;
+	--weather-days-card-background-color: #2a323d;
+	--weather-days-card-hover-color: #222831;
+	--weather-days-card-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.4);
+	--weather-component-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.7);
+	--weather-current-component-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.4);
+	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.4);
+	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+	--weather-basic-border-radius: 20px;
+}

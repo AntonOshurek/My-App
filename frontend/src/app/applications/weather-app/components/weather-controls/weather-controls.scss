@@ -1,0 +1,25 @@
+.weather-controls {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr min-content;
+	gap: 30px;
+	padding: 30px;
+}
+
+.weather-controls__change-location-button {
+	width: 100%;
+	padding: 10px 20px;
+	border: none;
+	border-radius: var(--weather-basic-border-radius);
+	cursor: pointer;
+
+	color: var(--weather-basic-font-color);
+	background-image: var(--weather-gradient);
+	transition: all 0.2s ease;
+
+	box-shadow: var(--weather-change-location-button-shadow);
+
+	&:hover {
+		transform: scale(0.95);
+	}
+}

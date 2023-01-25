@@ -1,0 +1,29 @@
+.weather-additional {
+	display: grid;
+	grid-template-columns: 1fr max-content;
+	grid-template-rows: repeat(3, min-content);
+	grid-row-gap: 10px;
+	grid-column-gap: 10px;
+}
+
+.weather-additional__info-subject {
+	height: min-content;
+	align-self: center;
+	justify-self: start;
+
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.weather-additional__info-content {
+	height: min-content;
+	align-self: center;
+	justify-self: end;
+
+	font-family: var(--weather-basic-font);
+	color: var(--weather-basic-font-color);
+	font-size: 18px;
+	font-weight: 300;
+}
