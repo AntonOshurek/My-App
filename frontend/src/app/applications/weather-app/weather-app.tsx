@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 //components
 import { CurrentWeather, WeatherControls } from './components/';
 //styles
@@ -8,13 +9,10 @@ import './weather-app.scss';
 const WeatherApp = (): JSX.Element => {
 	const {location, day} = useParams();
 
-	if(location) {
+	if(location && day) {
 		console.log(location);
-	};
-
-	if(day) {
 		console.log(day);
-	};
+	}
 
 	return (
 		<section className='weather-app container'>

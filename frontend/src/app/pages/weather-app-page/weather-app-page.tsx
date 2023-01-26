@@ -1,5 +1,8 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
 //components
 import WeatherApp from '../../applications/weather-app/weather-app';
+// import WeatherAppRoot from '../../applications/weather-app/weather-app-root';
+import WeatherChangeLocation from '../../applications/weather-app/components/change-location/weather-change-location';
 //constants
 import { AppTitles } from '../../variables/text';
 //styles
@@ -32,7 +35,12 @@ const WeatherAppPage = (): JSX.Element => {
 		<div>
 			<h1 className='visually-hidden'>{AppTitles.WEATHER_PAGE_TITLE}</h1>
 			<main className='weather-app-page'>
-				<WeatherApp/>
+				{/* <WeatherAppRoot/> */}
+
+				<Routes>
+					<Route path='/:location?/:day?' element={<WeatherApp/>}/>
+					<Route path='/change-location' element={<WeatherChangeLocation/>}/>
+				</Routes>
 			</main>
 		</div>
 	);

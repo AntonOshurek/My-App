@@ -15,6 +15,8 @@ const RootNavigation = (): JSX.Element => {
 
 	// generatePath(AppRoute.WEATHER_APP, {location: 'poznan'})
 
+	// `/weather-app/${location ? location + '/' : ''}${defaultWeatherDay ? defaultWeatherDay : ''}`
+
 	const location: string = 'poznan';
 	const defaultWeatherDay: string = 'tooday';
 
@@ -22,7 +24,7 @@ const RootNavigation = (): JSX.Element => {
 		<nav className='root-navigation'>
 			<ul className='root-navigation__list'>
 				<li className='root-navigation__item global-glass-button-bg'>
-					<Link to={`/weather-app/${location ? location + '/' : ''}${defaultWeatherDay ? defaultWeatherDay : ''}` } className='root-navigation__link global-root-nav-item'>
+					<Link to={AppRoute.WEATHER_APP} className='root-navigation__link global-root-nav-item'>
 						Weather
 					</Link>
 				</li>
