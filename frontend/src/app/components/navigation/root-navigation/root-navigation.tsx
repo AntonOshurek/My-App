@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, generatePath } from 'react-router-dom';
 //constans
 import { AppRoute } from '../../../variables/routes';
 //types
@@ -12,11 +12,17 @@ const RootNavigation = (): JSX.Element => {
 
 	// const setActiveLink = ({isActive}: SetActiveLinkType) => isActive ? `${basicLinkClass}  ${activeLinkClass}` : `${basicLinkClass}`;
 
+
+	// generatePath(AppRoute.WEATHER_APP, {location: 'poznan'})
+
+	const location: string = 'poznan';
+	const defaultWeatherDay: string = 'tooday';
+
 	return (
 		<nav className='root-navigation'>
 			<ul className='root-navigation__list'>
 				<li className='root-navigation__item global-glass-button-bg'>
-					<Link to={AppRoute.WEATHER_APP} className='root-navigation__link global-root-nav-item'>
+					<Link to={`/weather-app/${location ? location + '/' : ''}${defaultWeatherDay ? defaultWeatherDay : ''}` } className='root-navigation__link global-root-nav-item'>
 						Weather
 					</Link>
 				</li>

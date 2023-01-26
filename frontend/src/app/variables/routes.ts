@@ -1,4 +1,4 @@
 export const enum AppRoute {
 	ROOT = '/',
-	WEATHER_APP = '/weather-app',
+	WEATHER_APP = '/weather-app/:location?/:day?',
 }
