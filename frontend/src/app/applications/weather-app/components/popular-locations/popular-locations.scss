@@ -1,0 +1,54 @@
+.popular-location {
+	position: relative;
+	width: 100%;
+	min-width: 300px;
+	height: 100%;
+	padding: 30px 20px;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content 1fr;
+	gap: 40px;
+
+	background-color: #dddddd;;
+
+	border-radius: var(--weather-basic-border-radius);
+	box-shadow: var(--weather-current-component-shadow);
+
+	transition: transform 0.3s ease;
+	transform: scale(1.05);
+
+	&:hover {
+		transform: scale(1.1) perspective(1500px) rotateY(10deg);
+	}
+}
+
+.popular-location__title {
+	font-family: var(--weather-basic-font);
+	// color: var(--weather-basic-font-color);
+	color: rgba(0, 0, 0, 0.7);
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.popular-location__list {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-row-gap: 5px;
+}
+
+.popular-location__item {
+	list-style: none;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.popular-location__location-button {
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	padding: 5px;
+}
