@@ -8,7 +8,7 @@ import './variables/weather-app-variables.css';
 const WeatherApp = (): JSX.Element => {
 	return (
 		<Routes>
-			<Route path={WeatherAppRoute.WEATHER_APP_PAGE} element={<WeatherAppPage/>}/>
+			<Route index path={WeatherAppRoute.WEATHER_APP_PAGE} element={<WeatherAppPage/>}/>
 			<Route path={WeatherAppRoute.WEATHER_APP_LOCATION_PAGE} element={<WeatherAppLocationPage/>}/>
 		</Routes>
 	);

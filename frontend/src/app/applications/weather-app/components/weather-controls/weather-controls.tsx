@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 //components
 import { WeatherAdditional, WeatherDays } from '../';
 //styles
@@ -10,7 +11,11 @@ const WeatherControls = (): JSX.Element => {
 
 			<WeatherDays/>
 
-			<button className='weather-controls__change-location-button' type='button'>Change location</button>
+			<Link
+				className='weather-controls__change-location-link'
+				to='../change-location'>
+					Change location
+			</Link>
 		</div>
 	);
 };

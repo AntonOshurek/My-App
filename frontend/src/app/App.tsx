@@ -4,7 +4,7 @@ import {RootPage} from './pages/';
 //applications
 import WeatherApp from './applications/weather-app/weather-app';
 //consts and utils functions
-import { AppRoute } from './variables/routes';
+import { AppRoute } from './variables/app-routes';
 //styles
 import './App.scss';
 

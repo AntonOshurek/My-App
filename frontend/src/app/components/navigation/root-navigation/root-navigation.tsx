@@ -1,6 +1,6 @@
 import { Link, generatePath } from 'react-router-dom';
 //constans
-import { AppRoute } from '../../../variables/routes';
+import { AppRoute } from '../../../variables/app-routes';
 //types
 // import { SetActiveLinkType } from '../../../types/utils-types';
 //styles
