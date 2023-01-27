@@ -1,25 +1,16 @@
-import { useParams } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-//components
-import { CurrentWeather, WeatherControls } from './components/';
-//styles
-import './weather-app-variables.css';
-import './weather-app.scss';
+import { Routes, Route } from 'react-router-dom';
+//pages
+import { WeatherAppLocationPage, WeatherAppPage } from './pages';
+//variables
+import { WeatherAppRoute } from './variables/weather-app-routes';
+import './variables/weather-app-variables.css';
 
 const WeatherApp = (): JSX.Element => {
-	const {location, day} = useParams();
-
-	if(location && day) {
-		console.log(location);
-		console.log(day);
-	}
-
 	return (
-		<section className='weather-app container'>
-			<h2 className='visually-hidden'>Weather</h2>
-			<CurrentWeather/>
-			<WeatherControls/>
-		</section>
+		<Routes>
+			<Route index path={WeatherAppRoute.WEATHER_APP_PAGE} element={<WeatherAppPage/>}/>
+			<Route path={WeatherAppRoute.WEATHER_APP_LOCATION_PAGE} element={<WeatherAppLocationPage/>}/>
+		</Routes>
 	);
 };
 

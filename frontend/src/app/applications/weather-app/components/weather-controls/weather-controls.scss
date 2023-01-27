@@ -6,13 +6,15 @@
 	padding: 30px;
 }
 
-.weather-controls__change-location-button {
+.weather-controls__change-location-link {
 	width: 100%;
 	padding: 10px 20px;
 	border: none;
 	border-radius: var(--weather-basic-border-radius);
 	cursor: pointer;
 
+	text-align: center;
+	text-decoration: none;
 	color: var(--weather-basic-font-color);
 	background-image: var(--weather-gradient);
 	transition: all 0.2s ease;
