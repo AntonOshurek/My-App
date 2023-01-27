@@ -15,18 +15,12 @@
 	border-radius: var(--weather-basic-border-radius);
 	box-shadow: var(--weather-current-component-shadow);
 
-	transition: transform 0.3s ease;
 	transform: scale(1.05);
-
-	&:hover {
-		transform: scale(1.1) perspective(1500px) rotateY(10deg);
-	}
 }
 
 .popular-location__title {
 	font-family: var(--weather-basic-font);
-	// color: var(--weather-basic-font-color);
-	color: rgba(0, 0, 0, 0.7);
+	color: #343d4b;
 	font-size: 20px;
 	font-weight: 500;
 }
@@ -35,7 +29,7 @@
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
-	grid-row-gap: 5px;
+	grid-row-gap: 10px;
 }
 
 .popular-location__item {
@@ -46,9 +40,38 @@
 	align-items: center;
 }
 
+.popular-location__button-icon {
+	transition: transform 0.2s ease;
+}
+
 .popular-location__location-button {
 	cursor: pointer;
 	width: 100%;
 	text-align: left;
-	padding: 5px;
+	padding: 10px;
+	color: #dddddd;
+	background-color: #343d4b;
+	border: none;
+	border-radius: 20px;
+
+	transition: transform 0.2s ease;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&:hover {
+		// transform: scale(0.98);
+		color: #ffffff;
+
+		& .popular-location__button-icon {
+			transition: transform 0.2s ease;
+			transform: translateX(5px);
+		}
+	}
+
+	&:active {
+		transition: transform 0.1s ease;
+		transform: scale(0.96);
+	}
 }
