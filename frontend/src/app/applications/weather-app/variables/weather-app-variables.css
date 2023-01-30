@@ -10,4 +10,7 @@
 	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.4);
 	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
 	--weather-basic-border-radius: 20px;
+	--weather-search-light: #dddddd;
+	--weather-search-dark: #343d4b;
+	--weather-search-input-bacground: #666666;
 }

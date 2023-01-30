@@ -16,15 +16,18 @@
 	justify-content: center;
 	align-items: flex-start;
 	gap: 5px;
+	cursor: pointer;
 
 	&:focus-within .weather-search-location__input{
-		background-color: #a1a1a1;
+		background-color: var(--weather-search-light);
 	}
 }
 
 .weather-search-location__placeholder {
+	font-family: var(--weather-basic-font);
 	font-size: 14px;
 	font-weight: 300;
+	color: var(--weather-search-light);
 }
 
 .weather-search-location__input {
@@ -32,10 +35,12 @@
 	padding: 10px 15px;
 
 	border: none;
+	background-color: var(--weather-search-input-bacground);
 
-	color: #fffff9;
+	font-family: var(--weather-basic-font);
 	font-size: 16px;
-	background-color: #666666;
+	font-weight: 500;
+	color: var(--weather-search-dark);
 }
 
 .weather-search-location__submit {
@@ -43,19 +48,22 @@
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
-	border: none;
 	padding: 10px 32px;
 
-	background-color: #dddddd;
-	color: #343d4b;
-	font-size: 16px;
-
+	border: none;
+	border-radius: var(--weather-basic-border-radius);
+	background-color: var(--weather-search-light);
 	cursor: pointer;
-
 	transition: .1s all ease-in-out;
 
+	font-family: var(--weather-basic-font);
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--weather-search-dark);
+
+
 	&:hover {
-		color: #000;
+		color: #000000;
 	}
 
 	&:active {

@@ -10,7 +10,7 @@
 	grid-template-rows: min-content 1fr;
 	gap: 40px;
 
-	background-color: #dddddd;
+	background-color: var(--weather-search-light);
 
 	border-radius: var(--weather-basic-border-radius);
 	box-shadow: var(--weather-current-component-shadow);
@@ -20,7 +20,7 @@
 
 .popular-location__title {
 	font-family: var(--weather-basic-font);
-	color: #343d4b;
+	color: var(--weather-search-dark);
 	font-size: 20px;
 	font-weight: 500;
 }
@@ -49,8 +49,8 @@
 	width: 100%;
 	text-align: left;
 	padding: 10px;
-	color: #dddddd;
-	background-color: #343d4b;
+	color: var(--weather-search-light);
+	background-color: var(--weather-search-dark);
 	border: none;
 	border-radius: 20px;
 
@@ -62,7 +62,7 @@
 
 	&:hover {
 		// transform: scale(0.98);
-		color: #ffffff;
+		color: var(--weather-basic-font-color);
 
 		& .popular-location__button-icon {
 			transition: transform 0.2s ease;
