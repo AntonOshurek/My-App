@@ -1,5 +1,5 @@
 //components
-import { PopularLocaions } from '../../components';
+import { PopularLocaions, WeatherSearchLocations } from '../../components';
 //styles
 import './weather-app-location.scss';
 
@@ -13,6 +13,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 				<section className='weather-app-location-page__application container'>
 					<h2 className='visually-hidden'>change location</h2>
 					<PopularLocaions/>
+					<WeatherSearchLocations/>
 				</section>
 
 			</main>
