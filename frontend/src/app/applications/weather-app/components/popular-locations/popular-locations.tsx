@@ -1,3 +1,4 @@
+//styles
 import './popular-locations.scss';
 
 const PopularLocaions = (): JSX.Element => {
