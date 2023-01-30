@@ -15,16 +15,50 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	gap: 5px;
+
+	&:focus-within .weather-search-location__input{
+		background-color: #a1a1a1;
+	}
 }
 
 .weather-search-location__placeholder {
-
+	font-size: 14px;
+	font-weight: 300;
 }
 
 .weather-search-location__input {
 	width: 100%;
+	padding: 10px 15px;
+
+	border: none;
+
+	color: #fffff9;
+	font-size: 16px;
+	background-color: #666666;
 }
 
 .weather-search-location__submit {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: space-between;
+	border: none;
+	padding: 10px 32px;
 
+	background-color: #dddddd;
+	color: #343d4b;
+	font-size: 16px;
+
+	cursor: pointer;
+
+	transition: .1s all ease-in-out;
+
+	&:hover {
+		color: #000;
+	}
+
+	&:active {
+		transform: scale(0.97);
+	}
 }
