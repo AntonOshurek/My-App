@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 //components
 import { CurrentWeather, WeatherControls } from '../../components/';
+//api
+import weatherApi from '../../weather-api/weather-api';
 //styles
 import './weather-app-page.scss';
 
@@ -11,6 +13,9 @@ const WeatherAppPage = (): JSX.Element => {
 		console.log(location);
 		console.log(day);
 	}
+
+	weatherApi.fetchWeather();
+	// console.log(weatherApi.getKey())
 
 	// const options = {
 	// 	enableHighAccuracy: true,
