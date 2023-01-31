@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { CurrentWeather, WeatherControls } from '../../components/';
 //api
 import weatherApi from '../../weather-api/weather-api';
+//types
+import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
 //styles
 import './weather-app-page.scss';
 
@@ -14,8 +16,21 @@ const WeatherAppPage = (): JSX.Element => {
 		console.log(day);
 	}
 
-	weatherApi.fetchWeather();
-	// console.log(weatherApi.getKey())
+	const weatherConfiguration: IGetWeatherConfigurationType = {
+		days: 3,
+		city: 'Poznan',
+		lang: 'ru',
+	};
+
+	weatherApi.getWeather(weatherConfiguration)
+	.then((response) => {
+		// handle success
+		console.log(response.data);
+	})
+	.catch((error) => {
+		// handle error
+		console.log(error);
+	});
 
 	// const options = {
 	// 	enableHighAccuracy: true,

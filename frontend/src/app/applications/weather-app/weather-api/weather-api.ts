@@ -1,18 +1,15 @@
-import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
+import axios, { AxiosInstance } from "axios";
+//types
+import { IGetWeatherConfigurationType } from "../types/weather-app-types";
 
 class WeatherApi {
-	#BACKEND_URL: string
-  #key: string;
-	#weather: any;
+	#BACKEND_URL: string = 'http://api.weatherapi.com/v1';
+  #KEY: string = '05ecde74b40547f2a6f210042220912';
 	#REQUEST_TIMEOUT: number = 5000;
-	#api: AxiosInstance;
+	#API: AxiosInstance;
 
   constructor() {
-    this.#key = '05ecde74b40547f2a6f210042220912';
-		this.#BACKEND_URL = `http://api.weatherapi.com/v1`;
-		this.#weather = {};
-
-		this.#api = axios.create({
+		this.#API = axios.create({
 			baseURL: this.#BACKEND_URL,
 			timeout: this.#REQUEST_TIMEOUT,
 		});
@@ -20,32 +17,12 @@ class WeatherApi {
 
 	//http://api.weatherapi.com/v1/forecast.json?key=05ecde74b40547f2a6f210042220912&q=Poznan&lang=ru&alerts=yes&days=3
 
-	getKey() {
-		return this.#key;
-	}
+	async getWeather(configuration: IGetWeatherConfigurationType) {
+		const {days, lang, city} = configuration;
 
-	async fetchWeather() {
-		await this.#api.get(`/forecast.json?key=${this.#key}&q=${'Poznan'}&lang=${'ru'}&alerts=yes&days=3`)
-		.then(function (response) {
-			// handle success
-			console.log(response);
-		})
-		.catch(function (error) {
-			// handle error
-			console.log(error);
-		})
-		.finally(function () {
-			// always executed
-		});
-	}
-
-	getWeather() {
-		return this.#weather;
-	}
-
-}
-
-// export default WeatherApi;
+		return await this.#API.get(`/forecast.json?key=${this.#KEY}&q=${city}&lang=${lang}&days=${days}&alerts=yes`);
+	};
+};
 
 const weatherApi = new WeatherApi();
 
