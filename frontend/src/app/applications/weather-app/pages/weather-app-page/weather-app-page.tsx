@@ -25,7 +25,7 @@ const WeatherAppPage = (): JSX.Element => {
 	weatherApi.getWeather(weatherConfiguration)
 	.then((response) => {
 		// handle success
-		console.log(response.data);
+		console.log(response);
 	})
 	.catch((error) => {
 		// handle error
