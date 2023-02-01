@@ -7,7 +7,7 @@ class WeatherApi {
 	private REQUEST_TIMEOUT: number = 5000;
 	private KEY: string
 
-  constructor(private apiKey: string) {
+  constructor(apiKey: string) {
 		this.KEY = apiKey;
     this.axiosInstance = axios.create({
       baseURL: "http://api.weatherapi.com/v1/",
@@ -30,8 +30,7 @@ class WeatherApi {
 			const cityData = cityCheckResponse.data;
 
 			if (!cityData || !cityData.length) {
-				// return new Error(`City "${city}" not found`)
-				return Promise.reject(new Error(`City "${city}" not found`));
+				return Promise.reject(new Error(`City error "${city}" not found`));
 			}
 
       const response = await this.axiosInstance.get(
@@ -41,8 +40,6 @@ class WeatherApi {
       return response.data;
     } catch (error) {
 			return Promise.reject(error);
-			// return error
-      // console.error(error);
     }
   }
 }

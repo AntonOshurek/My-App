@@ -4,7 +4,7 @@ import { CurrentWeather, WeatherControls } from '../../components/';
 //api
 import weatherApi from '../../weather-api/weather-api';
 //services
-import locationService from '../../utils/location-service';
+import locationService from '../../services/location-service';
 //types
 import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
 //styles
@@ -13,34 +13,33 @@ import './weather-app-page.scss';
 const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
-	if(location && day) {
-		console.log(location);
-		console.log(day);
+	if(location) {
+		const weatherConfiguration: IGetWeatherConfigurationType = {
+			days: 3,
+			city: location,
+			lang: 'ru',
+		};
+
+		weatherApi.getWeather(weatherConfiguration)
+		.then((response) => {
+			console.log(response);
+		})
+		.catch((error) => {
+			if(error.message.search('City error') >= 0) {
+				console.log('City error')
+			} else {
+				console.log('somthing wrong...')
+			}
+		});
+	} else {
+		locationService.getCurrentLocation()
+		.then((result) => {
+			console.log(result);
+		})
+		.catch(error => {
+			console.log(error);
+		});
 	}
-
-	// const weatherConfiguration: IGetWeatherConfigurationType = {
-	// 	days: 3,
-	// 	city: 'Poznan',
-	// 	lang: 'ru',
-	// };
-
-	// weatherApi.getWeather(weatherConfiguration)
-	// .then((response) => {
-	// 	console.log(response);
-	// })
-	// .catch((error) => {
-	// 	console.log(error);
-	// });
-
-	locationService.getCurrentLocation()
-	.then((result) => {
-		console.log(result)
-	})
-	.catch(error => {
-		console.log(error)
-	})
-
-
 
 	return (
 		<div className='weather-app-page'>

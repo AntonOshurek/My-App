@@ -11,13 +11,11 @@ class LocationService {
       const response = await fetch(
         `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
       );
-      const cityData = await response.json();
 
-			// console.log(cityData)
+      const cityData = await response.json();
 
 			return cityData.address.city;
 
-      // return cityData.address.town || cityData.address.city || cityData.address.county || cityData.address.state;
     } catch (error) {
       console.error(error);
       throw error;
