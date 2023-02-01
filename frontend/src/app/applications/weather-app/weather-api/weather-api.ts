@@ -2,37 +2,13 @@ import axios, { AxiosInstance } from "axios";
 //types
 import { IGetWeatherConfigurationType } from "../types/weather-app-types";
 
-// class WeatherApi {
-// 	#BACKEND_URL: string = 'http://api.weatherapi.com/v1';
-//   	#KEY: string = '05ecde74b40547f2a6f210042220912';
-// 	#REQUEST_TIMEOUT: number = 5000;
-// 	#API: AxiosInstance;
-
-//   constructor() {
-// 		this.#API = axios.create({
-// 			baseURL: this.#BACKEND_URL,
-// 			timeout: this.#REQUEST_TIMEOUT,
-// 		});
-//   }
-
-// 	//http://api.weatherapi.com/v1/forecast.json?key=05ecde74b40547f2a6f210042220912&q=Poznan&lang=ru&alerts=yes&days=3
-
-// 	async getWeather(configuration: IGetWeatherConfigurationType) {
-// 		const {days, lang, city} = configuration;
-
-// 		return await this.#API.get(`/forecast.json?key=${this.#KEY}&q=${city}&lang=${lang}&days=${days}&alerts=yes`);
-// 	};
-// };
-
-// const weatherApi = new WeatherApi();
-
-// export default weatherApi;
-
 class WeatherApi {
   private axiosInstance: AxiosInstance;
 	private REQUEST_TIMEOUT: number = 5000;
+	private KEY: string
 
   constructor(private apiKey: string) {
+		this.KEY = apiKey;
     this.axiosInstance = axios.create({
       baseURL: "http://api.weatherapi.com/v1/",
       params: {
@@ -46,10 +22,27 @@ class WeatherApi {
 		const {days, lang, city} = configuration;
 
     try {
-      const response = await this.axiosInstance.get(`forecast.json?q=${city}&lang=${lang}&days=${days}`);
+			// check if the city is a real city
+			const cityCheckResponse = await axios.get(
+				`http://api.weatherapi.com/v1/search.json?key=${this.KEY}&q=${city}`
+			);
+
+			const cityData = cityCheckResponse.data;
+
+			if (!cityData || !cityData.length) {
+				// return new Error(`City "${city}" not found`)
+				return Promise.reject(new Error(`City "${city}" not found`));
+			}
+
+      const response = await this.axiosInstance.get(
+				`forecast.json?q=${city}&lang=${lang}&days=${days}`
+			);
+
       return response.data;
     } catch (error) {
-      console.error(error);
+			return Promise.reject(error);
+			// return error
+      // console.error(error);
     }
   }
 }
@@ -57,7 +50,3 @@ class WeatherApi {
 const weatherApi = new WeatherApi("05ecde74b40547f2a6f210042220912");
 
 export default weatherApi;
-
-// weatherApi.getWeather("London", "en").then(data => {
-//   console.log(data);
-// });
