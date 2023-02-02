@@ -6,8 +6,10 @@ import { CurrentWeather, WeatherControls } from '../../components/';
 import weatherApi from '../../weather-api/weather-api';
 //services
 import locationService from '../../services/location-service';
+import { createCurrentWeatherDataAdapter } from '../../services/current-weather-adapter';
 //types
-import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
+// import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
+import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-app-page.scss';
 
@@ -16,6 +18,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
 	const [weather, setWeather] = useState<any>({});
+	const [currentWeather, setCurrentWeather] = useState<IAdaptedDataForCurrentWeatherType | null>(null);
 
 	useEffect(() => {
 		if(location || location?.length) {
@@ -41,8 +44,8 @@ const WeatherAppPage = (): JSX.Element => {
 				lang: 'ru',
 			})
 			.then((response) => {
-				console.log(response);
 				setWeather(response);
+				setCurrentWeather(createCurrentWeatherDataAdapter({current: response.current, location: response.location}));
 			})
 			.catch((error) => {
 				if(error.message.search('City error') >= 0) {
@@ -54,6 +57,7 @@ const WeatherAppPage = (): JSX.Element => {
 		};
 	}, [currentLocation]);
 
+
 	return (
 		<div className='weather-app-page'>
 			<h1 className='visually-hidden'>title</h1>
@@ -62,7 +66,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 				<section className='weather-app-page__application container'>
 					<h2 className='visually-hidden'>Weather</h2>
-					<CurrentWeather currentWeather={weather.current} location={currentLocation}/>
+					<CurrentWeather currentWeather={currentWeather ? currentWeather : null}/>
 					<WeatherControls/>
 				</section>
 

@@ -1,11 +1,13 @@
 //styles
 import './current-weather.scss';
 
+import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
+
 interface ICurrentWeatherPropsType {
-	[name: string]: any
+	currentWeather: IAdaptedDataForCurrentWeatherType | null,
 }
 
-const CurrentWeather = ({currentWeather, location}: ICurrentWeatherPropsType): JSX.Element => {
+const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element => {
 
 	console.log(currentWeather);
 
@@ -13,17 +15,17 @@ const CurrentWeather = ({currentWeather, location}: ICurrentWeatherPropsType): J
 		<article className='current-weather'>
 			<h3 className='visually-hidden'>Weather for tooday</h3>
 			<div className='current-weather__wrap'>
-				<time className='current-weather__date' dateTime={currentWeather['last_updated']}>
+				<time className='current-weather__date' dateTime={currentWeather?.location.localtime}>
 					<span className='current-weather__date-text current-weather__date-text--day'>Tuesday</span>
 					<span className='current-weather__date-text'>15 Jan 2019</span>
 				</time>
 
-				<p className='current-weather__city'>{location}</p>
+				<p className='current-weather__city'>{currentWeather?.location.name}</p>
 
-				<span className='current-weather__image'></span>
+				<span className='current-weather__image'>{currentWeather?.location.region}</span>
 
-				<p className='current-weather__temperature'>{currentWeather['temp_c']}°C</p>
-				<p className='current-weather__temperature-info'>{currentWeather['condition'].text}</p>
+				<p className='current-weather__temperature'>{currentWeather?.current.temperatureC}°C</p>
+				<p className='current-weather__temperature-info'>{currentWeather?.current.condition}</p>
 			</div>
 		</article>
 	);
