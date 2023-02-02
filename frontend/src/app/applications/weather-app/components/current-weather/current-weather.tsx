@@ -1,36 +1,15 @@
+//services
+import { formatDate, getWeekday } from '../../services/date-service';
+//types
+import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
 //styles
 import './current-weather.scss';
-
-import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
 
 interface ICurrentWeatherPropsType {
 	currentWeather: IAdaptedDataForCurrentWeatherType | null,
 }
 
 const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element => {
-
-	// console.log(currentWeather);
-
-	function formatDate(dateStr: string | undefined) {
-		if(dateStr) {
-			const date = new Date(dateStr);
-			const options: {[value: string]: string} = { year: "numeric", month: "short", day: "numeric" };
-			return date.toLocaleDateString("en-US", options);
-		} else {
-			return '';
-		}
-	};
-
-	function getWeekday(dateStr: string | undefined) {
-
-		if(dateStr) {
-			const date = new Date(dateStr);
-			const options: {[value: string]: string} = { weekday: "long" };
-			return date.toLocaleDateString("en-US", options);
-		} else {
-			return '';
-		}
-	};
 
 	return (
 		<article className='current-weather'>

@@ -9,7 +9,7 @@ interface IWeatherControlsPropsType {
 
 const WeatherAdditional = ({currentWeather}: IWeatherControlsPropsType): JSX.Element => {
 
-	console.log(currentWeather);
+	// console.log(currentWeather);
 
 	return (
 		<>
