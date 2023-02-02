@@ -45,7 +45,8 @@ class LocationService {
 			// Portuguese
 			'ã': 'a', 'õ': 'o',
 			// Italian
-			// 'à': 'a', 'è': 'e', 'é': 'e', 'ì': 'i', 'ò': 'o', 'ù': 'u',
+			 'ì': 'i', 'ò': 'o', 'ù': 'u',
+			//  'à': 'a', 'è': 'e', 'é': 'e', //duplicate error here :(
 		};
 		let result = '';
 		for (let i = 0; i < str.length; i++) {

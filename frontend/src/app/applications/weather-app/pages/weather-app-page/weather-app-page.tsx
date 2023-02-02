@@ -15,6 +15,7 @@ const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
+	const [weather, setWeather] = useState<any>({});
 
 	useEffect(() => {
 		if(location || location?.length) {
@@ -33,10 +34,7 @@ const WeatherAppPage = (): JSX.Element => {
 	}, []);
 
 	useEffect(() => {
-		console.log(currentLocation);
-
 		if(currentLocation || currentLocation.length) {
-
 			weatherApi.getWeather({
 				days: 3,
 				city: locationService.replaceNonEnglish(currentLocation),
@@ -44,6 +42,7 @@ const WeatherAppPage = (): JSX.Element => {
 			})
 			.then((response) => {
 				console.log(response);
+				setWeather(response);
 			})
 			.catch((error) => {
 				if(error.message.search('City error') >= 0) {
@@ -63,7 +62,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 				<section className='weather-app-page__application container'>
 					<h2 className='visually-hidden'>Weather</h2>
-					<CurrentWeather/>
+					<CurrentWeather currentWeather={weather.current} location={currentLocation}/>
 					<WeatherControls/>
 				</section>
 
