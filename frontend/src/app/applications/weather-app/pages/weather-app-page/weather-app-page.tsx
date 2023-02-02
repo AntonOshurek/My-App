@@ -16,6 +16,27 @@ const WeatherAppPage = (): JSX.Element => {
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
 
+	function replaceNonEnglish(str: string) {
+		const latinLettersMap : { [key: string]: string } = {
+			'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh',
+			'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+			'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
+			'ч': 'ch', 'ш': 'sh', 'щ': 'sh', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu',
+			'я': 'ya',
+			// Polish
+			'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ź': 'z',
+			'ż': 'z',
+			// Ukrainian
+			'ґ': 'g', 'є': 'ye', 'і': 'i', 'ї': 'yi',
+		};
+		let result = '';
+		for (let i = 0; i < str.length; i++) {
+			const char = str[i].toLowerCase();
+			result += latinLettersMap[char] || char;
+		}
+		return result;
+	}
+
 	useEffect(() => {
 		if(location || location?.length) {
 			setCurrentLocation(location);
@@ -38,10 +59,11 @@ const WeatherAppPage = (): JSX.Element => {
 		if(currentLocation || currentLocation.length) {
 
 			console.log(currentLocation);
+			console.log(replaceNonEnglish(currentLocation))
 
 			weatherApi.getWeather({
 				days: 3,
-				city: currentLocation,
+				city: replaceNonEnglish(currentLocation),
 				lang: 'ru',
 			})
 			.then((response) => {
