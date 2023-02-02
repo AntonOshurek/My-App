@@ -66,8 +66,12 @@ const WeatherAppPage = (): JSX.Element => {
 
 				<section className='weather-app-page__application container'>
 					<h2 className='visually-hidden'>Weather</h2>
-					<CurrentWeather currentWeather={currentWeather ? currentWeather : null}/>
-					<WeatherControls/>
+					<CurrentWeather
+						currentWeather={currentWeather ? currentWeather : null}
+					/>
+					<WeatherControls
+						currentWeather={currentWeather ? currentWeather : null}
+					/>
 				</section>
 
 			</main>

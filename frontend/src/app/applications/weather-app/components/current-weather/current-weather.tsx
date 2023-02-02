@@ -9,7 +9,7 @@ interface ICurrentWeatherPropsType {
 
 const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element => {
 
-	console.log(currentWeather);
+	// console.log(currentWeather);
 
 	function formatDate(dateStr: string | undefined) {
 		if(dateStr) {
@@ -30,7 +30,7 @@ const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element
 		} else {
 			return '';
 		}
-	}
+	};
 
 	return (
 		<article className='current-weather'>
