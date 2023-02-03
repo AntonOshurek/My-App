@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //services
 import { getWeekday, getAbbreviationWeekday } from '../../../services/date-service';
 //types
@@ -13,14 +14,18 @@ interface IWeatherDayItemPropsType {
 };
 
 const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
-
 	const {day} = useParams();
+	let activeDayClass: string = '';
 
 	if(day) {
-		console.log(day)
+		if(day === compareDate(weather.date)) {
+			activeDayClass = 'weather-days__item--current';
+		};
+	} else {
+		if(compareDate(weather.date) === 'today') {
+			activeDayClass = 'weather-days__item--current';
+		};
 	}
-
-	console.log(compareDate(weather.date))
 
 	function compareDate(input: string): string {
 		const now = new Date();
@@ -42,11 +47,11 @@ const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
 		} else {
 			return "future";
 		}
-	}
+	};
 
 	//weather-days__item--current
 	return (
-		<li className='weather-days__item '>
+		<li className={'weather-days__item ' + activeDayClass}>
 			<h4 className='visually-hidden'>{getWeekday(weather.date)}</h4>
 			<p className='weather-days__days-name'>{getAbbreviationWeekday(weather.date)}.</p>
 			<p className='weather-days__temperature'>
@@ -55,9 +60,9 @@ const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
 			</p>
 			<img className='weather-days__image' src={weather.day.condition.icon}/>
 
-			<a className='weather-days__link' href="#">
+			<Link className='weather-days__link' to={`../${compareDate(weather.date)}`}>
 				<span className='visually-hidden'>Detailed weather for the day</span>
-			</a>
+			</Link>
 		</li>
 	);
 };
