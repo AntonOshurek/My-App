@@ -11,7 +11,8 @@ import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 //types
-import { IAdaptedWeatherLocationDataType, IAdaptedCurrentWeatherDataType } from '../../types/weather-adapted-data-types';
+import { IAdaptedWeatherLocationDataType, IAdaptedCurrentWeatherDataType, IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
 import './weather-app-page.scss';
 
@@ -36,12 +37,26 @@ const WeatherAppPage = (): JSX.Element => {
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
 			});
-		}
+		};
 	}, []);
 
-	// const setDataToState = () => {
+	const setDataToState = (data: IAllWeatherDataType) => {
+		// console.log(data.forecast.forecastday)
 
-	// };
+		const daysWeather: IAdaptedOneDayDataType[] = [];
+
+		data.forecast.forecastday.map((dayWeather) => {
+			// console.log(dayWeather);
+
+			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+		});
+
+		console.log(daysWeather)
+
+		setWeather(data);
+		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
+		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
+	};
 
 	useEffect(() => {
 		if(currentLocation || currentLocation.length) {
@@ -53,16 +68,14 @@ const WeatherAppPage = (): JSX.Element => {
 
 			weatherApi.getWeather(weatherApiConfiguration)
 			.then((response) => {
-				setWeather(response);
-				setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(response.current));
-				setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(response.location));
+				setDataToState(response);
 			})
 			.catch((error) => {
 				if(error.message.search('City error') >= 0) {
-					console.log('City error')
+					console.log('City error');
 				} else {
-					console.log('somthing wrong...')
-				}
+					console.log('somthing wrong...');
+				};
 			});
 		};
 	}, [currentLocation]);
