@@ -6,10 +6,17 @@ import { CurrentWeather, WeatherControls } from '../../components/';
 import weatherApi from '../../weather-api/weather-api';
 //services
 import locationService from '../../services/location-service';
-import { createCurrentWeatherDataAdapter } from '../../services/current-weather-adapter';
+//adapters for data
+import weatherDataAdapter from '../../services/weather-data-adapter';
+//utils
+import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 //types
-// import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
-import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
+import {
+	IAdaptedWeatherLocationDataType,
+	IAdaptedCurrentWeatherDataType,
+	AdaptedDaysDataType
+} from '../../types/weather-adapted-data-types';
+import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
 import './weather-app-page.scss';
 
@@ -17,8 +24,9 @@ const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
-	const [weather, setWeather] = useState<any>({});
-	const [currentWeather, setCurrentWeather] = useState<IAdaptedDataForCurrentWeatherType | null>(null);
+	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
+	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
+	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
 	useEffect(() => {
 		if(location || location?.length) {
@@ -33,26 +41,39 @@ const WeatherAppPage = (): JSX.Element => {
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
 			});
-		}
+		};
 	}, []);
+
+	const setDataToState = (data: IAllWeatherDataType) => {
+		const daysWeather: AdaptedDaysDataType = [];
+
+		data.forecast.forecastday.map((dayWeather) => {
+			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+		});
+
+		setDaysWeather(daysWeather);
+		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
+		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
+	};
 
 	useEffect(() => {
 		if(currentLocation || currentLocation.length) {
-			weatherApi.getWeather({
+			const weatherApiConfiguration = {
 				days: 3,
-				city: locationService.replaceNonEnglish(currentLocation),
+				city: replaceNonEnglish(currentLocation),
 				lang: 'ru',
-			})
+			};
+
+			weatherApi.getWeather(weatherApiConfiguration)
 			.then((response) => {
-				setWeather(response);
-				setCurrentWeather(createCurrentWeatherDataAdapter({current: response.current, location: response.location}));
+				setDataToState(response);
 			})
 			.catch((error) => {
 				if(error.message.search('City error') >= 0) {
-					console.log('City error')
+					console.log('City error');
 				} else {
-					console.log('somthing wrong...')
-				}
+					console.log('somthing wrong...');
+				};
 			});
 		};
 	}, [currentLocation]);
@@ -66,12 +87,16 @@ const WeatherAppPage = (): JSX.Element => {
 
 				<section className='weather-app-page__application container'>
 					<h2 className='visually-hidden'>Weather</h2>
+
 					<CurrentWeather
 						currentWeather={currentWeather ? currentWeather : null}
+						weatherLocation={weatherLocation ? weatherLocation : null}
 					/>
 					<WeatherControls
 						currentWeather={currentWeather ? currentWeather : null}
+						daysWeather={daysWeather ? daysWeather : null}
 					/>
+
 				</section>
 
 			</main>
