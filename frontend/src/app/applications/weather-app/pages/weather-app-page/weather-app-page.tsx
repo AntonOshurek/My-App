@@ -7,8 +7,9 @@ import weatherApi from '../../weather-api/weather-api';
 //services
 import locationService from '../../services/location-service';
 import { createCurrentWeatherDataAdapter } from '../../services/current-weather-adapter';
+//utils
+import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 //types
-// import { IGetWeatherConfigurationType } from '../../types/weather-app-types';
 import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-app-page.scss';
@@ -40,7 +41,7 @@ const WeatherAppPage = (): JSX.Element => {
 		if(currentLocation || currentLocation.length) {
 			weatherApi.getWeather({
 				days: 3,
-				city: locationService.replaceNonEnglish(currentLocation),
+				city: replaceNonEnglish(currentLocation),
 				lang: 'ru',
 			})
 			.then((response) => {
