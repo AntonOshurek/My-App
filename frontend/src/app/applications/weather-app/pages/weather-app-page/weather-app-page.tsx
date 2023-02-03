@@ -11,7 +11,11 @@ import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 //types
-import { IAdaptedWeatherLocationDataType, IAdaptedCurrentWeatherDataType, IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import {
+	IAdaptedWeatherLocationDataType,
+	IAdaptedCurrentWeatherDataType,
+	AdaptedDaysDataType
+} from '../../types/weather-adapted-data-types';
 import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
 import './weather-app-page.scss';
@@ -20,7 +24,7 @@ const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
-	const [daysWeather, setDaysWeather] = useState<IAdaptedOneDayDataType[] | null>(null);
+	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
 	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
@@ -41,7 +45,7 @@ const WeatherAppPage = (): JSX.Element => {
 	}, []);
 
 	const setDataToState = (data: IAllWeatherDataType) => {
-		const daysWeather: IAdaptedOneDayDataType[] = [];
+		const daysWeather: AdaptedDaysDataType = [];
 
 		data.forecast.forecastday.map((dayWeather) => {
 			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
@@ -90,6 +94,7 @@ const WeatherAppPage = (): JSX.Element => {
 					/>
 					<WeatherControls
 						currentWeather={currentWeather ? currentWeather : null}
+						daysWeather={daysWeather ? daysWeather : null}
 					/>
 
 				</section>

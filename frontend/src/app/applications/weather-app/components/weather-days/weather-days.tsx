@@ -1,10 +1,23 @@
+//types
+import {
+	AdaptedDaysDataType,
+} from '../../types/weather-adapted-data-types';
 //styles
 import './weather-days.scss';
 
 //Monday Tuesday Wednesday Thursday Friday Saturday Sunday
 //Mon. Tue. Wed. Thu. Fri. Sat. Sun.
 
-const WeatherDays = (): JSX.Element => {
+interface IWeatherDaysPropsType {
+	daysWeather: AdaptedDaysDataType | null,
+}
+
+const WeatherDays = ({daysWeather}: IWeatherDaysPropsType): JSX.Element => {
+
+	if(daysWeather) {
+		console.log(daysWeather[0]);
+	};
+
 	return (
 		<>
 			<h3 className='visually-hidden'>Weather for three days</h3>

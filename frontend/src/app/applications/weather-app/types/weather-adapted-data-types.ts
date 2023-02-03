@@ -120,3 +120,5 @@ export interface IAdaptedOneDayDataType {
 	astro: IAdaptedAstroDataType;
 	hour: IAdaptedWeatherHourDataType[];
 };
+
+export type AdaptedDaysDataType = IAdaptedOneDayDataType[];
