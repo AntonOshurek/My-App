@@ -24,7 +24,7 @@ const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
 	} else {
 		if(compareDate(weather.date) === 'today') {
 			activeDayClass = 'weather-days__item--current';
-		}
+		};
 	}
 
 	function compareDate(input: string): string {
@@ -51,7 +51,7 @@ const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
 
 	//weather-days__item--current
 	return (
-		<li className={'weather-days__item ' + activeDayClass} data-day={compareDate(weather.date)}>
+		<li className={'weather-days__item ' + activeDayClass}>
 			<h4 className='visually-hidden'>{getWeekday(weather.date)}</h4>
 			<p className='weather-days__days-name'>{getAbbreviationWeekday(weather.date)}.</p>
 			<p className='weather-days__temperature'>
