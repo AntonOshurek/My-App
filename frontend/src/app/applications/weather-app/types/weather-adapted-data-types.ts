@@ -34,8 +34,3 @@ export interface IAdaptedWeatherLocationDataType {
 	localtimeEpoch: number,
 	localtime: string,
 };
-
-export interface IAdaptedDataForCurrentWeatherType {
-	location: IAdaptedWeatherLocationDataType,
-	current: IAdaptedCurrentWeatherDataType,
-};

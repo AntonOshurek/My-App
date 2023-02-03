@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 //components
 import { WeatherAdditional, WeatherDays } from '../';
 //types
-import { IAdaptedDataForCurrentWeatherType } from '../../types/weather-adapted-data-types';
+import { IAdaptedCurrentWeatherDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-controls.scss';
 
 interface IWeatherControlsPropsType {
-	currentWeather: IAdaptedDataForCurrentWeatherType | null,
+	currentWeather: IAdaptedCurrentWeatherDataType | null,
 };
 
 const WeatherControls = ({currentWeather}: IWeatherControlsPropsType): JSX.Element => {

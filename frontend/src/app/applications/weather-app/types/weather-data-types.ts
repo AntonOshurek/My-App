@@ -40,8 +40,3 @@ export interface IDefaultLocationDataType {
   localtime_epoch: number;
   localtime: string;
 };
-
-export interface IDefaultDataForCurrentWeatherType {
-	location: IDefaultLocationDataType,
-	current: IDefaultCurrentWeatherDataType,
-};
