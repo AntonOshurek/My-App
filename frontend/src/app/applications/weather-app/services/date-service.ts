@@ -17,3 +17,13 @@ export function getWeekday(dateStr: string | undefined) {
 		return '';
 	};
 };
+
+export function getAbbreviationWeekday(dateStr: string | undefined) {
+	if(dateStr) {
+		const date = new Date(dateStr);
+		const options: {[value: string]: string} = { weekday: "short" };
+		return date.toLocaleDateString("en-US", options);
+	} else {
+		return '';
+	};
+};
