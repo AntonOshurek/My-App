@@ -135,8 +135,8 @@ class WeatherDataAdapter {
 					gustMph: hour.gust_mph,
 					gustKph: hour.gust_kph,
 					uv: hour.uv,
-				}
-			})
+				};
+			}),
 		};
 	};
 };

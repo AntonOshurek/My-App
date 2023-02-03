@@ -20,7 +20,7 @@ const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
 	const [currentLocation, setCurrentLocation] = useState<string>('');
-	const [weather, setWeather] = useState<any>({});
+	const [daysWeather, setDaysWeather] = useState<IAdaptedOneDayDataType[] | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
 	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
@@ -41,19 +41,13 @@ const WeatherAppPage = (): JSX.Element => {
 	}, []);
 
 	const setDataToState = (data: IAllWeatherDataType) => {
-		// console.log(data.forecast.forecastday)
-
 		const daysWeather: IAdaptedOneDayDataType[] = [];
 
 		data.forecast.forecastday.map((dayWeather) => {
-			// console.log(dayWeather);
-
 			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
 		});
 
-		console.log(daysWeather)
-
-		setWeather(data);
+		setDaysWeather(daysWeather);
 		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
 		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
 	};
