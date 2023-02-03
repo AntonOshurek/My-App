@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 //services
 import { getWeekday, getAbbreviationWeekday } from '../../../services/date-service';
 //types
@@ -12,7 +13,36 @@ interface IWeatherDayItemPropsType {
 };
 
 const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
-	console.log(weather)
+
+	const {day} = useParams();
+
+	if(day) {
+		console.log(day)
+	}
+
+	console.log(compareDate(weather.date))
+
+	function compareDate(input: string): string {
+		const now = new Date();
+		const inputDate = new Date(input);
+
+		const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+		const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+		const afterTomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2);
+
+
+		if (inputDate < today) {
+			return "past";
+		} else if (inputDate.toDateString() === now.toDateString()) {
+			return "today";
+		} else if (inputDate.toDateString() === tomorrow.toDateString()) {
+			return "tomorrow";
+		} else if (inputDate.toDateString() === afterTomorrow.toDateString()) {
+			return "afterTomorrow";
+		} else {
+			return "future";
+		}
+	}
 
 	//weather-days__item--current
 	return (
