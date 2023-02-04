@@ -4,13 +4,14 @@ import { WeatherAdditional, WeatherDays } from '../';
 //types
 import {
 	IAdaptedCurrentWeatherDataType,
-	AdaptedDaysDataType
+	AdaptedDaysDataType,
+	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-controls.scss';
 
 interface IWeatherControlsPropsType {
-	currentWeather: IAdaptedCurrentWeatherDataType | null,
+	currentWeather: IAdaptedOneDayDataType | null,
 	daysWeather : AdaptedDaysDataType | null,
 };
 

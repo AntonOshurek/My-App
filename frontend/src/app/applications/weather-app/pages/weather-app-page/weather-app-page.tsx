@@ -18,7 +18,8 @@ import { setMyCityAction } from '../../../../store/slices/app-slice';
 import {
 	IAdaptedWeatherLocationDataType,
 	IAdaptedCurrentWeatherDataType,
-	AdaptedDaysDataType
+	AdaptedDaysDataType,
+	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
 import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
@@ -31,7 +32,7 @@ const WeatherAppPage = (): JSX.Element => {
 	const {location, day} = useParams();
 
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
-	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
+	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
 	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
 	useEffect(() => {
@@ -44,7 +45,7 @@ const WeatherAppPage = (): JSX.Element => {
 			})
 			.catch(error => {
 				dispatch(setMyCityAction({myCity: 'warszawa'}));
-				console.log(error.message);
+
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
 			});
@@ -59,8 +60,13 @@ const WeatherAppPage = (): JSX.Element => {
 		});
 
 		setDaysWeather(daysWeather);
-		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
+		setCurrentWeather(weatherDataAdapter.createForecastDayAdapter(data.forecast.forecastday[0]));
+		console.log(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current))
+		console.log(daysWeather)
 		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
+		console.log(data.location)
+
+		// console.log(daysWeather[1].)
 	};
 
 	useEffect(() => {
