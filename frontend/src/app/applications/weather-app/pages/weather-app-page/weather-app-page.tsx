@@ -10,6 +10,7 @@ import locationService from '../../services/location-service';
 import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
+import { compareDates } from '../../services/date-service';
 //store
 import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
@@ -50,15 +51,28 @@ const WeatherAppPage = (): JSX.Element => {
 	}, []);
 
 	const setDataToState = (data: IAllWeatherDataType) => {
-		const daysWeather: AdaptedDaysDataType = [];
+		const days: AdaptedDaysDataType = [];
 
 		data.forecast.forecastday.map((dayWeather) => {
-			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+			days.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
 		});
 
-		setDaysWeather(daysWeather);
-		setCurrentWeather(weatherDataAdapter.createForecastDayAdapter(data.forecast.forecastday[0]));
+		setDaysWeather(days);
 	};
+
+	useEffect(() => {
+		if(daysWeather) {
+			if(day && day.length !== 0) {
+				daysWeather.map(item => {
+					if(compareDates(item.date, day)) {
+						setCurrentWeather(item);
+					}
+				})
+			} else {
+				setCurrentWeather(daysWeather[0]);
+			}
+		}
+	}, [day, daysWeather]);
 
 	useEffect(() => {
 		if(myCity || myCity.length) {

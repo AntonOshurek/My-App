@@ -22,11 +22,18 @@ const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
 
 	if(weather.date === day) {
 		activeDayClass = 'weather-days__item--current';
-	} else if(!day) {
-		// console.log('current day')
-	}	else {
+	}
+	// console.log(now.toDateString())
+
+	if(compareDates(now.toDateString(), today.toDateString())) {
+		activeDayClass = 'weather-days__item--current';
+	} else {
 		activeDayClass = '';
 	}
+
+	useEffect(() => {
+		// console.log(day)
+	}, [day]);
 
 	// if(day === compareDate(weather.date)) {
 	// 		activeDayClass = 'weather-days__item--current';

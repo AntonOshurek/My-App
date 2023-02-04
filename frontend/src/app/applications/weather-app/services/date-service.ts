@@ -29,8 +29,10 @@ export function getAbbreviationWeekday(dateStr: string | undefined) {
 };
 
 export function compareDates(date1: string, date2: string): boolean {
+	console.log(date1)
+	console.log(date2)
   const firstDate = new Date(date1);
   const secondDate = new Date(date2);
 
-  return firstDate.getTime() === secondDate.getTime();
+  return firstDate.toDateString() === secondDate.toDateString();
 }
