@@ -1,6 +1,6 @@
 //types
-import type { IAppInitialStateType } from "../../../types/state-types";
+import type { IAppStateType } from "../../../types/state-types";
 
-export const appInitialState: IAppInitialStateType = {
+export const appInitialState: IAppStateType = {
 	myCity: 'Warszawa',
 };

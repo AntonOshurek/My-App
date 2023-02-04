@@ -1,3 +1,3 @@
-export interface IAppInitialStateType {
+export interface IAppStateType {
 	myCity: string,
 };
