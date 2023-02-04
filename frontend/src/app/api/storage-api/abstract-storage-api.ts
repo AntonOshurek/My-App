@@ -3,11 +3,11 @@ import { StoreDataTypes } from "../../types/store-data-types";
 //variables and consts
 import { ApplicationStorageApiNames } from "../../variables/variables";
 
-abstract class AbstractStorage {
+abstract class AbstractStorageApi {
   #name: ApplicationStorageApiNames;
 
   constructor(name: ApplicationStorageApiNames) {
-    if(new.target === AbstractStorage) {
+    if(new.target === AbstractStorageApi) {
       throw new Error('can\'t instantiate AbstractStorage, only concrete one.');
     };
 
@@ -34,4 +34,4 @@ abstract class AbstractStorage {
   };
 }
 
-export default AbstractStorage;
+export default AbstractStorageApi;

@@ -1,13 +1,15 @@
 //types
 import { StoreDataTypes } from "../../types/store-data-types";
-//API
-import myAppStorageApi from "../storage-api/my-app-storage";
+//abstract classes
+import AbstractStorageApi from "../storage-api/abstract-storage-api";
 
 abstract class AbstractStoreDataApi {
 	#data: StoreDataTypes
+	#storageApi: AbstractStorageApi
 
-	constructor(appData: StoreDataTypes) {
+	constructor(appData: StoreDataTypes, storageApi: AbstractStorageApi) {
 		this.#data = appData;
+		this.#storageApi = storageApi
 	};
 
 	private getDefaultData(): StoreDataTypes {
@@ -15,9 +17,7 @@ abstract class AbstractStoreDataApi {
   };
 
 	private getDataFromStorage(): StoreDataTypes | null {
-    return myAppStorageApi.getDataFromStorage();
-		//change this for abstract class method who must be a realize in instance this class!
-		//or add for this.#storageApi currently storage instance of api class
+    return this.#storageApi.getDataFromStorage();
   };
 
 	getData(): StoreDataTypes {
