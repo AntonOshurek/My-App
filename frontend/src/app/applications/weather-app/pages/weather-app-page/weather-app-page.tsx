@@ -12,8 +12,8 @@ import weatherDataAdapter from '../../services/weather-data-adapter';
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 //store
 import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { setMyCityAction } from '../../../../store/slices/app-slice';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
+import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
 import {
 	IAdaptedWeatherLocationDataType,
@@ -26,74 +26,64 @@ import './weather-app-page.scss';
 
 const WeatherAppPage = (): JSX.Element => {
 	const dispatch = useAppDispatch();
-
-	const {location, day} = useParams();
-
 	const myCity = useAppSelector(SelectorGetMyCityState);
 
+	const {location, day} = useParams();
 
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
 	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
-
-	// dispatch(setMyCityAction({myCity: 'grodno'}));
-
-
 	useEffect(() => {
-		if(location || location?.length) {
+		if((location && location.length !== 0) && (location !== myCity)) {
 			dispatch(setMyCityAction({myCity: location}));
-		} else {
+		} else if (!location && !myCity) {
 			locationService.getCurrentLocation()
 			.then((result) => {
 				dispatch(setMyCityAction({myCity: result}));
 			})
 			.catch(error => {
+				dispatch(setMyCityAction({myCity: 'warszawa'}));
 				console.log(error.message);
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
 			});
 		};
-	}, [location]);
+	}, []);
+
+	const setDataToState = (data: IAllWeatherDataType) => {
+		const daysWeather: AdaptedDaysDataType = [];
+
+		data.forecast.forecastday.map((dayWeather) => {
+			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+		});
+
+		setDaysWeather(daysWeather);
+		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
+		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
+	};
 
 	useEffect(() => {
-		console.log(myCity);
+		if(myCity || myCity.length) {
+			const weatherApiConfiguration = {
+				days: 3,
+				city: replaceNonEnglish(myCity),
+				lang: 'ru',
+			};
+
+			weatherApi.getWeather(weatherApiConfiguration)
+			.then((response) => {
+				setDataToState(response);
+			})
+			.catch((error) => {
+				if(error.message.search('City error') >= 0) {
+					console.log('City error');
+				} else {
+					console.log('somthing wrong...');
+				};
+			});
+		};
 	}, [myCity]);
-
-
-	// const setDataToState = (data: IAllWeatherDataType) => {
-	// 	const daysWeather: AdaptedDaysDataType = [];
-
-	// 	data.forecast.forecastday.map((dayWeather) => {
-	// 		daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
-	// 	});
-
-	// 	setDaysWeather(daysWeather);
-	// 	setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
-	// 	setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
-	// };
-
-	// useEffect(() => {
-	// 	if(myCity || myCity.length) {
-	// 		const weatherApiConfiguration = {
-	// 			days: 3,
-	// 			city: replaceNonEnglish(myCity),
-	// 			lang: 'ru',
-	// 		};
-
-	// 		weatherApi.getWeather(weatherApiConfiguration)
-	// 		.then((response) => {
-	// 			setDataToState(response);
-	// 		})
-	// 		.catch((error) => {
-	// 			if(error.message.search('City error') >= 0) {
-	// 				console.log('City error');
-	// 			} else {
-	// 				console.log('somthing wrong...');
-	// 			};
-	// 		});
-	// 	};
-	// }, [myCity]);
 
 
 	return (
