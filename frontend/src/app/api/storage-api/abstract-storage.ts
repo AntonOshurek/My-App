@@ -1,5 +1,5 @@
 //types
-import { StorageDataTypes } from "../../types/data-types";
+import { StoreDataTypes } from "../../types/store-data-types";
 //variables and consts
 import { ApplicationStorageApiNames } from "../../variables/variables";
 
@@ -14,18 +14,18 @@ abstract class AbstractStorage {
     this.#name = name;
   };
 
-  getDataFromStorage(): StorageDataTypes | null {
+  getDataFromStorage(): StoreDataTypes | null {
     const jsonData: string | null = localStorage.getItem(this.#name);
 
     if(jsonData) {
-      const parsedJsonData: StorageDataTypes = JSON.parse(jsonData);
+      const parsedJsonData: StoreDataTypes = JSON.parse(jsonData);
       return parsedJsonData;
     } else {
       return null;
     };
   };
 
-  setItems(items: StorageDataTypes) {
+  setData(items: StoreDataTypes) {
     localStorage.setItem(this.#name, JSON.stringify(items));
   };
 
