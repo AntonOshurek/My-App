@@ -42,7 +42,7 @@ const WeatherAppPage = (): JSX.Element => {
 				//user has denied access to location data - message
 			});
 		};
-	}, []);
+	}, [location]);
 
 	const setDataToState = (data: IAllWeatherDataType) => {
 		const daysWeather: AdaptedDaysDataType = [];

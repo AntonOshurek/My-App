@@ -1,3 +1,3 @@
-export interface IIncrementType {
-	number: number
-}
+export interface ISetMyCityActionType {
+	myCity: string,
+};
