@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../services/date-service';
 import unsplash from '../../services/unsplash-service';
+//store
+import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
+import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 //types
 import {
-	IAdaptedCurrentWeatherDataType,
-	IAdaptedWeatherLocationDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
 //styles
@@ -14,11 +15,12 @@ import './current-weather.scss';
 
 interface ICurrentWeatherPropsType {
 	currentWeather: IAdaptedOneDayDataType | null,
-	weatherLocation: IAdaptedWeatherLocationDataType | null,
 }
 
-const CurrentWeather = ({currentWeather, weatherLocation}: ICurrentWeatherPropsType): JSX.Element => {
+const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element => {
 	const { location } = useParams();
+
+	const myCity = useAppSelector(SelectorGetMyCityState);
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
@@ -38,12 +40,12 @@ const CurrentWeather = ({currentWeather, weatherLocation}: ICurrentWeatherPropsT
 		<article className='current-weather' style={styles}>
 			<h3 className='visually-hidden'>Weather for tooday</h3>
 			<div className='current-weather__wrap'>
-				<time className='current-weather__date' dateTime={weatherLocation?.localtime}>
+				<time className='current-weather__date' dateTime={currentWeather?.date}>
 					<span className='current-weather__date-text current-weather__date-text--day'>{getWeekday(currentWeather?.date)}</span>
 					<span className='current-weather__date-text'>{formatDate(currentWeather?.date)}</span>
 				</time>
 
-				<p className='current-weather__city'>{weatherLocation?.name}</p>
+				<p className='current-weather__city'>{myCity}</p>
 
 				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text}/>
 

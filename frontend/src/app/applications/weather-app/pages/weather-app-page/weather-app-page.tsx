@@ -16,8 +16,6 @@ import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
 import {
-	IAdaptedWeatherLocationDataType,
-	IAdaptedCurrentWeatherDataType,
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
@@ -33,7 +31,6 @@ const WeatherAppPage = (): JSX.Element => {
 
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
-	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
 
 	useEffect(() => {
 		if((location && location.length !== 0) && (location !== myCity)) {
@@ -61,12 +58,6 @@ const WeatherAppPage = (): JSX.Element => {
 
 		setDaysWeather(daysWeather);
 		setCurrentWeather(weatherDataAdapter.createForecastDayAdapter(data.forecast.forecastday[0]));
-		console.log(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current))
-		console.log(daysWeather)
-		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
-		console.log(data.location)
-
-		// console.log(daysWeather[1].)
 	};
 
 	useEffect(() => {
@@ -103,7 +94,6 @@ const WeatherAppPage = (): JSX.Element => {
 
 					<CurrentWeather
 						currentWeather={currentWeather ? currentWeather : null}
-						weatherLocation={weatherLocation ? weatherLocation : null}
 					/>
 					<WeatherControls
 						currentWeather={currentWeather ? currentWeather : null}
