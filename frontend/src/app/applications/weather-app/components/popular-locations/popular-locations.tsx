@@ -1,60 +1,50 @@
 import { useState, useEffect } from 'react';
+//components
+import PopularLocationItem from './popular-location-item/popular-location-item';
 //styles
 import './popular-locations.scss';
 
 interface IPopularLocaionsPropsType {
-	hintCity: string[]
+	hintCity: string[] | null
 }
 
 const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element => {
 
-	const [cities, setCities] = useState<string[]>(hintCity)
+	const [cities, setCities] = useState<string[] | null>(hintCity)
+	const [title, setTitle] = useState<string>('Popular locations');
 
 	const defaultPopularCityes = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"]
 
-
 	useEffect(() => {
-		if(hintCity.length < 2) {
-			setCities(defaultPopularCityes)
+
+		if(hintCity) {
+			if(hintCity.length < 1 || hintCity[0] === '') {
+				setCities(defaultPopularCityes);
+				setTitle('Popular locations');
+			} else {
+				setCities(hintCity.slice(0, 9));
+				setTitle('Hint cities');
+			};
 		} else {
-			setCities(hintCity);
+			setCities(defaultPopularCityes);
+			setTitle('Popular locations');
 		};
+
 	}, [hintCity])
 
 
 	return (
 		<article className='popular-location'>
-			<h3 className='popular-location__title'>Popular locations</h3>
+			<h3 className='popular-location__title'>{title}</h3>
 
 			<ul className='popular-location__list'>
-				<li className='popular-location__item'>
-					<button className='popular-location__location-button'>Warszawa
-						<svg className='popular-location__button-icon' xmlns="http://www.w3.org/2000/svg" aria-hidden='true' width="18" height="18" viewBox="0 0 24 24">
-							<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7l-7 7"/>
-						</svg>
-					</button>
-				</li>
-				<li className='popular-location__item'>
-					<button className='popular-location__location-button'>Poznań
-						<svg className='popular-location__button-icon' xmlns="http://www.w3.org/2000/svg" aria-hidden='true' width="18" height="18" viewBox="0 0 24 24">
-							<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7l-7 7"/>
-						</svg>
-					</button>
-				</li>
-				<li className='popular-location__item'>
-					<button className='popular-location__location-button'>Białystok
-						<svg className='popular-location__button-icon' xmlns="http://www.w3.org/2000/svg" aria-hidden='true' width="18" height="18" viewBox="0 0 24 24">
-							<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7l-7 7"/>
-						</svg>
-					</button>
-				</li>
-				<li className='popular-location__item'>
-					<button className='popular-location__location-button'>Wrocław
-						<svg className='popular-location__button-icon' xmlns="http://www.w3.org/2000/svg" aria-hidden='true' width="18" height="18" viewBox="0 0 24 24">
-							<path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7l7 7l-7 7"/>
-						</svg>
-					</button>
-				</li>
+
+				{
+					cities?.map((city) => {
+						return <PopularLocationItem city={city} key={city}/>
+					})
+				}
+
 			</ul>
 		</article>
 	);

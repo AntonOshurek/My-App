@@ -3,19 +3,26 @@ import { useState, ChangeEvent } from "react";
 import { PopularLocaions, WeatherSearchLocations } from '../../components';
 //utils
 import { replaceNonEnglish } from "../../../../generic-utils/utils/replaceNonEnglish";
+//variables
+//variables
+import { CITIES } from '../../variables/cities';
 //styles
 import './weather-app-location.scss';
 
 const WeatherAppLocationPage = (): JSX.Element => {
 
-  const [hintCity, setHintCity] = useState<string[]>(['']);
+  const [hintCity, setHintCity] = useState<string[] | null>(null);
 	const [city, setCity] = useState<string>('')
 
   const handleCityInput = (event: ChangeEvent<HTMLInputElement>) => {
 		setCity(event.target.value);
-    const cities = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
-    const cityHint = cities.filter((city) => city.toLowerCase().includes(replaceNonEnglish(event.target.value).toLowerCase()));
+    // const cities = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
+    const cityHint = CITIES.filter((city) => city.toLowerCase().includes(replaceNonEnglish(event.target.value).toLowerCase()));
     setHintCity(cityHint);
+
+		if(event.target.value === '') {
+			setHintCity(null);
+		}
   };
 
 
