@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { WeatherAdditional, WeatherDays } from '../';
 //types
 import {
-	IAdaptedCurrentWeatherDataType,
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
