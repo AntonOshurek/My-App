@@ -10,34 +10,40 @@ import locationService from '../../services/location-service';
 import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
+import { compareDates } from '../../../../generic-utils/utils/date-utils';
+//store
+import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/hooks';
+import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
+import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
 import {
-	IAdaptedWeatherLocationDataType,
-	IAdaptedCurrentWeatherDataType,
-	AdaptedDaysDataType
+	AdaptedDaysDataType,
+	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
 import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
 import './weather-app-page.scss';
 
 const WeatherAppPage = (): JSX.Element => {
+	const dispatch = useAppDispatch();
+	const myCity = useAppSelector(SelectorGetMyCityState);
+
 	const {location, day} = useParams();
 
-	const [currentLocation, setCurrentLocation] = useState<string>('');
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
-	const [currentWeather, setCurrentWeather] = useState<IAdaptedCurrentWeatherDataType | null>(null);
-	const [weatherLocation, setWeatherLocation] = useState<IAdaptedWeatherLocationDataType | null>(null);
+	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
 
 	useEffect(() => {
-		if(location || location?.length) {
-			setCurrentLocation(location);
-		} else {
+		if((location && location.length !== 0) && (location !== myCity)) {
+			dispatch(setMyCityAction({myCity: location}));
+		} else if (!location && !myCity) {
 			locationService.getCurrentLocation()
 			.then((result) => {
-				setCurrentLocation(result);
+				dispatch(setMyCityAction({myCity: result}));
 			})
 			.catch(error => {
-				console.log(error.message);
+				dispatch(setMyCityAction({myCity: ''}));
+
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
 			});
@@ -45,22 +51,33 @@ const WeatherAppPage = (): JSX.Element => {
 	}, []);
 
 	const setDataToState = (data: IAllWeatherDataType) => {
-		const daysWeather: AdaptedDaysDataType = [];
+		const days: AdaptedDaysDataType = [];
 
 		data.forecast.forecastday.map((dayWeather) => {
-			daysWeather.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+			days.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
 		});
 
-		setDaysWeather(daysWeather);
-		setCurrentWeather(weatherDataAdapter.createCurrentWeatherDataAdapter(data.current));
-		setWeatherLocation(weatherDataAdapter.createLocationWeatherDataAdapter(data.location));
+		setDaysWeather(days);
 	};
 
+	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {
-		if(currentLocation || currentLocation.length) {
+		if(daysWeather && day && day.length !== 0) {
+			daysWeather.map(item => {
+				if(compareDates(item.date, day)) {
+					setCurrentWeather(item);
+				};
+			});
+		} else if(daysWeather) {
+			setCurrentWeather(daysWeather[0]);
+		};
+	}, [day, daysWeather]);
+
+	useEffect(() => {
+		if(myCity || myCity.length) {
 			const weatherApiConfiguration = {
 				days: 3,
-				city: replaceNonEnglish(currentLocation),
+				city: replaceNonEnglish(myCity),
 				lang: 'ru',
 			};
 
@@ -76,7 +93,7 @@ const WeatherAppPage = (): JSX.Element => {
 				};
 			});
 		};
-	}, [currentLocation]);
+	}, [myCity]);
 
 
 	return (
@@ -90,7 +107,6 @@ const WeatherAppPage = (): JSX.Element => {
 
 					<CurrentWeather
 						currentWeather={currentWeather ? currentWeather : null}
-						weatherLocation={weatherLocation ? weatherLocation : null}
 					/>
 					<WeatherControls
 						currentWeather={currentWeather ? currentWeather : null}

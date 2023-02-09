@@ -27,3 +27,14 @@ export function getAbbreviationWeekday(dateStr: string | undefined) {
 		return '';
 	};
 };
+
+export function compareDates(date1: string, date2: Date | string) {
+	const firstDate = new Date(date1);
+	const secondDate = new Date(date2);
+
+	if(firstDate.toDateString() === secondDate.toDateString()) {
+		return true;
+	} else {
+		return false;
+	};
+};

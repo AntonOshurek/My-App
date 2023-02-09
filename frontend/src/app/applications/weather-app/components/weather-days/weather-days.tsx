@@ -11,8 +11,7 @@ interface IWeatherDaysPropsType {
 	daysWeather: AdaptedDaysDataType | null,
 }
 
-const WeatherDays = ({daysWeather}: IWeatherDaysPropsType): JSX.Element => {
-
+const WeatherDays = ({ daysWeather }: IWeatherDaysPropsType): JSX.Element => {
 	return (
 		<>
 			<h3 className='visually-hidden'>Weather for three days</h3>

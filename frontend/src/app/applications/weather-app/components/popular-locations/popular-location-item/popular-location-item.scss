@@ -1,0 +1,43 @@
+.popular-location__item {
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.popular-location__button-icon {
+	transition: transform 0.2s ease;
+}
+
+.popular-location__location-button {
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	padding: 10px;
+	color: var(--weather-search-light);
+	background-color: var(--weather-search-dark);
+	border: none;
+	border-radius: 20px;
+
+	transition: transform 0.2s ease;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&:hover {
+		// transform: scale(0.98);
+		color: var(--weather-basic-font-color);
+
+		& .popular-location__button-icon {
+			transition: transform 0.2s ease;
+			transform: translateX(5px);
+		}
+	}
+
+	&:active {
+		transition: transform 0.1s ease;
+		transform: scale(0.96);
+	}
+}

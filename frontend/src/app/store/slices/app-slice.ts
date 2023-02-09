@@ -1,32 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+//data
+import { appStoreData } from '../store-data/app-store-data';
 //types
 import type { AppThunk } from '../../types/store-types';
-import type { IIncrementType } from '../../types/action-types';
-
-interface testIncrement {
-	number: number
-}
+import type { ISetMyCityActionType } from '../../types/action-types';
+//API
+import myAppStorageApi from '../../api/storage-api/my-app-storage-api';
 
 export const appSlice = createSlice({
   name: 'app',
-  initialState: {item: 1},
+  initialState: appStoreData,
 
   reducers: {
-    increment: (state, action: PayloadAction<testIncrement>) => {
-      const {number} = action.payload;
-      state.item = state.item + number;
+    setMyCity: (state, action: PayloadAction<ISetMyCityActionType>) => {
+      const { myCity } = action.payload;
+      state.myCity = myCity;
     },
   },
 });
 
-export const { increment } = appSlice.actions;
+export const { setMyCity } = appSlice.actions;
 
-export const incrementAction =
-  (action: IIncrementType): AppThunk =>
+export const setMyCityAction =
+  (action: ISetMyCityActionType): AppThunk =>
   (dispatch, getState) => {
-    dispatch(appSlice.actions.increment(action));
+    dispatch(appSlice.actions.setMyCity(action));
+		myAppStorageApi.setData(getState().app);
   };
 
 export default appSlice.reducer;
-
-

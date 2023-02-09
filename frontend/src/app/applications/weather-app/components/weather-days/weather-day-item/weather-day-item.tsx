@@ -1,11 +1,14 @@
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-//services
-import { getWeekday, getAbbreviationWeekday } from '../../../services/date-service';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+//utils
+import { getWeekday, getAbbreviationWeekday, compareDates } from '../../../../../generic-utils/utils/date-utils';
 //types
 import type {
 	IAdaptedOneDayDataType
 } from '../../../types/weather-adapted-data-types';
+//store
+import { useAppSelector } from '../../../../../generic-utils/hooks/hooks';
+import { SelectorGetMyCityState } from '../../../../../store/selectors/selectors';
 //styles
 import './weather-day-item.scss';
 
@@ -13,55 +16,44 @@ interface IWeatherDayItemPropsType {
 	weather: IAdaptedOneDayDataType,
 };
 
-const WeatherDayItem = ({weather}: IWeatherDayItemPropsType): JSX.Element => {
-	const {day} = useParams();
-	let activeDayClass: string = '';
+const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
+	const { day } = useParams();
+	const myCity = useAppSelector(SelectorGetMyCityState);
 
-	if(day) {
-		if(day === compareDate(weather.date)) {
-			activeDayClass = 'weather-days__item--current';
-		};
-	} else {
-		if(compareDate(weather.date) === 'today') {
-			activeDayClass = 'weather-days__item--current';
-		};
-	}
+	const [ activeClass, setActiveClass ] = useState<string | null>(null);
 
-	function compareDate(input: string): string {
-		const now = new Date();
-		const inputDate = new Date(input);
-
-		const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-		const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-		const afterTomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2);
-
-
-		if (inputDate < today) {
-			return "past";
-		} else if (inputDate.toDateString() === now.toDateString()) {
-			return "today";
-		} else if (inputDate.toDateString() === tomorrow.toDateString()) {
-			return "tomorrow";
-		} else if (inputDate.toDateString() === afterTomorrow.toDateString()) {
-			return "afterTomorrow";
+	useEffect(() => {
+		if(day) {
+			if(compareDates(weather.date, day)) {
+				setActiveClass('weather-days__item--current');
+			} else {
+				setActiveClass('');
+			}
 		} else {
-			return "future";
-		}
-	};
+			const now = new Date();
+			const isCurrentDay = compareDates(weather.date, now);
+
+			if (isCurrentDay) {
+				setActiveClass('weather-days__item--current');
+			} else {
+				setActiveClass('')
+			};
+		};
+	}, [day]);
 
 	//weather-days__item--current
 	return (
-		<li className={'weather-days__item ' + activeDayClass}>
+		<li className={'weather-days__item ' + activeClass}>
 			<h4 className='visually-hidden'>{getWeekday(weather.date)}</h4>
 			<p className='weather-days__days-name'>{getAbbreviationWeekday(weather.date)}.</p>
 			<p className='weather-days__temperature'>
 				{weather.day.avgTempC}
 				<span className='weather-days__temperature-symbol'>°C</span>
 			</p>
-			<img className='weather-days__image' src={weather.day.condition.icon}/>
+			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text}/>
 
-			<Link className='weather-days__link' to={`../${compareDate(weather.date)}`}>
-				<span className='visually-hidden'>Detailed weather for the day</span>
+			<Link className='weather-days__link' to={`../${myCity}/${weather.date}`}>
+				<span className='visually-hidden'>Detailed weather for the {weather.date} day</span>
 			</Link>
 		</li>
 	);

@@ -6,16 +6,16 @@ export const onEscClickHandler = (evt: any, htmlElement: HTMLElement | null = nu
       htmlElement.blur();
     } else {
       return true;
-    }
-  }
-}
+    };
+  };
+};
 
 export const getZero = (num: number): string => {
   if (num >= 0 && num < 10) {
     return `0${num}`;
   } else {
     return `${num}`;
-  }
+  };
 };
 
 export const getFullDate = (): string => {
@@ -28,4 +28,8 @@ export const getFullDate = (): string => {
   const fullDate: string = `${day}-${month}-${year}`;
 
   return fullDate;
-}
+};
+
+export const getRandomInt = (count: number): number => {
+	return Math.floor(Math.random() * (count + 1));
+};
