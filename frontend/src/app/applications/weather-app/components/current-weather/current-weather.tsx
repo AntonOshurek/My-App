@@ -26,8 +26,8 @@ const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element
 	const [image, setImage] = useState<any>(null);
 
 	useEffect(() => {
-		if(location) {
-			unsplash.searchCity(location).then(imageData => {
+		if(myCity) {
+			unsplash.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
 					backgroundImage: `url(${ imageData?.imageUrl })`

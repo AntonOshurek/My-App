@@ -29,3 +29,7 @@ export const getFullDate = (): string => {
 
   return fullDate;
 };
+
+export const getRandomInt = (count: number): number => {
+	return Math.floor(Math.random() * (count + 1));
+};
