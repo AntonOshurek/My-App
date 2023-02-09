@@ -42,7 +42,7 @@ const WeatherAppPage = (): JSX.Element => {
 				dispatch(setMyCityAction({myCity: result}));
 			})
 			.catch(error => {
-				dispatch(setMyCityAction({myCity: 'warszawa'}));
+				dispatch(setMyCityAction({myCity: ''}));
 
 				//if message === User denied Geolocation show error notification for client!
 				//user has denied access to location data - message
@@ -71,8 +71,8 @@ const WeatherAppPage = (): JSX.Element => {
 				});
 			} else {
 				setCurrentWeather(daysWeather[0]);
-			}
-		}
+			};
+		};
 	}, [day, daysWeather]);
 
 	useEffect(() => {
