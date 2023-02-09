@@ -1,11 +1,14 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-//services
-import { getWeekday, getAbbreviationWeekday } from '../../../../../generic-utils/utils/date-utils';
+//utils
+import { getWeekday, getAbbreviationWeekday, compareDates } from '../../../../../generic-utils/utils/date-utils';
 //types
 import type {
 	IAdaptedOneDayDataType
 } from '../../../types/weather-adapted-data-types';
+//store
+import { useAppSelector } from '../../../../../generic-utils/hooks/hooks';
+import { SelectorGetMyCityState } from '../../../../../store/selectors/selectors';
 //styles
 import './weather-day-item.scss';
 
@@ -15,6 +18,8 @@ interface IWeatherDayItemPropsType {
 
 const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 	const { day } = useParams();
+	const myCity = useAppSelector(SelectorGetMyCityState);
+
 	const [ activeClass, setActiveClass ] = useState<string | null>(null);
 
 	useEffect(() => {
@@ -36,18 +41,6 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 		};
 	}, [day]);
 
-
-	function compareDates(date1: string, date2: Date | string) {
-		const firstDate = new Date(date1);
-		const secondDate = new Date(date2);
-
-		if(firstDate.toDateString() === secondDate.toDateString()) {
-			return true;
-		} else {
-			return false;
-		};
-	};
-
 	//weather-days__item--current
 	return (
 		<li className={'weather-days__item ' + activeClass}>
@@ -57,9 +50,9 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 				{weather.day.avgTempC}
 				<span className='weather-days__temperature-symbol'>°C</span>
 			</p>
-			<img className='weather-days__image' src={weather.day.condition.icon}/>
+			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text}/>
 
-			<Link className='weather-days__link' to={`../poznan/${weather.date}`}>
+			<Link className='weather-days__link' to={`../${myCity}/${weather.date}`}>
 				<span className='visually-hidden'>Detailed weather for the {weather.date} day</span>
 			</Link>
 		</li>
