@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
@@ -7,9 +6,7 @@ import unsplash from '../../services/unsplash-service';
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 //types
-import {
-	IAdaptedOneDayDataType,
-} from '../../types/weather-adapted-data-types';
+import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './current-weather.scss';
 
@@ -17,16 +14,14 @@ interface ICurrentWeatherPropsType {
 	currentWeather: IAdaptedOneDayDataType | null,
 }
 
-const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element => {
-	const { location } = useParams();
-
+const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Element => {
 	const myCity = useAppSelector(SelectorGetMyCityState);
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
 
 	useEffect(() => {
-		if(myCity) {
+		if(myCity && myCity.length) {
 			unsplash.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
@@ -34,7 +29,7 @@ const CurrentWeather = ({currentWeather}: ICurrentWeatherPropsType): JSX.Element
 				});
 			});
 		};
-	}, [location]);
+	}, [myCity]);
 
 	return (
 		<article className='current-weather' style={styles}>

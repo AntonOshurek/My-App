@@ -62,16 +62,14 @@ const WeatherAppPage = (): JSX.Element => {
 
 	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {
-		if(daysWeather) {
-			if(day && day.length !== 0) {
-				daysWeather.map(item => {
-					if(compareDates(item.date, day)) {
-						setCurrentWeather(item);
-					};
-				});
-			} else {
-				setCurrentWeather(daysWeather[0]);
-			};
+		if(daysWeather && day && day.length !== 0) {
+			daysWeather.map(item => {
+				if(compareDates(item.date, day)) {
+					setCurrentWeather(item);
+				};
+			});
+		} else if(daysWeather) {
+			setCurrentWeather(daysWeather[0]);
 		};
 	}, [day, daysWeather]);
 

@@ -1,5 +1,5 @@
 //types
-import { IAdaptedCurrentWeatherDataType, IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-additional.scss';
 
@@ -7,8 +7,7 @@ interface IWeatherControlsPropsType {
 	currentWeather: IAdaptedOneDayDataType | null,
 };
 
-const WeatherAdditional = ({currentWeather}: IWeatherControlsPropsType): JSX.Element => {
-
+const WeatherAdditional = ({ currentWeather }: IWeatherControlsPropsType): JSX.Element => {
 	return (
 		<>
 			<h3 className='visually-hidden'>Additional information about current day</h3>
