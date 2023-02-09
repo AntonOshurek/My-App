@@ -1,26 +1,18 @@
-import { useState } from "react";
-
+import { ChangeEvent } from "react";
 //styles
 import './weather-search-locations.scss';
 
-const WeatherSearchLocations = (): JSX.Element => {
+interface IWeatherSearchLocationsPropsType {
+	handleCityInput: (evt: ChangeEvent<HTMLInputElement>) => void
+};
 
-	const [city, setCity] = useState("");
-  const [hint, setHint] = useState<any>([]);
-
-  const handleCityInput = (event: any) => {
-    setCity(event.target.value);
-    const cities = ["New York", "London", "Paris", "Berlin", "Tokyo"];
-    const cityHint = cities.filter((city) => city.toLowerCase().includes(event.target.value.toLowerCase()));
-    setHint(cityHint);
-  };
+const WeatherSearchLocations = ({ handleCityInput }: IWeatherSearchLocationsPropsType): JSX.Element => {
 
 	return (
 		<form className='weather-search-location'>
 			<label className='weather-search-location__label'>
 				<span className='weather-search-location__placeholder'>Search location</span>
 				<input className='weather-search-location__input' type="text" placeholder='Poznań'
-					value={city}
 					onChange={handleCityInput}
 				/>
 			</label>

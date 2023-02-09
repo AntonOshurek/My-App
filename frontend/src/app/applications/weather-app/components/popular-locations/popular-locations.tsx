@@ -1,7 +1,27 @@
+import { useState, useEffect } from 'react';
 //styles
 import './popular-locations.scss';
 
-const PopularLocaions = (): JSX.Element => {
+interface IPopularLocaionsPropsType {
+	hintCity: string[]
+}
+
+const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element => {
+
+	const [cities, setCities] = useState<string[]>(hintCity)
+
+	const defaultPopularCityes = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"]
+
+
+	useEffect(() => {
+		if(hintCity.length < 2) {
+			setCities(defaultPopularCityes)
+		} else {
+			setCities(hintCity);
+		};
+	}, [hintCity])
+
+
 	return (
 		<article className='popular-location'>
 			<h3 className='popular-location__title'>Popular locations</h3>
