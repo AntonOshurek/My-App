@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //services
-import { formatDate, getWeekday } from '../../services/date-service';
+import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplash from '../../services/unsplash-service';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';

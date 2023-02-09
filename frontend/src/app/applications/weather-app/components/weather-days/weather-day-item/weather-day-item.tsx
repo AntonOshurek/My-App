@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //services
-import { getWeekday, getAbbreviationWeekday } from '../../../services/date-service';
+import { getWeekday, getAbbreviationWeekday } from '../../../../../generic-utils/utils/date-utils';
 //types
 import type {
 	IAdaptedOneDayDataType
@@ -32,7 +32,7 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 				setActiveClass('weather-days__item--current');
 			} else {
 				setActiveClass('')
-			}
+			};
 		};
 	}, [day]);
 

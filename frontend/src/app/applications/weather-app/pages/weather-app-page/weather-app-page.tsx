@@ -10,7 +10,7 @@ import locationService from '../../services/location-service';
 import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
-import { compareDates } from '../../services/date-service';
+import { compareDates } from '../../../../generic-utils/utils/date-utils';
 //store
 import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
