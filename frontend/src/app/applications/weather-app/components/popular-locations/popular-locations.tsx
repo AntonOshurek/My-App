@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, MouseEvent } from 'react';
 //components
 import PopularLocationItem from './popular-location-item/popular-location-item';
 //styles
 import './popular-locations.scss';
 
 interface IPopularLocaionsPropsType {
+	cityButtonHandler: (evt: MouseEvent<HTMLButtonElement>) => void,
 	hintCity: string[] | null,
 };
 
-const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element => {
+const PopularLocaions = ({ hintCity, cityButtonHandler }: IPopularLocaionsPropsType): JSX.Element => {
 
 	const [cities, setCities] = useState<string[] | null>(hintCity)
 	const [title, setTitle] = useState<string>('Popular locations');
@@ -41,7 +42,7 @@ const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element =
 
 				{
 					cities?.map((city, i) => {
-						return <PopularLocationItem city={city} key={city + i}/>
+						return <PopularLocationItem city={city} key={city + i} cityButtonHandler={cityButtonHandler}/>
 					})
 				}
 
