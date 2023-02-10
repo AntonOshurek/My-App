@@ -1,11 +1,8 @@
 import { useState, ChangeEvent } from "react";
 //components
 import { PopularLocaions, WeatherSearchLocations } from '../../components';
-//utils
-import { replaceNonEnglish } from "../../../../generic-utils/utils/replaceNonEnglish";
-//variables
-//variables
-import { CITIES } from '../../variables/cities';
+//services
+import cityHints from "../../services/city-hints";
 //styles
 import './weather-app-location.scss';
 
@@ -15,16 +12,15 @@ const WeatherAppLocationPage = (): JSX.Element => {
 	const [city, setCity] = useState<string>('')
 
   const handleCityInput = (event: ChangeEvent<HTMLInputElement>) => {
-		if(event.target.value.trim() === '') {
+		const value = event.target.value.trim();
+		if(value === '') {
 			setHintCity(null);
 		} else {
-			setCity(event.target.value.trim());
-			// const cities = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
-			const cityHint = CITIES.filter((city) => city.toLowerCase().includes(replaceNonEnglish(event.target.value).toLowerCase()));
+			setCity(value);
+			const cityHint = cityHints.getHints(value);
 			setHintCity(cityHint);
-		}
+		};
   };
-
 
 	return (
 		<div className='weather-app-location-page'>
