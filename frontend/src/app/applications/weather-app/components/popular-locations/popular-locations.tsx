@@ -19,8 +19,8 @@ const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element =
 
 		if(hintCity) {
 			if(hintCity.length < 1 || hintCity[0] === '') {
-				setCities(defaultPopularCityes);
-				setTitle('Popular locations');
+				//show last results of hint cities! this is work :)
+				//it's not a bug, it's a feature :)
 			} else {
 				setCities(hintCity.slice(0, 9));
 				setTitle('Hint cities');
@@ -40,8 +40,8 @@ const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element =
 			<ul className='popular-location__list'>
 
 				{
-					cities?.map((city) => {
-						return <PopularLocationItem city={city} key={city}/>
+					cities?.map((city, i) => {
+						return <PopularLocationItem city={city} key={city + i}/>
 					})
 				}
 

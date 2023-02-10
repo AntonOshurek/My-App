@@ -15,13 +15,13 @@ const WeatherAppLocationPage = (): JSX.Element => {
 	const [city, setCity] = useState<string>('')
 
   const handleCityInput = (event: ChangeEvent<HTMLInputElement>) => {
-		setCity(event.target.value);
-    // const cities = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
-    const cityHint = CITIES.filter((city) => city.toLowerCase().includes(replaceNonEnglish(event.target.value).toLowerCase()));
-    setHintCity(cityHint);
-
-		if(event.target.value === '') {
+		if(event.target.value.trim() === '') {
 			setHintCity(null);
+		} else {
+			setCity(event.target.value.trim());
+			// const cities = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
+			const cityHint = CITIES.filter((city) => city.toLowerCase().includes(replaceNonEnglish(event.target.value).toLowerCase()));
+			setHintCity(cityHint);
 		}
   };
 
