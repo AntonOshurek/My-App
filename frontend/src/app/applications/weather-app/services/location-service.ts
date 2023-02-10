@@ -1,5 +1,6 @@
 import axios from "axios";
-import { TRUE } from "sass";
+//utils
+import { replaceNonEnglish } from "../../../generic-utils/utils/replaceNonEnglish";
 //types
 import { ICityType } from "../types/location-service-types";
 
@@ -27,7 +28,11 @@ class LocationService {
     };
   };
 
-	async isARealCity(city: string): Promise<any> {
+	async isARealCity(cityValue: string): Promise<any> {
+		const city = replaceNonEnglish(cityValue);
+
+		console.log(city.toLowerCase())
+
 		try {
 			const cityCheckResponse = await axios.get(
 				`http://api.weatherapi.com/v1/search.json?key=05ecde74b40547f2a6f210042220912&q=${city}`
@@ -41,9 +46,10 @@ class LocationService {
 
 			let cityExist = false;
 
+			console.log(cityData)
+
 			cityData.map((cityItem) => {
 				if(cityItem.name.toLowerCase() === city.toLowerCase()) {
-					console.log(cityItem)
 					cityExist = true
 					return cityData;
 				}

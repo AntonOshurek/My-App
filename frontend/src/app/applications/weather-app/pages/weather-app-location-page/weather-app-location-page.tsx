@@ -33,17 +33,16 @@ const WeatherAppLocationPage = (): JSX.Element => {
 		if(city.trim().length > 0) {
 			locationService.isARealCity(city)
 			.then((result) => {
-				console.log(result)
+				console.log(result);
 			})
 			.catch(error => {
-				console.log(error)
+				console.log(error);
 			});
 		} else {
 			console.log('enter a city')
 		}
 
 		//check it is a real city?
-
 		//if true, save city to global store
 		//else show error for user
 	};
