@@ -3,17 +3,19 @@ import { ChangeEvent } from "react";
 import './weather-search-locations.scss';
 
 interface IWeatherSearchLocationsPropsType {
-	handleCityInput: (evt: ChangeEvent<HTMLInputElement>) => void
+	cityInputHandler: (evt: ChangeEvent<HTMLInputElement>) => void,
+	city: string,
 };
 
-const WeatherSearchLocations = ({ handleCityInput }: IWeatherSearchLocationsPropsType): JSX.Element => {
+const WeatherSearchLocations = ({ cityInputHandler, city }: IWeatherSearchLocationsPropsType): JSX.Element => {
 
 	return (
 		<form className='weather-search-location'>
 			<label className='weather-search-location__label'>
 				<span className='weather-search-location__placeholder'>Search location</span>
 				<input className='weather-search-location__input' type="text" placeholder='Poznań'
-					onChange={handleCityInput}
+					onChange={cityInputHandler}
+					value={city}
 				/>
 			</label>
 

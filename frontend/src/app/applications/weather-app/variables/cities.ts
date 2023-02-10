@@ -56,7 +56,6 @@ export const WORLD_CITIES: string[] = [
   'Vadodara',
   'Valencia',
   'Varanasi',
-  'Warsaw',
   'Vein',
   'Vijayawada',
   'Vishakhapatnam',
