@@ -5,8 +5,8 @@ import PopularLocationItem from './popular-location-item/popular-location-item';
 import './popular-locations.scss';
 
 interface IPopularLocaionsPropsType {
-	hintCity: string[] | null
-}
+	hintCity: string[] | null,
+};
 
 const PopularLocaions = ({ hintCity }: IPopularLocaionsPropsType): JSX.Element => {
 
