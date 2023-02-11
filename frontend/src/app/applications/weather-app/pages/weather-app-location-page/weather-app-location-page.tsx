@@ -31,12 +31,13 @@ const WeatherAppLocationPage = (): JSX.Element => {
 	const onSaveCityButtonHandler = (): void => {
 
 		if(city.trim().length > 0) {
-			locationService.isARealCity(city)
+			locationService.isRealCity(city)
 			.then((result) => {
 				console.log(result);
 			})
 			.catch(error => {
-				console.log(error);
+				// console.log(error);
+				console.log('error' + error.message)
 			});
 		} else {
 			console.log('enter a city')
