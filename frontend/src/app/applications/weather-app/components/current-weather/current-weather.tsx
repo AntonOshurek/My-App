@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplash from '../../services/unsplash-service';
@@ -26,7 +26,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 				setImage(imageData);
 				setStyles({
 					backgroundImage: `url(${ imageData?.imageUrl })`
-				});
+				})
 			});
 		};
 	}, [myCity]);
