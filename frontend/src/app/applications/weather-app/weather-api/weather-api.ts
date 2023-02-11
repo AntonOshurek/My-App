@@ -29,7 +29,7 @@ class WeatherApi {
 				return result;
 			})
 			.catch(error => {
-				console.log('error' + error.message)
+				return Promise.reject(error);
 			});
 
 			if (!cityData) {

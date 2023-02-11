@@ -4,13 +4,18 @@ import { PopularLocaions, WeatherSearchLocations } from '../../components';
 //services
 import cityHints from "../../services/city-hints";
 import locationService from "../../services/location-service";
+//store
+import { useAppDispatch } from "../../../../generic-utils/hooks/hooks";
+import { setMyCityAction } from "../../../../store/slices/app-slice";
 //styles
 import './weather-app-location.scss';
 
 const WeatherAppLocationPage = (): JSX.Element => {
+	const dispatch = useAppDispatch();
 
   const [hintCity, setHintCity] = useState<string[] | null>(null);
 	const [city, setCity] = useState<string>('')
+	const [message, setMessage] = useState<string>('');
 
   const cityInputHandler = (event: ChangeEvent<HTMLInputElement>): void => {
 		const value = event.target.value.trim();
@@ -25,23 +30,34 @@ const WeatherAppLocationPage = (): JSX.Element => {
   };
 
 	const cityButtonHandler = (evt: MouseEvent<HTMLButtonElement>): void => {
-		setCity(evt.currentTarget.textContent || '');
+		const cityButtonText = evt.currentTarget.textContent;
+		if(cityButtonText) {
+			setCity(cityButtonText.trim());
+		} else {
+			setCity('');
+		};
 	};
 
-	const onSaveCityButtonHandler = (): void => {
+	const onSaveCityButtonHandler = (evt: MouseEvent<HTMLButtonElement>): void => {
+		evt.preventDefault();
 
-		if(city.trim().length > 0) {
+		if(city.length > 0) {
 			locationService.isRealCity(city)
 			.then((result) => {
-				console.log(result);
+				if(result === true) {
+					// console.log('done')
+					dispatch(setMyCityAction({myCity: city}));
+					setMessage('New city saved');
+				} else {
+					setMessage('We couldn\'t find your city. Please check the spelling of the city.')
+				};
 			})
 			.catch(error => {
-				// console.log(error);
-				console.log('error' + error.message)
+				setMessage('error' + error.message)
 			});
 		} else {
-			console.log('enter a city')
-		}
+			setMessage('Please enter the name of your city or select it from the list.')
+		};
 
 		//check it is a real city?
 		//if true, save city to global store
@@ -54,7 +70,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 
 			<main className='weather-app-location-page__main'>
 
-				<section className='weather-app-location-page__application container'>
+				<section className='weather-app-location-page__application'>
 					<h2 className='visually-hidden'>change location</h2>
 
 					<PopularLocaions hintCity={hintCity} cityButtonHandler={cityButtonHandler}/>
@@ -63,6 +79,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 						cityInputHandler={cityInputHandler}
 						city={city}
 						onSaveCityButtonHandler={onSaveCityButtonHandler}
+						message={message}
 					/>
 
 				</section>
