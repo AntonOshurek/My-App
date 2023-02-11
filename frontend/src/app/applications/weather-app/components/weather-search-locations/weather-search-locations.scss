@@ -1,5 +1,5 @@
 .weather-search-location {
-	width: 100%;
+	width: 300px;
 	height: 100%;
 	padding: 30px 20px;
 
@@ -44,6 +44,20 @@
 	color: var(--weather-search-dark);
 }
 
+.weather-search-location__message {
+	text-align: center;
+	text-decoration: none;
+	color: var(--weather-basic-font-color);
+}
+
+.weather-search-location__controls {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content min-content;
+	gap: 10px;
+}
+
 .weather-search-location__submit {
 	display: flex;
 	flex-direction: row-reverse;
@@ -83,5 +97,23 @@
 
 	&:active {
 		transform: scale(0.97);
+	}
+}
+
+.weather-search-location__back-link {
+	width: 100%;
+	padding: 10px 20px;
+	border: none;
+	border-radius: var(--weather-basic-border-radius);
+	cursor: pointer;
+
+	text-align: center;
+	text-decoration: none;
+	color: var(--weather-search-light);
+
+	background-color: var(--weather-search-dark);
+
+	&:hover {
+		color: var(--weather-basic-font-color);
 	}
 }

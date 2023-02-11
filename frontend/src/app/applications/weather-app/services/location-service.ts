@@ -1,10 +1,22 @@
-import axios from "axios";
-//utils
-import { replaceNonEnglish } from "../../../generic-utils/utils/replaceNonEnglish";
-//types
-import { ICityType } from "../types/location-service-types";
+import axios, { AxiosInstance } from "axios";
 
 class LocationService {
+	#REQUEST_TIMEOUT: number = 5000;
+	#OPEN_WEATHER_MAP_API_KEY = '3ee1caa005bcc97e06effbf8377e9a06';
+	#OPEN_WEATHER_MAP_BASE_URL = 'https://api.openweathermap.org/data/2.5/';
+	#OPEN_WEATHER_MAP_INSTANCE: AxiosInstance;
+
+
+	constructor() {
+		this.#OPEN_WEATHER_MAP_INSTANCE = axios.create({
+			baseURL: this.#OPEN_WEATHER_MAP_BASE_URL,
+      params: {
+        key: this.#OPEN_WEATHER_MAP_API_KEY,
+				timeout: this.#REQUEST_TIMEOUT,
+      }
+		});
+	};
+
   async getCurrentLocation(): Promise<string> {
     try {
       const position = await new Promise<any>((resolve, reject) => {
@@ -21,48 +33,22 @@ class LocationService {
       const cityData = await response.json();
 
 			return cityData.address.city;
-
     } catch (error) {
-      console.error(error);
       throw error;
     };
   };
 
-	async isARealCity(cityValue: string): Promise<any> {
-		const city = replaceNonEnglish(cityValue);
-
-		console.log(city.toLowerCase())
-
+	async isRealCity(city: string) {
 		try {
-			const cityCheckResponse = await axios.get(
-				`http://api.weatherapi.com/v1/search.json?key=05ecde74b40547f2a6f210042220912&q=${city}`
+			const response = await this.#OPEN_WEATHER_MAP_INSTANCE.get(
+				`weather?q=${city}&appid=${this.#OPEN_WEATHER_MAP_API_KEY}`
 			);
-
-			const cityData: ICityType[] = cityCheckResponse.data;
-
-			if (!cityData || !cityData.length) {
-				return Promise.reject(new Error(`"${city}" not found`));
-			};
-
-			let cityExist = false;
-
-			console.log(cityData)
-
-			cityData.map((cityItem) => {
-				if(cityItem.name.toLowerCase() === city.toLowerCase()) {
-					cityExist = true
-					return cityData;
-				}
-			});
-
-			if(cityExist === false) {
-				return Promise.reject(new Error(`"${city}" not found`));
-			}
-
+			return response.data.cod === 200;
 		} catch (error) {
-			return Promise.reject(error);
+			return false
 		};
 	};
+
 };
 
 const locationService = new LocationService();

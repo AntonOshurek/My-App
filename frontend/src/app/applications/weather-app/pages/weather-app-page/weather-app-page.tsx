@@ -33,23 +33,6 @@ const WeatherAppPage = (): JSX.Element => {
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
 
-	useEffect(() => {
-		if((location && location.length !== 0) && (location !== myCity)) {
-			dispatch(setMyCityAction({myCity: location}));
-		} else if (!location && !myCity) {
-			locationService.getCurrentLocation()
-			.then((result) => {
-				dispatch(setMyCityAction({myCity: result}));
-			})
-			.catch(error => {
-				dispatch(setMyCityAction({myCity: ''}));
-
-				//if message === User denied Geolocation show error notification for client!
-				//user has denied access to location data - message
-			});
-		};
-	}, []);
-
 	const setDataToState = (data: IAllWeatherDataType) => {
 		const days: AdaptedDaysDataType = [];
 
@@ -59,6 +42,27 @@ const WeatherAppPage = (): JSX.Element => {
 
 		setDaysWeather(days);
 	};
+
+	useEffect(() => {
+		if((location && location.length !== 0) && (location !== myCity)) {
+
+			dispatch(setMyCityAction({myCity: location}));
+
+		} else if (!location && !myCity) {
+			console.log('else if (!location && !myCity)')
+			locationService.getCurrentLocation()
+			.then((result) => {
+				dispatch(setMyCityAction({myCity: result}));
+			})
+			.catch(error => {
+				dispatch(setMyCityAction({myCity: ''}));
+				console.log(error)
+				//if message === User denied Geolocation show error notification for client!
+				//user has denied access to location data - message
+			});
+
+		};
+	}, []);
 
 	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {
@@ -74,7 +78,10 @@ const WeatherAppPage = (): JSX.Element => {
 	}, [day, daysWeather]);
 
 	useEffect(() => {
+		console.log('useEffect [myCity]')
+
 		if(myCity || myCity.length) {
+			console.log('useEffect if(myCity || myCity.length)')
 			const weatherApiConfiguration = {
 				days: 3,
 				city: replaceNonEnglish(myCity),
@@ -92,7 +99,9 @@ const WeatherAppPage = (): JSX.Element => {
 					console.log('somthing wrong...');
 				};
 			});
-		};
+		} else {
+			//do something.... without location
+		}
 	}, [myCity]);
 
 

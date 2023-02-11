@@ -1,4 +1,6 @@
 import axios, { AxiosInstance } from "axios";
+//srvices
+import locationService from "../services/location-service";
 //types
 import { IGetWeatherConfigurationType } from "../types/weather-app-types";
 
@@ -16,22 +18,23 @@ class WeatherApi {
 				timeout: this.REQUEST_TIMEOUT,
       }
     });
-  }
+  };
 
   async getWeather(configuration: IGetWeatherConfigurationType): Promise<any> {
 		const {days, lang, city} = configuration;
 
     try {
-			// check if the city is a real city
-			const cityCheckResponse = await axios.get(
-				`http://api.weatherapi.com/v1/search.json?key=${this.KEY}&q=${city}`
-			);
+			const cityData = await locationService.isRealCity(city)
+			.then((result) => {
+				return result;
+			})
+			.catch(error => {
+				return Promise.reject(error);
+			});
 
-			const cityData = cityCheckResponse.data;
-
-			if (!cityData || !cityData.length) {
+			if (!cityData) {
 				return Promise.reject(new Error(`City error "${city}" not found`));
-			}
+			};
 
       const response = await this.axiosInstance.get(
 				`forecast.json?q=${city}&lang=${lang}&days=${days}`
