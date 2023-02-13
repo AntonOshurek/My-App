@@ -9,7 +9,7 @@ interface ISearchImageType {
 class Unsplash {
    #API_KEY = "WSog3thiKnxry8lDG1ctSpH1VuRlt63PF79jqgi3pYE";
 
-  async searchCity(cityName: string): Promise<any | ISearchImageType> {
+  async searchCity(cityName: string): Promise<ISearchImageType> {
     try {
       const response = await fetch(`https://api.unsplash.com/search/photos?query=${cityName}&client_id=${this.#API_KEY}`);
       const data = await response.json();

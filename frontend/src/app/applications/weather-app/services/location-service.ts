@@ -38,13 +38,18 @@ class LocationService {
     };
   };
 
-	async isRealCity(city: string) {
+	async isRealCity(city: string): Promise<boolean> {
 		try {
 			const response = await this.#OPEN_WEATHER_MAP_INSTANCE.get(
 				`weather?q=${city}&appid=${this.#OPEN_WEATHER_MAP_API_KEY}`
 			);
 			return response.data.cod === 200;
 		} catch (error) {
+
+			// if(error instanceof Error) {
+			// 	console.log(error.message);
+			// }
+
 			return false
 		};
 	};

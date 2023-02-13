@@ -78,10 +78,8 @@ const WeatherAppPage = (): JSX.Element => {
 	}, [day, daysWeather]);
 
 	useEffect(() => {
-		console.log('useEffect [myCity]')
-
 		if(myCity || myCity.length) {
-			console.log('useEffect if(myCity || myCity.length)')
+
 			const weatherApiConfiguration = {
 				days: 3,
 				city: replaceNonEnglish(myCity),
@@ -93,8 +91,10 @@ const WeatherAppPage = (): JSX.Element => {
 				setDataToState(response);
 			})
 			.catch((error) => {
-				if(error.message.search('City error') >= 0) {
-					console.log('City error');
+				if(error instanceof Error) {
+					if(error.message.search('City error') >= 0) {
+						console.log(error.message);
+					}
 				} else {
 					console.log('somthing wrong...');
 				};

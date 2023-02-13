@@ -117,7 +117,7 @@ interface IOneHourDayDataType {
   gust_mph: number;
   gust_kph: number;
   uv: number;
-}
+};
 
 export interface IOneDayDataType {
 	date: string;
@@ -133,4 +133,4 @@ export interface IAllWeatherDataType {
 	forecast: {
 		forecastday: IOneDayDataType[];
 	};
-}
+};

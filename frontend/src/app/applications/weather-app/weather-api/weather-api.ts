@@ -3,25 +3,29 @@ import axios, { AxiosInstance } from "axios";
 import locationService from "../services/location-service";
 //types
 import { IGetWeatherConfigurationType } from "../types/weather-app-types";
+import {IAllWeatherDataType} from '../types/weather-data-types';
 
 class WeatherApi {
-  private axiosInstance: AxiosInstance;
+  private WEATHER_API_INSTANCE: AxiosInstance;
+	private WEATHER_API_KEY: string
+	private WEATHER_API_URL: string
 	private REQUEST_TIMEOUT: number = 5000;
-	private KEY: string
 
-  constructor(apiKey: string) {
-		this.KEY = apiKey;
-    this.axiosInstance = axios.create({
-      baseURL: "http://api.weatherapi.com/v1/",
+  constructor(apiKey: string, apiUrl: string) {
+		this.WEATHER_API_KEY = apiKey;
+		this.WEATHER_API_URL = apiUrl;
+
+    this.WEATHER_API_INSTANCE = axios.create({
+      baseURL: this.WEATHER_API_URL,
       params: {
-        key: apiKey,
+        key: this.WEATHER_API_KEY,
 				timeout: this.REQUEST_TIMEOUT,
-      }
+      },
     });
   };
 
-  async getWeather(configuration: IGetWeatherConfigurationType): Promise<any> {
-		const {days, lang, city} = configuration;
+  async getWeather(getWeatherConfiguration: IGetWeatherConfigurationType): Promise<IAllWeatherDataType> {
+		const {days, lang, city} = getWeatherConfiguration;
 
     try {
 			const cityData = await locationService.isRealCity(city)
@@ -33,20 +37,31 @@ class WeatherApi {
 			});
 
 			if (!cityData) {
-				return Promise.reject(new Error(`City error "${city}" not found`));
+				return Promise.reject(new Error(`City error: city - "${city}" not found`));
 			};
 
-      const response = await this.axiosInstance.get(
+      const response = await this.WEATHER_API_INSTANCE.get(
 				`forecast.json?q=${city}&lang=${lang}&days=${days}`
 			);
 
-      return response.data;
+			if (response.status >= 200 && response.status < 300) {
+				return response.data;
+			} else {
+				return Promise.reject(new Error(response.statusText))
+			};
+
     } catch (error) {
-			return Promise.reject(error);
+
+			if(error instanceof Error) {
+				return Promise.reject(new Error(error.message))
+			} else {
+				return Promise.reject('somthing wrong in getWeather')
+			};
+
     };
   }
-}
+};
 
-const weatherApi = new WeatherApi("05ecde74b40547f2a6f210042220912");
+const weatherApi = new WeatherApi('05ecde74b40547f2a6f210042220912', 'http://api.weatherapi.com/v1/');
 
 export default weatherApi;
