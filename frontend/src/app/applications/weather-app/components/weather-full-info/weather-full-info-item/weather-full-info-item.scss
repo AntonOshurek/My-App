@@ -1,6 +1,6 @@
 .weather-full-info__item {
 	height: 100%;
-	width: 350px;
+	width: 300px;
 	padding: 20px;
 
 	color: #fff;
@@ -23,10 +23,16 @@
 	height: min-content;
 	padding: 2px;
 
-	display: flex;
-	justify-content: space-between;
+	// display: flex;
+	// justify-content: space-between;
+	// align-items: center;
+	// gap: 10px;
+
+	display: grid;
+	grid-template-columns: min-content 1fr min-content;
+	grid-template-rows: 1fr;
 	align-items: center;
-	gap: 10px;
+	grid-column-gap: 5px;
 
 	align-self: center;
 	justify-self: start;
