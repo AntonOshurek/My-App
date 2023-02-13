@@ -2,7 +2,7 @@ import { useState, ChangeEvent, MouseEvent } from "react";
 //components
 import { PopularLocaions, WeatherSearchLocations } from '../../components';
 //services
-import cityHints from "../../services/city-hints";
+import cityHintsService from "../../services/city-hints-service";
 import locationService from "../../services/location-service";
 //store
 import { useAppDispatch } from "../../../../generic-utils/hooks/hooks";
@@ -24,7 +24,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 		if(value === '') {
 			setHintCity(null);
 		} else {
-			const cityHint = cityHints.getHints(value);
+			const cityHint = cityHintsService.getHints(value);
 			setHintCity(cityHint);
 		};
   };

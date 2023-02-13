@@ -3,7 +3,7 @@ import { replaceNonEnglish } from "../../../generic-utils/utils/replaceNonEnglis
 //variables
 import { CITIES } from "../variables/cities";
 
-class CityHints {
+class CityHintsService {
   private cities: string[];
 
   constructor(cities: string[]) {
@@ -14,8 +14,8 @@ class CityHints {
     // return this.cities.filter(city => city.toLowerCase().startsWith(query.toLowerCase()));
 		return this.cities.filter((city) => city.toLowerCase().includes(replaceNonEnglish(query).toLowerCase()));
   };
-}
+};
 
-const cityHints = new CityHints(CITIES);
+const cityHintsService = new CityHintsService(CITIES);
 
-export default cityHints;
+export default cityHintsService;
