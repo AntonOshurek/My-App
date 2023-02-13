@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
-import { CurrentWeather, WeatherControls } from '../../components/';
+import { CurrentWeather, WeatherControls, WeatherFullInfo } from '../../components/';
 //api
-import weatherApi from '../../weather-api/weather-api';
+import weatherApi from '../../api/weather-api';
 //services
 import locationService from '../../services/location-service';
 //adapters for data
@@ -123,6 +123,10 @@ const WeatherAppPage = (): JSX.Element => {
 					/>
 
 				</section>
+
+				<WeatherFullInfo
+					currentWeather={currentWeather ? currentWeather : null}
+				/>
 
 			</main>
 		</div>

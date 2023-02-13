@@ -38,3 +38,8 @@ export function compareDates(date1: string, date2: Date | string) {
 		return false;
 	};
 };
+
+export function getTimeFromString(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleTimeString();
+}
