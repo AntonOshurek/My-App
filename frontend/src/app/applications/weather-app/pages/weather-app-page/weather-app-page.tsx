@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
-import { CurrentWeather, WeatherControls } from '../../components/';
+import { CurrentWeather, WeatherControls, WeatherFullInfo } from '../../components/';
 //api
-import weatherApi from '../../weather-api/weather-api';
+import weatherApi from '../../api/weather-api';
 //services
 import locationService from '../../services/location-service';
 //adapters for data
@@ -49,7 +49,7 @@ const WeatherAppPage = (): JSX.Element => {
 			dispatch(setMyCityAction({myCity: location}));
 
 		} else if (!location && !myCity) {
-			console.log('else if (!location && !myCity)')
+			// console.log('else if (!location && !myCity)')
 			locationService.getCurrentLocation()
 			.then((result) => {
 				dispatch(setMyCityAction({myCity: result}));
@@ -78,10 +78,8 @@ const WeatherAppPage = (): JSX.Element => {
 	}, [day, daysWeather]);
 
 	useEffect(() => {
-		console.log('useEffect [myCity]')
-
 		if(myCity || myCity.length) {
-			console.log('useEffect if(myCity || myCity.length)')
+
 			const weatherApiConfiguration = {
 				days: 3,
 				city: replaceNonEnglish(myCity),
@@ -93,8 +91,10 @@ const WeatherAppPage = (): JSX.Element => {
 				setDataToState(response);
 			})
 			.catch((error) => {
-				if(error.message.search('City error') >= 0) {
-					console.log('City error');
+				if(error instanceof Error) {
+					if(error.message.search('City error') >= 0) {
+						console.log(error.message);
+					}
 				} else {
 					console.log('somthing wrong...');
 				};
@@ -123,6 +123,10 @@ const WeatherAppPage = (): JSX.Element => {
 					/>
 
 				</section>
+
+				<WeatherFullInfo
+					currentWeather={currentWeather ? currentWeather : null}
+				/>
 
 			</main>
 		</div>
