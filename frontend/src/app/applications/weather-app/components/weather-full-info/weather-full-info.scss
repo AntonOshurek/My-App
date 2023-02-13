@@ -33,6 +33,7 @@
 }
 
 .weather-full-info__list {
+	height: 100%;
 	max-width: 100%;
 	padding: 20px 0;
 	overflow: auto;
@@ -40,6 +41,7 @@
 }
 
 .weather-full-info__list-wrap {
+	height: 100%;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
