@@ -28,13 +28,10 @@ class WeatherApi {
 		const {days, lang, city} = getWeatherConfiguration;
 
     try {
-			const cityData = await locationService.isRealCity(city)
-			.then((result) => {
-				return result;
-			})
-			.catch(error => {
-				return Promise.reject(error);
-			});
+			const cityData = await locationService
+			.isRealCity(city)
+			.then((result) => result)
+			.catch((error) => Promise.reject(error));
 
 			if (!cityData) {
 				return Promise.reject(new Error(`City error: city - "${city}" not found`));
@@ -62,6 +59,9 @@ class WeatherApi {
   }
 };
 
-const weatherApi = new WeatherApi('05ecde74b40547f2a6f210042220912', 'http://api.weatherapi.com/v1/');
+const weatherApi = new WeatherApi(
+	'05ecde74b40547f2a6f210042220912',
+	'http://api.weatherapi.com/v1/'
+	);
 
 export default weatherApi;

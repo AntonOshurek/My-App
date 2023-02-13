@@ -49,7 +49,7 @@ const WeatherAppPage = (): JSX.Element => {
 			dispatch(setMyCityAction({myCity: location}));
 
 		} else if (!location && !myCity) {
-			console.log('else if (!location && !myCity)')
+			// console.log('else if (!location && !myCity)')
 			locationService.getCurrentLocation()
 			.then((result) => {
 				dispatch(setMyCityAction({myCity: result}));
