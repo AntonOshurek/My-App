@@ -43,14 +43,14 @@ class LocationService {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-			const responce = await this.STREET_MAP_INSTANCE.get(
+			const response = await this.STREET_MAP_INSTANCE.get(
 				`reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
 			);
 
-			if (responce.status >= 200 && responce.status < 300) {
-				return responce.data.address.city;
+			if (response.status >= 200 && response.status < 300) {
+				return response.data.address.city;
 			} else {
-				return Promise.reject(new Error(responce.statusText))
+				return Promise.reject(new Error(response.statusText))
 			};
 
     } catch (error) {

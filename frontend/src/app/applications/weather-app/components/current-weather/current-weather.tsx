@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
-import unsplash from '../../services/unsplash-service';
+import unsplashApi from '../../api/unsplash-api';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
@@ -22,7 +22,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 	useEffect(() => {
 		if(myCity && myCity.length) {
-			unsplash.searchCity(myCity).then(imageData => {
+			unsplashApi.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
 					backgroundImage: `url(${ imageData?.imageUrl })`
