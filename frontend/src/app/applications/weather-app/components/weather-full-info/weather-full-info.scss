@@ -12,26 +12,6 @@
 	justify-items: center;
 }
 
-.weather-full-info__show-button {
-	width: 300px;
-	padding: 10px 20px;
-	border: none;
-	border-radius: var(--weather-basic-border-radius);
-	cursor: pointer;
-
-	text-align: center;
-	text-decoration: none;
-	color: var(--weather-basic-font-color);
-	background-image: var(--weather-gradient);
-	transition: all 0.2s ease;
-
-	box-shadow: var(--weather-change-location-button-shadow);
-
-	&:hover {
-		transform: scale(0.95);
-	}
-}
-
 .weather-full-info__list {
 	height: 100%;
 	max-width: 100%;

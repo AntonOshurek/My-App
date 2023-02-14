@@ -12,12 +12,11 @@ interface IWeatherFullInfoPropsType {
 }
 
 const WeatherFullInfo = ({currentWeather}: IWeatherFullInfoPropsType): JSX.Element => {
-	console.log(currentWeather)
+	// console.log(currentWeather)
 
 	return (
 		<section className='weather-full-info'>
 			<h2 className='visually-hidden'>full information about current day weather</h2>
-			<button className='weather-full-info__show-button'>show info</button>
 
 			{
 				currentWeather ?
@@ -25,20 +24,17 @@ const WeatherFullInfo = ({currentWeather}: IWeatherFullInfoPropsType): JSX.Eleme
 					<div className='weather-full-info__list-wrap'>
 						{
 							currentWeather.hour.map((hourWeather) => {
-								return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather}/>
+								const hours = [1, 4, 7, 10, 13, 16, 19, 22];
+								const date = new Date(hourWeather.time);
+
+								if (hours.includes(date.getHours())) {
+									return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather}/>
+								} else {
+									return null;
+								}
 							})
 						}
 					</div>
-
-					{/* <li className='weather-full-info__item'>
-						<article className='weather-full-info__day-article'>
-							<h3 className='weather-full-info__day-hour'></h3>
-							<p>
-								<time dateTime={currentWeather?.hour[1].time}>{getTimeFromString(currentWeather?.hour[1].time)}</time>
-							</p>
-
-						</article>
-					</li> */}
 				</ul> :	null
 			}
 		</section>

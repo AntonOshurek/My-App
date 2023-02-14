@@ -23,11 +23,6 @@
 	height: min-content;
 	padding: 2px;
 
-	// display: flex;
-	// justify-content: space-between;
-	// align-items: center;
-	// gap: 10px;
-
 	display: grid;
 	grid-template-columns: min-content 1fr min-content;
 	grid-template-rows: 1fr;
@@ -47,7 +42,7 @@
 	transition: all .1s ease;
 	cursor: pointer;
 
-	opacity: 0.8;
+	opacity: 0.9;
 
 	background-color: var(--weather-search-dark);
 
@@ -55,10 +50,10 @@
 	&:hover {
 		opacity: 1;
 		border-bottom: 1px solid #fff;
-		// transition: all .1s ease;
-		// transform: scale(1.2);
-		// box-shadow: var(--weather-change-location-button-shadow);
-		// border-radius: var(--weather-basic-border-radius);
+	}
+
+	&--black {
+		color: var(--weather-background-color);
 	}
 }
 
@@ -73,4 +68,9 @@
 	color: var(--weather-basic-font-color);
 	font-size: 18px;
 	font-weight: 300;
+
+	&--black {
+		color: var(--weather-background-color);
+		font-weight: 500;
+	}
 }
