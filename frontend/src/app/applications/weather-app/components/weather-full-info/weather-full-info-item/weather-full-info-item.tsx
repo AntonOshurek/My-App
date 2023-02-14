@@ -14,14 +14,29 @@ interface IWeatherFullInfoItemPropsType {
 
 const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.Element => {
 
-	function convertWindSpeed(windKph: number) {
-		return Math.round(+windKph * 0.621371);
+	function convertWindKmhToMs(windKmh: number): number {
+		// 1 km/h = 0.277778 m/s
+		const windMs = windKmh * 0.277778;
+		return windMs;
 	};
 
 	function windToGray(windSpeed: number): string {
-		const grayValue = Math.round(255 - (windSpeed * 2.55));
-		return `rgb(${grayValue}, ${grayValue}, ${grayValue})`;
-	}
+		const WIND_SPEED_RECORD: number = 32;
+		const WIND_PERCENT = windSpeed * 100 / WIND_SPEED_RECORD;
+
+		const MAX_RGB_VALUE = 110;
+		const MIN_RGB_VALUE = 191;
+
+		const RGB_COLOR_RANGE = MIN_RGB_VALUE - MAX_RGB_VALUE;
+		const newRGBColor = MIN_RGB_VALUE - Math.round(RGB_COLOR_RANGE * WIND_PERCENT / 100);
+
+		console.log(newRGBColor);
+
+		// const grayValue = Math.round(255 - (windSpeed * 2.55));
+
+
+		return `rgb(${newRGBColor}, ${newRGBColor}, ${newRGBColor})`;
+	};
 
 	function generateTemperatureColor(temperature: number): string {
 		const PLUS_TEM_RECORD: number = 40;
@@ -66,7 +81,8 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 
 	const tempBgColor = generateTemperatureColor(hourWeather.tempC);
 
-	const backgroundColor : string = windToGray(convertWindSpeed(hourWeather.windKph))
+	// const backgroundColor : string = windToGray(convertWindKmhToMs(hourWeather.windKph))
+	const backgroundColor : string = windToGray(13);
 
 	return (
 		<li className='weather-full-info__item'>
@@ -103,8 +119,8 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 
 				<p className='weather-full-info__text weather-full-info__text--black' style={{ backgroundColor }}>
 					<FontAwesomeIcon icon={faWind} />
-					Ветер км/ч:
-					<span className='weather-full-info__data weather-full-info__data--black'>{hourWeather.windKph}</span>
+					Ветер м/с:
+					<span className='weather-full-info__data weather-full-info__data--black'>{Math.round(hourWeather.windKph)}</span>
 				</p>
 
 			</article>
