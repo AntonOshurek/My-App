@@ -8,13 +8,13 @@
 	--weather-app-page-application-bg-color: #222831;
 	--weather-basic-text-color: #f5f5f5; /*whitesmoke color*/
 	--weather-basic-dark-text-color: #222831;
+	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%); /*used in buttons and current weather full image :after element*/
 
 	/* ---------------refactoring------------- */
 	--weather-background-color: #222831;
 	--weather-basic-font-color: #ffffff;
 	--weather-days-card-background-color: #2a323d;
 	--weather-days-card-hover-color: #222831;
-	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
 
 	--weather-search-light: #dddddd;
 	--weather-search-dark: #343d4b;
@@ -23,11 +23,12 @@
 	/* SHADOWS */
 	--weather-application-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
 	--weather-full-info-item-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
+	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.6);
 /* -----------refactoring------------- */
 	--weather-days-card-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.4);
 	--weather-component-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.7);
 	/* --weather-current-component-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.4); */
-	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.4);
+
 
 
 	/* PADDINGS AND RADIUSES */
@@ -46,6 +47,9 @@
 	--weather-current-temp-text-weight: 500;
 	--weather-current-temp-info-text-size: 18px;
 	--weather-current-temp-info-text-weight: 500;
+
+	--weather-controls-location-button-text-size: 16px;
+	--weather-controls-location-button-text-weight: 400;
 
 	--weather-full-info-text-size: 16px;
 	--weather-full-info-text-weight: 400;
