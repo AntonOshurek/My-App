@@ -36,31 +36,31 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 						<FontAwesomeIcon icon={faTint} />
 						Влажность:
 					</span>
-					<span className='weather-full-info__data'>{hourWeather.humidity}</span>
+					<span className='weather-full-info__data'>{hourWeather.humidity} %</span>
 				</p>
 
 				<p className='weather-full-info__point'>
 					<span className='weather-full-info__text weather-full-info__point-text'>
 						<FontAwesomeIcon icon={faTint} />
-						Осадки Mm:
+						Осадки:
 					</span>
-					<span className='weather-full-info__data'>{hourWeather.precipMm}</span>
+					<span className='weather-full-info__data'>{hourWeather.precipMm} Mm</span>
 				</p>
 
 				<p className='weather-full-info__point' style={{ backgroundColor:tempBgColor }}>
 					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
 						<FontAwesomeIcon icon={faThermometerHalf} />
-						Температура  C:
+						Температура:
 					</span>
-					<span className='weather-full-info__data weather-full-info__data--dark'>{hourWeather.tempC}</span>
+					<span className='weather-full-info__data weather-full-info__data--dark'>{hourWeather.tempC}°C</span>
 				</p>
 
 				<p className='weather-full-info__point' style={{ backgroundColor }}>
 					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
 						<FontAwesomeIcon icon={faWind} />
-						Ветер м/с:
+						Ветер:
 					</span>
-					<span className='weather-full-info__data weather-full-info__data--dark'>{Math.round(hourWeather.windKph)}</span>
+					<span className='weather-full-info__data weather-full-info__data--dark'>{Math.round(hourWeather.windKph)}м/с</span>
 				</p>
 
 			</article>

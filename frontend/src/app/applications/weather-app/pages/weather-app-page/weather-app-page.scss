@@ -16,12 +16,15 @@
 	justify-content: flex-start;
 	align-items: center;
 	gap: 50px;
+
+	@media (max-width: 800px) {
+		padding: 20px 0;
+	}
 }
 
 .weather-app-page__application  {
 	width: 700px;
-	min-height: 400px;
-	padding: 10px 0;
+	height: 400px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
@@ -29,6 +32,12 @@
 	border-radius: var(--weather-basic-border-radius);
 	background-color: var(--weather-app-page-application-bg-color);
 	box-shadow: var(--weather-application-box-shadow-color);
+
+	@media (max-width: 800px) {
+		width: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: min-content min-content;
+	}
 }
 
 /* width */

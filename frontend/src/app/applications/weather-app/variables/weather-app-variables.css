@@ -1,10 +1,12 @@
 :root {
 	/* FONTS */
 	--weather-basic-font: 'Rubik', 'Arial', sans-serif;
+	/* BASIC COLORS */
+	--basic-white: #ffffff;
 	/* COLORS */
 	--weather-app-page-bg-color: #343d4b;
 	--weather-app-page-application-bg-color: #222831;
-	--weather-basic-text-color: #f3f3f3;
+	--weather-basic-text-color: #f5f5f5; /*whitesmoke color*/
 	--weather-basic-dark-text-color: #222831;
 
 	/* ---------------refactoring------------- */
@@ -32,9 +34,19 @@
 	--weather-basic-border-radius: 20px;
 
 	/* SIZES */
+	--weather-current-info-icon-size: 70px;
 	--weather-full-info-icon-size: 50px;
 
 	/* TEXT SIZES */
+	--weather-current-location-date-text-size: 13px;
+	--weather-current-location-date-text-weight: 400;
+	--weather-current-image-info-text-size: 10px;
+	--weather-current-image-info-text-weight: 500;
+	--weather-current-temp-text-size: 40px;
+	--weather-current-temp-text-weight: 500;
+	--weather-current-temp-info-text-size: 18px;
+	--weather-current-temp-info-text-weight: 500;
+
 	--weather-full-info-text-size: 16px;
 	--weather-full-info-text-weight: 400;
 	--weather-full-info-data-text-size: 17px;

@@ -33,7 +33,8 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 	return (
 		<article className='current-weather' style={styles}>
-			<h3 className='visually-hidden'>Weather for tooday</h3>
+			<h3 className='visually-hidden'>Weather for {currentWeather?.date} date</h3>
+
 			<div className='current-weather__wrap'>
 				<time className='current-weather__date' dateTime={currentWeather?.date}>
 					<span className='current-weather__date-text current-weather__date-text--day'>{getWeekday(currentWeather?.date)}</span>
