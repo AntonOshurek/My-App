@@ -12,9 +12,9 @@
 	justify-self: start;
 
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 18px;
-	font-weight: 500;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-additional-text-size);
+	font-weight: var(--weather-additional-text-weight);
 }
 
 .weather-additional__info-content {
@@ -23,7 +23,7 @@
 	justify-self: end;
 
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 18px;
-	font-weight: 300;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-additional-text-size);
+	font-weight: calc(var(--weather-additional-text-weight) - 100);
 }

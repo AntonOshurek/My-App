@@ -3,7 +3,7 @@
 	width: 100%;
 	min-width: 300px;
 	height: 100%;
-	padding: 30px 20px 0 20px;
+	padding: 30px 20px 20px 20px;
 
 	display: grid;
 	grid-template-columns: 1fr;
@@ -15,7 +15,7 @@
 	background-attachment: fixed;
 
 	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--weather-current-component-shadow);
+	box-shadow: var(--weather-application-box-shadow-color);
 
 	transition: transform 0.3s ease;
 	transform: scale(1.05);
@@ -59,83 +59,87 @@
 
 .current-weather__date-text {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
+	color: var(--weather-basic-text-color);
 
-	font-size: 12px;
-	font-weight: 400;
+	font-size: var(--weather-current-location-date-text-size);
+	font-weight: var(--weather-current-location-date-text-weight);
 
 	&--day {
-		font-size: 22px;
-		font-weight: 500;
+		font-size: calc(var(--weather-current-location-date-text-size) + 10px);
+		font-weight: calc(var(--weather-current-location-date-text-weight) + 100);
 	}
 }
 
 .current-weather__city {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 12px;
-	font-weight: 400;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-current-location-date-text-size);
+	font-weight: var(--weather-current-location-date-text-weight);
 }
 
 .current-weather__image {
+	width: var(--weather-current-info-icon-size);
+	height: var(--weather-current-info-icon-size);
+
 	display: flex;
 	align-self: end;
-	width: 70px;
-	height: 70px;
+
 	object-fit: contain;
 }
 
 .current-weather__temperature {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 40px;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-current-temp-text-size);
+	font-weight: var(--weather-current-temp-text-weight);
+	line-height: var(--weather-current-temp-text-size);
 }
 
 .current-weather__temperature-info {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 18px;
-	font-weight: 500;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-current-temp-info-text-size);
+	font-weight: var(--weather-current-temp-info-text-weight);
 }
 
 .current-weather__image-info {
 	position: relative;
 	z-index: 1;
+
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: min-content min-content;
 	gap: 5px;
-	padding: 10px 0;
 }
 
 .current-weather__image-info-title {
 	font-family: var(--weather-basic-font);
-	color: whitesmoke;
-	font-size: 12px;
-	font-weight: 500;
+	color: var(--weather-basic-text-color);
+	font-size: calc(var(--weather-current-image-info-text-size) + 2px);
+	font-weight: var(--weather-current-image-info-text-weight);
 }
 
 .current-weather__image-author {
 	font-family: var(--weather-basic-font);
-	color: whitesmoke;
-	font-size: 10px;
-	font-weight: 500;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-current-image-info-text-size);
+	font-weight: var(--weather-current-image-info-text-weight);
+
 	align-self: left;
 	grid-row-start: 2;
 }
 
 .current-weather__image-link {
 	font-family: var(--weather-basic-font);
-	color: whitesmoke;
-	font-size: 10px;
-	font-weight: 500;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-current-image-info-text-size);
+	font-weight: var(--weather-current-image-info-text-weight);
+
 	align-self: right;
 	grid-row-start: 2;
 	text-align: right;
 
 	&:hover {
-		color: #fff;
+		color: var(--basic-white);
 	}
 }

@@ -1,9 +1,10 @@
 .popular-location__item {
-	list-style: none;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	list-style: none;
 }
 
 .popular-location__button-icon {
@@ -11,23 +12,26 @@
 }
 
 .popular-location__location-button {
-	cursor: pointer;
 	width: 100%;
-	text-align: left;
+	cursor: pointer;
 	padding: 10px;
-	color: var(--weather-search-light);
-	background-color: var(--weather-search-dark);
-	border: none;
-	border-radius: 20px;
-
-	transition: transform 0.2s ease;
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
+	font-family: var(--weather-basic-font);
+	color: var(--weather-location-popular-bg-color);
+	font-size: var(--weather-location-button-text-size);
+	font-weight: var(--weather-location-button-text-weight);
+
+	background-color: var(--weather-app-page-bg-color);
+	border: none;
+	border-radius: 20px;
+
+	transition: transform 0.2s ease;
+
 	&:hover {
-		// transform: scale(0.98);
 		color: var(--weather-basic-font-color);
 
 		& .popular-location__button-icon {

@@ -2,32 +2,60 @@
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	background-color: var(--weather-search-dark);
+	background-color: var(--weather-app-page-bg-color);
 }
 
 .weather-app-page__main {
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
+	padding: 100px 0 20px 0;
+
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 50px;
+
+	@media (max-width: 800px) {
+		padding: 20px 0;
+	}
 }
 
 .weather-app-page__application  {
 	width: 700px;
-	min-height: 400px;
+	height: 400px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
 
 	border-radius: var(--weather-basic-border-radius);
-	background-color: var(--weather-background-color);
-	color: var(--weather-basic-font-color);
-	box-shadow: var(--weather-component-shadow);
+	background-color: var(--weather-app-page-application-bg-color);
+	box-shadow: var(--weather-application-box-shadow-color);
 
-	// background-color: transparent;
-	//???? not bg? or with bg???
+	@media (max-width: 800px) {
+		width: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: min-content min-content;
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: var(--custom-scroll-width);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--custom-scroll-track-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--custom-scroll-thumb-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--custom-scroll-thumb-hover-color);
 }

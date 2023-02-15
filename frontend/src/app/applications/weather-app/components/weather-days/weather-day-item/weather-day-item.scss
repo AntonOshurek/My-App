@@ -1,48 +1,44 @@
 .weather-days__item {
 	width: 70px;
 	position: relative;
+	padding: 10px;
+
 	display: flex;
 	flex-direction: column-reverse;
 	justify-content: space-between;
 	align-items: center;
 	gap: 10px;
-	padding: 10px;
 
 	list-style: none;
 	border-radius: var(--weather-basic-border-radius);
-
 	transition: all 0.2s ease;
 
 	&:hover,
 	&--current  {
 		transform: scale(1.05);
-		background: var(--weather-basic-font-color);
-
+		background: var(--weather-basic-text-color);
 		box-shadow: var(--weather-days-card-shadow);
 
 		& .weather-days__days-name,
 		& .weather-days__temperature {
-			color: var(--weather-days-card-hover-color);
+			color: var(--weather-basic-dark-text-color);
 		}
 	}
 }
 
 .weather-days__days-name {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
+	color: var(--weather-basic-text-color);
 	font-size: 16px;
 	font-weight: 400;
 }
 
 .weather-days__temperature {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
-	font-size: 20px;
+	color: var(--weather-basic-text-color);
+	font-size: var(--weather-days-tem-text-size);
+	font-weight: var(--weather-days-tem-text-weight);
 }
-
-// .weather-days__temperature-symbol {
-
-// }
 
 .weather-days__image {
 	width: 30px;
