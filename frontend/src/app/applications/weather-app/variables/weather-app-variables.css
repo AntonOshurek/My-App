@@ -1,17 +1,38 @@
 :root {
-
+	/* FONTS */
 	--weather-basic-font: 'Rubik', 'Arial', sans-serif;
+	/* COLORS */
 	--weather-background-color: #222831;
 	--weather-basic-font-color: #ffffff;
 	--weather-days-card-background-color: #2a323d;
 	--weather-days-card-hover-color: #222831;
+	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+
+	--weather-search-light: #dddddd;
+	--weather-search-dark: #343d4b;
+	--weather-search-input-bacground: #666666;
+
+	--weather-basic-text-color: #f3f3f3;
+	--weather-basic-dark-text-color: #222831;
+
+	/* SHADOWS */
 	--weather-days-card-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.4);
 	--weather-component-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.7);
 	--weather-current-component-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.4);
 	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.4);
-	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+
+	--weather-full-info-item-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
+
+	/* PADDINGS AND RADIUSES */
 	--weather-basic-border-radius: 20px;
-	--weather-search-light: #dddddd;
-	--weather-search-dark: #343d4b;
-	--weather-search-input-bacground: #666666;
+
+	/* SIZES */
+	--weather-full-info-icon-size: 50px;
+
+	/* TEXT SIZES */
+	--weather-full-info-text-size: 16px;
+	--weather-full-info-text-weight: 400;
+	--weather-full-info-data-text-size: 17px;
+	--weather-full-info-data-text-weight: 500;
+
 }

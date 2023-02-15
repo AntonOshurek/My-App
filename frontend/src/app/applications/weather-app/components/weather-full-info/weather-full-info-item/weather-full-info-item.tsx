@@ -25,39 +25,42 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 		<li className='weather-full-info__item'>
 			<article className='weather-full-info__day-article'>
 
-				<p className='weather-full-info__text'>
-					<img src={hourWeather.condition.icon} alt="" />
-					<time dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
+				<p className='weather-full-info__header'>
+					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} alt="" />
+					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
+					<span className='weather-full-info__text'>{hourWeather.condition.text}</span>
 				</p>
 
-				<p className='weather-full-info__text'>
-					<FontAwesomeIcon icon={faThermometerHalf} />
-					Состояние:
-					<span className='weather-full-info__data'>{hourWeather.condition.text}</span>
-				</p>
-
-				<p className='weather-full-info__text'>
-					<FontAwesomeIcon icon={faTint} />
-					Влажность:
+				<p className='weather-full-info__point'>
+					<span className='weather-full-info__text weather-full-info__point-text'>
+						<FontAwesomeIcon icon={faTint} />
+						Влажность:
+					</span>
 					<span className='weather-full-info__data'>{hourWeather.humidity}</span>
 				</p>
 
-				<p className='weather-full-info__text'>
-					<FontAwesomeIcon icon={faTint} />
-					Осадки Mm:
+				<p className='weather-full-info__point'>
+					<span className='weather-full-info__text weather-full-info__point-text'>
+						<FontAwesomeIcon icon={faTint} />
+						Осадки Mm:
+					</span>
 					<span className='weather-full-info__data'>{hourWeather.precipMm}</span>
 				</p>
 
-				<p className='weather-full-info__text weather-full-info__text--black' style={{ backgroundColor:tempBgColor }}>
-					<FontAwesomeIcon icon={faThermometerHalf} />
-					Температура  C:
-					<span className='weather-full-info__data weather-full-info__data--black'>{hourWeather.tempC}</span>
+				<p className='weather-full-info__point' style={{ backgroundColor:tempBgColor }}>
+					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
+						<FontAwesomeIcon icon={faThermometerHalf} />
+						Температура  C:
+					</span>
+					<span className='weather-full-info__data weather-full-info__data--dark'>{hourWeather.tempC}</span>
 				</p>
 
-				<p className='weather-full-info__text weather-full-info__text--black' style={{ backgroundColor }}>
-					<FontAwesomeIcon icon={faWind} />
-					Ветер м/с:
-					<span className='weather-full-info__data weather-full-info__data--black'>{Math.round(hourWeather.windKph)}</span>
+				<p className='weather-full-info__point' style={{ backgroundColor }}>
+					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
+						<FontAwesomeIcon icon={faWind} />
+						Ветер м/с:
+					</span>
+					<span className='weather-full-info__data weather-full-info__data--dark'>{Math.round(hourWeather.windKph)}</span>
 				</p>
 
 			</article>

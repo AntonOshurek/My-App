@@ -9,6 +9,8 @@
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
+	padding: 100px 0 20px 0;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -19,6 +21,7 @@
 .weather-app-page__application  {
 	width: 700px;
 	min-height: 400px;
+	padding: 10px 0;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
@@ -27,7 +30,4 @@
 	background-color: var(--weather-background-color);
 	color: var(--weather-basic-font-color);
 	box-shadow: var(--weather-component-shadow);
-
-	// background-color: transparent;
-	//???? not bg? or with bg???
 }

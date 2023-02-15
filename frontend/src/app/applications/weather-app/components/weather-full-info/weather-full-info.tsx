@@ -1,7 +1,5 @@
 //components
 import WeatherFullInfoItem from './weather-full-info-item/weather-full-info-item';
-//utils
-// import { getTimeFromString } from '../../../../generic-utils/utils/date-utils';
 //types
 import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
@@ -12,7 +10,6 @@ interface IWeatherFullInfoPropsType {
 }
 
 const WeatherFullInfo = ({currentWeather}: IWeatherFullInfoPropsType): JSX.Element => {
-	// console.log(currentWeather)
 
 	return (
 		<section className='weather-full-info'>
@@ -24,14 +21,14 @@ const WeatherFullInfo = ({currentWeather}: IWeatherFullInfoPropsType): JSX.Eleme
 					<div className='weather-full-info__list-wrap'>
 						{
 							currentWeather.hour.map((hourWeather) => {
-								const hours = [1, 4, 7, 10, 13, 16, 19, 22];
+								const hours = [1, 4, 7, 10, 13, 16, 19, 23];
 								const date = new Date(hourWeather.time);
 
 								if (hours.includes(date.getHours())) {
 									return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather}/>
 								} else {
 									return null;
-								}
+								};
 							})
 						}
 					</div>
