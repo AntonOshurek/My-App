@@ -31,3 +31,23 @@
 	color: var(--weather-basic-font-color);
 	box-shadow: var(--weather-component-shadow);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: var(--custom-scroll-width);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--custom-scroll-track-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--custom-scroll-thumb-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--custom-scroll-thumb-hover-color);
+}

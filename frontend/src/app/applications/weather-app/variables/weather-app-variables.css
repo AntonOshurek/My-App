@@ -35,4 +35,9 @@
 	--weather-full-info-data-text-size: 17px;
 	--weather-full-info-data-text-weight: 500;
 
+	/* CUSTOM SCROLL BAR */
+	--custom-scroll-width: 10px;
+	--custom-scroll-track-color: #f1f1f1;
+	--custom-scroll-thumb-color: #888888;
+	--custom-scroll-thumb-hover-color: #555555;
 }
