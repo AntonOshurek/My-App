@@ -89,7 +89,7 @@
 
 .current-weather__temperature {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
+	color: var(--weather-basic-text-color);
 	font-size: var(--weather-current-temp-text-size);
 	font-weight: var(--weather-current-temp-text-weight);
 	line-height: var(--weather-current-temp-text-size);
@@ -97,7 +97,7 @@
 
 .current-weather__temperature-info {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-font-color);
+	color: var(--weather-basic-text-color);
 	font-size: var(--weather-current-temp-info-text-size);
 	font-weight: var(--weather-current-temp-info-text-weight);
 }
