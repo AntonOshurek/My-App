@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	background-color: var(--weather-search-dark);
+	background-color: var(--weather-app-page-bg-color);
 }
 
 .weather-app-page__main {
@@ -13,7 +13,7 @@
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 50px;
 }
@@ -27,9 +27,8 @@
 	grid-template-rows: 1fr;
 
 	border-radius: var(--weather-basic-border-radius);
-	background-color: var(--weather-background-color);
-	color: var(--weather-basic-font-color);
-	box-shadow: var(--weather-component-shadow);
+	background-color: var(--weather-app-page-application-bg-color);
+	box-shadow: var(--weather-application-box-shadow-color);
 }
 
 /* width */
