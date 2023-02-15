@@ -12,13 +12,13 @@ const WeatherAdditional = ({ currentWeather }: IWeatherControlsPropsType): JSX.E
 		<>
 			<h3 className='visually-hidden'>Additional information about current day</h3>
 			<dl className='weather-additional'>
-				<dt className='weather-additional__info-subject'>PRECIPITATION</dt>
+				<dt className='weather-additional__info-subject'>Осадки</dt>
 				<dd className='weather-additional__info-content'>{currentWeather?.day.totalPrecipMm} mm</dd>
 
-				<dt className='weather-additional__info-subject'>HUMIDITY</dt>
+				<dt className='weather-additional__info-subject'>Влажность</dt>
 				<dd className='weather-additional__info-content'>{currentWeather?.day.avgHumidity} %</dd>
 
-				<dt className='weather-additional__info-subject'>WIND</dt>
+				<dt className='weather-additional__info-subject'>Ветер</dt>
 				<dd className='weather-additional__info-content'>{currentWeather?.day.maxWindKph} km/h</dd>
 			</dl>
 		</>
