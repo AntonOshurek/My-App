@@ -11,6 +11,8 @@
 	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%); /*used in buttons and current weather full image :after element*/
 	--weather-days-card-background-color: #2a323d;
 
+	--weather-location-popular-bg-color: #dddddd;
+
 	/* ---------------refactoring------------- */
 	--weather-background-color: #222831;
 	--weather-basic-font-color: #ffffff;
@@ -22,13 +24,9 @@
 	/* SHADOWS */
 	--weather-application-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
 	--weather-full-info-item-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
+	--weather-location-popular-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
 	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.6);
 	--weather-days-card-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.8);
-/* -----------refactoring------------- */
-	--weather-component-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.7);
-	/* --weather-current-component-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.4); */
-
-
 
 	/* PADDINGS AND RADIUSES */
 	--weather-basic-border-radius: 20px;
@@ -60,6 +58,12 @@
 	--weather-full-info-text-weight: 400;
 	--weather-full-info-data-text-size: 17px;
 	--weather-full-info-data-text-weight: 500;
+
+	--weather-location-popular-title-text-size: 20px;
+	--weather-location-popular-title-text-weight: 500;
+
+	--weather-location-button-text-size: 14px;
+	--weather-location-button-text-weight: 400;
 
 	/* CUSTOM SCROLL BAR */
 	--custom-scroll-width: 10px;
