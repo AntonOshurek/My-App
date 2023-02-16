@@ -28,7 +28,7 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 				<p className='weather-full-info__header'>
 					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} alt="" />
 					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
-					<span className='weather-full-info__text'>{hourWeather.condition.text}</span>
+					{/* <span className='weather-full-info__text'>{hourWeather.condition.text}</span> */}
 				</p>
 
 				<p className='weather-full-info__point'>
