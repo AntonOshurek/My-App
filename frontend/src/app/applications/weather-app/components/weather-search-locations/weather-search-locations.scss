@@ -19,16 +19,17 @@
 	gap: 5px;
 	cursor: pointer;
 
-	&:focus-within .weather-search-location__input{
+	&:focus-within .weather-search-location__input {
 		background-color: var(--weather-search-light);
+		color: var(--weather-basic-text-color);
 	}
 }
 
 .weather-search-location__placeholder {
 	font-family: var(--weather-basic-font);
-	font-size: 14px;
-	font-weight: 300;
-	color: var(--weather-search-light);
+	font-size: var(--weather-location-input-placeholder-text-size);
+	font-weight: --weather-location-input-placeholder-text-weight;
+	color: var(--weather-basic-text-color);
 }
 
 .weather-search-location__input {
@@ -39,15 +40,19 @@
 	background-color: var(--weather-search-input-bacground);
 
 	font-family: var(--weather-basic-font);
-	font-size: 16px;
-	font-weight: 500;
-	color: var(--weather-search-dark);
+	font-size: var(--weather-location-input-text-size);
+	font-weight: var(--weather-location-input-text-weight);
+	color: var(--weather-basic-dark-text-color);
 }
 
 .weather-search-location__message {
 	text-align: center;
 	text-decoration: none;
-	color: var(--weather-basic-font-color);
+
+	font-family: var(--weather-basic-font);
+	font-size: var(--weather-location-input-text-size);
+	font-weight: var(--weather-location-input-text-weight);
+	color: var(--weather-basic-text-color);
 }
 
 .weather-search-location__controls {
@@ -59,40 +64,31 @@
 }
 
 .weather-search-location__submit {
+	width: 100%;
+	padding: 10px 20px;
+
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: center;
 	padding: 10px 32px;
 
-	// border: none;
-	// border-radius: var(--weather-basic-border-radius);
-	// background-color: var(--weather-search-light);
-	// cursor: pointer;
-	// transition: .1s all ease-in-out;
-
-	// font-family: var(--weather-basic-font);
-	// font-size: 16px;
-	// font-weight: 400;
-	// color: var(--weather-search-dark);
-
-	width: 100%;
-	padding: 10px 20px;
 	border: none;
 	border-radius: var(--weather-basic-border-radius);
 	cursor: pointer;
+	background-image: var(--weather-gradient);
+	transition: all 0.2s ease;
+	box-shadow: var(--weather-change-location-button-shadow);
 
 	text-align: center;
 	text-decoration: none;
-	color: var(--weather-basic-font-color);
-	background-image: var(--weather-gradient);
-	transition: all 0.2s ease;
-
-	box-shadow: var(--weather-change-location-button-shadow);
-
+	color: var(--weather-basic-text-color);
+	font-family: var(--weather-basic-font);
+	font-size: var(--weather-location-save-btn-text-size);
+	font-weight: var(--weather-location-save-btn-text-weight);
 
 	&:hover {
-		// color: #000000;
+		// ???
 	}
 
 	&:active {
@@ -109,11 +105,15 @@
 
 	text-align: center;
 	text-decoration: none;
-	color: var(--weather-search-light);
+	color: var(--weather-basic-text-color);
+	font-family: var(--weather-basic-font);
+	font-size: var(--weather-location-save-btn-text-size);
+	font-weight: var(--weather-location-save-btn-text-weight);
 
-	background-color: var(--weather-search-dark);
+	background-color: var(--weather-app-page-bg-color);
 
 	&:hover {
-		color: var(--weather-basic-font-color);
+		color: var(--basic-white);
+		background-image: var(--weather-gradient);
 	}
 }

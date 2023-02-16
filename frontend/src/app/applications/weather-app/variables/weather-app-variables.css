@@ -10,16 +10,16 @@
 	--weather-basic-dark-text-color: #222831;
 	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%); /*used in buttons and current weather full image :after element*/
 	--weather-days-card-background-color: #2a323d;
-
+	--weather-search-input-bacground: #666666;
 	--weather-location-popular-bg-color: #dddddd;
 
 	/* ---------------refactoring------------- */
-	--weather-background-color: #222831;
-	--weather-basic-font-color: #ffffff;
-	--weather-days-card-hover-color: #222831;
-	--weather-search-light: #dddddd;
-	--weather-search-dark: #343d4b;
-	--weather-search-input-bacground: #666666;
+	/* --weather-background-color: #222831; */
+	/* --weather-basic-font-color: #ffffff; */
+	/* --weather-days-card-hover-color: #222831; */
+	/* --weather-search-light: #dddddd; */
+	/* --weather-search-dark: #343d4b; */
+
 
 	/* SHADOWS */
 	--weather-application-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
@@ -64,6 +64,13 @@
 
 	--weather-location-button-text-size: 14px;
 	--weather-location-button-text-weight: 400;
+
+	--weather-location-input-placeholder-text-size: 14px;
+	--weather-location-input-placeholder-text-weight: 300;
+	--weather-location-input-text-size: 16px;
+	--weather-location-input-text-weight: 500;
+	--weather-location-save-btn-text-size: 14px;
+	--weather-location-save-btn-text-weight: 400;
 
 	/* CUSTOM SCROLL BAR */
 	--custom-scroll-width: 10px;
