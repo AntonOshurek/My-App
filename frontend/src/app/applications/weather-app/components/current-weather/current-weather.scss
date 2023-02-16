@@ -1,8 +1,11 @@
+@import '../../../../variables/variables.scss';
+
 .current-weather {
 	position: relative;
 	width: 100%;
 	min-width: 300px;
-	height: 100%;
+	// height: 100%;
+	min-height: 340px;
 	padding: 30px 20px 20px 20px;
 
 	display: grid;
@@ -12,7 +15,6 @@
 
 	background-position: center;
 	background-size: cover;
-	background-attachment: fixed;
 
 	border-radius: var(--weather-basic-border-radius);
 	box-shadow: var(--weather-application-box-shadow-color);
@@ -36,6 +38,20 @@
 
 	&:hover {
 		transform: scale(1.1) perspective(1500px) rotateY(10deg);
+	}
+
+	@media (max-width: $mobile-width) {
+		width: 100%;
+		transform: scale(1);
+		border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+
+		&::after {
+			border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+		}
+
+		&:hover {
+			transform: none;
+		}
 	}
 }
 

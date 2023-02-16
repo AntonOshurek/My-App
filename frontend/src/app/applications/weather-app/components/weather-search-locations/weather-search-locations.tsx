@@ -30,9 +30,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 				/>
 			</label>
 
-			{
-				message ? <p className="weather-search-location__message">{message}</p> : null
-			}
+				<p className="weather-search-location__message">{message ? message : null}</p>
 
 			<div className="weather-search-location__controls">
 				<button

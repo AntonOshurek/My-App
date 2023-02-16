@@ -1,9 +1,15 @@
+@import '../../../../variables/variables.scss';
+
 .weather-additional {
 	display: grid;
 	grid-template-columns: 1fr max-content;
 	grid-template-rows: repeat(3, min-content);
 	grid-row-gap: 10px;
 	grid-column-gap: 10px;
+
+	@media (max-width: $mobile-width) {
+		width: min-content;
+	}
 }
 
 .weather-additional__info-subject {

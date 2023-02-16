@@ -1,3 +1,5 @@
+import { getZero } from "../auxiliary/auxiliary";
+
 export function formatDate(dateStr: string | undefined) {
 	if(dateStr) {
 		const date = new Date(dateStr);
@@ -41,5 +43,5 @@ export function compareDates(date1: string, date2: Date | string) {
 
 export function getTimeFromString(dateString: string) {
   const date = new Date(dateString);
-  return date.toLocaleTimeString();
+	return `${getZero(date.getHours())}:${getZero(date.getMinutes())}`;
 }

@@ -1,6 +1,6 @@
 .weather-full-info__item {
+	width: 150px;
 	height: 100%;
-	width: 350px;
 	padding: 10px;
 
 	border-radius: var(--weather-basic-border-radius);
@@ -20,14 +20,10 @@
 .weather-full-info__header {
 	width: 100%;
 
-	display: grid;
-	grid-template-columns: min-content min-content 1fr;
-	grid-template-rows: 1fr;
-	grid-column-gap: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	justify-items: end;
-
-	word-wrap: break-word;
 }
 
 .weather-full-info__weather-image {
@@ -41,17 +37,16 @@
 	height: min-content;
 	padding: 2px 4px;
 
-	display: grid;
-	grid-template-columns: 1fr max-content;
-	grid-template-rows: 1fr;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	grid-column-gap: 5px;
 }
 
 .weather-full-info__point-text {
 	width: 100%;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	gap: 5px;
 }
@@ -61,6 +56,7 @@
 	color: var(--weather-basic-text-color);
 	font-size: var(--weather-full-info-text-size);
 	font-weight: var(--weather-full-info-text-weight);
+	text-align: center;
 
 	&--dark {
 		color: var(--weather-basic-dark-text-color);

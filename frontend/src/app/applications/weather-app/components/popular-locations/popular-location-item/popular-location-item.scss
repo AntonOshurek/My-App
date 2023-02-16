@@ -32,7 +32,7 @@
 	transition: transform 0.2s ease;
 
 	&:hover {
-		color: var(--weather-basic-font-color);
+		color: var(--basic-white);
 
 		& .popular-location__button-icon {
 			transition: transform 0.2s ease;
