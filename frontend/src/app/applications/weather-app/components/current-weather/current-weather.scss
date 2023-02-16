@@ -1,3 +1,5 @@
+@import '../../../../variables/variables.scss';
+
 .current-weather {
 	position: relative;
 	width: 100%;
@@ -12,7 +14,6 @@
 
 	background-position: center;
 	background-size: cover;
-	background-attachment: fixed;
 
 	border-radius: var(--weather-basic-border-radius);
 	box-shadow: var(--weather-application-box-shadow-color);
@@ -36,6 +37,14 @@
 
 	&:hover {
 		transform: scale(1.1) perspective(1500px) rotateY(10deg);
+	}
+
+	@media (max-width: $mobile-width) {
+		transform: scale(1);
+
+		&:hover {
+			transform: none;
+		}
 	}
 }
 
