@@ -1,3 +1,5 @@
+@import '../../../../variables/variables.scss';
+
 .popular-location {
 	position: relative;
 	width: 100%;
@@ -13,6 +15,10 @@
 	background-color: var(--weather-basic-text-color);
 	border-radius: var(--weather-basic-border-radius);
 	box-shadow: var(--weather-location-popular-box-shadow);
+
+	@media (max-width: $mobile-width) {
+		height: 300px;
+	}
 }
 
 .popular-location__title {
