@@ -15,7 +15,7 @@
 	background-position: center;
 	background-size: cover;
 
-	border-radius: var(--weather-basic-border-radius);
+	border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
 	box-shadow: var(--weather-application-box-shadow-color);
 
 	transition: transform 0.3s ease;
@@ -40,7 +40,13 @@
 	}
 
 	@media (max-width: $mobile-width) {
+		width: 100%;
+
 		transform: scale(1);
+
+		&::after {
+			border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+		}
 
 		&:hover {
 			transform: none;
