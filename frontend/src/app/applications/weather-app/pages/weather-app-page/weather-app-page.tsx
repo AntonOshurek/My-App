@@ -14,7 +14,7 @@ import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
-import {
+import type {
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';

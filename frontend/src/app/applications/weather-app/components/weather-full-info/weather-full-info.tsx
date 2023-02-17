@@ -1,7 +1,7 @@
 //components
 import WeatherFullInfoItem from './weather-full-info-item/weather-full-info-item';
 //types
-import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-full-info.scss';
 
