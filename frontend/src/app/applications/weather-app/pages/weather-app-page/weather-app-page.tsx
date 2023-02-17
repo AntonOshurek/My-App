@@ -6,8 +6,6 @@ import { CurrentWeather, WeatherControls, WeatherFullInfo } from '../../componen
 import weatherApi from '../../api/weather-api';
 //services
 import locationService from '../../services/location-service';
-//adapters for data
-import weatherDataAdapter from '../../services/weather-data-adapter';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 import { compareDates } from '../../../../generic-utils/utils/date-utils';
@@ -16,11 +14,10 @@ import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
-import {
+import type {
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
-import { IAllWeatherDataType } from '../../types/weather-data-types';
 //styles
 import './weather-app-page.scss';
 
@@ -33,23 +30,11 @@ const WeatherAppPage = (): JSX.Element => {
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
 
-	const setDataToState = (data: IAllWeatherDataType) => {
-		const days: AdaptedDaysDataType = [];
-
-		data.forecast.forecastday.map((dayWeather) => {
-			days.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
-		});
-
-		setDaysWeather(days);
-	};
-
 	useEffect(() => {
 		if((location && location.length !== 0) && (location !== myCity)) {
-
 			dispatch(setMyCityAction({myCity: location}));
-
+			//show modal for change your city "do you want change your city to - city name
 		} else if (!location && !myCity) {
-			// console.log('else if (!location && !myCity)')
 			locationService.getCurrentLocation()
 			.then((result) => {
 				dispatch(setMyCityAction({myCity: result}));
@@ -88,7 +73,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 			weatherApi.getWeather(weatherApiConfiguration)
 			.then((response) => {
-				setDataToState(response);
+				setDaysWeather(response);
 			})
 			.catch((error) => {
 				if(error instanceof Error) {

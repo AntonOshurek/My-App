@@ -13,6 +13,7 @@
 }
 
 .weather-additional__info-subject {
+	// position: relative;
 	height: min-content;
 	align-self: center;
 	justify-self: start;
@@ -24,6 +25,7 @@
 }
 
 .weather-additional__info-content {
+	// position: relative;
 	height: min-content;
 	align-self: center;
 	justify-self: end;
@@ -32,4 +34,8 @@
 	color: var(--weather-basic-text-color);
 	font-size: var(--weather-additional-text-size);
 	font-weight: calc(var(--weather-additional-text-weight) - 100);
+
+	&.skeleton {
+		width: 80px;
+	}
 }

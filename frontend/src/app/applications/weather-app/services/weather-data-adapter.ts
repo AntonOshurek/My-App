@@ -1,7 +1,8 @@
 //types
 import type {
 	IDefaultCurrentWeatherDataType,
-	IDefaultLocationDataType
+	IDefaultLocationDataType,
+	IAllWeatherDataType
 } from "../types/weather-data-types";
 
 import type {
@@ -9,6 +10,7 @@ import type {
 	IAdaptedWeatherLocationDataType,
 	IAdaptedWeatherHourDataType,
 	IAdaptedOneDayDataType,
+	AdaptedDaysDataType,
 } from "../types/weather-adapted-data-types";
 
 import type { IOneDayDataType } from "../types/weather-data-types";
@@ -139,6 +141,16 @@ class WeatherDataAdapter {
 			}),
 		};
 	};
+
+	createForecastDaysAdapter(data: IAllWeatherDataType): AdaptedDaysDataType {
+		const days: AdaptedDaysDataType = [];
+
+		data.forecast.forecastday.map((dayWeather: IOneDayDataType) => {
+			days.push(this.createForecastDayAdapter(dayWeather));
+		});
+
+		return days;
+	}
 };
 
 const weatherDataAdapter = new WeatherDataAdapter();

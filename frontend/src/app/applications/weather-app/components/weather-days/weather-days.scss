@@ -7,4 +7,8 @@
 
 	border-radius: var(--weather-basic-border-radius);
 	background: var(--weather-days-card-background-color);
+
+	&.skeleton {
+		width: 210px;
+	}
 }
