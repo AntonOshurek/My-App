@@ -12,10 +12,11 @@ interface IWeatherDaysPropsType {
 }
 
 const WeatherDays = ({ daysWeather }: IWeatherDaysPropsType): JSX.Element => {
+	const skeletonClass = daysWeather ? '' : 'skeleton weather-days--skeleton';
 	return (
 		<>
 			<h3 className='visually-hidden'>Weather for three days</h3>
-			<ul className='weather-days'>
+			<ul className={`weather-days ${skeletonClass}`}>
 				{
 					daysWeather?.map((dayWeather) => {
 						return <WeatherDayItem key={dayWeather.dateEpoch} weather={dayWeather}/>
