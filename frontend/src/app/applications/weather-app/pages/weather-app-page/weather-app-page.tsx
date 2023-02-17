@@ -33,15 +33,15 @@ const WeatherAppPage = (): JSX.Element => {
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
 
-	const setDataToState = (data: IAllWeatherDataType) => {
-		const days: AdaptedDaysDataType = [];
+	// const setDataToState = (data: IAllWeatherDataType) => {
+	// 	const days: AdaptedDaysDataType = [];
 
-		data.forecast.forecastday.map((dayWeather) => {
-			days.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
-		});
+	// 	data.forecast.forecastday.map((dayWeather) => {
+	// 		days.push(weatherDataAdapter.createForecastDayAdapter(dayWeather));
+	// 	});
 
-		setDaysWeather(days);
-	};
+	// 	setDaysWeather(days);
+	// };
 
 	useEffect(() => {
 		if((location && location.length !== 0) && (location !== myCity)) {
@@ -88,7 +88,8 @@ const WeatherAppPage = (): JSX.Element => {
 
 			weatherApi.getWeather(weatherApiConfiguration)
 			.then((response) => {
-				setDataToState(response);
+				// setDataToState(response);
+				setDaysWeather(response);
 			})
 			.catch((error) => {
 				if(error instanceof Error) {

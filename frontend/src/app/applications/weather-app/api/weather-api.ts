@@ -1,9 +1,12 @@
 import axios, { AxiosInstance } from "axios";
 //srvices
 import locationService from "../services/location-service";
+//adapters
+import weatherDataAdapter from "../services/weather-data-adapter";
 //types
-import { IGetWeatherConfigurationType } from "../types/weather-app-types";
-import {IAllWeatherDataType} from '../types/weather-data-types';
+import type { IGetWeatherConfigurationType } from "../types/weather-app-types";
+import type { IOneDayDataType } from '../types/weather-data-types';
+import type { AdaptedDaysDataType } from "../types/weather-adapted-data-types";
 
 class WeatherApi {
   private WEATHER_API_INSTANCE: AxiosInstance;
@@ -24,7 +27,7 @@ class WeatherApi {
     });
   };
 
-  async getWeather(getWeatherConfiguration: IGetWeatherConfigurationType): Promise<IAllWeatherDataType> {
+  async getWeather(getWeatherConfiguration: IGetWeatherConfigurationType): Promise<AdaptedDaysDataType> {
 		const {days, lang, city} = getWeatherConfiguration;
 
     try {
@@ -42,7 +45,7 @@ class WeatherApi {
 			);
 
 			if (response.status >= 200 && response.status < 300) {
-				return response.data;
+				return weatherDataAdapter.createForecastDaysAdapter(response.data);
 			} else {
 				return Promise.reject(new Error(response.statusText))
 			};
