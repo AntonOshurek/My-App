@@ -11,21 +11,25 @@ interface IWeatherControlsPropsType {
 
 const WeatherAdditional = ({ currentWeather }: IWeatherControlsPropsType): JSX.Element => {
 	const skeletonClass = currentWeather ? '' : 'skeleton';
+
 	return (
 		<>
 			<h3 className='visually-hidden'>Additional information about current day</h3>
 			<dl className='weather-additional'>
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Осадки</dt>
 				<dd className={`weather-additional__info-content ${skeletonClass}`}>
-					{currentWeather?.day.totalPrecipMm}
-					mm
+					{currentWeather ? currentWeather.day.totalPrecipMm : null} mm
 				</dd>
 
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Влажность</dt>
-				<dd className={`weather-additional__info-content ${skeletonClass}`}>{currentWeather?.day.avgHumidity} %</dd>
+				<dd className={`weather-additional__info-content ${skeletonClass}`}>
+					{currentWeather ? currentWeather.day.avgHumidity : null} %
+				</dd>
 
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Ветер</dt>
-				<dd className={`weather-additional__info-content ${skeletonClass}`}>{currentWeather?.day.maxWindKph} km/h</dd>
+				<dd className={`weather-additional__info-content ${skeletonClass}`}>
+					{currentWeather ? convertWindKmhToMs(currentWeather.day.maxWindKph) : null}	m/s
+				</dd>
 			</dl>
 		</>
 	);
