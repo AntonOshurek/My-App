@@ -64,7 +64,7 @@ class WeatherApi {
 
 const weatherApi = new WeatherApi(
 	'05ecde74b40547f2a6f210042220912',
-	'http://api.weatherapi.com/v1/'
+	'https://api.weatherapi.com/v1/'
 	);
 
 export default weatherApi;
