@@ -6,7 +6,7 @@ import unsplashApi from '../../api/unsplash-api';
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
 //types
-import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './current-weather.scss';
 

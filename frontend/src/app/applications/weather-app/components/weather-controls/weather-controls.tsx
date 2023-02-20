@@ -4,7 +4,7 @@ import { WeatherAdditional, WeatherDays } from '../';
 //variables
 import { WeatherAppRoute } from '../../variables/weather-app-routes';
 //types
-import {
+import type {
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
@@ -17,6 +17,7 @@ interface IWeatherControlsPropsType {
 };
 
 const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsType): JSX.Element => {
+
 	return (
 		<div className='weather-controls'>
 			<WeatherAdditional currentWeather={currentWeather}/>

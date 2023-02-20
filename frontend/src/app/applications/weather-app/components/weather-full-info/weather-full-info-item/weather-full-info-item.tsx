@@ -18,8 +18,8 @@ interface IWeatherFullInfoItemPropsType {
 
 const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.Element => {
 
-	const tempBgColor = generateTemperatureColor(+hourWeather.tempC);
-	const backgroundColor : string = generateWindColor(convertWindKmhToMs(hourWeather.windKph))
+	const temperatureColor = generateTemperatureColor(+hourWeather.tempC);
+	const windColor : string = generateWindColor(convertWindKmhToMs(hourWeather.windKph))
 
 	return (
 		<li className='weather-full-info__item'>
@@ -47,7 +47,7 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 					<span className='weather-full-info__data'>{hourWeather.precipMm} Mm</span>
 				</p>
 
-				<p className='weather-full-info__point' style={{ backgroundColor:tempBgColor }}>
+				<p className='weather-full-info__point' style={{ backgroundColor: temperatureColor }}>
 					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
 						<FontAwesomeIcon icon={faThermometerHalf} />
 						Температура:
@@ -55,12 +55,12 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 					<span className='weather-full-info__data weather-full-info__data--dark'>{hourWeather.tempC}°C</span>
 				</p>
 
-				<p className='weather-full-info__point' style={{ backgroundColor }}>
+				<p className='weather-full-info__point' style={{ backgroundColor: windColor }}>
 					<span className='weather-full-info__text weather-full-info__point-text weather-full-info__text--dark'>
 						<FontAwesomeIcon icon={faWind} />
 						Ветер:
 					</span>
-					<span className='weather-full-info__data weather-full-info__data--dark'>{Math.round(hourWeather.windKph)}м/с</span>
+					<span className='weather-full-info__data weather-full-info__data--dark'>{convertWindKmhToMs(hourWeather.windKph)}м/с</span>
 				</p>
 
 			</article>
