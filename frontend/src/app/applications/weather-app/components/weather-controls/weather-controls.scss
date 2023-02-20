@@ -9,6 +9,7 @@
 	padding: 30px;
 
 	@media (max-width: $mobile-width) {
+		min-height: 300px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;

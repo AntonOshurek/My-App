@@ -1,7 +1,7 @@
 //utils
 import { convertWindKmhToMs } from '../../generic-utils/convert-wind-kmh-to-ms';
 //types
-import { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-additional.scss';
 

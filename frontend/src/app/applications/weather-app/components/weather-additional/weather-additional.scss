@@ -1,8 +1,10 @@
 @import '../../../../variables/variables.scss';
 
 .weather-additional {
+	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr max-content;
+	grid-template-columns: 200px 80px;
+	// grid-template-columns: 1fr max-content;
 	grid-template-rows: repeat(3, min-content);
 	grid-row-gap: 10px;
 	grid-column-gap: 10px;
