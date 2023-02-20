@@ -24,7 +24,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 				</span>
 				<input
 					className='weather-search-location__input'
-					type="text" placeholder='Poznań'
+					type="text" placeholder={myCity}
 					onChange={cityInputHandler}
 					value={city}
 				/>
