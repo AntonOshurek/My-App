@@ -45,7 +45,6 @@ const WeatherAppLocationPage = (): JSX.Element => {
 			locationService.isRealCity(city)
 			.then((result) => {
 				if(result === true) {
-					// console.log('done')
 					dispatch(setMyCityAction({myCity: city}));
 					setMessage('New city saved');
 				} else {
@@ -58,10 +57,6 @@ const WeatherAppLocationPage = (): JSX.Element => {
 		} else {
 			setMessage('Please enter the name of your city or select it from the list.')
 		};
-
-		//check it is a real city?
-		//if true, save city to global store
-		//else show error for user
 	};
 
 	return (

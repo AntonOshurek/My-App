@@ -4,7 +4,7 @@ import { WeatherAdditional, WeatherDays } from '../';
 //variables
 import { WeatherAppRoute } from '../../variables/weather-app-routes';
 //types
-import {
+import type {
 	AdaptedDaysDataType,
 	IAdaptedOneDayDataType,
 } from '../../types/weather-adapted-data-types';
@@ -17,6 +17,7 @@ interface IWeatherControlsPropsType {
 };
 
 const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsType): JSX.Element => {
+
 	return (
 		<div className='weather-controls'>
 			<WeatherAdditional currentWeather={currentWeather}/>
@@ -24,7 +25,7 @@ const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsT
 			<WeatherDays daysWeather={daysWeather ? daysWeather : null}/>
 
 			<Link
-				className='weather-controls__change-location-link'
+				className='weather-controls__change-location-link weather-button weather-button--second'
 				to={`../${WeatherAppRoute.WEATHER_APP_LOCATION_PAGE}`}>
 					Change location
 			</Link>

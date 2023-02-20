@@ -65,56 +65,8 @@
 }
 
 .weather-search-location__submit {
-	width: 100%;
-	padding: 10px 20px;
-
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: center;
-	padding: 10px 32px;
-
-	border: none;
-	border-radius: var(--weather-basic-border-radius);
-	cursor: pointer;
-	background-image: var(--weather-gradient);
-	transition: all 0.2s ease;
-	box-shadow: var(--weather-change-location-button-shadow);
-
-	text-align: center;
-	text-decoration: none;
-	color: var(--weather-basic-text-color);
-	font-family: var(--weather-basic-font);
-	font-size: var(--weather-location-save-btn-text-size);
-	font-weight: var(--weather-location-save-btn-text-weight);
-
-	&:hover {
-		// ???
-	}
-
-	&:active {
-		transform: scale(0.97);
-	}
-}
-
-.weather-search-location__back-link {
-	width: 100%;
-	padding: 10px 20px;
-	border: none;
-	border-radius: var(--weather-basic-border-radius);
-	cursor: pointer;
-
-	text-align: center;
-	text-decoration: none;
-	color: var(--weather-basic-text-color);
-	font-family: var(--weather-basic-font);
-	font-size: var(--weather-location-save-btn-text-size);
-	font-weight: var(--weather-location-save-btn-text-weight);
-
-	background-color: var(--weather-app-page-bg-color);
-
-	&:hover {
-		color: var(--basic-white);
-		background-image: var(--weather-gradient);
-	}
 }

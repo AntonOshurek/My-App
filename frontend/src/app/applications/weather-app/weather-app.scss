@@ -1,0 +1,40 @@
+.weather-button {
+	width: 100%;
+	padding: 10px 20px;
+
+	border: 1px solid transparent;
+	border-radius: var(--weather-basic-border-radius);
+	cursor: pointer;
+
+	font-size: var(--weather-controls-location-button-text-size);
+	font-weight: var(--weather-controls-location-button-text-weight);
+	text-align: center;
+	text-decoration: none;
+
+	transition: all 0.2s ease;
+
+	&--main {
+		background-color: var(--weather-basic-text-color);
+		color: var(--weather-basic-dark-text-color);
+
+		&:hover {
+			border: 1px solid #fff;
+			// box-shadow: var(--weather-application-box-shadow-color);
+			box-shadow:  8px 8px 16px #15181e,
+             -6px -6px 12px #536278;
+		}
+	}
+
+	&--second {
+		background-color: var(--weather-app-page-bg-color);
+		color: var(--weather-basic-text-color);
+
+		&:hover {
+			border: 1px solid #fff;
+		}
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+}
