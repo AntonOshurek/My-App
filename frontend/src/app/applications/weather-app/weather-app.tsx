@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { WeatherAppLocationPage, WeatherAppPage } from './pages';
 //variables
 import { WeatherAppRoute } from './variables/weather-app-routes';
+import './weather-app.scss';
 import './variables/weather-app-variables.css';
 
 const WeatherApp = (): JSX.Element => {
