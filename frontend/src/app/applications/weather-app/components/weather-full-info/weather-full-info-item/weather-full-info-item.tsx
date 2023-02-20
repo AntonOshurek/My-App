@@ -1,10 +1,10 @@
-//types
-import { IAdaptedWeatherHourDataType } from '../../../types/weather-adapted-data-types';
 //utils
 import { getTimeFromString } from '../../../../../generic-utils/utils/date-utils';
 import { generateTemperatureColor } from '../../../generic-utils/generate-temperature-color';
 import { generateWindColor } from '../../../generic-utils/generate-wind-color';
 import { convertWindKmhToMs } from '../../../generic-utils/convert-wind-kmh-to-ms';
+//types
+import type { IAdaptedWeatherHourDataType } from '../../../types/weather-adapted-data-types';
 //styles
 import './weather-full-info-item.scss';
 
@@ -18,6 +18,12 @@ interface IWeatherFullInfoItemPropsType {
 
 const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.Element => {
 
+	// console.log(hourWeather)
+
+	if(hourWeather.willItRain) {
+		// console.log(hourWeather)
+	}
+
 	const temperatureColor = generateTemperatureColor(+hourWeather.tempC);
 	const windColor : string = generateWindColor(convertWindKmhToMs(hourWeather.windKph))
 
@@ -28,7 +34,6 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 				<p className='weather-full-info__header'>
 					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} alt="" />
 					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
-					{/* <span className='weather-full-info__text'>{hourWeather.condition.text}</span> */}
 				</p>
 
 				<p className='weather-full-info__point'>
@@ -61,6 +66,10 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 						Ветер:
 					</span>
 					<span className='weather-full-info__data weather-full-info__data--dark'>{convertWindKmhToMs(hourWeather.windKph)}м/с</span>
+				</p>
+
+				<p className='weather-full-info__point weather-full-info__text'>
+					{hourWeather.condition.text}
 				</p>
 
 			</article>
