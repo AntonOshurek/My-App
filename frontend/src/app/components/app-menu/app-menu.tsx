@@ -29,6 +29,8 @@ const AppMenu = (): JSX.Element => {
 	return (
 		<nav className='app-menu'>
 
+			<h3 className='visually-hidden'>Application Menu</h3>
+
 			{
 				menuStatus === menuStatuses.OPEN ? <MenuSettings/> : null
 			}
