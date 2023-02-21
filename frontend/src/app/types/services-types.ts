@@ -1,4 +1,4 @@
-export interface IGetTime {
+export interface ITimeServiceGetTimeType {
 	hours: string,
 	minutes: string,
 	seconds: string

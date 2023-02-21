@@ -1,23 +1,23 @@
 import { useEffect, useState } from 'react';
 //api
-import ApiTime from '../../../../api/time/api-time';
+import timeService from '../../../../services/time-service';
 //utils
 import { getTimeAdvice } from '../../../../generic-utils/auxiliary/get-time-advice';
 //types
-import { IGetTime } from '../../../../types/api-types';
+import { ITimeServiceGetTimeType } from '../../../../types/services-types';
 //styles
 import './header-clock.scss';
 
 const HeaderClock = (): JSX.Element => {
-	const [currentTime, setCurrentTime] = useState<IGetTime>();
+	const [currentTime, setCurrentTime] = useState<ITimeServiceGetTimeType>();
 	const millisecondsInOneMinute: number = 60000;
 
 	useEffect(() => {
 		//for first launch
-		setCurrentTime(ApiTime.getTime());
+		setCurrentTime(timeService.getTime());
 
 		const interval = setInterval(() => {
-			setCurrentTime(ApiTime.getTime());
+			setCurrentTime(timeService.getTime());
 		}, millisecondsInOneMinute);
 
 		return () => clearInterval(interval);
