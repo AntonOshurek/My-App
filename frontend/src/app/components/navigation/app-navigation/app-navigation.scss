@@ -19,7 +19,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 10px;
+	gap: 20px;
 }
 
 .app-nav__item {
@@ -35,6 +35,8 @@
 	justify-content: center;
 
 	text-decoration: none;
+	border: none;
+	background-color: transparent;
 	cursor: pointer;
 
 	&:hover {

@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+//variables
+import { AppRoute } from '../../../variables/app-routes';
+//styles
 import './app-navigation.scss';
 
 const AppNavigation = (): JSX.Element => {
@@ -5,7 +9,7 @@ const AppNavigation = (): JSX.Element => {
 		<nav className='app-nav'>
 			<ul className='app-nav__list'>
 				<li className='app-nav__item'>
-					<a className='app-nav__link' href='w'>
+					<Link className='app-nav__link' to={AppRoute.ROOT}>
 						<span className='visually-hidden'>home</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40" aria-hidden="true" focusable="false">
 							<path fill='#222831' d="M228 869.334h123.667V613.667H609v255.667h123V490.666L480
@@ -13,10 +17,10 @@ const AppNavigation = (): JSX.Element => {
 							336 250.999v505H525V697.666h-89.334v255.667H144Zm336-368Z"
 							/>
 						</svg>
-					</a>
+					</Link>
 				</li>
 				<li className='app-nav__item'>
-					<a className='app-nav__link' href='w'>
+					<button className='app-nav__link'>
 						<span className='visually-hidden'>settings</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40" aria-hidden="true" focusable="false">
 							<path fill='#222831' d="m367.001 997.333-20-131.667q-13.001-5.333-28.467-13.969-15.465-8.637-27.534-18.031l-124
@@ -39,8 +43,21 @@ const AppNavigation = (): JSX.Element => {
 							55.334 42.334 29.333 16.667 61.667 24.667l13.333 110Z"
 							/>
 						</svg>
+					</button>
+				</li>
+				<li className='app-nav__item'>
+					<a className='app-nav__link' href='#'>
+						<span className='visually-hidden'>settings</span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40">
+							<path d="M-4 842q9.891-116.865 71.946-216.599Q130 525.667 233.334 467.667l-81.667-141q-4.667-10.333-1.5-20.4Q153.334
+							296.2 163 290.334q10.334-5 21.334-2.167t16.083 13.352L282.334 442q94.64-40.791 197.875-40.791T678.084 442L760
+							301.334q5.333-10.334 16.19-13.167 10.857-2.833 22.143 2.167 9 5.804 12.833 16.078 3.834 10.275-1.5 20.255l-83
+							141q103.334 58 165.388 157.734Q954.109 725.135 963.999 842H-3.999Zm264-121.667q22.334 0 38.667-16Q315 688.333
+							315 666t-16.333-38.667Q282.334 611 260 611q-22.333 0-38.333 16.333-16 16.334-16 38.667 0 22.333 16 38.333t38.333
+							16Zm440 0q22.333 0 38.666-16Q755 688.333 755 666t-16.334-38.667Q722.333 611 700 611q-22.334 0-38.334 16.333-16
+							16.334-16 38.667 0 22.333 16 38.333t38.334 16Z"/>
+						</svg>
 					</a>
-
 				</li>
 			</ul>
 		</nav>
