@@ -1,5 +1,6 @@
 .header-clock {
-	width: max-content;
+	// width: max-content;
+	width: 100%;
 	color: var(--app-basic-text-color);
 }
 .header-clock__time-text {
@@ -16,13 +17,14 @@
 }
 
 .header-clock__time-info {
+	width: 100%;
 	font-family: var(--app-basic-font);
 	font-size: var(--app-basic-text-size);
 	font-weight: var(--app-basic-text-weight);
 	color: var(--app-basic-text-color);
 
-	display: flex;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: min-content 1fr;
 	align-items: center;
-	gap: 5px;
+	grid-column-gap: 10px;
 }

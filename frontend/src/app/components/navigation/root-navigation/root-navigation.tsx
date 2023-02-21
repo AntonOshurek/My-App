@@ -10,17 +10,17 @@ const RootNavigation = (): JSX.Element => {
 		<nav className='root-navigation'>
 			<ul className='root-navigation__list'>
 				<li className='root-navigation__item root-header__button'>
-					<Link to={AppRoute.WEATHER_APP_LINK} className='root-navigation__link global-root-nav-item'>
+					<Link to={AppRoute.WEATHER_APP_LINK} className='root-navigation__link'>
 						Weather
 					</Link>
 				</li>
 				<li className='root-navigation__item root-header__button'>
-					<Link to={'/'} className='root-navigation__link global-root-nav-item'>
+					<Link to={'/'} className='root-navigation__link'>
 						Movies
 					</Link>
 				</li>
 				<li className='root-navigation__item root-header__button'>
-					<Link to={'/'} className='root-navigation__link global-root-nav-item'>
+					<Link to={'/'} className='root-navigation__link'>
 						Converter
 					</Link>
 				</li>

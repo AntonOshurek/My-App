@@ -1,3 +1,5 @@
+@import '../../../variables/variables.scss';
+
 .root-header {
 	width: 100%;
 }
@@ -19,6 +21,19 @@
 	& .root-exit-button {
 		grid-row-start: 1;
 		grid-column-start: 2;
+	}
+
+	@media (max-width: $tablet-width) {
+		grid-template-columns: 1fr;
+
+		& .root-exit-button-wrap {
+			position: absolute;
+			top: var(--app-standart-side-padding);
+			right: var(--app-standart-side-padding);
+
+			width: max-content;
+			height: min-content;
+		}
 	}
 }
 
