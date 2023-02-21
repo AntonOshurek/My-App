@@ -1,15 +1,14 @@
-@import '../../../../variables/variables.scss';
-
 .header-clock {
-	width: max-content;
-	color: $smoke-text-color;
+	// width: max-content;
+	width: 100%;
+	color: var(--app-basic-text-color);
 }
 .header-clock__time-text {
-	font-family: $basic-font;
+	font-family: var(--app-basic-font);
 	font-size: 100px;
 	font-weight: 500;
-	color: $smoke-text-color;
-	text-shadow: $root-clock-text-shadow;
+	color: var(--app-basic-text-color);
+	text-shadow: 10px 12px 12px rgba(0, 0, 0, 0.7);
 
 	&--separator {
 		font-weight: 400;
@@ -18,13 +17,14 @@
 }
 
 .header-clock__time-info {
-	font-family: $basic-font;
-	font-size: 16px;
-	font-weight: 400;
-	color: $smoke-text-color;
+	width: 100%;
+	font-family: var(--app-basic-font);
+	font-size: var(--app-basic-text-size);
+	font-weight: var(--app-basic-text-weight);
+	color: var(--app-basic-text-color);
 
-	display: flex;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: min-content 1fr;
 	align-items: center;
-	gap: 5px;
+	grid-column-gap: 10px;
 }

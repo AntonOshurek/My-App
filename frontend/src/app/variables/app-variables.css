@@ -1,0 +1,29 @@
+:root {
+	/* FONTS */
+	--app-basic-font: 'Rubik', 'Arial', sans-serif;
+	/* BASIC COLORS */
+	--app-basic-white: #ffffff;
+	--app-basic-black: #000000;
+	/* COLORS */
+	--app-page-bg-color: #343d4b;
+	--app-page-application-bg-color: #222831;
+	--app-basic-text-color: #f5f5f5; /*whitesmoke color*/
+	--app-basic-dark-text-color: #222831;
+
+	/* SIZES */
+
+	/* PADDINGS */
+	--app-standart-side-padding: 20px;
+
+	/* SHADOWS */
+
+	/* TEXT SIZES */
+	--app-basic-text-size: 16px;
+	--app-basic-text-weight: 400;
+
+	/* CUSTOM SCROLL BAR */
+	--custom-scroll-width: 10px;
+	--custom-scroll-track-color: #f1f1f1;
+	--custom-scroll-thumb-color: #888888;
+	--custom-scroll-thumb-hover-color: #555555;
+}
