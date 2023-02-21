@@ -1,12 +1,10 @@
 //components
 import RootHeader from '../../components/header/root-header/root-header';
-import RootWeather from '../../components/weather/root-weather/root-weather';
-//utils
-
 //consts
 import { AppTitles } from '../../variables/text';
 //styles
 import './root-page.scss';
+import '../../variables/app-variables.css';
 
 const RootPage = (): JSX.Element => {
 	return (
@@ -14,7 +12,6 @@ const RootPage = (): JSX.Element => {
 			<RootHeader/>
 			<main className="root-page__main">
 				<h1 className='visually-hidden'>{AppTitles.ROOT_PAGE_TITLE}</h1>
-				<RootWeather/>
 			</main>
 		</div>
 	);
