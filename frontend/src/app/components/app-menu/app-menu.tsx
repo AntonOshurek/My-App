@@ -1,15 +1,43 @@
 import { Link } from 'react-router-dom';
+import { MouseEvent, useState } from 'react';
+//components
+import MenuSettings from './menu-settings/menu-settings';
 //variables
-import { AppRoute } from '../../../variables/app-routes';
+import { AppRoute } from '../../variables/app-routes';
 //styles
-import './app-navigation.scss';
+import './app-menu.scss';
 
-const AppNavigation = (): JSX.Element => {
+const enum menuStatuses {
+	OPEN = 'open',
+	CLOSE = 'close',
+};
+
+const AppMenu = (): JSX.Element => {
+	const [menuStatus, setMenuStatus] = useState<menuStatuses>(menuStatuses.CLOSE);
+
+	const openMenuHandler = (evt: MouseEvent<HTMLButtonElement>) => {
+		console.log(evt);
+
+		switch(menuStatus) {
+			case menuStatuses.CLOSE:
+				setMenuStatus(menuStatuses.OPEN);
+				break;
+			case menuStatuses.OPEN:
+				setMenuStatus(menuStatuses.CLOSE);
+				break;
+		};
+	};
+
 	return (
-		<nav className='app-nav'>
-			<ul className='app-nav__list'>
-				<li className='app-nav__item'>
-					<Link className='app-nav__link' to={AppRoute.ROOT}>
+		<nav className='app-menu'>
+
+			{
+				menuStatus === menuStatuses.OPEN ? <MenuSettings/> : null
+			}
+
+			<ul className='app-menu__list'>
+				<li className='app-menu__item'>
+					<Link className='app-menu__link' to={AppRoute.ROOT}>
 						<span className='visually-hidden'>home</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40" aria-hidden="true" focusable="false">
 							<path fill='#222831' d="M228 869.334h123.667V613.667H609v255.667h123V490.666L480
@@ -19,8 +47,8 @@ const AppNavigation = (): JSX.Element => {
 						</svg>
 					</Link>
 				</li>
-				<li className='app-nav__item'>
-					<button className='app-nav__link'>
+				<li className='app-menu__item'>
+					<button className='app-menu__link' onClick={openMenuHandler}>
 						<span className='visually-hidden'>settings</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40" aria-hidden="true" focusable="false">
 							<path fill='#222831' d="m367.001 997.333-20-131.667q-13.001-5.333-28.467-13.969-15.465-8.637-27.534-18.031l-124
@@ -45,8 +73,8 @@ const AppNavigation = (): JSX.Element => {
 						</svg>
 					</button>
 				</li>
-				<li className='app-nav__item'>
-					<a className='app-nav__link' href='#'>
+				<li className='app-menu__item'>
+					<a className='app-menu__link' href='#'>
 						<span className='visually-hidden'>settings</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40">
 							<path d="M-4 842q9.891-116.865 71.946-216.599Q130 525.667 233.334 467.667l-81.667-141q-4.667-10.333-1.5-20.4Q153.334
@@ -64,4 +92,4 @@ const AppNavigation = (): JSX.Element => {
 	);
 };
 
-export default AppNavigation;
+export default AppMenu;

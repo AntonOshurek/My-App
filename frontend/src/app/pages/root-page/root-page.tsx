@@ -1,6 +1,6 @@
 //components
 import RootHeader from '../../components/header/root-header/root-header';
-import AppNavigation from '../../components/navigation/app-navigation/app.navigation';
+import AppMenu from '../../components/app-menu/app-menu';
 //consts
 import { AppTitles } from '../../variables/text';
 //styles
@@ -17,7 +17,7 @@ const RootPage = (): JSX.Element => {
 				</main>
 			</div>
 
-			<AppNavigation/>
+			<AppMenu/>
 		</>
 	);
 }
