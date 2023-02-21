@@ -16,8 +16,6 @@ const AppMenu = (): JSX.Element => {
 	const [menuStatus, setMenuStatus] = useState<menuStatuses>(menuStatuses.CLOSE);
 
 	const openMenuHandler = (evt: MouseEvent<HTMLButtonElement>) => {
-		console.log(evt);
-
 		switch(menuStatus) {
 			case menuStatuses.CLOSE:
 				setMenuStatus(menuStatuses.OPEN);
@@ -48,7 +46,10 @@ const AppMenu = (): JSX.Element => {
 					</Link>
 				</li>
 				<li className='app-menu__item'>
-					<button className='app-menu__link' onClick={openMenuHandler}>
+					<button
+						className={`app-menu__link ${menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : ''}`}
+						onClick={openMenuHandler}
+					>
 						<span className='visually-hidden'>settings</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40" aria-hidden="true" focusable="false">
 							<path fill='#222831' d="m367.001 997.333-20-131.667q-13.001-5.333-28.467-13.969-15.465-8.637-27.534-18.031l-124
