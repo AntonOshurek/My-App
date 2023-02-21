@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/My-App/static/css/main.4af78696.css",
-    "main.js": "/My-App/static/js/main.e863b454.js",
+    "main.css": "/My-App/static/css/main.feec4289.css",
+    "main.js": "/My-App/static/js/main.a7770e19.js",
     "static/media/mount-taranaki-new-zealand-wallpaper.jpg": "/My-App/static/media/mount-taranaki-new-zealand-wallpaper.5a5fecdc4c3c903850d8.jpg",
     "index.html": "/My-App/index.html",
-    "main.4af78696.css.map": "/My-App/static/css/main.4af78696.css.map",
-    "main.e863b454.js.map": "/My-App/static/js/main.e863b454.js.map"
+    "main.feec4289.css.map": "/My-App/static/css/main.feec4289.css.map",
+    "main.a7770e19.js.map": "/My-App/static/js/main.a7770e19.js.map"
   },
   "entrypoints": [
-    "static/css/main.4af78696.css",
-    "static/js/main.e863b454.js"
+    "static/css/main.feec4289.css",
+    "static/js/main.a7770e19.js"
   ]
 }
