@@ -45,3 +45,15 @@ export function getTimeFromString(dateString: string) {
   const date = new Date(dateString);
 	return `${getZero(date.getHours())}:${getZero(date.getMinutes())}`;
 }
+
+export const getFullDate = (): string => {
+  const date: Date = new Date();
+  const year: number = date.getFullYear();
+  const dateMonth = +date.getMonth() + 1;
+  const month: number | string = getZero(dateMonth);
+  const day: number | string = getZero(date.getDate());
+
+  const fullDate: string = `${day}-${month}-${year}`;
+
+  return fullDate;
+};
