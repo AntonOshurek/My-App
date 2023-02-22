@@ -43,13 +43,13 @@
 
 	&:hover {
 		& path {
-			fill: #2962ff;
+			fill: var(--app-menu-hover-color);
 		}
 	}
 
 	&--open {
 		& path {
-			fill: #2962ff;
+			fill: var(--app-menu-hover-color);
 		}
 	}
 }
