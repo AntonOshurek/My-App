@@ -1,26 +1,45 @@
-import { useState } from 'react';
+import { useState, MouseEvent } from 'react';
 //components
 import MenuDefaultSettings from '../menu-default-settings/menu-default-settings';
 import MenuAccountSettings from '../menu-account-settings/menu-account-settings';
 //styles
 import './menu-settings.scss';
 
-const enum settingsViews {
+const enum settingsNames {
 	SETTINGS = 'settings',
-	ACCOUNT_SETTINGS = 'account-settings',
+	ACCOUNT = 'account settings',
+	SUPPORT = 'support',
 }
 
 const MenuSettings = (): JSX.Element => {
 
-	const [settingsView, setSettingsView] = useState<settingsViews>(settingsViews.ACCOUNT_SETTINGS);
+	const [settingsView, setSettingsView] = useState<settingsNames>(settingsNames.SETTINGS);
+
+	const settingsButtonHandler = (evt: MouseEvent<HTMLButtonElement>) => {
+		const buttonName = evt.currentTarget.textContent;
+
+		if (buttonName) {
+			switch (buttonName) {
+				case settingsNames.SETTINGS:
+					setSettingsView(settingsNames.SETTINGS)
+					break;
+				case settingsNames.ACCOUNT:
+					setSettingsView(settingsNames.ACCOUNT)
+					break;
+				default:
+					setSettingsView(settingsNames.SETTINGS)
+					break;
+			};
+		};
+	};
 
 	switch (settingsView) {
-    case settingsViews.SETTINGS:
-      return <MenuDefaultSettings/>;
-    case settingsViews.ACCOUNT_SETTINGS:
+    case settingsNames.SETTINGS:
+      return <MenuDefaultSettings settingsButtonHandler={settingsButtonHandler}/>;
+    case settingsNames.ACCOUNT:
       return <MenuAccountSettings />;
     default:
-      return <MenuDefaultSettings/>
+      return <MenuDefaultSettings settingsButtonHandler={settingsButtonHandler}/>
 	}
 };
 
