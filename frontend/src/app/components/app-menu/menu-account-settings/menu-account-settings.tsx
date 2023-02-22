@@ -29,7 +29,11 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 				</label>
 				<label className='menu-account-settings__label'>
 					language
-					<input className='menu-account-settings__input' type="text" />
+					<select className='menu-account-settings__select'>
+						<option className='menu-account-settings__select-option'>English</option>
+						<option className='menu-account-settings__select-option'>Polish</option>
+						<option className='menu-account-settings__select-option'>Russian</option>
+					</select>
 				</label>
 
 				<div className='menu-account-settings__controls'>
