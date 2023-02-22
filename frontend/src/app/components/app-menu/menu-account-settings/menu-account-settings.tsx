@@ -7,6 +7,8 @@ interface IMenuAccountSettingsPropsType {
 	returnButtonHandler: () => void
 }
 
+// <div className='menu-settings'>  required!!!! for all settings components!
+// it is a wraper for all settings
 const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsType): JSX.Element => {
 
 	const saveButtonHandler = () => {
@@ -18,16 +20,16 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 
 			<form className='menu-account-settings'>
 				<label className='menu-account-settings__label'>
-					Your login
-					<input type="text" />
+					login
+					<input className='menu-account-settings__input' type="text" />
 				</label>
 				<label className='menu-account-settings__label'>
-					Your city
-					<input type="text" />
+					city
+					<input className='menu-account-settings__input' type="text" />
 				</label>
 				<label className='menu-account-settings__label'>
-					Your language
-					<input type="text" />
+					language
+					<input className='menu-account-settings__input' type="text" />
 				</label>
 
 				<div className='menu-account-settings__controls'>

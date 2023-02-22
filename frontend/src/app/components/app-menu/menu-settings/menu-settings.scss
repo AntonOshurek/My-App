@@ -41,4 +41,7 @@
 	padding: 20px 10px;
 
 	box-shadow: var(--shadow);
+	& *:focus	 {
+		outline: 1px solid var(--app-menu-hover-color);
+	}
 }

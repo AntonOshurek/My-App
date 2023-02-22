@@ -13,6 +13,25 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 5px;
+
+	font-family: var(--app-basic-font);
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.menu-account-settings__input {
+	padding: 5px;
+	border-radius: 4px;
+	border: 1px solid var(--app-page-bg-color);
+
+	font-size: 14px;
+	font-weight: 400;
+
+	&:focus {
+		border-color: var(--app-menu-hover-color);
+		border-radius: 4px;
+	}
 }
 
 .menu-account-settings__controls {
