@@ -13,7 +13,7 @@ const enum settingsNames {
 
 const MenuSettings = (): JSX.Element => {
 
-	const [settingsView, setSettingsView] = useState<settingsNames>(settingsNames.SETTINGS);
+	const [settingsView, setSettingsView] = useState<settingsNames>(settingsNames.ACCOUNT);
 
 	const settingsButtonHandler = (evt: MouseEvent<HTMLButtonElement>) => {
 		const buttonName = evt.currentTarget.textContent;
@@ -33,11 +33,15 @@ const MenuSettings = (): JSX.Element => {
 		};
 	};
 
+	const returnButtonHandler = () => {
+		setSettingsView(settingsNames.SETTINGS)
+	};
+
 	switch (settingsView) {
     case settingsNames.SETTINGS:
       return <MenuDefaultSettings settingsButtonHandler={settingsButtonHandler}/>;
     case settingsNames.ACCOUNT:
-      return <MenuAccountSettings />;
+      return <MenuAccountSettings returnButtonHandler={returnButtonHandler}/>;
     default:
       return <MenuDefaultSettings settingsButtonHandler={settingsButtonHandler}/>
 	}

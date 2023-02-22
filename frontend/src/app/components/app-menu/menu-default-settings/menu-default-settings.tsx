@@ -4,7 +4,7 @@ import ThemeSwitcher from '../../theme-switcher/theme-switcher';
 //styles
 import './menu-default-settings.scss';
 
-interface IMenuDefaultSettingsType {
+interface IMenuDefaultSettingsPropsType {
 	settingsButtonHandler: (evt: MouseEvent<HTMLButtonElement>) => void
 }
 
@@ -16,7 +16,7 @@ const enum settingsViews {
 
 // <div className='menu-settings'>  required!!!! for all settings components!
 // it is a wraper for all settings
-const MenuDefaultSettings = ({settingsButtonHandler}: IMenuDefaultSettingsType): JSX.Element => {
+const MenuDefaultSettings = ({settingsButtonHandler}: IMenuDefaultSettingsPropsType): JSX.Element => {
 
 	return (
 		<div className='menu-settings'>
