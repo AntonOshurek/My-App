@@ -5,7 +5,7 @@ import { CurrentWeather, WeatherControls, WeatherFullInfo } from '../../componen
 //api
 import weatherApi from '../../api/weather-api';
 //services
-import locationService from '../../services/location-service';
+import locationService from '../../../../services/location-service';
 //utils
 import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEnglish';
 import { compareDates } from '../../../../generic-utils/utils/date-utils';

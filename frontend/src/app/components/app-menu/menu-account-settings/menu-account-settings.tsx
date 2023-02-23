@@ -48,7 +48,8 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 	};
 
 	const saveButtonHandler = () => {
-		console.log('save settings')
+		console.log('save settings');
+		//3 раза будет вызывать сохранение в lockalStorage!
 
 		dispath(setLoginAction({login: login}));
 		dispath(setMyCityAction({myCity: city}));

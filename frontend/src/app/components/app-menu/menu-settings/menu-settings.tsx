@@ -13,7 +13,7 @@ const enum settingsNames {
 
 const MenuSettings = (): JSX.Element => {
 
-	const [settingsView, setSettingsView] = useState<settingsNames>(settingsNames.ACCOUNT);
+	const [settingsView, setSettingsView] = useState<settingsNames>(settingsNames.SETTINGS);
 
 	const settingsButtonHandler = (evt: MouseEvent<HTMLButtonElement>) => {
 		const buttonName = evt.currentTarget.textContent;
