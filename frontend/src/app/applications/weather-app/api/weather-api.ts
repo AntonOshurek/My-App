@@ -1,11 +1,10 @@
 import axios, { AxiosInstance } from "axios";
 //srvices
-import locationService from "../services/location-service";
+import locationService from "../../../services/location-service";
 //adapters
 import weatherDataAdapter from "../services/weather-data-adapter";
 //types
 import type { IGetWeatherConfigurationType } from "../types/weather-app-types";
-import type { IOneDayDataType } from '../types/weather-data-types';
 import type { AdaptedDaysDataType } from "../types/weather-adapted-data-types";
 
 class WeatherApi {
