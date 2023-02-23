@@ -1,5 +1,10 @@
+import { ChangeEvent, useState } from 'react';
 //components
 import SettingButton from '../../controls/setting-button/setting-button';
+//store
+import { useAppDispatch, useAppSelector } from '../../../generic-utils/hooks/hooks';
+import { SelectorGetMyCityState, SelectorGetLoginState } from '../../../store/selectors/selectors';
+import { setMyCityAction, setLoginAction } from '../../../store/slices/app-slice';
 //styles
 import './menu-account-settings.scss';
 
@@ -11,8 +16,32 @@ interface IMenuAccountSettingsPropsType {
 // it is a wraper for all settings
 const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsType): JSX.Element => {
 
+	const myCity = useAppSelector(SelectorGetMyCityState);
+	const myLogin = useAppSelector(SelectorGetLoginState);
+
+	const [login, setLogin] = useState<string>(myLogin);
+	const [city, setCity] = useState<string>(myCity);
+
+	const dispath = useAppDispatch();
+
+	const onLoginInputHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+		const inputText = evt.target.value;
+
+		setLogin(inputText);
+	};
+
+	const onCityInputHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+		const inputText = evt.target.value;
+
+		setCity(inputText);
+	}
+
 	const saveButtonHandler = () => {
 		console.log('save settings')
+
+		dispath(setLoginAction({login: login}));
+		dispath(setMyCityAction({myCity: city}));
+		//add check it is a real city?!!!
 	};
 
 	return (
@@ -21,11 +50,21 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 			<form className='menu-account-settings'>
 				<label className='menu-account-settings__label'>
 					login
-					<input className='menu-account-settings__input' type="text" />
+					<input className='menu-account-settings__input'
+						type="text"
+						onChange={onLoginInputHandler}
+						placeholder={login}
+						value={login}
+					/>
 				</label>
 				<label className='menu-account-settings__label'>
 					city
-					<input className='menu-account-settings__input' type="text" />
+					<input className='menu-account-settings__input'
+						type="text"
+						placeholder={city}
+						value={city}
+						onChange={onCityInputHandler}
+					/>
 				</label>
 				<label className='menu-account-settings__label'>
 					language
