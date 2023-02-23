@@ -1,12 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 //components
 import SettingButton from '../../controls/setting-button/setting-button';
+//services
+import { LanguageService } from 'typescript';
 //store
 import { useAppDispatch, useAppSelector } from '../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState, SelectorGetLoginState, SelectorGetLanguageState } from '../../../store/selectors/selectors';
 import { setMyCityAction, setLoginAction, setLanguageAction } from '../../../store/slices/app-slice';
 //styles
 import './menu-account-settings.scss';
+import languageService from '../../../services/language-service';
 
 interface IMenuAccountSettingsPropsType {
 	returnButtonHandler: () => void
@@ -78,9 +81,11 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 				<label className='menu-account-settings__label'>
 					language
 					<select className='menu-account-settings__select' onChange={onLanguageInputHandler} value={language}>
-						<option className='menu-account-settings__select-option'>English</option>
-						<option className='menu-account-settings__select-option'>Polish</option>
-						<option className='menu-account-settings__select-option'>Russian</option>
+						{
+							languageService.getLanguages().map((lang, i) => {
+								return <option key={lang.abbreviation + i} value={lang.abbreviation} className='menu-account-settings__select-option'>{lang.fullName}</option>
+							})
+						}
 					</select>
 				</label>
 

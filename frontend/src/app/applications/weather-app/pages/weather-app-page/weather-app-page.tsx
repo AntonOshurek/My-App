@@ -11,7 +11,7 @@ import { replaceNonEnglish } from '../../../../generic-utils/utils/replaceNonEng
 import { compareDates } from '../../../../generic-utils/utils/date-utils';
 //store
 import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
+import { SelectorGetMyCityState, SelectorGetLanguageState } from '../../../../store/selectors/selectors';
 import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
 import type {
@@ -24,6 +24,7 @@ import './weather-app-page.scss';
 const WeatherAppPage = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const myCity = useAppSelector(SelectorGetMyCityState);
+	const myLanguage = useAppSelector(SelectorGetLanguageState);
 
 	const {location, day} = useParams();
 
@@ -68,7 +69,7 @@ const WeatherAppPage = (): JSX.Element => {
 			const weatherApiConfiguration = {
 				days: 3,
 				city: replaceNonEnglish(myCity),
-				lang: 'ru',
+				lang: myLanguage,
 			};
 
 			weatherApi.getWeather(weatherApiConfiguration)
