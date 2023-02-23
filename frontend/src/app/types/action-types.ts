@@ -4,4 +4,8 @@ export interface ISetMyCityActionType {
 
 export interface ISetLoginActionType {
 	login: string,
-}
+};
+
+export interface ISetLanguageActionType {
+	language: string,
+};
