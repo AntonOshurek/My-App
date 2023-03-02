@@ -2,14 +2,14 @@ import { ChangeEvent, useState } from 'react';
 //components
 import SettingButton from '../../controls/setting-button/setting-button';
 //services
-import { LanguageService } from 'typescript';
+import languageService from '../../../services/language-service';
 //store
 import { useAppDispatch, useAppSelector } from '../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState, SelectorGetLoginState, SelectorGetLanguageState } from '../../../store/selectors/selectors';
 import { setMyCityAction, setLoginAction, setLanguageAction } from '../../../store/slices/app-slice';
 //styles
 import './menu-account-settings.scss';
-import languageService from '../../../services/language-service';
+
 
 interface IMenuAccountSettingsPropsType {
 	returnButtonHandler: () => void
