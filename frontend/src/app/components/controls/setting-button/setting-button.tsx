@@ -11,6 +11,7 @@ interface ISettingButtonPropsType {
 }
 
 const SettingButton = ({buttonName, buttonHandler, additionalClass, buttonType}: ISettingButtonPropsType): JSX.Element => {
+	// setting-button--dark-theme
 	return (
 		<button
 			className={`setting-button ${additionalClass && additionalClass} ${buttonType ? buttonType : ''}`}

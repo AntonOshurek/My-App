@@ -1,36 +1,78 @@
+:root {
+	--setting-button-white-color: #ffffff;
+	--setting-button-black-color: #000000;
+	--setting-button-grey-bg-color: #eeeeee;
+	--setting-button-black-hover-color: #333333;
+	--setting-button-white-hover-color: #E2E2E2;
+}
+
 .setting-button {
 	width: 100%;
 	height: 100%;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
-	padding: 5px 15px;
+
+	padding: 12px 16px;
 
 	font-size: 14px;
 	font-weight: 400;
+	line-height: 16px;
 	text-transform: capitalize;
-	color: var(--app-basic-text-color);
+	color: var(--setting-button-white-color);
 
 	cursor: pointer;
 
-	border: 1px solid var(--app-page-bg-color);
-	border-radius: 4px;
+	border: none;
+	border-radius: 8px;
 	transition: 0.15s ease;
-	background-color: var(--app-page-bg-color);
+
+	background-color: var(--setting-button-black-color);
 
 	&:hover {
-		border: 1px solid var(--app-menu-hover-color);
-		background-color: var(--c-bg-secondary);
-		color: var(--app-menu-hover-color);
+		background-color: var(--setting-button-black-hover-color);
+	}
+
+	&:active {
+		transform: scale(0.95);
 	}
 
 	&.second {
-		background-color: transparent;
-		color: var(--app-basic-dark-text-color);
+		color: var(--setting-button-black-color);
+		background-color: var(--setting-button-grey-bg-color);
+
 
 		&:hover {
-			color: var(--app-menu-hover-color);
+			background-color: var(--setting-button-white-hover-color);
+		}
+	}
+
+	&--big {
+		font-size: 16px;
+		font-weight: 500;
+		padding: 14px 25px;
+	}
+
+	&--dark-theme {
+		color: var(--setting-button-black-color);
+		background-color: var(--setting-button-white-color);
+
+		&:not(.second) {
+			font-weight: bold;
+		}
+
+		&.second {
+			color: var(--setting-button-white-color);
+			background-color: var(--setting-button-black-color);
+
+			&:hover {
+				background-color: var(--setting-button-black-hover-color);
+			}
+		}
+
+		&:hover {
+			background-color: var(--setting-button-white-hover-color);
 		}
 	}
 }
