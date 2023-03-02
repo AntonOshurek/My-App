@@ -43,6 +43,6 @@
 
 	box-shadow: var(--shadow);
 	& *:focus	 {
-		outline: 1px solid var(--app-menu-hover-color);
+		outline: 1px solid #000;
 	}
 }
