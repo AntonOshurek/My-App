@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 //components
 import SettingButton from '../../controls/setting-button/setting-button';
+import SettingInput from '../../controls/setting-input/setting-input';
 //services
 import languageService from '../../../services/language-service';
 //store
@@ -61,24 +62,11 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 		<div className='menu-settings'>
 
 			<form className='menu-account-settings'>
-				<label className='menu-account-settings__label'>
-					login
-					<input className='menu-account-settings__input'
-						type="text"
-						onChange={onLoginInputHandler}
-						placeholder={login}
-						value={login}
-					/>
-				</label>
-				<label className='menu-account-settings__label'>
-					city
-					<input className='menu-account-settings__input'
-						type="text"
-						placeholder={city}
-						value={city}
-						onChange={onCityInputHandler}
-					/>
-				</label>
+
+				<SettingInput text='Login' placeholder={login} value={login} type='text' onChange={onLoginInputHandler}/>
+
+				<SettingInput text='City' placeholder={city} value={city} type='text' onChange={onCityInputHandler}/>
+
 				<label className='menu-account-settings__label'>
 					language
 					<select className='menu-account-settings__select' onChange={onLanguageInputHandler} value={language}>

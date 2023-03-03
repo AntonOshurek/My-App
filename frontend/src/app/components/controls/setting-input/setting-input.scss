@@ -1,0 +1,38 @@
+.setting-input {
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
+
+	cursor: pointer;
+
+	&:hover,
+	&:focus-within {
+		color: var(--app-settings-system-color);
+	}
+}
+
+.setting-input__text {
+	font-family: var(--app-basic-font);
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.setting-input__input {
+	border: none;
+	background-color: rgb(238, 238, 238);
+	border-radius: 8px;
+
+	padding: 10px 12px;
+
+	font-size: 16px;
+	line-height: 24px;
+
+
+	&:focus {
+		background-color: rgb(246, 246, 246);
+	}
+}
