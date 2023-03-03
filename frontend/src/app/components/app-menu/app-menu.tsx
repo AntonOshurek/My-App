@@ -3,7 +3,7 @@ import { MouseEvent, useState } from 'react';
 //components
 import MenuSettings from './menu-settings/menu-settings';
 //utils
-import useScrollDirection from '../../generic-utils/utils/scroll-detection';
+import useScrollDirection from '../../generic-utils/hooks/use-scroll-detection';
 //variables
 import { AppRoute } from '../../variables/app-routes';
 import { menuStatuses } from '../../variables/app-variables';
