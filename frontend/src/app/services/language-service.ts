@@ -1,4 +1,6 @@
+//variables
 import { languagesData } from "../variables/languages";
+//types
 import type { IGetLanguagesType } from "../types/services-types";
 
 class LanguageService {
@@ -8,7 +10,7 @@ class LanguageService {
 		this.languagesData = languages;
 	}
 
-	getLanguages() {
+	getLanguages(): IGetLanguagesType {
 		return this.languagesData;
 	}
 };

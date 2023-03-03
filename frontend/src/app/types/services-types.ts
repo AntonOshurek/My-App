@@ -1,7 +1,9 @@
 export interface ITimeServiceGetTimeType {
 	hours: string,
 	minutes: string,
-	seconds: string
-}
+	seconds: string,
+};
 
-export type IGetLanguagesType = {['abbreviation']: string, ['fullName']: string}[];
+export type LanguageObjectType = {['abbreviation']: string, ['fullName']: string};
+
+export type IGetLanguagesType = LanguageObjectType[];

@@ -17,37 +17,3 @@
 .menu-account-settings__button {
 	flex-grow: 1;
 }
-
-.menu-account-settings__select {
-		display: inline-block;
-    width: 180px;
-    padding: 10px 15px;
-
-    cursor: pointer;
-    border: 0;
-		border-radius: 4px;
-    // background: #E6E6E6;
-    // color: #7B7B7B;
-
-		background-color: rgb(238, 238, 238);
-
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-    &::-ms-expand {
-      display: none;
-		}
-
-    &:hover,
-    &:focus {
-      // color: #000;
-      // background: #CCCCCC;
-			background-color: rgb(246, 246, 246);
-		}
-
-    &:disabled	{
-      opacity: 0.5;
-      pointer-events: none;
-		}
-}
