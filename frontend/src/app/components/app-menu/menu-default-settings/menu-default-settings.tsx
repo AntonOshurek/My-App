@@ -1,17 +1,13 @@
 import { MouseEvent } from 'react';
 //components
 import ThemeSwitcher from '../../theme-switcher/theme-switcher';
+//variables
+import { settingsNames } from '../../../variables/app-variables';
 //styles
 import './menu-default-settings.scss';
 
 interface IMenuDefaultSettingsPropsType {
 	settingsButtonHandler: (evt: MouseEvent<HTMLButtonElement>) => void
-}
-
-const enum settingsViews {
-	SETTINGS = 'settings',
-	ACCOUNT = 'account settings',
-	SUPPORT = 'support',
 }
 
 // <div className='menu-settings'>  required!!!! for all settings components!
@@ -20,18 +16,20 @@ const MenuDefaultSettings = ({settingsButtonHandler}: IMenuDefaultSettingsPropsT
 
 	return (
 		<div className='menu-settings'>
+
 			<div className='menu-default-settings__fast'>
 				<h3 className='visually-hidden'>Fast controls</h3>
 				<p className='menu-default-settings__fast-title'>Theme</p>
 				<ThemeSwitcher/>
 			</div>
+
 			<div className='menu-default-settings__body'>
 				<h3 className='visually-hidden'>Main application controls</h3>
 
 				<ul className='menu-default-settings__list'>
 					<li className='menu-default-settings__item'>
 						<button className='menu-default-settings__item-button' type='button' onClick={settingsButtonHandler}>
-							{settingsViews.ACCOUNT}
+							{settingsNames.ACCOUNT}
 							<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30" aria-hidden="true" focusable="false">
 								<path fill='#222831' d="M480 567.333q-72.975 0-120.487-47.512Q312 472.309 312 399.334t47.513-120.487Q407.025
 								231.334 480 231.334t120.487 47.513Q648 326.359 648 399.334t-47.513 120.487Q552.975 567.333
@@ -46,7 +44,7 @@ const MenuDefaultSettings = ({settingsButtonHandler}: IMenuDefaultSettingsPropsT
 					</li>
 					<li className='menu-default-settings__item'>
 						<button className='menu-default-settings__item-button' type='button' onClick={settingsButtonHandler}>
-						{settingsViews.SUPPORT}
+						{settingsNames.SUPPORT}
 							<svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30" aria-hidden="true" focusable="false">
 								<path fill='#222831' d="M58.667 1004V230.666q0-33.483 25.137-58.741 25.138-25.258 58.862-25.258h674.668q33.483
 								0 58.741 25.258 25.258 25.258 25.258 58.741v512.001q0 33.483-25.258 58.741-25.258 25.259-58.741

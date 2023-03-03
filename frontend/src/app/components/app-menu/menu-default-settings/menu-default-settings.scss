@@ -1,12 +1,13 @@
 .menu-default-settings__fast {
 	padding-bottom: 15px;
-	border-bottom: 1px solid var(--c-border-primary);
+	border-bottom: 1px solid var(--setting-black-hover-color);
 }
 
 .menu-default-settings__fast-title {
+	font-family: var(--app-basic-font);
 	font-size: 14px;
-	color: var(--c-text-secondary);
 	font-weight: 500;
+	color: var(--setting-black-color);
 }
 
 .menu-default-settings__body {
@@ -31,16 +32,18 @@
 .menu-default-settings__item-button {
 	width: 100%;
 	height: 100%;
+	padding: 10px 12px;
+
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-end;
 	align-items: center;
 	gap: 10px;
-	padding: 0.625rem 0.5rem;
 
 	font-family: var(--app-basic-font);
 	font-size: 18px;
 	font-weight: 400;
+	color: var(--setting-black-color);
 	text-transform: capitalize;
 
 	cursor: pointer;
@@ -51,11 +54,11 @@
 	background-color: transparent;
 
 	&:hover {
-		background-color: var(--c-bg-secondary);
-		color: var(--app-menu-hover-color);
+		background-color: var(--setting-grey-bg-color);
+		color: var(--setting-system-color);
 
 		& path {
-			fill: var(--app-menu-hover-color);
+			fill: var(--setting-system-color);
 		}
 	}
 }
