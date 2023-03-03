@@ -1,7 +1,7 @@
 //types
 import { StoreDataTypes } from "../../types/store-data-types";
 //variables and consts
-import { ApplicationStorageApiNames } from "../../variables/variables";
+import { ApplicationStorageApiNames } from "../../variables/app-variables";
 
 abstract class AbstractStorageApi {
   #name: ApplicationStorageApiNames;

@@ -15,7 +15,6 @@ import type { LanguageObjectType } from '../../../types/services-types';
 //styles
 import './menu-account-settings.scss';
 
-
 interface IMenuAccountSettingsPropsType {
 	returnButtonHandler: () => void
 };
@@ -76,9 +75,7 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 			<form className='menu-account-settings'>
 
 				<SettingInput text='Login' placeholder={login} value={login} type='text' onChange={onLoginInputHandler}/>
-
 				<SettingInput text='City' placeholder={city} value={city} type='text' onChange={onCityInputHandler}/>
-
 				<SettingSelect text='Language' value={language} onChange={onLanguageInputHandler} data={langChoiseItems}/>
 
 				<div className='menu-account-settings__controls'>

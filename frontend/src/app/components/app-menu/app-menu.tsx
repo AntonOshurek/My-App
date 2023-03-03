@@ -2,15 +2,13 @@ import { Link } from 'react-router-dom';
 import { MouseEvent, useState } from 'react';
 //components
 import MenuSettings from './menu-settings/menu-settings';
+//utils
+import useScrollDirection from '../../generic-utils/hooks/use-scroll-detection';
 //variables
 import { AppRoute } from '../../variables/app-routes';
+import { menuStatuses } from '../../variables/app-variables';
 //styles
 import './app-menu.scss';
-
-const enum menuStatuses {
-	OPEN = 'open',
-	CLOSE = 'close',
-};
 
 const AppMenu = (): JSX.Element => {
 	const [menuStatus, setMenuStatus] = useState<menuStatuses>(menuStatuses.CLOSE);
@@ -26,8 +24,15 @@ const AppMenu = (): JSX.Element => {
 		};
 	};
 
+	const menuButtonClasses = menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : '';
+	const applicationsButtonClasses = '';
+
+	const scrollDirection = useScrollDirection();
+
+	const navClass = scrollDirection ? '' : ' app-menu--hidden';
+
 	return (
-		<nav className='app-menu'>
+		<nav className={`app-menu ${navClass}`}>
 
 			<h3 className='visually-hidden'>Application Menu</h3>
 
@@ -49,7 +54,7 @@ const AppMenu = (): JSX.Element => {
 				</li>
 				<li className='app-menu__item'>
 					<button
-						className={`app-menu__link ${menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : ''}`}
+						className={`app-menu__link ${menuButtonClasses}`}
 						onClick={openMenuHandler}
 					>
 						<span className='visually-hidden'>settings</span>
@@ -77,8 +82,8 @@ const AppMenu = (): JSX.Element => {
 					</button>
 				</li>
 				<li className='app-menu__item'>
-					<a className='app-menu__link' href='#'>
-						<span className='visually-hidden'>settings</span>
+					<button className={`app-menu__link ${applicationsButtonClasses}`}>
+						<span className='visually-hidden'>applications</span>
 						<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40">
 							<path d="M-4 842q9.891-116.865 71.946-216.599Q130 525.667 233.334 467.667l-81.667-141q-4.667-10.333-1.5-20.4Q153.334
 							296.2 163 290.334q10.334-5 21.334-2.167t16.083 13.352L282.334 442q94.64-40.791 197.875-40.791T678.084 442L760
@@ -88,7 +93,7 @@ const AppMenu = (): JSX.Element => {
 							16Zm440 0q22.333 0 38.666-16Q755 688.333 755 666t-16.334-38.667Q722.333 611 700 611q-22.334 0-38.334 16.333-16
 							16.334-16 38.667 0 22.333 16 38.333t38.334 16Z"/>
 						</svg>
-					</a>
+					</button>
 				</li>
 			</ul>
 		</nav>

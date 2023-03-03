@@ -1,7 +1,7 @@
 //abstract classes
 import AbstractStorageApi from "./abstract-storage-api";
 //types
-import { ApplicationStorageApiNames } from "../../variables/variables";
+import { ApplicationStorageApiNames } from "../../variables/app-variables";
 
 class MyAppStorageApi extends AbstractStorageApi {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
