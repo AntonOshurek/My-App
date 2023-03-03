@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { MouseEvent, useState } from 'react';
 //components
 import MenuSettings from './menu-settings/menu-settings';
+//utils
+import useScrollDirection from '../../generic-utils/utils/scroll-detection';
 //variables
 import { AppRoute } from '../../variables/app-routes';
 import { menuStatuses } from '../../variables/app-variables';
@@ -23,10 +25,14 @@ const AppMenu = (): JSX.Element => {
 	};
 
 	const menuButtonClasses = menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : '';
-	const applicationsButtonClasses = menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : '';
+	const applicationsButtonClasses = '';
+
+	const scrollDirection = useScrollDirection();
+
+	const navClass = scrollDirection ? '' : ' app-menu--hidden';
 
 	return (
-		<nav className='app-menu'>
+		<nav className={`app-menu ${navClass}`}>
 
 			<h3 className='visually-hidden'>Application Menu</h3>
 

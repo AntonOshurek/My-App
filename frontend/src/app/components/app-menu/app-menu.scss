@@ -9,6 +9,16 @@
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+
+	transition: transform .3s ease-in;
+
+	&--hidden {
+		transform: translate(0, 98%);
+	}
+
+	&:hover {
+		transform: translate(0, 0);
+	}
 }
 
 .app-menu__list {
