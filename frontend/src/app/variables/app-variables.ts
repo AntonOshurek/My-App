@@ -8,3 +8,8 @@ export const enum settingsNames {
 	ACCOUNT = 'account settings',
 	SUPPORT = 'support',
 };
+
+export const enum menuStatuses {
+	OPEN = 'open',
+	CLOSE = 'close',
+};

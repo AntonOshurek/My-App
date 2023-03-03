@@ -39,7 +39,7 @@ const MenuSettings = (): JSX.Element => {
       return <MenuAccountSettings returnButtonHandler={returnButtonHandler}/>;
     default:
       return <MenuDefaultSettings settingsButtonHandler={settingsButtonHandler}/>
-	}
+	};
 };
 
 export default MenuSettings;

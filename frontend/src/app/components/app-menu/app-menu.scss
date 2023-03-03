@@ -43,13 +43,13 @@
 
 	&:hover {
 		& path {
-			fill: var(--app-menu-hover-color);
+			fill: var(--setting-system-color);
 		}
 	}
 
 	&--open {
 		& path {
-			fill: var(--app-menu-hover-color);
+			fill: var(--setting-system-color);
 		}
 	}
 }
