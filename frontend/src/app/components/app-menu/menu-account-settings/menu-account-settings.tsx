@@ -1,19 +1,24 @@
 import { ChangeEvent, useState } from 'react';
 //components
 import SettingButton from '../../controls/setting-button/setting-button';
+import SettingInput from '../../controls/setting-input/setting-input';
+import SettingSelect from '../../controls/setting-select/setting-select';
 //services
 import languageService from '../../../services/language-service';
 //store
 import { useAppDispatch, useAppSelector } from '../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState, SelectorGetLoginState, SelectorGetLanguageState } from '../../../store/selectors/selectors';
 import { setMyCityAction, setLoginAction, setLanguageAction } from '../../../store/slices/app-slice';
+//types
+import type { ISettingSelectOptionsDataType } from '../../../types/app-types';
+import type { LanguageObjectType } from '../../../types/services-types';
 //styles
 import './menu-account-settings.scss';
 
 
 interface IMenuAccountSettingsPropsType {
 	returnButtonHandler: () => void
-}
+};
 
 // <div className='menu-settings'>  required!!!! for all settings components!
 // it is a wraper for all settings
@@ -29,6 +34,14 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 
 	const dispath = useAppDispatch();
 
+	//creating new language array for SettingSelect component
+	const langChoiseItems: ISettingSelectOptionsDataType = [];
+	languageService.getLanguages().map((lang: LanguageObjectType) => {
+		langChoiseItems.push({
+			'text': lang.fullName, 'value': lang.abbreviation
+		});
+	});
+
 	const onLoginInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 		const inputText = evt.target.value;
 
@@ -39,7 +52,7 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 		const inputText = evt.target.value;
 
 		setCity(inputText);
-	}
+	};
 
 	const onLanguageInputHandler = (evt: ChangeEvent<HTMLSelectElement>): void => {
 		const inputText = evt.target.value;
@@ -61,34 +74,12 @@ const MenuAccountSettings = ({returnButtonHandler}: IMenuAccountSettingsPropsTyp
 		<div className='menu-settings'>
 
 			<form className='menu-account-settings'>
-				<label className='menu-account-settings__label'>
-					login
-					<input className='menu-account-settings__input'
-						type="text"
-						onChange={onLoginInputHandler}
-						placeholder={login}
-						value={login}
-					/>
-				</label>
-				<label className='menu-account-settings__label'>
-					city
-					<input className='menu-account-settings__input'
-						type="text"
-						placeholder={city}
-						value={city}
-						onChange={onCityInputHandler}
-					/>
-				</label>
-				<label className='menu-account-settings__label'>
-					language
-					<select className='menu-account-settings__select' onChange={onLanguageInputHandler} value={language}>
-						{
-							languageService.getLanguages().map((lang, i) => {
-								return <option key={lang.abbreviation + i} value={lang.abbreviation} className='menu-account-settings__select-option'>{lang.fullName}</option>
-							})
-						}
-					</select>
-				</label>
+
+				<SettingInput text='Login' placeholder={login} value={login} type='text' onChange={onLoginInputHandler}/>
+
+				<SettingInput text='City' placeholder={city} value={city} type='text' onChange={onCityInputHandler}/>
+
+				<SettingSelect text='Language' value={language} onChange={onLanguageInputHandler} data={langChoiseItems}/>
 
 				<div className='menu-account-settings__controls'>
 					<SettingButton buttonName={'return'} buttonHandler={returnButtonHandler} additionalClass={'menu-account-settings__button'} buttonType={'second'}/>

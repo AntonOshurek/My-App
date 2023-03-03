@@ -1,13 +1,11 @@
 //styles
 import './setting-button.scss';
 
-type settingButtonType = 'main' | 'second'
-
 interface ISettingButtonPropsType {
 	buttonName: string,
 	buttonHandler: () => void,
 	additionalClass?: string,
-	buttonType?: settingButtonType,
+	buttonType?: 'main' | 'second',
 }
 
 const SettingButton = ({buttonName, buttonHandler, additionalClass, buttonType}: ISettingButtonPropsType): JSX.Element => {
