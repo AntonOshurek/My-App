@@ -1,15 +1,15 @@
 //abstract classes
-import AbstractStorageApi from "./abstract-storage-api";
-//types
+import { AbstractStorageApi } from "../";
+//variables and consts
 import { ApplicationStorageApiNames } from "../../variables/app-variables";
 
-class MyAppStorageApi extends AbstractStorageApi {
+class AppStorageApi extends AbstractStorageApi {
   // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(name: ApplicationStorageApiNames.APP_STORAGE) {
     super(name);
   };
 };
 
-const myAppStorageApi = new MyAppStorageApi(ApplicationStorageApiNames.APP_STORAGE);
+const appStorageApi = new AppStorageApi(ApplicationStorageApiNames.APP_STORAGE);
 
-export default myAppStorageApi;
+export default appStorageApi;

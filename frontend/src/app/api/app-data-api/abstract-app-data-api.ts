@@ -3,7 +3,7 @@ import { StoreDataTypes } from "../../types/store-data-types";
 //abstract classes
 import AbstractStorageApi from "../storage-api/abstract-storage-api";
 
-abstract class AbstractStoreDataApi {
+abstract class AbstractAppDataApi {
 	#data: StoreDataTypes
 	#storageApi: AbstractStorageApi
 
@@ -31,4 +31,4 @@ abstract class AbstractStoreDataApi {
   };
 };
 
-export default AbstractStoreDataApi;
+export default AbstractAppDataApi;

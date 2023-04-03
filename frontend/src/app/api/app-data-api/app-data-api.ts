@@ -1,20 +1,19 @@
 //abstract classes
-import AbstractStoreDataApi from "./abstract-store-data-api";
-import AbstractStorageApi from "../storage-api/abstract-storage-api";
+import { AbstractAppDataApi, AbstractStorageApi } from "../";
 //API
-import myAppStorageApi from "../storage-api/my-app-storage-api";
+import { appStorageApi } from "../";
 //types
 import type { IAppStoreDataType } from "../../types/store-data-types";
 //data
 import { basicAppStoreData } from "../../store/store-data/basic-app-store-data";
 
-class AppStoreDataApi extends AbstractStoreDataApi {
+class AppDataApi extends AbstractAppDataApi {
 	// eslint-disable-next-line @typescript-eslint/no-useless-constructor
 	constructor(data: IAppStoreDataType, storageApi: AbstractStorageApi) {
 		super(data, storageApi);
 	};
 };
 
-const appStoreDataApi = new AppStoreDataApi(basicAppStoreData, myAppStorageApi);
+const appDataApi = new AppDataApi(basicAppStoreData, appStorageApi);
 
-export default appStoreDataApi;
+export default appDataApi;
