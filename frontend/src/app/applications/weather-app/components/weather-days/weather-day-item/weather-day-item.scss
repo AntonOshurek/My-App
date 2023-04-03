@@ -17,7 +17,7 @@
 	&--current  {
 		transform: scale(1.05);
 		background: var(--weather-basic-text-color);
-		box-shadow: var(--weather-days-card-shadow);
+		// box-shadow: var(--weather-card-background-color);
 
 		& .weather-days__days-name,
 		& .weather-days__temperature {

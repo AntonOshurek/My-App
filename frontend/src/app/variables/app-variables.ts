@@ -9,7 +9,7 @@ export const enum settingsNames {
 	SUPPORT = 'support',
 };
 
-export const enum menuStatuses {
+export const enum appMenuStatuses {
 	OPEN = 'open',
 	CLOSE = 'close',
 };

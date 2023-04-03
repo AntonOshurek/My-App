@@ -1,7 +1,6 @@
 @import '../../../../variables/variables.scss';
 
 .weather-controls {
-	min-height: 340px;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr min-content;

@@ -4,10 +4,7 @@ import { WeatherAdditional, WeatherDays } from '../';
 //variables
 import { WeatherAppRoute } from '../../variables/weather-app-routes';
 //types
-import type {
-	AdaptedDaysDataType,
-	IAdaptedOneDayDataType,
-} from '../../types/weather-adapted-data-types';
+import type {	AdaptedDaysDataType,	IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-controls.scss';
 
@@ -25,7 +22,7 @@ const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsT
 			<WeatherDays daysWeather={daysWeather ? daysWeather : null}/>
 
 			<Link
-				className='weather-controls__change-location-link weather-button weather-button--second'
+				className='weather-controls__change-location-link basic__weather-button basic__weather-button--main'
 				to={`../${WeatherAppRoute.WEATHER_APP_LOCATION_PAGE}`}>
 					Change location
 			</Link>

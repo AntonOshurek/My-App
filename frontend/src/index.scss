@@ -42,3 +42,23 @@
   -ms-user-select: none;       /* Internet Explorer/Edge */
   user-select: none;           /* Non-prefixed version, currently not supported by any browser */
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: var(--custom-scroll-width);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--custom-scroll-track-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--custom-scroll-thumb-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--custom-scroll-thumb-hover-color);
+}

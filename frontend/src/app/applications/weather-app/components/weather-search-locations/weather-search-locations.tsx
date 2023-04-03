@@ -34,7 +34,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 
 			<div className="weather-search-location__controls">
 				<button
-					className='weather-search-location__submit weather-button weather-button--main'
+					className='weather-search-location__submit basic__weather-button basic__weather-button--main'
 					type='button'
 					onClick={onSaveCityButtonHandler}
 				>
@@ -45,7 +45,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 				</button>
 
 				<Link
-					className='weather-button weather-button--second'
+					className='basic__weather-button basic__weather-button--second'
 					to={`../${myCity}`}
 				>
 					back to forecast

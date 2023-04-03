@@ -50,11 +50,15 @@ class LocationService {
 			if (response.status >= 200 && response.status < 300) {
 				return response.data.address.city;
 			} else {
-				return Promise.reject(new Error(response.statusText))
+				return Promise.reject(new Error(response.statusText));
 			};
 
     } catch (error) {
-      throw error;
+			if(error instanceof Error) {
+				return Promise.reject(new Error(error.message))
+			} else {
+				return Promise.reject('somthing wrong in getCurrentLocation method.')
+			};
     };
   };
 

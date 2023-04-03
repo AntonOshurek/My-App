@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplashApi from '../../api/unsplash-api';
@@ -37,7 +37,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 			<div className='current-weather__wrap'>
 				<time className='current-weather__date' dateTime={currentWeather?.date}>
-					<span className='current-weather__date-text current-weather__date-text--day'>{getWeekday(currentWeather?.date)}</span>
+					<span className='current-weather__date-text current-weather__date-text--big'>{getWeekday(currentWeather?.date)}</span>
 					<span className='current-weather__date-text'>{formatDate(currentWeather?.date)}</span>
 				</time>
 

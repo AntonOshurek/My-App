@@ -1,47 +1,46 @@
 :root {
 	/* FONTS */
 	--weather-basic-font: 'Rubik', 'Arial', sans-serif;
+
 	/* BASIC COLORS */
 	--basic-white: #ffffff;
+
 	/* COLORS */
-	--weather-app-page-bg-color: #343d4b;
-	--weather-app-page-application-bg-color: #222831;
 	--weather-basic-text-color: #f5f5f5; /*whitesmoke color*/
 	--weather-basic-dark-text-color: #222831;
-	--weather-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%); /*used in buttons and current weather full image :after element*/
-	--weather-days-card-background-color: #2a323d;
+
+	--weather-page-bg-color: #343d4b;	/*color for full page background*/
+	--weather-application-bg-color: #222831;	/*color for application box/container background*/
+	--weather-after-gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);	/*used for buttons bg-image and current weather full image :after element*/
+	--weather-card-background-color: #2a323d;
 	--weather-search-input-bacground: #666666;
 	--weather-location-popular-bg-color: #dddddd;
 
 	/* SHADOWS */
-	--weather-application-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
-	--weather-full-info-item-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
-	--weather-location-popular-box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.6);
-	--weather-change-location-button-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.6);
-	--weather-days-card-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.8);
+	--weather-application-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4); 						/*color for application box/container shadow*/
 
 	/* PADDINGS AND RADIUSES */
-	--weather-basic-border-radius: 20px;
+	--weather-basic-border-radius: 20px;																									/*border-radius for all elements in weather app*/
 
 	/* SIZES */
 	--weather-current-info-icon-size: 70px;
 	--weather-full-info-icon-size: 50px;
 
 	/* TEXT SIZES */
+	--weather-basic-button-text-size: 16px;
+	--weather-basic-button-text-weight: 400;
+
 	--weather-current-location-date-text-size: 13px;
 	--weather-current-location-date-text-weight: 400;
-	--weather-current-image-info-text-size: 10px;
-	--weather-current-image-info-text-weight: 500;
 	--weather-current-temp-text-size: 40px;
 	--weather-current-temp-text-weight: 500;
 	--weather-current-temp-info-text-size: 18px;
 	--weather-current-temp-info-text-weight: 500;
+	--weather-current-image-info-text-size: 10px;
+	--weather-current-image-info-text-weight: 500;
 
 	--weather-additional-text-size: 18px;
 	--weather-additional-text-weight: 500;
-
-	--weather-controls-location-button-text-size: 16px;
-	--weather-controls-location-button-text-weight: 400;
 
 	--weather-days-tem-text-size: 20px;
 	--weather-days-tem-text-weight: 400;

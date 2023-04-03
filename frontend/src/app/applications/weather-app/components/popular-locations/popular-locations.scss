@@ -14,7 +14,7 @@
 
 	background-color: var(--weather-basic-text-color);
 	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--weather-location-popular-box-shadow);
+	box-shadow: var(--weather-application-box-shadow-color);
 
 	@media (max-width: $mobile-width) {
 		height: 300px;

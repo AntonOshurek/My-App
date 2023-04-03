@@ -20,7 +20,7 @@
 	cursor: pointer;
 
 	&:focus-within .weather-search-location__input {
-		background-color: var(--weather-search-light);
+		background-color: var(--weather-card-background-color);
 		color: var(--weather-basic-text-color);
 	}
 }

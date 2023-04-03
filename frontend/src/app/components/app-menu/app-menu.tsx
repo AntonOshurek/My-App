@@ -6,25 +6,25 @@ import MenuSettings from './menu-settings/menu-settings';
 import useScrollDirection from '../../generic-utils/hooks/use-scroll-detection';
 //variables
 import { AppRoute } from '../../variables/app-routes';
-import { menuStatuses } from '../../variables/app-variables';
+import { appMenuStatuses } from '../../variables/app-variables';
 //styles
 import './app-menu.scss';
 
 const AppMenu = (): JSX.Element => {
-	const [menuStatus, setMenuStatus] = useState<menuStatuses>(menuStatuses.CLOSE);
+	const [menuStatus, setMenuStatus] = useState<appMenuStatuses>(appMenuStatuses.CLOSE);
 
 	const openMenuHandler = (evt: MouseEvent<HTMLButtonElement>) => {
 		switch(menuStatus) {
-			case menuStatuses.CLOSE:
-				setMenuStatus(menuStatuses.OPEN);
+			case appMenuStatuses.CLOSE:
+				setMenuStatus(appMenuStatuses.OPEN);
 				break;
-			case menuStatuses.OPEN:
-				setMenuStatus(menuStatuses.CLOSE);
+			case appMenuStatuses.OPEN:
+				setMenuStatus(appMenuStatuses.CLOSE);
 				break;
 		};
 	};
 
-	const menuButtonClasses = menuStatus === menuStatuses.OPEN ? 'app-menu__link--open' : '';
+	const menuButtonClasses = menuStatus === appMenuStatuses.OPEN ? 'app-menu__link--open' : '';
 	const applicationsButtonClasses = '';
 
 	const scrollDirection = useScrollDirection();
@@ -37,7 +37,7 @@ const AppMenu = (): JSX.Element => {
 			<h3 className='visually-hidden'>Application Menu</h3>
 
 			{
-				menuStatus === menuStatuses.OPEN ? <MenuSettings/> : null
+				menuStatus === appMenuStatuses.OPEN ? <MenuSettings/> : null
 			}
 
 			<ul className='app-menu__list'>
