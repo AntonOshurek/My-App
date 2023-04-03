@@ -4,7 +4,6 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: 200px 80px;
-	// grid-template-columns: 1fr max-content;
 	grid-template-rows: repeat(3, min-content);
 	grid-row-gap: 10px;
 	grid-column-gap: 10px;
@@ -15,7 +14,6 @@
 }
 
 .weather-additional__info-subject {
-	// position: relative;
 	height: min-content;
 	align-self: center;
 	justify-self: start;
@@ -27,7 +25,6 @@
 }
 
 .weather-additional__info-content {
-	// position: relative;
 	height: min-content;
 	align-self: center;
 	justify-self: end;

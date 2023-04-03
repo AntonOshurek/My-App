@@ -14,16 +14,9 @@ import { faThermometerHalf, faTint, faWind  } from '@fortawesome/free-solid-svg-
 
 interface IWeatherFullInfoItemPropsType {
 	hourWeather: IAdaptedWeatherHourDataType;
-}
+};
 
 const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.Element => {
-
-	// console.log(hourWeather)
-
-	if(hourWeather.willItRain) {
-		// console.log(hourWeather)
-	}
-
 	const temperatureColor = generateTemperatureColor(+hourWeather.tempC);
 	const windColor : string = generateWindColor(convertWindKmhToMs(hourWeather.windKph))
 
@@ -36,13 +29,14 @@ const WeatherFullInfoItem = ({hourWeather}: IWeatherFullInfoItemPropsType): JSX.
 					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
 				</p>
 
-				<p className='weather-full-info__point'>
+{/* komented 03.04.2023 do we need a humidity ? */}
+				{/* <p className='weather-full-info__point'>
 					<span className='weather-full-info__text weather-full-info__point-text'>
 						<FontAwesomeIcon icon={faTint} />
 						Влажность:
 					</span>
 					<span className='weather-full-info__data'>{hourWeather.humidity} %</span>
-				</p>
+				</p> */}
 
 				<p className='weather-full-info__point'>
 					<span className='weather-full-info__text weather-full-info__point-text'>

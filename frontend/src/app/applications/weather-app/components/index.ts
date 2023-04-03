@@ -5,6 +5,7 @@ import WeatherDays from "./weather-days/weather-days";
 import PopularLocaions from "./popular-locations/popular-locations";
 import WeatherSearchLocations from "./weather-search-locations/weather-search-locations";
 import WeatherFullInfo from "./weather-full-info/weather-full-info";
+import ChoiceLocationModal from "./choice-location-modal/choice-location-modal";
 
 export { CurrentWeather,
 	WeatherAdditional,
@@ -13,4 +14,5 @@ export { CurrentWeather,
 	PopularLocaions,
 	WeatherSearchLocations,
 	WeatherFullInfo,
+	ChoiceLocationModal,
 };
