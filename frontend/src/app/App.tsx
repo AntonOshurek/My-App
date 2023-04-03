@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //pages
-import {RootPage} from './pages/';
+import { RootPage } from './pages/';
 //applications
-import WeatherApp from './applications/weather-app/weather-app';
+import { WeatherApp } from './applications';
 //consts and utils functions
 import { AppRoute } from './variables/app-routes';
 //styles
