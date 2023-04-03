@@ -1,5 +1,5 @@
 //types
-import { StoreDataTypes } from "../../types/store-data-types";
+import type { StoreDataTypes } from "../../types/store-data-types";
 //variables and consts
 import { ApplicationStorageApiNames } from "../../variables/app-variables";
 

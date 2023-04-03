@@ -1,6 +1,6 @@
 //types
-import { IAppStoreDataType } from "../../types/store-data-types";
-//data
-import appStoreDataApi from "../../api/app-data-api/app-store-data-api";
+import type { IAppStoreDataType } from "../../types/store-data-types";
+//API
+import { appDataApi } from "../../api/";
 
-export const appStoreData: IAppStoreDataType = appStoreDataApi.getData();
+export const appStoreData: IAppStoreDataType = appDataApi.getData();

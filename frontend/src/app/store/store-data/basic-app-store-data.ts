@@ -1,4 +1,5 @@
-import { IAppStoreDataType } from "../../types/store-data-types";
+//types
+import type { IAppStoreDataType } from "../../types/store-data-types";
 
 export const basicAppStoreData: IAppStoreDataType = {
 	myCity: '',
