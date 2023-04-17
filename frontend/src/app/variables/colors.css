@@ -27,11 +27,36 @@
 	--light-text-secondary: #626F86;
 	--light-primary: #1D7AFC;
 	--light-text-inverse: #FFFFFF;
-	--bg: var(--dark-bg);
+
+	/* --bg: var(--dark-bg);
 	--border: var(--dark-border);
 	--surface: var(--dark-surface);
 	--text-primary: var(--dark-text-primary);
 	--text-secondary: var(--dark-text-secondary);
 	--primary: var(--dark-primary);
-	--text-inverse: var(--dark-text-inverse);
+	--text-inverse: var(--dark-text-inverse); */
+
+	/* --bg: var(--sunset-bg);
+	--border: var(--sunset-border);
+	--surface: var(--sunset-surface);
+	--text-primary: var(--sunset-text-primary);
+	--text-secondary: var(--sunset-text-secondary);
+	--primary: var(--sunset-primary);
+	--text-inverse: var(--sunset-text-inverse); */
+
+	--bg: var(--sunrise-bg);
+	--border: var(--sunrise-border);
+	--surface: var(--sunrise-surface);
+	--text-primary: var(--sunrise-text-primary);
+	--text-secondary: var(--sunrise-text-secondary);
+	--primary: var(--sunrise-primary);
+	--text-inverse: var(--sunrise-text-inverse);
+
+	/* --bg: var(--light-bg);
+	--border: var(--light-border);
+	--surface: var(--light-surface);
+	--text-primary: var(--light-text-primary);
+	--text-secondary: var(--light-text-secondary);
+	--primary: var(--light-primary);
+	--text-inverse: var(--light-text-inverse); */
 }
