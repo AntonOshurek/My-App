@@ -44,19 +44,19 @@
 	--primary: var(--sunset-primary);
 	--text-inverse: var(--sunset-text-inverse); */
 
-	--bg: var(--sunrise-bg);
+	/* --bg: var(--sunrise-bg);
 	--border: var(--sunrise-border);
 	--surface: var(--sunrise-surface);
 	--text-primary: var(--sunrise-text-primary);
 	--text-secondary: var(--sunrise-text-secondary);
 	--primary: var(--sunrise-primary);
-	--text-inverse: var(--sunrise-text-inverse);
+	--text-inverse: var(--sunrise-text-inverse); */
 
-	/* --bg: var(--light-bg);
+	--bg: var(--light-bg);
 	--border: var(--light-border);
 	--surface: var(--light-surface);
 	--text-primary: var(--light-text-primary);
 	--text-secondary: var(--light-text-secondary);
 	--primary: var(--light-primary);
-	--text-inverse: var(--light-text-inverse); */
+	--text-inverse: var(--light-text-inverse);
 }

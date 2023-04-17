@@ -99,6 +99,21 @@ const AppOverview = (): JSX.Element => {
 					</div>
 
 				</form>
+
+				<form className='account-settings'>
+					<h3 className='account-settings__title'>Account settings</h3>
+					<p className='account-settings__sub-title'>Subtitle</p>
+
+					<div className='account-settings__item'>
+						<label className='account-settings__label'>
+							Login
+							<input className='account-settings__input' type="text" />
+						</label>
+					</div>
+
+				</form>
+
+				<button className='app-settings__button' type='button'>Save settings</button>
 			</section>
 		</>
 	);
