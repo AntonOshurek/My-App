@@ -1,0 +1,37 @@
+:root {
+	--dark-bg: #101214;
+	--dark-border: #22272B;
+	--dark-surface: #161A1D;
+	--dark-text-primary: #DEE4EA;
+	--dark-text-secondary: #738496;
+	--dark-primary: #1D7AFC;
+	--dark-text-inverse: #FFFFFF;
+	--sunset-bg: #151c19;
+	--sunset-border: #424f4a;
+	--sunset-surface: #2f3834;
+	--sunset-text-primary: #ecd2c5;
+	--sunset-text-secondary: #C0AB92;
+	--sunset-primary: #C0AB92;
+	--sunset-text-inverse: #151c19;
+	--sunrise-bg: #ecd2c5;
+	--sunrise-border: #d7c9c6;
+	--sunrise-surface: #f3e8e5;
+	--sunrise-text-primary: #4f2733;
+	--sunrise-text-secondary: #685844;
+	--sunrise-primary: #a04d66;
+	--sunrise-text-inverse: #f3e8e5;
+	--light-bg: #F7F8F9;
+	--light-border: #F1F2F4;
+	--light-surface: #FFFFFF;
+	--light-text-primary: #091E42;
+	--light-text-secondary: #626F86;
+	--light-primary: #1D7AFC;
+	--light-text-inverse: #FFFFFF;
+	--bg: var(--dark-bg);
+	--border: var(--dark-border);
+	--surface: var(--dark-surface);
+	--text-primary: var(--dark-text-primary);
+	--text-secondary: var(--dark-text-secondary);
+	--primary: var(--dark-primary);
+	--text-inverse: var(--dark-text-inverse);
+}
