@@ -102,7 +102,7 @@ const AppOverview = (): JSX.Element => {
 
 				<form className='account-settings'>
 					<h3 className='account-settings__title'>Account settings</h3>
-
+					<p className='account-settings__sub-title'>Settings will be saved after clicking on the "save settings" button</p>
 					<div className='account-settings__item'>
 						<label className='account-settings__label'>
 							Login

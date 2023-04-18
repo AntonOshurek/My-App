@@ -92,6 +92,7 @@
 	font-size: 25px;
 	font-weight: 600;
 	color: var(--text-primary);
+	grid-column: 1/-1;
 }
 
 .theme-switch {
@@ -233,6 +234,13 @@
 	font-size: 22px;
 	font-weight: 500;
 	color: var(--text-primary);
+}
+
+.account-settings__sub-title {
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--text-secondary);
+	grid-column: 1/-1;
 }
 
 .account-settings__item {
