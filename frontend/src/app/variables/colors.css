@@ -1,0 +1,112 @@
+:root {
+	--standart-white: #ffffff;
+	--standart-black: #000000;
+	--settings-color: #1D7AFC;
+
+	--dark-bg: #101214;
+	--dark-border: #22272B;
+	--dark-surface: #161A1D;
+	--dark-text-primary: #DEE4EA;
+	--dark-text-secondary: #738496;
+	--dark-primary: #1D7AFC;
+	--dark-text-inverse: #FFFFFF;
+
+	--light-bg: #F7F8F9;
+	--light-border: #F1F2F4;
+	--light-surface: #FFFFFF;
+	--light-text-primary: #091E42;
+	--light-text-secondary: #626F86;
+	--light-primary: #1D7AFC;
+	--light-text-inverse: #FFFFFF;
+
+	/* SHADOWS */
+	--light-shadow: .3rem .3rem .9rem #c8d0e7,
+		-.2rem -.2rem .8rem #ffffff;
+	--light-inner-shadow: inset .2rem .2rem .5rem #c8d0e7,
+		inset -.2rem -.2rem .5rem #ffffff;
+	--dark-shadow: .3rem .3rem .8rem rgb(0, 0, 0, 0.5),
+		-.3rem -.3rem .8rem rgb(255 255 255 / 5%);
+	--dark-inner-shadow: inset .2rem .2rem .5rem rgba(0, 0, 0, 0.5),
+		inset -.2rem -.2rem .5rem rgba(255, 255, 255, 0.5);
+
+	/* BUTTONS SHADOWS */
+	--dark-button-shadow: 3px 3px 5px #020202, -3px -3px 5px #23252d, -3px -3px 3px #23252d;
+	--dark-button-inner-shadow: inset .2rem .2rem .5rem rgb(0 0 0 / 40%),
+		inset -.2rem -.2rem .5rem rgb(255 255 255 / 15%);
+	--light-button-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%),
+		-0.2rem -0.2rem 0.4rem #fff;
+	--light-button-inner-shadow: inset 0.2rem 0.2rem 0.5rem rgb(195 193 198 / 90%),
+		inset -0.2rem -0.2rem 0.5rem #fff;
+
+	/* INPUTS SHADOW */
+	--colored-inner-shadow: inset 0.2rem 0.2rem 0.5rem rgb(195 193 198 / 90%),
+		inset -0.2rem -0.2rem 0.5rem #fff;
+	--colored-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%),
+		-0.2rem -0.2rem 0.4rem #fff;
+
+	--bg: var(--dark-bg);
+	--border: var(--dark-border);
+	--surface: var(--dark-surface);
+	--text-primary: var(--dark-text-primary);
+	--text-secondary: var(--dark-text-secondary);
+	--primary: var(--dark-primary);
+	--text-inverse: var(--dark-text-inverse);
+
+	--shadow: var(--dark-shadow);
+	--inner-shadow: var(--dark-inner-shadow);
+	--button-shadow: var(--dark-button-shadow);
+	--button-inner-shadow: var(--dark-button-inner-shadow);
+	--input-shadow: var(--shadow);
+	--input-inner-shadow: var(--inner-shadow);
+
+	/* --bg: var(--light-bg);
+	--border: var(--light-border);
+	--surface: var(--light-surface);
+	--text-primary: var(--light-text-primary);
+	--text-secondary: var(--light-text-secondary);
+	--primary: var(--light-primary);
+	--text-inverse: var(--light-text-inverse);
+
+	--shadow: var(--light-shadow);
+	--inner-shadow: var(--light-inner-shadow);
+	--button-shadow: var(--light-button-shadow);
+	--button-inner-shadow: var(--dark-button-inner-shadow);
+	--input-shadow: var(--colored-shadow);
+	--input-inner-shadow: var(--inner-shadow); */
+}
+
+/* other colors sheme */
+
+/* --sunset-bg: #151c19;
+	--sunset-border: #424f4a;
+	--sunset-surface: #2f3834;
+	--sunset-text-primary: #ecd2c5;
+	--sunset-text-secondary: #C0AB92;
+	--sunset-primary: #C0AB92;
+	--sunset-text-inverse: #151c19;
+
+	--sunrise-bg: #ecd2c5;
+	--sunrise-border: #d7c9c6;
+	--sunrise-surface: #f3e8e5;
+	--sunrise-text-primary: #4f2733;
+	--sunrise-text-secondary: #685844;
+	--sunrise-primary: #a04d66;
+	--sunrise-text-inverse: #f3e8e5;
+	*/
+
+
+/* --bg: var(--sunset-bg);
+		--border: var(--sunset-border);
+		--surface: var(--sunset-surface);
+		--text-primary: var(--sunset-text-primary);
+		--text-secondary: var(--sunset-text-secondary);
+		--primary: var(--sunset-primary);
+		--text-inverse: var(--sunset-text-inverse); */
+
+/* --bg: var(--sunrise-bg);
+		--border: var(--sunrise-border);
+		--surface: var(--sunrise-surface);
+		--text-primary: var(--sunrise-text-primary);
+		--text-secondary: var(--sunrise-text-secondary);
+		--primary: var(--sunrise-primary);
+		--text-inverse: var(--sunrise-text-inverse); */

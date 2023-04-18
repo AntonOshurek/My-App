@@ -1,11 +1,10 @@
-.root-page{
+.root-page {
 	position: relative;
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	padding-top: 30vh;
 
-	background-color: var(--app-page-bg-color);
+	background-color: var(--bg);
 
 	display: grid;
 	grid-template-columns: 1fr;
@@ -16,8 +15,15 @@
 .root-page__main {
 	width: 100%;
 	height: 100%;
+	padding: 20px;
 
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-row-gap: 40px;
+	// display: grid;
+	// grid-template-columns: 1fr;
+	// grid-row-gap: 40px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 30px;
 }
