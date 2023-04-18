@@ -21,7 +21,7 @@ const AppOverview = (): JSX.Element => {
 			</section>
 
 			<section className='app-settings'>
-				<h2 className='app-settings__title'>Settings</h2>
+				<h2 className='app-settings__title'>App settings</h2>
 
 				<form className='theme-switch'>
 					<h3 className='theme-switch__title'>Variable Themes</h3>
@@ -47,7 +47,7 @@ const AppOverview = (): JSX.Element => {
 						</label>
 					</div>
 
-					<div className='theme-switch__item theme-switch__item--sunset'>
+					{/* <div className='theme-switch__item theme-switch__item--sunset'>
 						<input className='theme-switch__radio visually-hidden' type="radio" name='theme' value='Sunset' id='theme-sunset' />
 						<label className='theme-switch__label' htmlFor='theme-sunset'>
 							<span className='theme-switch__label-text'>Sunset</span>
@@ -62,9 +62,9 @@ const AppOverview = (): JSX.Element => {
 								<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-inverse)' }} title="text-inverse"></span>
 							</div>
 						</label>
-					</div>
+					</div> */}
 
-					<div className='theme-switch__item theme-switch__item--sunrise'>
+					{/* <div className='theme-switch__item theme-switch__item--sunrise'>
 						<input className='theme-switch__radio visually-hidden' type="radio" name='theme' value='Sunrise' id='theme-sunrise' checked={true} />
 						<label className='theme-switch__label' htmlFor='theme-sunrise'>
 							<span className='theme-switch__label-text'>Sunrise</span>
@@ -79,7 +79,7 @@ const AppOverview = (): JSX.Element => {
 								<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-inverse)' }} title="text-inverse"></span>
 							</div>
 						</label>
-					</div>
+					</div> */}
 
 					<div className='theme-switch__item theme-switch__item--light'>
 						<input className='theme-switch__radio visually-hidden' type="radio" name='theme' value='Light' id='theme-light' />
@@ -102,11 +102,17 @@ const AppOverview = (): JSX.Element => {
 
 				<form className='account-settings'>
 					<h3 className='account-settings__title'>Account settings</h3>
-					<p className='account-settings__sub-title'>Subtitle</p>
 
 					<div className='account-settings__item'>
 						<label className='account-settings__label'>
 							Login
+							<input className='account-settings__input' type="text" />
+						</label>
+					</div>
+
+					<div className='account-settings__item'>
+						<label className='account-settings__label'>
+							City
 							<input className='account-settings__input' type="text" />
 						</label>
 					</div>

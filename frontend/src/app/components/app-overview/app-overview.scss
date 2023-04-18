@@ -222,7 +222,7 @@
 .account-settings {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
 	grid-template-rows: min-content 1fr;
 	gap: 20px;
 }
@@ -234,17 +234,11 @@
 	color: var(--text-primary);
 }
 
-.account-settings__sub-title {
-	grid-column: 1/-1;
-	font-size: 16px;
-	font-weight: 400;
-	color: var(--text-secondary);
+.account-settings__item {
+	width: 100%;
 }
 
-.account-settings__item {}
-
 .account-settings__label {
-	width: max-content;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -253,37 +247,57 @@
 	color: var(--text-primary);
 	font-size: 16px;
 	font-weight: 400;
+
+	cursor: pointer;
+
+	&:focus-within {
+		color: var(--primary);
+	}
 }
 
 .account-settings__input {
+	width: 250px;
 	color: var(--text-primary);
 	font-size: 16px;
 	font-weight: 400;
 
-	// border: 2px solid var(--text-secondary);
+	border: none;
 	border-radius: 10px;
 
 	padding: 5px 10px;
+
+	box-shadow: var(--inner-shadow);
+
+	background-color: #ffffff;
+	color: #000000;
+
+	&:hover,
+	&:focus {
+		// outline: 2px solid #000;
+		box-shadow: var(--shadow);
+	}
 }
 
 .app-settings__button {
 	width: max-content;
-	padding: 20px 18px;
+	padding: 15px 15px;
 
-	background: var(--primary);
-	cursor: pointer;
-	color: var(--text-inverse);
-
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--standart-white);
 
 	border-radius: 10px;
 	border: none;
 
 	transition: all 120ms ease-out;
-	opacity: 0.9;
+
+	box-shadow: var(--button-shadow);
+	background: var(--settings-color);
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		opacity: 1;
+		box-shadow: var(--dark-button-inner-shadow);
 	}
 
 	&:active {
