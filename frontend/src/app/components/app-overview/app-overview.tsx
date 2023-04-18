@@ -117,6 +117,17 @@ const AppOverview = (): JSX.Element => {
 						</label>
 					</div>
 
+					<div className='account-settings__item'>
+						<label className='account-settings__label'>
+							Language
+							<select name="language">
+								<option value="eng">English</option>
+								<option value="pol">Polish</option>
+								<option value="rus">Russian</option>
+							</select>
+						</label>
+					</div>
+
 				</form>
 
 				<button className='app-settings__button' type='button'>Save settings</button>

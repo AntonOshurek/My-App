@@ -24,10 +24,10 @@
 		-.2rem -.2rem .8rem #ffffff;
 	--light-inner-shadow: inset .2rem .2rem .5rem #c8d0e7,
 		inset -.2rem -.2rem .5rem #ffffff;
-	--dark-shadow: .3rem .3rem .8rem rgb(0 0 0 / 51%),
+	--dark-shadow: .3rem .3rem .8rem rgb(0, 0, 0, 0.5),
 		-.3rem -.3rem .8rem rgb(255 255 255 / 5%);
-	--dark-inner-shadow: inset .2rem .2rem .5rem rgb(0 0 0 / 51%),
-		inset -.2rem -.2rem .5rem rgb(255 255 255 / 5%);
+	--dark-inner-shadow: inset .2rem .2rem .5rem rgba(0, 0, 0, 0.5),
+		inset -.2rem -.2rem .5rem rgba(255, 255, 255, 0.5);
 
 	/* BUTTONS SHADOWS */
 	--dark-button-shadow: 3px 3px 5px #020202, -3px -3px 5px #23252d, -3px -3px 3px #23252d;
@@ -72,7 +72,7 @@
 	--button-shadow: var(--light-button-shadow);
 	--button-inner-shadow: var(--dark-button-inner-shadow);
 	--input-shadow: var(--colored-shadow);
-	--input-inner-shadow: var(--inner-shadow);*/
+	--input-inner-shadow: var(--inner-shadow); */
 }
 
 /* other colors sheme */
