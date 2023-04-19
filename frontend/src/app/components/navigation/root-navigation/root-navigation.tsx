@@ -8,21 +8,18 @@ const RootNavigation = (): JSX.Element => {
 
 	return (
 		<nav className='root-navigation'>
+			<h2 className='root-navigation__title'>Application navigation</h2>
+
 			<ul className='root-navigation__list'>
-				<li className='root-navigation__item root-header__button'>
-					<Link to={AppRoute.WEATHER_APP_LINK} className='root-navigation__link'>
-						Weather
-					</Link>
+				<li className='root-navigation__item'>
+					<h3 className='root-navigation__title'>Weather</h3>
+					<Link className='root-navigation__link' to={AppRoute.WEATHER_APP_LINK}>Link to Weather application</Link>
+
 				</li>
-				<li className='root-navigation__item root-header__button'>
-					<Link to={'/'} className='root-navigation__link'>
-						Movies
-					</Link>
-				</li>
-				<li className='root-navigation__item root-header__button'>
-					<Link to={'/'} className='root-navigation__link'>
-						Converter
-					</Link>
+				<li className='root-navigation__item'>
+					<h3 className='root-navigation__title'>Converter</h3>
+					<Link className='root-navigation__link' to={''}>Link to Weather application</Link>
+
 				</li>
 			</ul>
 		</nav>
