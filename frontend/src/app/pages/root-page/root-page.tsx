@@ -1,7 +1,6 @@
 //components
 import RootHeader from '../../components/header/root-header/root-header';
-import AppMenu from '../../components/app-menu/app-menu';
-import AppOverview from '../../components/app-overview/app-overview';
+import { SettingsPage } from '../';
 //consts
 import { AppTitles } from '../../variables/text';
 //styles
@@ -13,15 +12,13 @@ const RootPage = (): JSX.Element => {
 	return (
 		<>
 			<div className="root-page">
-				{/* <RootHeader /> */}
+				<RootHeader />
 				<main className="root-page__main">
-					<h1 className='visually-hidden'>{AppTitles.ROOT_PAGE_TITLE}</h1>
 
-					<AppOverview />
+
+					<SettingsPage />
 				</main>
 			</div>
-
-			{/* <AppMenu /> */}
 		</>
 	);
 }

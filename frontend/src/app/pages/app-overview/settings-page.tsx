@@ -1,25 +1,9 @@
-import './app-overview.scss';
+//styles
+import './settings-page.scss';
 
-const AppOverview = (): JSX.Element => {
+const SettingsPage = (): JSX.Element => {
 	return (
 		<>
-			<section className='app-overview'>
-				<h2 className='app-overview__title'>Applications</h2>
-
-				<ul className='app-list'>
-					<li className='app-list__item'>
-						<h3 className='app-list__title'>Weather</h3>
-						<a className='app-list__link' href="#">Link to Weather application</a>
-
-					</li>
-					<li className='app-list__item'>
-						<h3 className='app-list__title'>Converter</h3>
-						<a className='app-list__link' href="#">Link to Weather application</a>
-
-					</li>
-				</ul>
-			</section>
-
 			<section className='app-settings'>
 				<h2 className='app-settings__title'>App settings</h2>
 
@@ -136,4 +120,4 @@ const AppOverview = (): JSX.Element => {
 	);
 };
 
-export default AppOverview;
+export default SettingsPage;

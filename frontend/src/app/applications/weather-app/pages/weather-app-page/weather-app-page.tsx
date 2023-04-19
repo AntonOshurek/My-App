@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
 import { CurrentWeather, WeatherControls, WeatherFullInfo, ChoiceLocationModal } from '../../components/';
-import AppMenu from '../../../../components/app-menu/app-menu';
 //api
 import weatherApi from '../../api/weather-api';
 //services
@@ -14,7 +13,7 @@ import { useAppDispatch, useAppSelector } from '../../../../generic-utils/hooks/
 import { SelectorGetMyCityState, SelectorGetLanguageState } from '../../../../store/selectors/selectors';
 import { setMyCityAction } from '../../../../store/slices/app-slice';
 //types
-import type {	AdaptedDaysDataType,	IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { AdaptedDaysDataType, IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-app-page.scss';
 
@@ -23,7 +22,7 @@ const WeatherAppPage = (): JSX.Element => {
 	const myCity = useAppSelector(SelectorGetMyCityState);
 	const myLanguage = useAppSelector(SelectorGetLanguageState);
 
-	const {location, day} = useParams();
+	const { location, day } = useParams();
 
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
@@ -49,35 +48,35 @@ const WeatherAppPage = (): JSX.Element => {
 
 	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {
-		if(daysWeather && day && day.length !== 0) {
+		if (daysWeather && day && day.length !== 0) {
 			daysWeather.map(item => {
-				if(compareDates(item.date, day)) {
+				if (compareDates(item.date, day)) {
 					setCurrentWeather(item);
 				};
 			});
-		} else if(daysWeather) {
+		} else if (daysWeather) {
 			setCurrentWeather(daysWeather[0]);
 		};
 	}, [day, daysWeather]);
 
 	useEffect(() => {
 		console.log(myCity)
-		if(myCity || myCity.length) {
+		if (myCity || myCity.length) {
 			setCityFilled(true);
 
 			weatherApi.getWeather(myCity, myLanguage)
-			.then((response) => {
-				setDaysWeather(response);
-			})
-			.catch((error) => {
-				if(error instanceof Error) {
-					if(error.message.search('City error') >= 0) {
-						console.log(error.message);
-					}
-				} else {
-					console.log('somthing wrong...');
-				};
-			});
+				.then((response) => {
+					setDaysWeather(response);
+				})
+				.catch((error) => {
+					if (error instanceof Error) {
+						if (error.message.search('City error') >= 0) {
+							console.log(error.message);
+						}
+					} else {
+						console.log('somthing wrong...');
+					};
+				});
 		} else {
 			//do something.... without location
 			//show modal for choise city
@@ -113,8 +112,6 @@ const WeatherAppPage = (): JSX.Element => {
 				<WeatherFullInfo
 					currentWeather={currentWeather ? currentWeather : null}
 				/>
-
-				<AppMenu/>
 
 			</main>
 		</div>
