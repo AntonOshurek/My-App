@@ -13,9 +13,10 @@ const RootPage = (): JSX.Element => {
 				<RootHeader />
 				<main className="root-page__main">
 
-					<AppNavigation />
 				</main>
 			</div>
+
+			<AppNavigation />
 		</>
 	);
 }
