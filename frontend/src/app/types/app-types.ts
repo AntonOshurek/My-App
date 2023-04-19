@@ -1,5 +1,5 @@
 export type SetActiveLinkType = {
-  isActive: boolean,
+	isActive: boolean,
 };
 
 export interface ISettingSelectOptionDataObjectType {

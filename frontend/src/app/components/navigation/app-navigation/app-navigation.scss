@@ -26,4 +26,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	&>svg path {
+		fill: var(--dark-text-primary);
+	}
+
+	&--active>svg path {
+		fill: var(--settings-color);
+	}
+
 }
