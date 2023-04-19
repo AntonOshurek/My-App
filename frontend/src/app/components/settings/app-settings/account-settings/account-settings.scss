@@ -1,0 +1,22 @@
+.account-settings {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: min-content 1fr;
+	gap: 20px;
+	align-items: center;
+}
+
+.account-settings__title {
+	grid-column: 1/-1;
+	font-size: 22px;
+	font-weight: 500;
+	color: var(--text-primary);
+}
+
+.account-settings__sub-title {
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--text-secondary);
+	grid-column: 1/-1;
+}

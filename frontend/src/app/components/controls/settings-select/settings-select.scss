@@ -1,0 +1,51 @@
+.settings-select {
+	width: 250px;
+}
+
+.settings-select__label {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+
+	color: var(--text-primary);
+	font-size: 17px;
+	font-weight: 400;
+
+	cursor: pointer;
+
+	&:focus-within {
+		color: var(--primary);
+	}
+}
+
+.settings-select__select {
+	appearance: none;
+	border: 0;
+	outline: 0;
+	font: inherit;
+	width: 100%;
+	padding: 10px;
+	background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
+		#ffffff;
+	color: #000000;
+	border-radius: 10px;
+	box-shadow: var(--inner-shadow);
+	cursor: pointer;
+
+	&:hover,
+	&:focus-within {
+		outline: 2px solid var(--settings-color);
+	}
+
+	/* Remove IE arrow */
+	&::-ms-expand {
+		display: none;
+	}
+}
+
+.settings-select__option {
+	color: #000000;
+	background-color: #ffffff;
+}

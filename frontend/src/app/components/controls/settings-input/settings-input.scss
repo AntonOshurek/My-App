@@ -1,0 +1,42 @@
+.settings-input {
+	width: 250px;
+}
+
+.settings-input__label {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+
+	color: var(--text-primary);
+	font-size: 17px;
+	font-weight: 400;
+
+	cursor: pointer;
+
+	&:focus-within {
+		color: var(--primary);
+	}
+}
+
+.settings-input__input {
+	width: 100%;
+	padding: 5px 10px;
+
+	border: none;
+	border-radius: 10px;
+
+	box-shadow: var(--input-inner-shadow);
+	background-color: #ffffff;
+
+	font-size: 18px;
+	font-weight: 400;
+	color: #000000;
+
+	&:hover,
+	&:focus {
+		outline: 2px solid var(--settings-color);
+		box-shadow: var(--input-shadow);
+	}
+}

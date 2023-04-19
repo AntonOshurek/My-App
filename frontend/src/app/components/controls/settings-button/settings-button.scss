@@ -1,0 +1,26 @@
+.settings-button {
+	width: max-content;
+	padding: 15px 15px;
+
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--standart-white);
+
+	border-radius: 10px;
+	border: none;
+
+	transition: all 120ms ease-out;
+
+	box-shadow: var(--button-shadow);
+	background: var(--settings-color);
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		box-shadow: var(--dark-button-inner-shadow);
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+}
