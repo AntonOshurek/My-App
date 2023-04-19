@@ -1,8 +1,9 @@
 @import '../../../variables/variables.scss';
 
 .root-header {
+	position: relative;
 	width: 100%;
-	padding: 20px;
+	padding: 60px 20px 20px 20px;
 
 	display: flex;
 	justify-content: center;

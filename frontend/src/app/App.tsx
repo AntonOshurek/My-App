@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //pages
-import { RootPage } from './pages/';
+import { RootPage, SettingsPage } from './pages/';
 //applications
 import { WeatherApp } from './applications';
 //consts and utils functions
@@ -13,6 +13,7 @@ function App() {
 		<BrowserRouter basename={AppRoute.ROOT_BASE_NAME}>
 			<Routes>
 				<Route path={AppRoute.ROOT} element={<RootPage />} />
+				<Route path={AppRoute.SETTINGS} element={<SettingsPage />} />
 				<Route path={AppRoute.WEATHER_APP_PATH} element={<WeatherApp />} />
 			</Routes>
 		</BrowserRouter>

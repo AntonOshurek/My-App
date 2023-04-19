@@ -1,9 +1,11 @@
+//components
+import AppNavigation from '../../components/navigation/app-navigation/app-navigation';
 //styles
 import './settings-page.scss';
 
 const SettingsPage = (): JSX.Element => {
 	return (
-		<>
+		<div className='settings-page'>
 			<section className='app-settings'>
 				<h2 className='app-settings__title'>App settings</h2>
 
@@ -116,7 +118,8 @@ const SettingsPage = (): JSX.Element => {
 
 				<button className='app-settings__button' type='button'>Save settings</button>
 			</section>
-		</>
+			<AppNavigation />
+		</div>
 	);
 };
 
