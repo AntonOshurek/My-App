@@ -30,7 +30,15 @@
 	padding: var(--app-navigation-padding);
 
 	&>svg path {
-		fill: var(--dark-text-primary);
+		fill: var(--text-secondary);
+	}
+
+	&:not(.app-nav__link--active):hover>svg path {
+		fill: var(--text-primary);
+	}
+
+	&:not(.app-nav__link--active):active>svg path {
+		fill: var(--settings-color);
 	}
 
 	&--active>svg path {

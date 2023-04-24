@@ -10,8 +10,13 @@
 	--main-title-font-weight: 600;
 	--second-title-font-size: 22px;
 	--second-title-font-weight: 500;
+	--block-title-font-size: 20px;
+	--block-title-font-weight: 500;
 	--sub-title-font-size: 18px;
 	--sub-title-font-weight: 400;
+
+	--text-font-size: 16px;
+	--text-font-weight: 400;
 	--sub-text-font-size: 14px;
 	--sub-text-font-weight: 400;
 
@@ -31,6 +36,7 @@
 
 	/* BORDERS */
 	--app-navigation-border-radius: 10px;
+	--root-header-border-radius: 10px;
 	--app-settings-border-radius: 10px;
 
 	/* WIDTH */

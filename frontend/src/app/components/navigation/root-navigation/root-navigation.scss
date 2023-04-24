@@ -1,5 +1,5 @@
 .root-navigation {
-	width: max-content;
+	// width: max-content;
 	height: 100%;
 
 	display: flex;
@@ -8,60 +8,83 @@
 	align-items: center;
 	gap: 40px;
 
-	padding: 20px;
+	padding: var(--standart-side-padding);
 
 	background-color: var(--surface);
 	border: 2px solid var(--border);
-	border-radius: 10px;
+	border-radius: var(--root-header-border-radius);
 
-	box-shadow: 0.3px 0.5px 0.7px rgba(0, 0, 0, 0.08), 0.8px 1.6px 2px -0.8px rgba(0, 0, 0, 0.08), 2.1px 4.1px 5.2px -1.7px rgba(0, 0, 0, 0.08), 5px 10px 12.6px -2.5px rgba(0, 0, 0, 0.08)
+	box-shadow: var(--shadow);
 }
 
 .root-navigation__title {
-	font-size: 25px;
-	font-weight: 600;
+	font-family: var(--app-basic-font);
+	font-size: var(--block-title-font-size);
+	font-weight: var(--block-title-font-weight);
 	color: var(--text-primary);
 }
 
 .root-navigation__list {
-	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 5px;
 
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	gap: 20px;
+	list-style: none;
 }
 
 .root-navigation__item {
 	position: relative;
-	width: 120px;
-	height: 120px;
-	padding: 20px;
-
 	display: flex;
+	flex-direction: row-reverse;
 	justify-content: center;
 	align-items: center;
+	gap: 10px;
 
-	background-color: var(--bg);
+	padding: 16px 12px;
 
+	background-color: var(--overlay);
 	border: 2px solid transparent;
-	border-radius: 10px;
-
+	border-radius: 5px;
 	transition: all 120ms ease-out;
+
+	&:first-child {
+		border-top-left-radius: 15px;
+	}
+
+	&:nth-child(2) {
+		border-top-right-radius: 15px;
+	}
+
+	&:last-child {
+		border-bottom-right-radius: 15px;
+	}
+
+	&:nth-last-child(2) {
+		border-bottom-left-radius: 15px;
+	}
 
 	&:hover,
 	&:focus {
 		border: 2px solid var(--primary);
+
+		&>svg>path {
+			fill: var(--primary);
+		}
 	}
 
 	&:active {
 		transform: scale(0.98);
 	}
+
+	&>svg>path {
+		fill: var(--text-primary);
+	}
 }
 
-.root-navigation__title {
-	font-size: 20px;
-	font-weight: 500;
+.root-navigation__item-title {
+	font-family: var(--app-basic-font);
+	font-size: var(--text-font-size);
+	font-weight: var(--text-font-weight);
 	color: var(--text-primary);
 }
 
