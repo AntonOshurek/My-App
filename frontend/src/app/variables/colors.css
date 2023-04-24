@@ -17,7 +17,11 @@
 	--light-text-primary: #091E42;
 	--light-text-secondary: #626F86;
 	--light-primary: #1D7AFC;
-	--light-text-inverse: #FFFFFF;
+	--light-text-inverse: #000000;
+
+	/* SETTINGS COLORS */
+	--settings-input-bg: #ffffff;
+	--setting-input-text-color: #000000;
 
 	/* SHADOWS */
 	--light-shadow: .3rem .3rem .9rem #c8d0e7,

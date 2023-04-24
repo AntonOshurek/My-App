@@ -1,5 +1,5 @@
 .settings-input {
-	width: 250px;
+	width: var(--settings-input-width);
 }
 
 .settings-input__label {
@@ -9,9 +9,10 @@
 	justify-content: space-between;
 	gap: 10px;
 
+	font-family: var(--app-basic-font);
+	font-size: var(--settings-input-label-font-size);
+	font-weight: var(--settings-input-label-font-weight);
 	color: var(--text-primary);
-	font-size: 17px;
-	font-weight: 400;
 
 	cursor: pointer;
 
@@ -25,14 +26,15 @@
 	padding: 5px 10px;
 
 	border: none;
-	border-radius: 10px;
+	border-radius: var(--app-settings-border-radius);
 
 	box-shadow: var(--input-inner-shadow);
-	background-color: #ffffff;
+	background-color: var(--settings-input-bg);
 
-	font-size: 18px;
-	font-weight: 400;
-	color: #000000;
+	font-family: var(--app-basic-font);
+	font-size: var(--settings-input-font-size);
+	font-weight: var(--settings-input-font-weight);
+	color: var(--setting-input-text-color);
 
 	&:hover,
 	&:focus {

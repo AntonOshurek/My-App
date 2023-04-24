@@ -1,6 +1,6 @@
 //components
-import AppNavigation from '../../components/navigation/app-navigation/app-navigation';
-import AppSettings from '../../components/settings/app-settings/app-settings';
+import { AppNavigation } from '../../components/navigation';
+import { AppSettings } from '../../components/settings';
 //styles
 import './settings-page.scss';
 

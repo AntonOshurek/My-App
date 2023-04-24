@@ -3,7 +3,7 @@ import RootHeader from '../../components/header/root-header/root-header';
 import AppNavigation from '../../components/navigation/app-navigation/app-navigation';
 //styles
 import './root-page.scss';
-import '../../variables/app-variables.css';
+import '../../variables/variables.css';
 import '../../variables/colors.css';
 
 const RootPage = (): JSX.Element => {

@@ -1,3 +1,4 @@
+//styles
 import './settings-button.scss';
 
 const SettingsButton = (): JSX.Element => {

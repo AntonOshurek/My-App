@@ -1,5 +1,5 @@
 //components
-import RootNavigation from '../../navigation/root-navigation/root-navigation';
+import { RootNavigation } from '../../navigation';
 //styles
 import './root-header.scss';
 
