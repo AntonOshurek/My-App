@@ -5,6 +5,16 @@
 	padding-left: var(--standart-side-padding);
 	padding-right: var(--standart-side-padding);
 	padding-bottom: var(--padding-for-menu);
+
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 40px;
+}
+
+.settings-page__header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .settings-page__main {
@@ -19,6 +29,7 @@
 }
 
 .settings-page__title {
+	font-family: var(--app-basic-font);
 	font-size: var(--page-title-font-size);
 	font-weight: var(--page-title-font-weight);
 	color: var(--text-inverse);

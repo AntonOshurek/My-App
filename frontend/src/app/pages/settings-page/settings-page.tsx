@@ -8,13 +8,16 @@ const SettingsPage = (): JSX.Element => {
 	return (
 		<>
 			<div className='settings-page container'>
-				<main className="settings-page__main">
+				<header className='settings-page__header'>
 					<h1 className='settings-page__title'>Settings</h1>
+					<AppNavigation />
+				</header>
+
+				<main className="settings-page__main">
 					<AppSettings />
 				</main>
-			</div>
 
-			<AppNavigation />
+			</div>
 		</>
 	);
 };
