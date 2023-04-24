@@ -1,6 +1,6 @@
 //components
-import RootHeader from '../../components/header/root-header/root-header';
-import AppNavigation from '../../components/navigation/app-navigation/app-navigation';
+import { RootHeader } from '../../components/header';
+import { AppNavigation } from '../../components/navigation';
 //styles
 import './root-page.scss';
 

@@ -4,4 +4,4 @@ export const enum AppRoute {
 	SETTINGS = '/settings',
 	WEATHER_APP_PATH = '/weather-app/*',
 	WEATHER_APP_LINK = '/weather-app/',
-}
+};
