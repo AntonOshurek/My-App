@@ -1,5 +1,5 @@
 .settings-select {
-	width: 250px;
+	width: var(--settings-input-width);
 }
 
 .settings-select__label {
@@ -9,9 +9,10 @@
 	justify-content: space-between;
 	gap: 10px;
 
+	font-family: var(--app-basic-font);
 	color: var(--text-primary);
-	font-size: 17px;
-	font-weight: 400;
+	font-size: var(--settings-input-label-font-size);
+	font-weight: var(--settings-input-label-font-weight);
 
 	cursor: pointer;
 
@@ -21,22 +22,27 @@
 }
 
 .settings-select__select {
-	appearance: none;
-	border: 0;
-	outline: 0;
-	font: inherit;
 	width: 100%;
+	appearance: none;
 	padding: 10px;
+
 	background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
-		#ffffff;
-	color: #000000;
-	border-radius: 10px;
+		var(--settings-input-bg);
+	border: 0;
+	border-radius: var(--app-settings-border-radius);
 	box-shadow: var(--inner-shadow);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--settings-input-font-size);
+	font-weight: var(--settings-input-font-weight);
+	color: var(--setting-input-text-color);
+
 	cursor: pointer;
 
 	&:hover,
 	&:focus-within {
 		outline: 2px solid var(--settings-color);
+		box-shadow: var(--input-shadow);
 	}
 
 	/* Remove IE arrow */
@@ -46,6 +52,10 @@
 }
 
 .settings-select__option {
-	color: #000000;
-	background-color: #ffffff;
+	background-color: var(--settings-input-bg);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--settings-input-font-size);
+	font-weight: var(--settings-input-font-weight);
+	color: var(--setting-input-text-color);
 }

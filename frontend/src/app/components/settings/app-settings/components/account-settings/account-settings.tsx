@@ -1,6 +1,5 @@
 //components
-import SettingsInput from '../../../controls/settings-input/settings-input';
-import SettingsSelect from '../../../controls/settings-select/settings-select';
+import { SettingsInput, SettingsSelect } from '../../../../controls/';
 //styles
 import './account-settings.scss';
 

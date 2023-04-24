@@ -1,3 +1,4 @@
+//styles
 import './settings-select.scss';
 
 const SettingsSelect = (): JSX.Element => {
@@ -15,4 +16,4 @@ const SettingsSelect = (): JSX.Element => {
 	);
 };
 
-export default SettingsSelect
+export default SettingsSelect;

@@ -2,20 +2,20 @@
 	width: max-content;
 	background-color: var(--surface);
 	border: 2px solid var(--border);
-	border-radius: 10px;
-	padding: 20px;
+	border-radius: var(--app-settings-border-radius);
+	padding: var(--standart-side-padding);
 
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: max-content 1fr;
 	gap: 40px;
 
-	box-shadow: 0.3px 0.5px 0.7px rgba(0, 0, 0, 0.08), 0.8px 1.6px 2px -0.8px rgba(0, 0, 0, 0.08), 2.1px 4.1px 5.2px -1.7px rgba(0, 0, 0, 0.08), 5px 10px 12.6px -2.5px rgba(0, 0, 0, 0.08)
+	box-shadow: var(--shadow);
 }
 
 .app-settings__title {
-	font-size: 25px;
-	font-weight: 600;
+	font-size: var(--main-title-font-size);
+	font-weight: var(--main-title-font-weight);
 	color: var(--text-primary);
 	grid-column: 1/-1;
 }

@@ -5,8 +5,9 @@ import { RootPage, SettingsPage } from './pages/';
 import { WeatherApp } from './applications';
 //consts and utils functions
 import { AppRoute } from './variables/app-routes';
-//styles
-import './App.scss';
+//global styles
+import './global/global-variables.css';
+import './global/global-colors.css';
 
 function App() {
 	return (

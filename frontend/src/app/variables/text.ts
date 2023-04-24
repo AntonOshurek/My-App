@@ -4,4 +4,4 @@ export const enum AppTitles {
 	ROOT_WEATHER_TITLE = 'Weather forecast for the current day',
 
 	WEATHER_PAGE_TITLE = 'Weather application page',
-}
+};

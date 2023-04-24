@@ -1,3 +1,4 @@
+//styles
 import './theme-switch.scss';
 
 const ThemeSwitch = (): JSX.Element => {

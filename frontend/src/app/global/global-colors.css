@@ -6,6 +6,7 @@
 	--dark-bg: #101214;
 	--dark-border: #22272B;
 	--dark-surface: #161A1D;
+	--dark-overlay: rgb(255 255 255 / 10%);
 	--dark-text-primary: #DEE4EA;
 	--dark-text-secondary: #738496;
 	--dark-primary: #1D7AFC;
@@ -14,10 +15,15 @@
 	--light-bg: #F7F8F9;
 	--light-border: #F1F2F4;
 	--light-surface: #FFFFFF;
+	--light-overlay: rgb(0 0 0 / 10%);
 	--light-text-primary: #091E42;
 	--light-text-secondary: #626F86;
 	--light-primary: #1D7AFC;
-	--light-text-inverse: #FFFFFF;
+	--light-text-inverse: #000000;
+
+	/* SETTINGS COLORS */
+	--settings-input-bg: #ffffff;
+	--setting-input-text-color: #000000;
 
 	/* SHADOWS */
 	--light-shadow: .3rem .3rem .9rem #c8d0e7,
@@ -47,6 +53,7 @@
 	--bg: var(--dark-bg);
 	--border: var(--dark-border);
 	--surface: var(--dark-surface);
+	--overlay: var(--dark-overlay);
 	--text-primary: var(--dark-text-primary);
 	--text-secondary: var(--dark-text-secondary);
 	--primary: var(--dark-primary);
@@ -62,6 +69,7 @@
 	/* --bg: var(--light-bg);
 	--border: var(--light-border);
 	--surface: var(--light-surface);
+	--overlay: var(--light-overlay);
 	--text-primary: var(--light-text-primary);
 	--text-secondary: var(--light-text-secondary);
 	--primary: var(--light-primary);

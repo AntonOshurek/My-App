@@ -1,0 +1,26 @@
+.account-settings {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: min-content 1fr;
+	align-items: center;
+	gap: 20px;
+}
+
+.account-settings__title {
+	grid-column: 1/-1;
+
+	font-family: var(--app-basic-font);
+	font-size: var(--second-title-font-size);
+	font-weight: var(--second-title-font-weight);
+	color: var(--text-primary);
+}
+
+.account-settings__sub-title {
+	grid-column: 1/-1;
+
+	font-family: var(--app-basic-font);
+	font-size: var(--sub-title-font-size);
+	font-weight: var(--sub-title-font-weight);
+	color: var(--text-secondary);
+}

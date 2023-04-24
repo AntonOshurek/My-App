@@ -1,0 +1,12 @@
+.settings-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.settings-header__title {
+	font-family: var(--app-basic-font);
+	font-size: var(--page-title-font-size);
+	font-weight: var(--page-title-font-weight);
+	color: var(--text-inverse);
+}

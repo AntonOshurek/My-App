@@ -4,7 +4,7 @@ import './settings-input.scss';
 interface ISettingsInputPropsType {
 	title: string,
 	value: string,
-}
+};
 
 const SettingsInput = ({ title, value }: ISettingsInputPropsType): JSX.Element => {
 	return (

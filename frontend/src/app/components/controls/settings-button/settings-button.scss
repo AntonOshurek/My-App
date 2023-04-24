@@ -1,12 +1,13 @@
 .settings-button {
 	width: max-content;
-	padding: 15px 15px;
+	padding: var(--settings-button-padding);
 
-	font-size: 18px;
-	font-weight: 400;
+	font-family: var(--app-basic-font);
+	font-size: var(--button-font-size);
+	font-weight: var(--button-font-weight);
 	color: var(--standart-white);
 
-	border-radius: 10px;
+	border-radius: var(--app-settings-border-radius);
 	border: none;
 
 	transition: all 120ms ease-out;

@@ -4,18 +4,18 @@
 	left: 50%;
 	transform: translateX(-50%);
 
-	padding: 20px;
+	padding: var(--app-navigation-padding);
 
 	background-color: var(--surface);
 	border: 2px solid var(--border);
-	border-radius: 10px;
+	border-radius: var(--app-navigation-border-radius);
 }
 
 .app-nav__list {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 40px;
+	gap: 10px;
 }
 
 .app-nav__item {
@@ -27,12 +27,21 @@
 	justify-content: center;
 	align-items: center;
 
+	padding: var(--app-navigation-padding);
+
 	&>svg path {
-		fill: var(--dark-text-primary);
+		fill: var(--text-secondary);
+	}
+
+	&:not(.app-nav__link--active):hover>svg path {
+		fill: var(--text-primary);
+	}
+
+	&:not(.app-nav__link--active):active>svg path {
+		fill: var(--settings-color);
 	}
 
 	&--active>svg path {
 		fill: var(--settings-color);
 	}
-
 }

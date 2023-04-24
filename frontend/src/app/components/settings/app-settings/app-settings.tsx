@@ -1,7 +1,6 @@
 //components
-import AccountSettings from './account-settings/account-settings';
-import ThemeSwitch from './theme-switch/theme-switch';
-import SettingsButton from '../../controls/settings-button/settings-button';
+import { AccountSettings, ThemeSwitch } from './components/';
+import { SettingsButton } from '../../controls';
 //styles
 import './app-settings.scss';
 
