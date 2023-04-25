@@ -1,7 +1,8 @@
 :root {
 	--standart-white: #ffffff;
 	--standart-black: #000000;
-	--settings-color: #1D7AFC;
+	/* --settings-color: #1D7AFC; */
+	--settings-color: #2962ff;
 
 	--dark-bg: #101214;
 	--dark-border: #22272B;
@@ -9,7 +10,8 @@
 	--dark-overlay: rgb(255 255 255 / 10%);
 	--dark-text-primary: #DEE4EA;
 	--dark-text-secondary: #738496;
-	--dark-primary: #1D7AFC;
+	/* --dark-primary: #1D7AFC; */
+	--dark-primary: tomato;
 	--dark-text-inverse: #FFFFFF;
 
 	--light-bg: #F7F8F9;
