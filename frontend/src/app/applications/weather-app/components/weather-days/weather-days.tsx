@@ -1,7 +1,7 @@
 //components
 import WeatherDayItem from './weather-day-item/weather-day-item';
 //types
-import type {	AdaptedDaysDataType} from '../../types/weather-adapted-data-types';
+import type { AdaptedDaysDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-days.scss';
 
@@ -18,7 +18,7 @@ const WeatherDays = ({ daysWeather }: IWeatherDaysPropsType): JSX.Element => {
 			<ul className={`weather-days ${skeletonClass}`}>
 				{
 					daysWeather ? daysWeather.map((dayWeather) => {
-						return <WeatherDayItem key={dayWeather.dateEpoch} weather={dayWeather}/>
+						return <WeatherDayItem key={dayWeather.dateEpoch} weather={dayWeather} />
 					}) : null
 				}
 			</ul>

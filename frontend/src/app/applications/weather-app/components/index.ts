@@ -7,6 +7,7 @@ import WeatherSearchLocations from "./weather-search-locations/weather-search-lo
 import WeatherFullInfo from "./weather-full-info/weather-full-info";
 import ChoiceLocationModal from "./choice-location-modal/choice-location-modal";
 import { WeatherAppHeader } from './header';
+import WeatherApplication from './weather-application/weather-application';
 
 export {
 	CurrentWeather,
@@ -18,4 +19,5 @@ export {
 	WeatherFullInfo,
 	ChoiceLocationModal,
 	WeatherAppHeader,
+	WeatherApplication,
 };

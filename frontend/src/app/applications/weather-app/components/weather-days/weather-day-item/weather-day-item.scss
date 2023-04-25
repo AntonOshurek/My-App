@@ -14,28 +14,28 @@
 	transition: all 0.2s ease;
 
 	&:hover,
-	&--current  {
+	&--current {
 		transform: scale(1.05);
-		background: var(--weather-basic-text-color);
-		// box-shadow: var(--weather-card-background-color);
+		background: var(--surface);
+		box-shadow: var(--shadow);
 
 		& .weather-days__days-name,
 		& .weather-days__temperature {
-			color: var(--weather-basic-dark-text-color);
+			color: var(--text-primary);
 		}
 	}
 }
 
 .weather-days__days-name {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--text-secondary);
 	font-size: 16px;
 	font-weight: 400;
 }
 
 .weather-days__temperature {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--text-secondary);
 	font-size: var(--weather-days-tem-text-size);
 	font-weight: var(--weather-days-tem-text-weight);
 }

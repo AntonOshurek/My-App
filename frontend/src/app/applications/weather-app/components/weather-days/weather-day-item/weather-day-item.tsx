@@ -20,11 +20,11 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 	const { day } = useParams();
 	const myCity = useAppSelector(SelectorGetMyCityState);
 
-	const [ activeClass, setActiveClass ] = useState<string | null>(null);
+	const [activeClass, setActiveClass] = useState<string | null>(null);
 
 	useEffect(() => {
-		if(day) {
-			if(compareDates(weather.date, day)) {
+		if (day) {
+			if (compareDates(weather.date, day)) {
 				setActiveClass('weather-days__item--current');
 			} else {
 				setActiveClass('');
@@ -49,7 +49,7 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 			<p className='weather-days__temperature'>
 				{weather.day.avgTempC}°C
 			</p>
-			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text}/>
+			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text} />
 
 			<Link className='weather-days__link' to={`../${myCity}/${weather.date}`}>
 				<span className='visually-hidden'>Detailed weather for the {weather.date} day</span>

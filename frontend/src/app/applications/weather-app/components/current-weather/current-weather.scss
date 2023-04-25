@@ -33,11 +33,6 @@
 		border-radius: var(--weather-basic-border-radius);
 	}
 
-	//commented 03.04.2023
-	// &:hover {
-	// 	transform: scale(1.1) perspective(1500px) rotateY(10deg);
-	// }
-
 	@media (max-width: $mobile-width) {
 		width: 100%;
 		transform: scale(1);
@@ -73,7 +68,7 @@
 
 .current-weather__date-text {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 
 	font-size: var(--weather-current-location-date-text-size);
 	font-weight: var(--weather-current-location-date-text-weight);
@@ -86,7 +81,7 @@
 
 .current-weather__city {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: var(--weather-current-location-date-text-size);
 	font-weight: var(--weather-current-location-date-text-weight);
 }
@@ -103,7 +98,7 @@
 
 .current-weather__temperature {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: var(--weather-current-temp-text-size);
 	font-weight: var(--weather-current-temp-text-weight);
 	line-height: var(--weather-current-temp-text-size);
@@ -111,7 +106,7 @@
 
 .current-weather__temperature-info {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: var(--weather-current-temp-info-text-size);
 	font-weight: var(--weather-current-temp-info-text-weight);
 }
@@ -128,14 +123,14 @@
 
 .current-weather__image-info-title {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: calc(var(--weather-current-image-info-text-size) + 2px);
 	font-weight: var(--weather-current-image-info-text-weight);
 }
 
 .current-weather__image-author {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: var(--weather-current-image-info-text-size);
 	font-weight: var(--weather-current-image-info-text-weight);
 
@@ -145,7 +140,7 @@
 
 .current-weather__image-link {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--standart-white);
 	font-size: var(--weather-current-image-info-text-size);
 	font-weight: var(--weather-current-image-info-text-weight);
 

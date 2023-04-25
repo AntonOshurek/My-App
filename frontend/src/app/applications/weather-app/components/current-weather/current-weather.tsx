@@ -12,7 +12,7 @@ import './current-weather.scss';
 
 interface ICurrentWeatherPropsType {
 	currentWeather: IAdaptedOneDayDataType | null,
-}
+};
 
 const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Element => {
 	const myCity = useAppSelector(SelectorGetMyCityState);
@@ -21,11 +21,11 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 	const [image, setImage] = useState<any>(null);
 
 	useEffect(() => {
-		if(myCity && myCity.length) {
+		if (myCity && myCity.length) {
 			unsplashApi.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
-					backgroundImage: `url(${ imageData?.imageUrl })`
+					backgroundImage: `url(${imageData?.imageUrl})`
 				})
 			});
 		};
@@ -43,7 +43,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 				<p className='current-weather__city'>{myCity}</p>
 
-				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text}/>
+				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text} />
 
 				<p className='current-weather__temperature'>{currentWeather?.day.avgTempC}°C</p>
 				<p className='current-weather__temperature-info'>{currentWeather?.day.condition.text}</p>
