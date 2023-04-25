@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
-import { CurrentWeather, WeatherControls, WeatherFullInfo, ChoiceLocationModal } from '../../components/';
+import { CurrentWeather, WeatherControls, WeatherFullInfo, ChoiceLocationModal, WeatherAppHeader } from '../../components/';
 //api
 import weatherApi from '../../api/weather-api';
 //services
@@ -88,7 +88,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 	return (
 		<div className='weather-app-page'>
-			<h1 className='visually-hidden'>title</h1>
+			<WeatherAppHeader />
 
 			{/* {
 				cityFilled ?  null : <ChoiceLocationModal/>
