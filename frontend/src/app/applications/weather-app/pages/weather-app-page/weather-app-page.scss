@@ -4,14 +4,15 @@
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	background-color: var(--weather-page-bg-color);
+	// background-color: var(--weather-page-bg-color);
+	background-color: var(--bg);
 }
 
 .weather-app-page__main {
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
-	padding: 50px 0 20px 0;
+	padding: 50px 0 var(--padding-for-menu) 0;
 
 	display: flex;
 	flex-direction: column;
@@ -25,58 +26,37 @@
 	}
 }
 
-.weather-app-page__application  {
-	width: 700px;
-	height: 400px;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-
-	background-color: var(--weather-application-bg-color);
-	box-shadow: var(--weather-application-box-shadow-color);
-	border-radius: var(--weather-basic-border-radius);
-
-	@media (max-width: $mobile-width) {
-		width: 100%;
-		height: 100%;
-		grid-template-columns: 1fr;
-		grid-template-rows: min-content min-content;
-	}
-}
-
 // THE LOADING EFFECT
-.skeleton {
-	position: relative;
+// .skeleton {
+// 	position: relative;
 
-	&::after {
-		position: absolute;
-		top: 0;
-		left: 0;
-		content: '';
+// 	&::after {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		content: '';
 
-		z-index: 1;
-		width: 100%;
-		height: 100%;
-		background-color: #a8b7d4;
-		border-radius: var(--weather-basic-border-radius);
-		// The shine that's going to move across the skeleton:
-		background-image:
-				linear-gradient(
-					90deg,
-					rgba(#ffffff, 0),
-					rgba(#ffffff, 0.9),
-					rgba(#fff, 0)
-				);
-		background-size: 50px 100%; // width of the shine
-		background-repeat: no-repeat; // No need to repeat the shine effect
-		background-position: left -40px top 0; // Place shine on the left side, with offset on the left based on the width of the shine - see background-size
-		animation: shine 1.2s ease infinite; // increase animation time to see effect in 'slow-mo'
-	}
-}
+// 		z-index: 1;
+// 		width: 100%;
+// 		height: 100%;
+// 		background-color: #a8b7d4;
+// 		border-radius: var(--weather-basic-border-radius);
+// 		// The shine that's going to move across the skeleton:
+// 		background-image:
+// 			linear-gradient(90deg,
+// 				rgba(#ffffff, 0),
+// 				rgba(#ffffff, 0.9),
+// 				rgba(#fff, 0));
+// 		background-size: 50px 100%; // width of the shine
+// 		background-repeat: no-repeat; // No need to repeat the shine effect
+// 		background-position: left -40px top 0; // Place shine on the left side, with offset on the left based on the width of the shine - see background-size
+// 		animation: shine 1.2s ease infinite; // increase animation time to see effect in 'slow-mo'
+// 	}
+// }
 
-@keyframes shine {
-	to {
-		// Move shine from left to right, with offset on the right based on the width of the shine - see background-size
-		background-position: right -40px top 0;
-	}
-}
+// @keyframes shine {
+// 	to {
+// 		// Move shine from left to right, with offset on the right based on the width of the shine - see background-size
+// 		background-position: right -40px top 0;
+// 	}
+// }

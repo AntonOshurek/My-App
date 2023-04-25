@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 //components
-import { CurrentWeather, WeatherControls, WeatherFullInfo, ChoiceLocationModal } from '../../components/';
+import { WeatherFullInfo, WeatherAppHeader, WeatherApplication } from '../../components/';
 //api
 import weatherApi from '../../api/weather-api';
 //services
@@ -26,7 +26,7 @@ const WeatherAppPage = (): JSX.Element => {
 
 	const [daysWeather, setDaysWeather] = useState<AdaptedDaysDataType | null>(null);
 	const [currentWeather, setCurrentWeather] = useState<IAdaptedOneDayDataType | null>(null);
-	const [cityFilled, setCityFilled] = useState<boolean>(true);
+	// const [cityFilled, setCityFilled] = useState<boolean>(true);
 
 	// useEffect(() => {
 	// 	if((location && location.length !== 0) && (location !== myCity)) {
@@ -62,7 +62,6 @@ const WeatherAppPage = (): JSX.Element => {
 	useEffect(() => {
 		console.log(myCity)
 		if (myCity || myCity.length) {
-			setCityFilled(true);
 
 			weatherApi.getWeather(myCity, myLanguage)
 				.then((response) => {
@@ -80,34 +79,17 @@ const WeatherAppPage = (): JSX.Element => {
 		} else {
 			//do something.... without location
 			//show modal for choise city
-
-			setCityFilled(false);
 		}
 	}, [myCity]);
 
 
 	return (
 		<div className='weather-app-page'>
-			<h1 className='visually-hidden'>title</h1>
-
-			{/* {
-				cityFilled ?  null : <ChoiceLocationModal/>
-			} */}
+			<WeatherAppHeader />
 
 			<main className='weather-app-page__main'>
 
-				<section className='weather-app-page__application container'>
-					<h2 className='visually-hidden'>Weather</h2>
-
-					<CurrentWeather
-						currentWeather={currentWeather ? currentWeather : null}
-					/>
-					<WeatherControls
-						currentWeather={currentWeather ? currentWeather : null}
-						daysWeather={daysWeather ? daysWeather : null}
-					/>
-
-				</section>
+				<WeatherApplication currentWeather={currentWeather} daysWeather={daysWeather} />
 
 				<WeatherFullInfo
 					currentWeather={currentWeather ? currentWeather : null}

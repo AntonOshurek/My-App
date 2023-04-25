@@ -1,7 +1,8 @@
 :root {
 	--standart-white: #ffffff;
 	--standart-black: #000000;
-	--settings-color: #1D7AFC;
+	/* --settings-color: #1D7AFC; */
+	--settings-color: #2962ff;
 
 	--dark-bg: #101214;
 	--dark-border: #22272B;
@@ -10,6 +11,7 @@
 	--dark-text-primary: #DEE4EA;
 	--dark-text-secondary: #738496;
 	--dark-primary: #1D7AFC;
+	/* --dark-primary: tomato; */
 	--dark-text-inverse: #FFFFFF;
 
 	--light-bg: #F7F8F9;
@@ -50,7 +52,7 @@
 	--colored-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%),
 		-0.2rem -0.2rem 0.4rem #fff;
 
-	--bg: var(--dark-bg);
+	/* --bg: var(--dark-bg);
 	--border: var(--dark-border);
 	--surface: var(--dark-surface);
 	--overlay: var(--dark-overlay);
@@ -64,9 +66,9 @@
 	--button-shadow: var(--dark-button-shadow);
 	--button-inner-shadow: var(--dark-button-inner-shadow);
 	--input-shadow: var(--shadow);
-	--input-inner-shadow: var(--inner-shadow);
+	--input-inner-shadow: var(--inner-shadow); */
 
-	/* --bg: var(--light-bg);
+	--bg: var(--light-bg);
 	--border: var(--light-border);
 	--surface: var(--light-surface);
 	--overlay: var(--light-overlay);
@@ -80,7 +82,7 @@
 	--button-shadow: var(--light-button-shadow);
 	--button-inner-shadow: var(--dark-button-inner-shadow);
 	--input-shadow: var(--colored-shadow);
-	--input-inner-shadow: var(--inner-shadow); */
+	--input-inner-shadow: var(--inner-shadow);
 }
 
 /* other colors sheme */

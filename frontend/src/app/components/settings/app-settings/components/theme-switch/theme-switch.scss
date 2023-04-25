@@ -80,7 +80,7 @@
 
 	&:hover,
 	&:focus {
-		border-color: var(--primary);
+		border-color: var(--settings-color);
 	}
 
 	&:active {
@@ -98,7 +98,7 @@
 .theme-switch__radio {
 
 	&:checked~.theme-switch__label {
-		border: 3px solid var(--primary);
+		border: 3px solid var(--settings-color);
 
 		&:after {
 			content: '✓';
@@ -107,7 +107,7 @@
 			right: -15px;
 			height: 30px;
 			width: 30px;
-			background: var(--primary);
+			background: var(--settings-color);
 			border-radius: 50%;
 			color: var(--text-inverse);
 			display: inline-flex;
