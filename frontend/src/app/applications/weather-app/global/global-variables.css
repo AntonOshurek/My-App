@@ -2,15 +2,6 @@
 	/* FONTS */
 	--weather-basic-font: 'Rubik', 'Arial', sans-serif;
 
-	/* COLORS */
-	--weather-application-bg-color: #222831;
-	--weather-application-text-color: #f5f5f5;
-	--weather-card-background-color: #2a323d;
-
-	/* SHADOWS */
-	--weather-box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
-	--weather-after-gradient: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
-
 	/* PADDINGS AND RADIUSES */
 	--weather-basic-padding: 20px;
 	--weather-basic-border-radius: 20px;
@@ -36,19 +27,18 @@
 	--weather-days-name-text-weight: 400;
 	/* weather-days__temperature */
 	--weather-days-temp-text-size: 20px;
-	--weather-days-temp-text-weight: 400;
+	--weather-days-temp-text-weight: 500;
 	/* weather-full-info__text */
 	--weather-full-info-text-size: 16px;
 	--weather-full-info-text-weight: 400;
 	/* weather-full-info__data */
 	--weather-full-info-data-text-size: 17px;
 	--weather-full-info-data-text-weight: 500;
-
-
-
+	/* weather-button */
 	--weather-basic-button-text-size: 16px;
 	--weather-basic-button-text-weight: 400;
 
+	/* location page */
 	--weather-location-popular-title-text-size: 20px;
 	--weather-location-popular-title-text-weight: 500;
 
@@ -61,19 +51,4 @@
 	--weather-location-input-text-weight: 500;
 	--weather-location-save-btn-text-size: 14px;
 	--weather-location-save-btn-text-weight: 400;
-
-
-
-
-	/* BASIC COLORS */
-	/* --basic-white: #ffffff; */
-
-	/* COLORS */
-	/* --weather-basic-text-color: #f5f5f5; */
-	/*whitesmoke color*/
-	/* --weather-basic-dark-text-color: #222831; */
-
-	--weather-page-bg-color: #343d4b;
-	--weather-search-input-bacground: #666666;
-	--weather-location-popular-bg-color: #dddddd;
 }

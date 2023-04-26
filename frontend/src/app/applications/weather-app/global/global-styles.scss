@@ -1,4 +1,4 @@
-.basic__weather-button {
+.weather-button {
 	width: 100%;
 	padding: 10px 20px;
 
@@ -14,8 +14,6 @@
 	transition: all 0.2s ease;
 
 	&--main {
-		// background-color: var(--weather-basic-text-color);
-		// color: var(--weather-basic-dark-text-color);
 		background-color: var(--overlay);
 		color: var(--text-primary);
 
@@ -25,8 +23,6 @@
 	}
 
 	&--second {
-		// background-color: var(--weather-page-bg-color);
-		// color: var(--weather-basic-text-color);
 		background-color: transparent;
 		color: var(--text-primary);
 

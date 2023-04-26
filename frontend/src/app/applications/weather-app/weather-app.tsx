@@ -4,8 +4,9 @@ import { WeatherAppLocationPage, WeatherAppPage } from './pages';
 //variables
 import { WeatherAppRoute } from './variables/weather-app-routes';
 //styles
-import './variables/weather-app-variables.css';
-import './basic.scss';
+import './global/global-colors.css';
+import './global/global-variables.css';
+import './global/global-styles.scss';
 
 const WeatherApp = (): JSX.Element => {
 	return (

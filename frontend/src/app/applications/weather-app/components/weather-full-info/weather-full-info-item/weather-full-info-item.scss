@@ -58,6 +58,10 @@
 	font-size: var(--weather-full-info-text-size);
 	font-weight: var(--weather-full-info-text-weight);
 	text-align: center;
+
+	&--dark {
+		color: #000;
+	}
 }
 
 .weather-full-info__data {
@@ -65,4 +69,8 @@
 	color: var(--text-primary);
 	font-size: var(--weather-full-info-data-text-size);
 	font-weight: var(--weather-full-info-data-text-weight);
+
+	&--dark {
+		color: #000;
+	}
 }
