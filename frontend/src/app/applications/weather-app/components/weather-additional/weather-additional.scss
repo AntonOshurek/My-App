@@ -21,7 +21,7 @@
 	font-family: var(--weather-basic-font);
 	color: var(--text-primary);
 	font-size: var(--weather-additional-text-size);
-	font-weight: var(--weather-additional-text-weight);
+	font-weight: calc(var(--weather-additional-text-weight) - 100);
 }
 
 .weather-additional__info-content {
@@ -32,7 +32,7 @@
 	font-family: var(--weather-basic-font);
 	color: var(--text-primary);
 	font-size: var(--weather-additional-text-size);
-	font-weight: calc(var(--weather-additional-text-weight) - 100);
+	font-weight: var(--weather-additional-text-weight);
 
 	&.skeleton {
 		width: 80px;

@@ -12,9 +12,9 @@
 	gap: 10px;
 
 
-	background-color: var(--weather-basic-text-color);
+	background-color: var(--surface);
 	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--weather-application-box-shadow-color);
+	box-shadow: var(--weather-box-shadow-color);
 
 	@media (max-width: $mobile-width) {
 		height: 300px;
@@ -23,7 +23,7 @@
 
 .popular-location__title {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-dark-text-color);
+	color: var(--text-primary);
 	font-size: var(--weather-location-popular-title-text-size);
 	font-weight: var(--weather-location-popular-title-text-weight);
 	text-align: center;

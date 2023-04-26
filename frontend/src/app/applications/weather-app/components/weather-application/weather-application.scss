@@ -7,11 +7,9 @@
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
 
-	// background-color: var(--weather-application-bg-color);
 	background-color: var(--surface);
-
-	box-shadow: var(--weather-application-box-shadow-color);
-	// box-shadow: var(--shadow);
+	box-shadow: var(--weather-box-shadow-color);
+	border: 1px solid var(--border);
 	border-radius: var(--weather-basic-border-radius);
 
 	@media (max-width: $mobile-width) {

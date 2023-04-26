@@ -17,7 +17,8 @@
 	--light-bg: #F7F8F9;
 	--light-border: #F1F2F4;
 	--light-surface: #FFFFFF;
-	--light-overlay: rgb(0 0 0 / 10%);
+	/* --light-overlay: rgb(0 0 0 / 10%); */
+	--light-overlay: #0000001a;
 	--light-text-primary: #091E42;
 	--light-text-secondary: #626F86;
 	--light-primary: #1D7AFC;

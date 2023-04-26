@@ -4,8 +4,8 @@
 	padding: 10px;
 
 	border-radius: var(--weather-basic-border-radius);
-	background-color: var(--weather-page-bg-color);
-	box-shadow: var(--weather-application-box-shadow-color);
+	background-color: var(--surface);
+	box-shadow: var(--weather-box-shadow-color);
 }
 
 .weather-full-info__day-article {
@@ -28,8 +28,8 @@
 }
 
 .weather-full-info__weather-image {
-	width: var(--weather-full-info-icon-size);
-	height: var(--weather-full-info-icon-size);
+	width: 50px;
+	height: 50px;
 	object-fit: contain;
 }
 
@@ -54,23 +54,23 @@
 
 .weather-full-info__text {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--text-primary);
 	font-size: var(--weather-full-info-text-size);
 	font-weight: var(--weather-full-info-text-weight);
 	text-align: center;
 
 	&--dark {
-		color: var(--weather-basic-dark-text-color);
+		color: #000;
 	}
 }
 
 .weather-full-info__data {
 	font-family: var(--weather-basic-font);
-	color: var(--weather-basic-text-color);
+	color: var(--text-primary);
 	font-size: var(--weather-full-info-data-text-size);
 	font-weight: var(--weather-full-info-data-text-weight);
 
 	&--dark {
-		color: var(--weather-basic-dark-text-color);
+		color: #000;
 	}
 }

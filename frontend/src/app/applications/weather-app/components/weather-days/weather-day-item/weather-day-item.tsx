@@ -49,7 +49,7 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 			<p className='weather-days__temperature'>
 				{weather.day.avgTempC}°C
 			</p>
-			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text} />
+			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text} width='30' height='30' />
 
 			<Link className='weather-days__link' to={`../${myCity}/${weather.date}`}>
 				<span className='visually-hidden'>Detailed weather for the {weather.date} day</span>

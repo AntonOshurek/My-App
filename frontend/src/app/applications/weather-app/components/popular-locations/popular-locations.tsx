@@ -18,8 +18,8 @@ const PopularLocaions = ({ hintCity, cityButtonHandler }: IPopularLocaionsPropsT
 
 	useEffect(() => {
 
-		if(hintCity) {
-			if(hintCity.length < 1 || hintCity[0] === '') {
+		if (hintCity) {
+			if (hintCity.length < 1 || hintCity[0] === '') {
 				//show last results of hint cities! this is work :)
 				//it's not a bug, it's a feature :)
 			} else {
@@ -42,7 +42,7 @@ const PopularLocaions = ({ hintCity, cityButtonHandler }: IPopularLocaionsPropsT
 
 				{
 					cities?.map((city, i) => {
-						return <PopularLocationItem city={city} key={city + i} cityButtonHandler={cityButtonHandler}/>
+						return <PopularLocationItem city={city} key={city + i} cityButtonHandler={cityButtonHandler} />
 					})
 				}
 

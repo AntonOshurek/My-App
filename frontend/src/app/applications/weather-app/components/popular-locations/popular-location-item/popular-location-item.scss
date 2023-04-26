@@ -21,11 +21,11 @@
 	align-items: center;
 
 	font-family: var(--weather-basic-font);
-	color: var(--weather-location-popular-bg-color);
+	color: var(--text-inverse);
 	font-size: var(--weather-location-button-text-size);
 	font-weight: var(--weather-location-button-text-weight);
 
-	background-color: var(--weather-card-background-color);
+	background-color: var(--overlay);
 	border: none;
 	border-radius: 20px;
 

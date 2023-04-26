@@ -22,7 +22,7 @@ const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsT
 			<WeatherDays daysWeather={daysWeather ? daysWeather : null} />
 
 			<Link
-				className='weather-controls__change-location-link basic__weather-button basic__weather-button--main'
+				className='weather-controls__change-location-link weather-button weather-button--main'
 				to={`../${WeatherAppRoute.WEATHER_APP_LOCATION_PAGE}`}>
 				Change location
 			</Link>
