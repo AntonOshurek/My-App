@@ -43,7 +43,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 				<p className='current-weather__city'>{myCity}</p>
 
-				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text} />
+				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text} width='70' height='70' />
 
 				<p className='current-weather__temperature'>{currentWeather?.day.avgTempC}°C</p>
 				<p className='current-weather__temperature-info'>{currentWeather?.day.condition.text}</p>

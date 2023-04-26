@@ -14,7 +14,8 @@
 	background-size: cover;
 
 	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--weather-application-box-shadow-color);
+	box-shadow: var(--weather-box-shadow-color);
+	background-color: var(--bg);
 
 	transition: transform 0.3s ease;
 	transform: scale(1.05);
@@ -69,7 +70,6 @@
 .current-weather__date-text {
 	font-family: var(--weather-basic-font);
 	color: var(--standart-white);
-
 	font-size: var(--weather-current-location-date-text-size);
 	font-weight: var(--weather-current-location-date-text-weight);
 
@@ -82,13 +82,14 @@
 .current-weather__city {
 	font-family: var(--weather-basic-font);
 	color: var(--standart-white);
+
 	font-size: var(--weather-current-location-date-text-size);
 	font-weight: var(--weather-current-location-date-text-weight);
 }
 
 .current-weather__image {
-	width: var(--weather-current-info-icon-size);
-	height: var(--weather-current-info-icon-size);
+	width: 70px;
+	height: 70px;
 
 	display: flex;
 	align-self: end;

@@ -29,15 +29,15 @@
 .weather-days__days-name {
 	font-family: var(--weather-basic-font);
 	color: var(--text-secondary);
-	font-size: 16px;
-	font-weight: 400;
+	font-size: var(--weather-days-name-text-size);
+	font-weight: var(--weather-days-name-text-weight);
 }
 
 .weather-days__temperature {
 	font-family: var(--weather-basic-font);
 	color: var(--text-secondary);
-	font-size: var(--weather-days-tem-text-size);
-	font-weight: var(--weather-days-tem-text-weight);
+	font-size: var(--weather-days-temp-text-size);
+	font-weight: var(--weather-days-temp-text-weight);
 }
 
 .weather-days__image {
