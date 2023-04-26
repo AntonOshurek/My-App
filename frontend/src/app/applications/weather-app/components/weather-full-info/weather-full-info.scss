@@ -12,7 +12,7 @@
 .weather-full-info__list {
 	height: 100%;
 	max-width: 100%;
-	padding: 20px 0;
+	padding: var(--weather-basic-padding) 0;
 
 	overflow: auto;
 	list-style: none;
@@ -21,7 +21,7 @@
 .weather-full-info__list-wrap {
 	height: 100%;
 	min-width: max-content;
-	padding: 0 20px;
+	padding: 0 var(--weather-basic-padding);
 
 	display: flex;
 	justify-content: flex-start;

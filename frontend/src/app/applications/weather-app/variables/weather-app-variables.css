@@ -37,11 +37,14 @@
 	/* weather-days__temperature */
 	--weather-days-temp-text-size: 20px;
 	--weather-days-temp-text-weight: 400;
-
+	/* weather-full-info__text */
 	--weather-full-info-text-size: 16px;
 	--weather-full-info-text-weight: 400;
+	/* weather-full-info__data */
 	--weather-full-info-data-text-size: 17px;
 	--weather-full-info-data-text-weight: 500;
+
+
 
 	--weather-basic-button-text-size: 16px;
 	--weather-basic-button-text-weight: 400;
@@ -73,8 +76,4 @@
 	--weather-page-bg-color: #343d4b;
 	--weather-search-input-bacground: #666666;
 	--weather-location-popular-bg-color: #dddddd;
-
-	/* SIZES */
-	/* --weather-current-info-icon-size: 70px; */
-	--weather-full-info-icon-size: 50px;
 }
