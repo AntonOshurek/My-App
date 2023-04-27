@@ -3,51 +3,67 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { appStoreData } from '../store-data/app-store-data';
 //types
 import type { AppThunk } from '../../types/store-types';
-import type { ISetMyCityActionType, ISetLoginActionType, ISetLanguageActionType } from '../../types/action-types';
+import type {
+	ISetMyCityActionType,
+	ISetLoginActionType,
+	ISetLanguageActionType,
+	ISetColorThemeActionType
+} from '../../types/action-types';
 //API
 import { appStorageApi } from '../../api';
 
 export const appSlice = createSlice({
-  name: 'app',
-  initialState: appStoreData,
+	name: 'app',
+	initialState: appStoreData,
 
-  reducers: {
-    setMyCity: (state, action: PayloadAction<ISetMyCityActionType>) => {
-      const { myCity } = action.payload;
-      state.myCity = myCity;
-    },
+	reducers: {
+		setMyCity: (state, action: PayloadAction<ISetMyCityActionType>) => {
+			const { myCity } = action.payload;
+			state.myCity = myCity;
+		},
 		setLogin: (state, action: PayloadAction<ISetLoginActionType>) => {
-      const { login } = action.payload;
-      state.login = login;
-    },
+			const { login } = action.payload;
+			state.login = login;
+		},
 		setLanguage: (state, action: PayloadAction<ISetLanguageActionType>) => {
-      const { language } = action.payload;
-      state.language = language;
-    },
-  },
+			const { language } = action.payload;
+			state.language = language;
+		},
+		setColorTheme: (state, action: PayloadAction<ISetColorThemeActionType>) => {
+			const { colorTheme } = action.payload;
+			state.colorTheme = colorTheme;
+		},
+	},
 });
 
 export const { setMyCity } = appSlice.actions;
 
 export const setMyCityAction =
-  (action: ISetMyCityActionType): AppThunk =>
-  (dispatch, getState) => {
-    dispatch(appSlice.actions.setMyCity(action));
-		appStorageApi.setData(getState().app);
-  };
+	(action: ISetMyCityActionType): AppThunk =>
+		(dispatch, getState) => {
+			dispatch(appSlice.actions.setMyCity(action));
+			appStorageApi.setData(getState().app);
+		};
 
 export const setLoginAction =
-  (action: ISetLoginActionType): AppThunk =>
-  (dispatch, getState) => {
-    dispatch(appSlice.actions.setLogin(action));
-		appStorageApi.setData(getState().app);
-  };
+	(action: ISetLoginActionType): AppThunk =>
+		(dispatch, getState) => {
+			dispatch(appSlice.actions.setLogin(action));
+			appStorageApi.setData(getState().app);
+		};
 
 export const setLanguageAction =
-  (action: ISetLanguageActionType): AppThunk =>
-  (dispatch, getState) => {
-    dispatch(appSlice.actions.setLanguage(action));
-		appStorageApi.setData(getState().app);
-  };
+	(action: ISetLanguageActionType): AppThunk =>
+		(dispatch, getState) => {
+			dispatch(appSlice.actions.setLanguage(action));
+			appStorageApi.setData(getState().app);
+		};
+
+export const setColorThemeAction =
+	(action: ISetColorThemeActionType): AppThunk =>
+		(dispatch, getState) => {
+			dispatch(appSlice.actions.setColorTheme(action));
+			appStorageApi.setData(getState().app);
+		};
 
 export default appSlice.reducer;

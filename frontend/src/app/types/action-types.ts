@@ -9,3 +9,7 @@ export interface ISetLoginActionType {
 export interface ISetLanguageActionType {
 	language: string,
 };
+
+export interface ISetColorThemeActionType {
+	colorTheme: string,
+};
