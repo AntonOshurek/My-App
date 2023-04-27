@@ -1,3 +1,6 @@
+//variables
+import { ColorThemes } from '../variables/color-themes';
+
 export interface ISetMyCityActionType {
 	myCity: string,
 };
@@ -11,5 +14,5 @@ export interface ISetLanguageActionType {
 };
 
 export interface ISetColorThemeActionType {
-	colorTheme: string,
+	colorTheme: ColorThemes,
 };

@@ -4,27 +4,29 @@ import { ChangeEvent } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../../../generic-utils/hooks/hooks';
 import { SelectorGetColorThemeState } from '../../../../../store/selectors/selectors';
 import { setColorThemeAction } from '../../../../../store/slices/app-slice';
+//variables
+import { ColorThemes } from '../../../../../variables/color-themes';
 //styles
 import './theme-switch.scss';
 
 const ThemeSwitch = (): JSX.Element => {
 	const dispatch = useAppDispatch();
-	const actualyColorTheme = useAppSelector(SelectorGetColorThemeState);
+	const actuallyColorTheme = useAppSelector(SelectorGetColorThemeState);
 
-	const [themeValue, setThemeValue] = useState<string>(actualyColorTheme);
+	const [colorTheme, setColorTheme] = useState<ColorThemes>(actuallyColorTheme);
 
 	const themeSwitcherHandler = (evt: ChangeEvent<HTMLInputElement>) => {
-		setThemeValue(evt.target.value);
+		setColorTheme(evt.target.value as ColorThemes);//???????????????????????????????????????
 	};
 
 	useEffect(() => {
-		dispatch(setColorThemeAction({ colorTheme: themeValue }));
-	}, [themeValue]);
+		dispatch(setColorThemeAction({ colorTheme: colorTheme }));
+	}, [colorTheme, dispatch]);
 
 	return (
 		<form className='theme-switch'>
 			<h3 className='theme-switch__title'>Variable Themes</h3>
-			<p className='theme-switch__sub-title'>Choice through 4 themes, from darkest to lightest</p>
+			<p className='theme-switch__sub-title'>Choice through 2 themes, from darkest to lightest</p>
 
 			<div className='theme-switch__item theme-switch__item--dark'>
 
@@ -32,13 +34,13 @@ const ThemeSwitch = (): JSX.Element => {
 					className='theme-switch__radio visually-hidden'
 					type="radio"
 					name='theme'
-					value='theme-dark'
-					id='theme-dark'
-					checked={themeValue === "theme-dark"}
+					value={ColorThemes.THEME_DARK}
+					id={ColorThemes.THEME_DARK}
+					checked={colorTheme === ColorThemes.THEME_DARK}
 					onChange={themeSwitcherHandler}
 				/>
 
-				<label className='theme-switch__label' htmlFor='theme-dark'>
+				<label className='theme-switch__label' htmlFor={ColorThemes.THEME_DARK}>
 					<span className='theme-switch__label-text'>Dark</span>
 					<svg fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" width='24px' height='24px'>
 						<path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"></path>
@@ -97,13 +99,13 @@ const ThemeSwitch = (): JSX.Element => {
 					className='theme-switch__radio visually-hidden'
 					type="radio"
 					name='theme'
-					value='theme-light'
-					id='theme-light'
-					checked={themeValue === "theme-light"}
+					value={ColorThemes.THEME_LIGHT}
+					id={ColorThemes.THEME_LIGHT}
+					checked={colorTheme === ColorThemes.THEME_LIGHT}
 					onChange={themeSwitcherHandler}
 				/>
 
-				<label className='theme-switch__label' htmlFor='theme-light'>
+				<label className='theme-switch__label' htmlFor={ColorThemes.THEME_LIGHT}>
 					<span className='theme-switch__label-text'>Light</span>
 					<svg fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" width='24px' height='24px'><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg>
 					<div className="theme-switch__swatches">
