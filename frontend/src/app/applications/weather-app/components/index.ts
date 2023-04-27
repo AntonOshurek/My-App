@@ -5,8 +5,8 @@ import WeatherDays from "./weather-days/weather-days";
 import PopularLocaions from "./popular-locations/popular-locations";
 import WeatherSearchLocations from "./weather-search-locations/weather-search-locations";
 import WeatherFullInfo from "./weather-full-info/weather-full-info";
-import { WeatherAppHeader } from './header';
 import WeatherApplication from './weather-application/weather-application';
+import { WeatherLocationHeader, WeatherAppHeader } from './header';
 
 export {
 	CurrentWeather,
@@ -17,5 +17,6 @@ export {
 	WeatherSearchLocations,
 	WeatherFullInfo,
 	WeatherAppHeader,
+	WeatherLocationHeader,
 	WeatherApplication,
 };

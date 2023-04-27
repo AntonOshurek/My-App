@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, MouseEvent } from "react";
 //components
-import { PopularLocaions, WeatherSearchLocations } from '../../components';
+import { PopularLocaions, WeatherSearchLocations, WeatherLocationHeader } from '../../components';
 //services
 import cityHintsService from "../../services/city-hints-service";
 import locationService from "../../../../services/location-service";
@@ -61,7 +61,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 
 	return (
 		<div className='weather-app-location-page'>
-			<h1 className='visually-hidden'>change location for weather</h1>
+			<WeatherLocationHeader />
 
 			<main className='weather-app-location-page__main'>
 
