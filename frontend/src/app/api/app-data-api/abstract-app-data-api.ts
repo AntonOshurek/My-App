@@ -13,22 +13,22 @@ abstract class AbstractAppDataApi {
 	};
 
 	private getDefaultData(): StoreDataTypes {
-    return this.#data;
-  };
+		return this.#data;
+	};
 
 	private getDataFromStorage(): StoreDataTypes | null {
-    return this.#storageApi.getDataFromStorage();
-  };
+		return this.#storageApi.getDataFromStorage();
+	};
 
 	getData(): StoreDataTypes {
-    const resultFromStorage: StoreDataTypes | null = this.getDataFromStorage();
+		const resultFromStorage: StoreDataTypes | null = this.getDataFromStorage();
 
-    if(resultFromStorage) {
-      return resultFromStorage;
-    } else {
-      return this.getDefaultData();
-    };
-  };
+		if (resultFromStorage) {
+			return resultFromStorage;
+		} else {
+			return this.getDefaultData();
+		};
+	};
 };
 
 export default AbstractAppDataApi;

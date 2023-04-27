@@ -5,6 +5,7 @@ import { SettingsButton } from '../../controls';
 import './app-settings.scss';
 
 const AppSettings = (): JSX.Element => {
+
 	return (
 		<section className='app-settings'>
 			<h2 className='app-settings__title'>App settings</h2>
