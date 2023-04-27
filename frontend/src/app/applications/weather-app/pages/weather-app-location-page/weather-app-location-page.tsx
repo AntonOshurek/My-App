@@ -61,7 +61,6 @@ const WeatherAppLocationPage = (): JSX.Element => {
 
 	return (
 		<div className='weather-app-location-page'>
-			{/* <h1 className='visually-hidden'>change location for weather</h1> */}
 			<WeatherLocationHeader />
 
 			<main className='weather-app-location-page__main'>
