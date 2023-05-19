@@ -1,3 +1,7 @@
+//services
+import languageService from '../../../services/language.service';
+//types
+import type { LanguageItemType } from '../../../types/data-types';
 //styles
 import './settings-select.scss';
 
@@ -7,9 +11,12 @@ const SettingsSelect = (): JSX.Element => {
 			<label className='settings-select__label'>
 				Language
 				<select className='settings-select__select' name="language">
-					<option className='settings-select__option' value="eng">English</option>
-					<option className='settings-select__option' value="pol">Polish</option>
-					<option className='settings-select__option' value="rus">Russian</option>
+
+					{
+						languageService.getLanguages().map((lang: LanguageItemType) => {
+							return <option className='settings-select__option' value={lang.abbreviation} key={`${lang.abbreviation}-${lang.fullName}`}>{lang.fullName}</option>
+						})
+					}
 				</select>
 			</label>
 		</div>
