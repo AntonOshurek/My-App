@@ -1,9 +1,10 @@
 //variables
-import { languagesData } from "../data/languages-data";
+import { languagesData } from "../../data/languages-data";
 //types
-import type { LanguagesDataType } from '../types/data-types';
+import type { ILanguageService } from './language.service.interface';
+import type { LanguagesDataType } from '../../types/data-types';
 
-class LanguageService {
+class LanguageService implements ILanguageService{
 	private languagesData: LanguagesDataType;
 
 	constructor(languages: LanguagesDataType) {

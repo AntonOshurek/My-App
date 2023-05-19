@@ -1,5 +1,5 @@
 //services
-import languageService from '../../../services/language.service';
+import languageService from '../../../services/language-service/language.service';
 //types
 import type { LanguageItemType } from '../../../types/data-types';
 //styles

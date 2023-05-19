@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 //srvices
-import locationService from "../../../services/location-service";
+import locationService from "../../../services/location-service/location.service";
 //adapters
 import weatherDataAdapter from "../services/weather-data-adapter";
 //types
