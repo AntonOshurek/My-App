@@ -5,7 +5,7 @@ import { WeatherFullInfo, WeatherAppHeader, WeatherApplication } from '../../com
 //api
 import weatherApi from '../../api/weather-api';
 //services
-import locationService from '../../../../services/location-service';
+import locationService from '../../../../services/location-service/location.service';
 //utils
 import { compareDates } from '../../../../generic-utils/utils/date-utils';
 //store

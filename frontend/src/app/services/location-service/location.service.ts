@@ -1,6 +1,9 @@
+//libs
 import axios, { AxiosInstance } from "axios";
+//types
+import { ILocationService } from './location.service.interface';
 
-class LocationService {
+class LocationService implements ILocationService {
 	private OPEN_WEATHER_MAP_INSTANCE: AxiosInstance;
 	private OPEN_WEATHER_MAP_API_KEY: string;
 	private OPEN_WEATHER_MAP_BASE_URL: string;
@@ -13,6 +16,7 @@ class LocationService {
 	constructor(weatherApiKey: string, weatherApiUrl: string, streetMapUrl: string) {
 		this.OPEN_WEATHER_MAP_API_KEY = weatherApiKey;
 		this.OPEN_WEATHER_MAP_BASE_URL = weatherApiUrl;
+		this.STREET_MAP_BASE_URL = streetMapUrl;
 
 		this.OPEN_WEATHER_MAP_INSTANCE = axios.create({
 			baseURL: this.OPEN_WEATHER_MAP_BASE_URL,
@@ -21,8 +25,6 @@ class LocationService {
 				timeout: this.REQUEST_TIMEOUT,
       },
 		});
-
-		this.STREET_MAP_BASE_URL = streetMapUrl;
 
 		this.STREET_MAP_INSTANCE = axios.create({
 			baseURL: this.STREET_MAP_BASE_URL,
@@ -69,6 +71,7 @@ class LocationService {
 			);
 			return response.data.cod === 200;
 		} catch (error) {
+			//if city undefined in DB => return error from server.
 			return false;
 		};
 	};

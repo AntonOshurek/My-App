@@ -3,7 +3,7 @@ import { useState, ChangeEvent, MouseEvent } from "react";
 import { PopularLocaions, WeatherSearchLocations, WeatherLocationHeader } from '../../components';
 //services
 import cityHintsService from "../../services/city-hints-service";
-import locationService from "../../../../services/location-service";
+import locationService from "../../../../services/location-service/location.service";
 //store
 import { useAppDispatch } from "../../../../generic-utils/hooks/hooks";
 import { setMyCityAction } from "../../../../store/slices/app-slice";

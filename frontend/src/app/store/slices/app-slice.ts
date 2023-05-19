@@ -36,7 +36,7 @@ export const appSlice = createSlice({
 	},
 });
 
-export const { setMyCity } = appSlice.actions;
+// export const { setMyCity } = appSlice.actions;
 
 export const setMyCityAction =
 	(action: ISetMyCityActionType): AppThunk =>
