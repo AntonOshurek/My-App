@@ -1,16 +1,17 @@
 //utils
 import { convertWindKmhToMs } from '../../generic-utils/convert-wind-kmh-to-ms';
+//store
+import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
+import { SelectorGetWeatherCurrentDay } from '../../../../store/selectors/weather-selectors';
 //types
-import type { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { SelectorGetWeatherCurrentDayType } from '../../../../types/selector-types';
 //styles
 import './weather-additional.scss';
 
-interface IWeatherControlsPropsType {
-	currentWeather: IAdaptedOneDayDataType | null,
-};
+const WeatherAdditional = (): JSX.Element => {
+	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 
-const WeatherAdditional = ({ currentWeather }: IWeatherControlsPropsType): JSX.Element => {
-	const skeletonClass = currentWeather ? '' : 'skeleton';
+	const skeletonClass = weatherCurrentDay ? '' : 'skeleton';
 
 	return (
 		<>
@@ -18,17 +19,17 @@ const WeatherAdditional = ({ currentWeather }: IWeatherControlsPropsType): JSX.E
 			<dl className='weather-additional'>
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Осадки:</dt>
 				<dd className={`weather-additional__info-content ${skeletonClass}`}>
-					{currentWeather ? currentWeather.day.totalPrecipMm : null} mm
+					{weatherCurrentDay ? weatherCurrentDay.day.totalPrecipMm : null} mm
 				</dd>
 
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Влажность:</dt>
 				<dd className={`weather-additional__info-content ${skeletonClass}`}>
-					{currentWeather ? currentWeather.day.avgHumidity : null} %
+					{weatherCurrentDay ? weatherCurrentDay.day.avgHumidity : null} %
 				</dd>
 
 				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Ветер макс:</dt>
 				<dd className={`weather-additional__info-content ${skeletonClass}`}>
-					{currentWeather ? convertWindKmhToMs(currentWeather.day.maxWindKph) : null}	m/s
+					{weatherCurrentDay ? convertWindKmhToMs(weatherCurrentDay.day.maxWindKph) : null}	m/s
 				</dd>
 			</dl>
 		</>

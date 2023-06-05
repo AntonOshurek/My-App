@@ -2,15 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 //data
 import { appStoreData } from '../store-data/app-store-data';
 //types
-import type { AppThunk } from '../../types/store-types';
 import type {
 	ISetMyCityActionType,
 	ISetLoginActionType,
 	ISetLanguageActionType,
 	ISetColorThemeActionType
 } from '../../types/action-types';
-//API
-import { appStorageApi } from '../../api';
 
 export const appSlice = createSlice({
 	name: 'app',
@@ -36,34 +33,6 @@ export const appSlice = createSlice({
 	},
 });
 
-// export const { setMyCity } = appSlice.actions;
-
-export const setMyCityAction =
-	(action: ISetMyCityActionType): AppThunk =>
-		(dispatch, getState) => {
-			dispatch(appSlice.actions.setMyCity(action));
-			appStorageApi.setData(getState().app);
-		};
-
-export const setLoginAction =
-	(action: ISetLoginActionType): AppThunk =>
-		(dispatch, getState) => {
-			dispatch(appSlice.actions.setLogin(action));
-			appStorageApi.setData(getState().app);
-		};
-
-export const setLanguageAction =
-	(action: ISetLanguageActionType): AppThunk =>
-		(dispatch, getState) => {
-			dispatch(appSlice.actions.setLanguage(action));
-			appStorageApi.setData(getState().app);
-		};
-
-export const setColorThemeAction =
-	(action: ISetColorThemeActionType): AppThunk =>
-		(dispatch, getState) => {
-			dispatch(appSlice.actions.setColorTheme(action));
-			appStorageApi.setData(getState().app);
-		};
+export const { setMyCity, setLogin, setLanguage, setColorTheme } = appSlice.actions;
 
 export default appSlice.reducer;

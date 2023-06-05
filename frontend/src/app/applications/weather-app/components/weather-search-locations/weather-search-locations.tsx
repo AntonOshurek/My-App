@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 //store
 import { useAppSelector } from "../../../../generic-utils/hooks/hooks";
-import { SelectorGetMyCityState } from "../../../../store/selectors/selectors";
+import { SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 //styles
 import './weather-search-locations.scss';
 

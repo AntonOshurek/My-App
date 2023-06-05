@@ -4,7 +4,7 @@ import { generateTemperatureColor } from '../../../generic-utils/generate-temper
 import { generateWindColor } from '../../../generic-utils/generate-wind-color';
 import { convertWindKmhToMs } from '../../../generic-utils/convert-wind-kmh-to-ms';
 //types
-import type { IAdaptedWeatherHourDataType } from '../../../types/weather-adapted-data-types';
+import type { IWeatherHourDataType } from '../../../types/weather-data-types';
 //styles
 import './weather-full-info-item.scss';
 
@@ -14,9 +14,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThermometerHalf, faTint, faWind } from '@fortawesome/free-solid-svg-icons'
 
 interface IWeatherFullInfoItemPropsType {
-	hourWeather: IAdaptedWeatherHourDataType;
+	hourWeather: IWeatherHourDataType;
 };
-
 
 const WeatherFullInfoItem = ({ hourWeather }: IWeatherFullInfoItemPropsType): JSX.Element => {
 	const temperatureColor = generateTemperatureColor(+hourWeather.tempC);

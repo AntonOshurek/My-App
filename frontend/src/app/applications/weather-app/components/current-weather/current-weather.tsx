@@ -4,18 +4,17 @@ import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-uti
 import unsplashApi from '../../api/unsplash-api';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { SelectorGetMyCityState } from '../../../../store/selectors/selectors';
+import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
+import { SelectorGetWeatherCurrentDay } from '../../../../store/selectors/weather-selectors';
 //types
-import type { IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
+import type { SelectorGetWeatherCurrentDayType } from '../../../../types/selector-types';
 //styles
 import './current-weather.scss';
 
-interface ICurrentWeatherPropsType {
-	currentWeather: IAdaptedOneDayDataType | null,
-};
 
-const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Element => {
+const CurrentWeather = (): JSX.Element => {
 	const myCity = useAppSelector(SelectorGetMyCityState);
+	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
@@ -25,7 +24,7 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 			unsplashApi.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
-					backgroundImage: `url(${imageData?.imageUrl})`
+					backgroundImage: `url(${imageData.imageUrl})`
 				})
 			});
 		};
@@ -33,20 +32,20 @@ const CurrentWeather = ({ currentWeather }: ICurrentWeatherPropsType): JSX.Eleme
 
 	return (
 		<article className='current-weather' style={styles}>
-			<h3 className='visually-hidden'>Weather for {currentWeather?.date} date</h3>
+			<h3 className='visually-hidden'>Weather for {weatherCurrentDay?.date} date</h3>
 
 			<div className='current-weather__wrap'>
-				<time className='current-weather__date' dateTime={currentWeather?.date}>
-					<span className='current-weather__date-text current-weather__date-text--big'>{getWeekday(currentWeather?.date)}</span>
-					<span className='current-weather__date-text'>{formatDate(currentWeather?.date)}</span>
+				<time className='current-weather__date' dateTime={weatherCurrentDay?.date}>
+					<span className='current-weather__date-text current-weather__date-text--big'>{getWeekday(weatherCurrentDay?.date)}</span>
+					<span className='current-weather__date-text'>{formatDate(weatherCurrentDay?.date)}</span>
 				</time>
 
 				<p className='current-weather__city'>{myCity}</p>
 
-				<img className='current-weather__image' src={currentWeather?.day.condition.icon} alt={currentWeather?.day.condition.text} width='70' height='70' />
+				<img className='current-weather__image' src={weatherCurrentDay?.day.condition.icon} alt={weatherCurrentDay?.day.condition.text} width='70' height='70' />
 
-				<p className='current-weather__temperature'>{currentWeather?.day.avgTempC}°C</p>
-				<p className='current-weather__temperature-info'>{currentWeather?.day.condition.text}</p>
+				<p className='current-weather__temperature'>{weatherCurrentDay?.day.avgTempC}°C</p>
+				<p className='current-weather__temperature-info'>{weatherCurrentDay?.day.condition.text}</p>
 			</div>
 			<div className='current-weather__image-info'>
 				<h4 className='current-weather__image-info-title'>image</h4>

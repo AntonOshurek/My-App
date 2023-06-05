@@ -3,21 +3,21 @@ import type {
 	IDefaultCurrentWeatherDataType,
 	IDefaultLocationDataType,
 	IAllWeatherDataType
-} from "../types/weather-data-types";
+} from "../types/source-weather-data-types";
 
 import type {
-	IAdaptedCurrentWeatherDataType,
-	IAdaptedWeatherLocationDataType,
-	IAdaptedWeatherHourDataType,
-	IAdaptedOneDayDataType,
-	AdaptedDaysDataType,
-} from "../types/weather-adapted-data-types";
+	IWeatherAllDaysDataType,
+	IWeatherCurrentDataType,
+	IWeatherHourDataType,
+	IWeatherLocationDataType,
+	IWeatherOneDayDataType,
+} from "../types/weather-data-types";
 
-import type { IOneDayDataType } from "../types/weather-data-types";
+import type { IOneDayDataType } from "../types/source-weather-data-types";
 
 class WeatherDataAdapter {
 
-	createCurrentWeatherDataAdapter(currentWeatherData: IDefaultCurrentWeatherDataType): IAdaptedCurrentWeatherDataType {
+	createCurrentWeatherDataAdapter(currentWeatherData: IDefaultCurrentWeatherDataType): IWeatherCurrentDataType {
 		return {
 			cloudCover: currentWeatherData.cloud,
 			condition: currentWeatherData.condition.text,
@@ -45,7 +45,7 @@ class WeatherDataAdapter {
 		};
 	};
 
-	createLocationWeatherDataAdapter(locationWeatherData: IDefaultLocationDataType): IAdaptedWeatherLocationDataType {
+	createLocationWeatherDataAdapter(locationWeatherData: IDefaultLocationDataType): IWeatherLocationDataType {
 		return {
 			name: locationWeatherData.name,
       region: locationWeatherData.region,
@@ -58,7 +58,7 @@ class WeatherDataAdapter {
 		};
 	};
 
-	createForecastDayAdapter(dayData: IOneDayDataType): IAdaptedOneDayDataType {
+	createForecastDayAdapter(dayData: IOneDayDataType): IWeatherOneDayDataType {
 		return {
 			date: dayData.date,
 			dateEpoch: dayData.date_epoch,
@@ -98,7 +98,7 @@ class WeatherDataAdapter {
 				isMoonUp: dayData.astro.is_moon_up,
 				isSunUp: dayData.astro.is_sun_up,
 			},
-			hour: dayData.hour.map((hour): IAdaptedWeatherHourDataType => {
+			hour: dayData.hour.map((hour): IWeatherHourDataType => {
 				return {
 					timeEpoch: hour.time_epoch,
 					time: hour.time,
@@ -142,8 +142,8 @@ class WeatherDataAdapter {
 		};
 	};
 
-	createForecastDaysAdapter(data: IAllWeatherDataType): AdaptedDaysDataType {
-		const days: AdaptedDaysDataType = [];
+	createForecastDaysAdapter(data: IAllWeatherDataType): IWeatherAllDaysDataType {
+		const days: IWeatherAllDaysDataType = [];
 
 		data.forecast.forecastday.map((dayWeather: IOneDayDataType) => {
 			days.push(this.createForecastDayAdapter(dayWeather));

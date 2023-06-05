@@ -3,23 +3,16 @@ import { Link } from 'react-router-dom';
 import { WeatherAdditional, WeatherDays } from '../';
 //variables
 import { WeatherAppRoute } from '../../variables/weather-app-routes';
-//types
-import type { AdaptedDaysDataType, IAdaptedOneDayDataType } from '../../types/weather-adapted-data-types';
 //styles
 import './weather-controls.scss';
 
-interface IWeatherControlsPropsType {
-	currentWeather: IAdaptedOneDayDataType | null,
-	daysWeather: AdaptedDaysDataType | null,
-};
-
-const WeatherControls = ({ currentWeather, daysWeather }: IWeatherControlsPropsType): JSX.Element => {
+const WeatherControls = (): JSX.Element => {
 
 	return (
 		<div className='weather-controls'>
-			<WeatherAdditional currentWeather={currentWeather} />
+			<WeatherAdditional/>
 
-			<WeatherDays daysWeather={daysWeather ? daysWeather : null} />
+			<WeatherDays/>
 
 			<Link
 				className='weather-controls__change-location-link weather-button weather-button--main'

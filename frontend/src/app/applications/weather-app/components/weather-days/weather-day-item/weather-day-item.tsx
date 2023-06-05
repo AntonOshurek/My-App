@@ -4,16 +4,16 @@ import { useEffect, useState } from 'react';
 import { getWeekday, getAbbreviationWeekday, compareDates } from '../../../../../generic-utils/utils/date-utils';
 //types
 import type {
-	IAdaptedOneDayDataType
-} from '../../../types/weather-adapted-data-types';
+	IWeatherOneDayDataType
+} from '../../../types/weather-data-types';
 //store
 import { useAppSelector } from '../../../../../generic-utils/hooks/hooks';
-import { SelectorGetMyCityState } from '../../../../../store/selectors/selectors';
+import { SelectorGetMyCityState } from '../../../../../store/selectors/app-selectors';
 //styles
 import './weather-day-item.scss';
 
 interface IWeatherDayItemPropsType {
-	weather: IAdaptedOneDayDataType,
+	weather: IWeatherOneDayDataType,
 };
 
 const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
