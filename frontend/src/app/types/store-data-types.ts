@@ -4,7 +4,7 @@ import type { IWeatherAllDaysDataType, IWeatherOneDayDataType } from '../applica
 import { ColorThemes } from '../variables/color-themes';
 
 export interface IAppStoreDataType {
-	myCity: string,
+	myCity: string | null,
 	language: string,
 	login: string,
 	colorTheme: ColorThemes,

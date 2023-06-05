@@ -3,7 +3,7 @@ import { IWeatherAllDaysDataType, IWeatherOneDayDataType } from "../applications
 import { ColorThemes } from "../variables/color-themes";
 
 //app selectors types
-export type SelectorGetMyCityStateType =  string
+export type SelectorGetMyCityStateType =  string | null;
 export type SelectorGetLoginStateType = string ;
 export type SelectorGetLanguageStateType = string;
 export type SelectorGetColorThemeStateType = ColorThemes;

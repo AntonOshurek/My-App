@@ -6,42 +6,45 @@ import {WeatherApplication, WeatherFullInfo} from "../";
 import { compareDates } from "../../../../generic-utils/utils/date-utils";
 //api
 import weatherApi from "../../api/weather-api";
+//services
+import locationService from "../../../../services/location-service/location.service";
 //store
 import { SelectorGetLanguageState, SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 import { useAppDispatch, useAppSelector } from "../../../../generic-utils/hooks/hooks";
 import { setWeatherAllDaysAction, setWeatherCurrentDayAction } from "../../../../store/actions/weather-actions";
 import { SelectorGetWeatherAllDays } from "../../../../store/selectors/weather-selectors";
+import { setWeatherError } from "../../../../store/slices/weather-slice";
+import { setMyCityAction } from "../../../../store/actions/app-actions";
+import { setWeatherLoadingAction } from "../../../../store/actions/weather-actions";
 //types
 import type { SelectorGetWeatherAllDaysType } from "../../../../types/selector-types";
 
 const WeatherAppWrap = (): JSX.Element => {
 	const dispatch = useAppDispatch();
+
 	const myCity = useAppSelector(SelectorGetMyCityState);
 	const myLanguage = useAppSelector(SelectorGetLanguageState);
 	const weatherAllDays: SelectorGetWeatherAllDaysType = useAppSelector(SelectorGetWeatherAllDays);
 
 	const { location, day } = useParams();
-	console.log(day + " - day")
 
-	// const [cityFilled, setCityFilled] = useState<boolean>(true);
-
-	// useEffect(() => {
-	// 	if((location && location.length !== 0) && (location !== myCity)) {
-	// 		dispatch(setMyCityAction({myCity: location}));
-	// 		//show modal for change your city "do you want change your city to - city name
-	// 	} else if (!location && !myCity) {
-	// 		locationService.getCurrentLocation()
-	// 		.then((result) => {
-	// 			dispatch(setMyCityAction({myCity: result}));
-	// 		})
-	// 		.catch(error => {
-	// 			dispatch(setMyCityAction({myCity: ''}));
-	// 			console.log(error)
-	// 			//if message === User denied Geolocation show error notification for client!
-	// 			//user has denied access to location data - message
-	// 		});
-	// 	};
-	// }, []);
+	useEffect(() => {
+		if((location && location.length !== 0) && (location !== myCity)) {
+			dispatch(setMyCityAction({myCity: location}));
+			//show modal for change your city "do you want change your city to - city name
+		} else if (!location && myCity === null ) {
+			locationService.getCurrentLocation()
+			.then((result) => {
+				dispatch(setMyCityAction({myCity: result}));
+			})
+			.catch(error => {
+				dispatch(setMyCityAction({myCity: null}));
+				console.log(error)
+				//if message === User denied Geolocation show error notification for client!
+				//user has denied access to location data - message
+			});
+		};
+	}, []);
 
 	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {
@@ -57,25 +60,29 @@ const WeatherAppWrap = (): JSX.Element => {
 	}, [day, weatherAllDays]);
 
 	useEffect(() => {
-		if (myCity || myCity.length > 0) {
+		if (myCity !== null) {
+			dispatch(setWeatherLoadingAction({loading: true}));
+
 			weatherApi.getWeather(myCity, myLanguage)
 				.then((response) => {
 					dispatch(setWeatherAllDaysAction({weather: response}));
+					dispatch(setWeatherLoadingAction({loading: false}));
 				})
 				.catch((error) => {
-					console.log(error);
+					dispatch(setWeatherError({error: error.toString()}));
+					dispatch(setWeatherLoadingAction({loading: false}));
 				});
 		} else {
+			// console.log('something');
 			//do something.... without location
 			//show modal for choise city
 		}
 	}, [myCity]);
 
-	// [myCity]
 	return (
 		<>
-		<WeatherApplication/>
-		<WeatherFullInfo/>
+			<WeatherApplication/>
+			<WeatherFullInfo/>
 		</>
 	);
 };

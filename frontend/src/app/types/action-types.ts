@@ -4,7 +4,7 @@ import type { IWeatherAllDaysDataType, IWeatherOneDayDataType } from '../applica
 import { ColorThemes } from '../variables/color-themes';
 
 export interface ISetMyCityActionType {
-	myCity: string,
+	myCity: string | null,
 };
 
 export interface ISetLoginActionType {
