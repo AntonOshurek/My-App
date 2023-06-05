@@ -2,7 +2,7 @@ import { ChangeEvent, MouseEvent } from "react";
 import { Link } from "react-router-dom";
 //store
 import { useAppSelector } from "../../../../generic-utils/hooks/hooks";
-import { SelectorGetMyCityState } from "../../../../store/selectors/selectors";
+import { SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 //styles
 import './weather-search-locations.scss';
 
@@ -24,7 +24,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 				</span>
 				<input
 					className='weather-search-location__input'
-					type="text" placeholder={myCity}
+					type="text" placeholder={myCity !== null ? myCity : ''}
 					onChange={cityInputHandler}
 					value={city}
 				/>

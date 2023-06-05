@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { ChangeEvent } from 'react';
 //store
 import { useAppSelector, useAppDispatch } from '../../../../../generic-utils/hooks/hooks';
-import { SelectorGetColorThemeState } from '../../../../../store/selectors/selectors';
-import { setColorThemeAction } from '../../../../../store/slices/app-slice';
+import { SelectorGetColorThemeState } from '../../../../../store/selectors/app-selectors';
+import { setColorThemeAction } from '../../../../../store/actions/app-actions';
 //variables
 import { ColorThemes } from '../../../../../variables/color-themes';
 //styles

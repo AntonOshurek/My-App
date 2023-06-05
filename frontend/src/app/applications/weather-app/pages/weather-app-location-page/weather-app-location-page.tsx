@@ -6,7 +6,7 @@ import cityHintsService from "../../services/city-hints-service";
 import locationService from "../../../../services/location-service/location.service";
 //store
 import { useAppDispatch } from "../../../../generic-utils/hooks/hooks";
-import { setMyCityAction } from "../../../../store/slices/app-slice";
+import { setMyCityAction } from "../../../../store/actions/app-actions";
 //styles
 import './weather-app-location.scss';
 

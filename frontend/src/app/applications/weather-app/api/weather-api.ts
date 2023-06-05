@@ -4,7 +4,7 @@ import locationService from "../../../services/location-service/location.service
 //adapters
 import weatherDataAdapter from "../services/weather-data-adapter";
 //types
-import type { AdaptedDaysDataType } from "../types/weather-adapted-data-types";
+import type { IWeatherAllDaysDataType } from "../types/weather-data-types";
 //utils
 import { replaceNonEnglish } from "../../../generic-utils/utils/replaceNonEnglish";
 
@@ -27,7 +27,7 @@ class WeatherApi {
     });
   };
 
-  async getWeather(city: string, lang: string = 'eng'): Promise<AdaptedDaysDataType> {
+  async getWeather(city: string, lang: string = 'eng'): Promise<IWeatherAllDaysDataType> {
 		const currentCity: string = replaceNonEnglish(city);
 		const days: number = 3;
 		const currentLang: string = lang;

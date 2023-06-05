@@ -7,7 +7,7 @@ import { WeatherApp } from './applications';
 import { AppRoute } from './variables/app-routes';
 //store
 import { useAppSelector } from './generic-utils/hooks/hooks';
-import { SelectorGetColorThemeState } from './store/selectors/selectors';
+import { SelectorGetColorThemeState } from './store/selectors/app-selectors';
 //global styles
 import './global/global-variables.css';
 import './global/global-colors.css';
