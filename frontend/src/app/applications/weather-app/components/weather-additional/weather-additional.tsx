@@ -2,16 +2,17 @@
 import { convertWindKmhToMs } from '../../generic-utils/convert-wind-kmh-to-ms';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { SelectorGetWeatherCurrentDay } from '../../../../store/selectors/weather-selectors';
+import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherCurrentDayType } from '../../../../types/selector-types';
+import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './weather-additional.scss';
 
 const WeatherAdditional = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
+	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 
-	const skeletonClass = weatherCurrentDay ? '' : 'skeleton';
+	const skeletonClass = weatherLoading ? 'skeleton' : '';
 
 	return (
 		<>

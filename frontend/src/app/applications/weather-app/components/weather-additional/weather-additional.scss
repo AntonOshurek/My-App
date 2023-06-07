@@ -33,8 +33,4 @@
 	color: var(--text-primary);
 	font-size: var(--weather-additional-text-size);
 	font-weight: var(--weather-additional-text-weight);
-
-	&.skeleton {
-		width: 80px;
-	}
 }

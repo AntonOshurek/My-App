@@ -11,18 +11,28 @@
 	--dark-text-primary: #DEE4EA;
 	--dark-text-secondary: #738496;
 	--dark-primary: #1D7AFC;
-	/* --dark-primary: tomato; */
 	--dark-text-inverse: #FFFFFF;
+	--dark-skeleton-line: 	linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0) 0,
+		#161A1D 50%,
+		rgba(255, 255, 255, 0) 100%
+	);
 
 	--light-bg: #F7F8F9;
 	--light-border: #F1F2F4;
 	--light-surface: #FFFFFF;
-	/* --light-overlay: rgb(0 0 0 / 10%); */
-	--light-overlay: #0000001a;
+	--light-overlay: #DADADA;
 	--light-text-primary: #091E42;
 	--light-text-secondary: #626F86;
 	--light-primary: #1D7AFC;
 	--light-text-inverse: #000000;
+	--light-skeleton-line: 	linear-gradient(
+		90deg,
+		rgba(218, 218, 218, 0) 0,
+		rgba(218, 218, 218, 0.8) 50%,
+		rgba(218, 218, 218, 0) 100%
+	);
 
 	/* SETTINGS COLORS */
 	--settings-input-bg: #ffffff;
@@ -65,6 +75,7 @@
 	--text-secondary: var(--dark-text-secondary);
 	--primary: var(--dark-primary);
 	--text-inverse: var(--dark-text-inverse);
+	--skeleton-line: var(--dark-skeleton-line);
 
 	--shadow: var(--dark-shadow);
 	--inner-shadow: var(--dark-inner-shadow);
@@ -76,7 +87,6 @@
 }
 
 .theme-light {
-
 	--bg: var(--light-bg);
 	--border: var(--light-border);
 	--surface: var(--light-surface);
@@ -85,6 +95,7 @@
 	--text-secondary: var(--light-text-secondary);
 	--primary: var(--light-primary);
 	--text-inverse: var(--light-text-inverse);
+	--skeleton-line: var(--light-skeleton-line);
 
 	--shadow: var(--light-shadow);
 	--inner-shadow: var(--light-inner-shadow);

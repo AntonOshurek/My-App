@@ -5,22 +5,24 @@ import unsplashApi from '../../api/unsplash-api';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
-import { SelectorGetWeatherCurrentDay } from '../../../../store/selectors/weather-selectors';
+import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherCurrentDayType } from '../../../../types/selector-types';
+import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './current-weather.scss';
 
-
 const CurrentWeather = (): JSX.Element => {
-	const myCity = useAppSelector(SelectorGetMyCityState);
+	const myCity: string | null = useAppSelector(SelectorGetMyCityState);
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
+	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
+
+	const skeletonClass = weatherLoading ? 'skeleton' : '';
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
 
 	useEffect(() => {
-		if (myCity && myCity.length) {
+		if (myCity && myCity.length > 0) {
 			unsplashApi.searchCity(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
@@ -31,7 +33,7 @@ const CurrentWeather = (): JSX.Element => {
 	}, [myCity]);
 
 	return (
-		<article className='current-weather' style={styles}>
+		<article className={`current-weather ${weatherLoading && skeletonClass}`} style={styles}>
 			<h3 className='visually-hidden'>Weather for {weatherCurrentDay?.date} date</h3>
 
 			<div className='current-weather__wrap'>
