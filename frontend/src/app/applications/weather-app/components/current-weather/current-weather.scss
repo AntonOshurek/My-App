@@ -3,6 +3,7 @@
 .current-weather {
 	position: relative;
 	width: 100%;
+	min-height: 300px;
 	padding: 30px 20px 20px 20px;
 
 	display: grid;
@@ -154,7 +155,7 @@
 	}
 }
 
-.skeleton {
+.current-weather__skeleton {
 	position: relative;
 	z-index: 1;
 
@@ -210,7 +211,10 @@
 		z-index: 3;
 
     border-radius:var(--weather-basic-border-radius);
-    box-shadow: var(--weather-box-shadow-color);
+
+		@media (max-width: $mobile-width) {
+			border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+		}
 
     background-image:
 			var(--skeleton-line), //animation blur
@@ -249,11 +253,11 @@
     ;
 
     background-repeat: no-repeat;
-    animation: loading 1.5s infinite;
+    animation: current-weather-skeleton-loading-animation 1.5s infinite;
 	}
 }
 
-@keyframes loading {
+@keyframes current-weather-skeleton-loading-animation {
   to {
     background-position:
       200% 0,

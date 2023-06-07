@@ -12,24 +12,24 @@ const WeatherAdditional = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 
-	const skeletonClass = weatherLoading ? 'skeleton' : '';
+	const skeletonClass = weatherLoading ? 'weather-additional__skeleton' : '';
 
 	return (
 		<>
 			<h3 className='visually-hidden'>Additional information about current day</h3>
-			<dl className='weather-additional'>
-				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Осадки:</dt>
-				<dd className={`weather-additional__info-content ${skeletonClass}`}>
+			<dl className={`weather-additional ${skeletonClass}`}>
+				<dt className='weather-additional__info-subject'>Осадки:</dt>
+				<dd className='weather-additional__info-content'>
 					{weatherCurrentDay ? weatherCurrentDay.day.totalPrecipMm : null} mm
 				</dd>
 
-				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Влажность:</dt>
-				<dd className={`weather-additional__info-content ${skeletonClass}`}>
+				<dt className='weather-additional__info-subject'>Влажность:</dt>
+				<dd className='weather-additional__info-content'>
 					{weatherCurrentDay ? weatherCurrentDay.day.avgHumidity : null} %
 				</dd>
 
-				<dt className={`weather-additional__info-subject ${skeletonClass}`}>Ветер макс:</dt>
-				<dd className={`weather-additional__info-content ${skeletonClass}`}>
+				<dt className='weather-additional__info-subject'>Ветер макс:</dt>
+				<dd className='weather-additional__info-content'>
 					{weatherCurrentDay ? convertWindKmhToMs(weatherCurrentDay.day.maxWindKph) : null}	m/s
 				</dd>
 			</dl>

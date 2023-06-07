@@ -29,9 +29,9 @@
 	--light-text-inverse: #000000;
 	--light-skeleton-line: 	linear-gradient(
 		90deg,
-		rgba(218, 218, 218, 0) 0,
-		rgba(218, 218, 218, 0.8) 50%,
-		rgba(218, 218, 218, 0) 100%
+		rgba(255, 255, 255, 0) 0,
+		rgba(255, 255, 255, 0.8) 50%,
+		rgba(255, 255, 255, 0) 100%
 	);
 
 	/* SETTINGS COLORS */

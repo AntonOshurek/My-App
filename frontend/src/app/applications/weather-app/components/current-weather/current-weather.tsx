@@ -16,7 +16,7 @@ const CurrentWeather = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 
-	const skeletonClass = weatherLoading ? 'skeleton' : '';
+	const skeletonClass = weatherLoading ? 'current-weather__skeleton' : '';
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
