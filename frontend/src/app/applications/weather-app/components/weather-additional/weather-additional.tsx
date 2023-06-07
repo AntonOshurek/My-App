@@ -7,6 +7,7 @@ import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../.
 import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './weather-additional.scss';
+import './weather-additional-skeleton.scss';
 
 const WeatherAdditional = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);

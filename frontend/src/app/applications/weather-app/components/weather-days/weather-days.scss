@@ -1,6 +1,4 @@
 .weather-days {
-	// width: min-content;
-	// width: min-content;
 	max-width: 100%;
 	min-height: 120px;
 	overflow-X: auto;
@@ -14,8 +12,4 @@
 	border-radius: var(--weather-basic-border-radius);
 	background: var(--bg);
 	box-shadow: var(--shadow);
-
-	&.skeleton {
-		width: 210px;
-	}
 }

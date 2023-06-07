@@ -1,0 +1,119 @@
+@import '../../../../variables/variables.scss';
+
+.current-weather__skeleton {
+	position: relative;
+	z-index: 1;
+
+	--card-padding: 20px;
+  --card-height: 100%;
+  --card-skeleton: linear-gradient(var(--surface), var(--card-height), transparent 0);
+
+	--line-1-width: 50%;
+	--line-1-height: 30px;
+	--line-1-position: var(--card-padding) 10%;
+	--line-1-skeleton: linear-gradient(var(--overlay), var(--line-1-height), transparent 0);
+
+	--line-2-width: 40%;
+	--line-2-height: 20px;
+	--line-2-position: var(--card-padding) 20%;
+	--line-2-skeleton: linear-gradient(var(--overlay) var(--line-2-height), transparent 0);
+
+	--line-3-width: 35%;
+	--line-3-height: 20px;
+	--line-3-position: var(--card-padding) 30%;
+	--line-3-skeleton: linear-gradient(var(--overlay) var(--line-3-height), transparent 0);
+
+	--line-4-width: 80px;
+	--line-4-height: 80px;
+	--line-4-position: var(--card-padding) 50%;
+	--line-4-skeleton: radial-gradient(circle 30px at center, var(--overlay) 99%, transparent 0);
+
+	--line-5-width: 50%;
+	--line-5-height: 30px;
+	--line-5-position: var(--card-padding) 70%;
+	--line-5-skeleton: linear-gradient(var(--overlay) var(--line-5-height), transparent 0);
+
+	--line-6-width: 35%;
+	--line-6-height: 20px;
+	--line-6-position: var(--card-padding) 80%;
+	--line-6-skeleton: linear-gradient(var(--overlay) var(--line-6-height), transparent 0);
+
+	--line-7-width: 90%;
+	--line-7-height: 15px;
+	--line-7-position: var(--card-padding) 95%;
+	--line-7-skeleton: linear-gradient(var(--overlay) var(--line-7-height), transparent 0);
+
+  --blur-width: 200px;
+  --blur-size: var(--blur-width) var(--card-height);
+
+	&::before {
+		position: absolute;
+		content: '';
+		top: -1px;
+		left: -1px;
+		width: calc(100% + 2px);
+		height: calc(100% + 2px);
+		z-index: 3;
+
+    border-radius:var(--weather-basic-border-radius);
+
+		@media (max-width: $mobile-width) {
+			border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+		}
+
+    background-image:
+			var(--skeleton-line), //animation blur
+			var(--line-1-skeleton),
+			var(--line-2-skeleton),
+			var(--line-3-skeleton),
+			var(--line-4-skeleton),
+			var(--line-5-skeleton),
+			var(--line-6-skeleton),
+			var(--line-7-skeleton),
+      var(--card-skeleton)        //card
+    ;
+
+    background-size:
+      var(--blur-size),
+			var(--line-1-width) var(--line-1-height),
+			var(--line-2-width) var(--line-2-height),
+			var(--line-3-width) var(--line-3-height),
+			var(--line-4-width) var(--line-4-height),
+			var(--line-5-width) var(--line-5-height),
+			var(--line-6-width) var(--line-6-height),
+			var(--line-7-width) var(--line-7-height),
+      100% 100%
+    ;
+
+    background-position:
+      -150% 0,                      //animation
+			var(--line-1-position),
+			var(--line-2-position),
+			var(--line-3-position),
+			var(--line-4-position),
+			var(--line-5-position),
+			var(--line-6-position),
+			var(--line-7-position),
+      0 0                           //card
+    ;
+
+    background-repeat: no-repeat;
+    animation: current-weather-skeleton-loading-animation 1.5s infinite;
+	}
+}
+
+@keyframes current-weather-skeleton-loading-animation {
+  to {
+    background-position:
+      200% 0,
+			var(--line-1-position),
+			var(--line-2-position),
+			var(--line-3-position),
+			var(--line-4-position),
+			var(--line-5-position),
+			var(--line-6-position),
+			var(--line-7-position),
+      0 0
+    ;
+  }
+}

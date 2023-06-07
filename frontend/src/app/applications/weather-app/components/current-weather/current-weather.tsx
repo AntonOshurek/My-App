@@ -10,6 +10,7 @@ import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../.
 import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './current-weather.scss';
+import './current-weather-skeleton.scss';
 
 const CurrentWeather = (): JSX.Element => {
 	const myCity: string | null = useAppSelector(SelectorGetMyCityState);
