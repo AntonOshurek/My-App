@@ -25,7 +25,7 @@ const WeatherFullInfo = (): JSX.Element => {
 			<ul className='weather-full-info__list'>
 				<div className='weather-full-info__list-wrap'>
 					{
-						currentWeather ? currentWeather.hour.map((hourWeather) => {
+						currentWeather.hour.map((hourWeather) => {
 							const hours = [1, 4, 7, 10, 13, 16, 19, 23];
 							const date = new Date(hourWeather.time);
 
@@ -34,7 +34,7 @@ const WeatherFullInfo = (): JSX.Element => {
 							} else {
 								return null;
 							};
-						}) : null
+						})
 					}
 				</div>
 			</ul>
