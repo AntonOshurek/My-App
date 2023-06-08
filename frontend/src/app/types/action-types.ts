@@ -32,5 +32,5 @@ export interface ISetWeatherLoading {
 };
 
 export interface ISetWeatherError {
-	error: string,
+	error: string | null,
 };

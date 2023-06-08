@@ -65,6 +65,7 @@ const WeatherAppWrap = (): JSX.Element => {
 
 			weatherApi.getWeather(myCity, myLanguage)
 				.then((response) => {
+					dispatch(setWeatherError({error: null}));
 					dispatch(setWeatherAllDaysAction({weather: response}));
 					dispatch(setWeatherLoadingAction({loading: false}));
 				})
