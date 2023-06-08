@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplashApi from '../../api/unsplash-api';
+//utils
+import { getCurrentHourObject } from '../../../../generic-utils/utils/date-utils';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
@@ -17,8 +19,6 @@ const CurrentWeather = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
-
-	console.log(weatherErrors)
 
 	const skeletonClass = weatherLoading || weatherErrors !== null ? 'current-weather__skeleton' : '';
 
@@ -50,7 +50,7 @@ const CurrentWeather = (): JSX.Element => {
 
 				<img className='current-weather__image' src={weatherCurrentDay?.day.condition.icon} alt={weatherCurrentDay?.day.condition.text} width='70' height='70' />
 
-				<p className='current-weather__temperature'>{weatherCurrentDay?.day.avgTempC}°C</p>
+				<p className='current-weather__temperature'>{weatherCurrentDay && getCurrentHourObject(weatherCurrentDay) }°C</p>
 				<p className='current-weather__temperature-info'>{weatherCurrentDay?.day.condition.text}</p>
 			</div>
 			<div className='current-weather__image-info'>

@@ -1,3 +1,4 @@
+import { IWeatherHourDataType, IWeatherOneDayDataType } from "../../applications/weather-app/types/weather-data-types";
 import { getZero } from "../auxiliary/auxiliary";
 
 export function formatDate(dateStr: string | undefined) {
@@ -56,4 +57,32 @@ export const getFullDate = (): string => {
   const fullDate: string = `${day}-${month}-${year}`;
 
   return fullDate;
+};
+
+export const getCurrentHourObject = (weather: IWeatherOneDayDataType): string => {
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+
+	let result;
+
+	if(compareDates(currentDate.toString(), weather.date)) {
+		const filtredItems = weather.hour.find((item) => {
+			const objectDate = new Date(item.time);
+			const objectHour = objectDate.getHours();
+
+			if(objectHour === currentHour) {
+				return item;
+			};
+		});
+
+		if(!filtredItems) {
+			result = weather.day.avgTempC.toString();
+		} else {
+			result = filtredItems.tempC.toString();
+		};
+
+	} else {
+		result = weather.day.avgTempC.toString();
+	};
+	return result.toString();
 };
