@@ -2,9 +2,9 @@
 import WeatherDayItem from './weather-day-item/weather-day-item';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { SelectorGetWeatherAllDays, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
+import { SelectorGetWeatherAllDays, SelectorGetWeatherError, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherAllDaysType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
+import type { SelectorGetWeatherAllDaysType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './weather-days.scss';
 import './weather-days-skeleton.scss';
@@ -12,8 +12,9 @@ import './weather-days-skeleton.scss';
 const WeatherDays = (): JSX.Element => {
 	const weatherAllDays: SelectorGetWeatherAllDaysType = useAppSelector(SelectorGetWeatherAllDays);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
+	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
 
-	const skeletonClass = weatherLoading ? 'weather-days__skeleton' : '';
+	const skeletonClass = weatherLoading || weatherErrors !== null ? 'weather-days__skeleton' : '';
 
 	return (
 		<>

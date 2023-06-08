@@ -14,37 +14,34 @@ const WeatherFullInfo = (): JSX.Element => {
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
 
-	console.log(weatherErrors);
-
-
 	let content: JSX.Element;
 
 	if(weatherLoading) {
 		content = <Loading/>;
 	} else if (weatherErrors !== null) {
 		content = <Error errorInfo={weatherErrors}/>;
-	} else {
+	} else if (currentWeather) {
 		content = (
-			<>
-				<ul className='weather-full-info__list'>
-					<div className='weather-full-info__list-wrap'>
-						{
-							currentWeather ? currentWeather.hour.map((hourWeather) => {
-								const hours = [1, 4, 7, 10, 13, 16, 19, 23];
-								const date = new Date(hourWeather.time);
+			<ul className='weather-full-info__list'>
+				<div className='weather-full-info__list-wrap'>
+					{
+						currentWeather ? currentWeather.hour.map((hourWeather) => {
+							const hours = [1, 4, 7, 10, 13, 16, 19, 23];
+							const date = new Date(hourWeather.time);
 
-								if (hours.includes(date.getHours())) {
-									return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
-								} else {
-									return null;
-								};
-							}) : null
-						}
-					</div>
-				</ul>
-			</>
+							if (hours.includes(date.getHours())) {
+								return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
+							} else {
+								return null;
+							};
+						}) : null
+					}
+				</div>
+			</ul>
 		);
-	}
+	} else {
+		content = <Error errorInfo={'oops... somthing wrong'}/>;
+	};
 
 	return (
 		<section className='weather-full-info'>
@@ -52,27 +49,6 @@ const WeatherFullInfo = (): JSX.Element => {
 			{
 				content
 			}
-		{/* {
-			weatherLoading ? <Loading/> : (
-				<ul className='weather-full-info__list'>
-					<div className='weather-full-info__list-wrap'>
-						{
-							currentWeather ? currentWeather.hour.map((hourWeather) => {
-								const hours = [1, 4, 7, 10, 13, 16, 19, 23];
-								const date = new Date(hourWeather.time);
-
-								if (hours.includes(date.getHours())) {
-									return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
-								} else {
-									return null;
-								};
-							}) : null
-						}
-					</div>
-				</ul>
-			)
-		} */}
-
 		</section>
 	);
 };

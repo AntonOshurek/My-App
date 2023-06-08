@@ -7,11 +7,10 @@ import { WeatherAppRoute } from '../../variables/weather-app-routes';
 import './weather-controls.scss';
 
 const WeatherControls = (): JSX.Element => {
-
 	return (
 		<div className='weather-controls'>
-			<WeatherAdditional/>
 
+			<WeatherAdditional/>
 			<WeatherDays/>
 
 			<Link

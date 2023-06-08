@@ -2,9 +2,9 @@
 import { convertWindKmhToMs } from '../../generic-utils/convert-wind-kmh-to-ms';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
-import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
+import { SelectorGetWeatherCurrentDay, SelectorGetWeatherError, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
+import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './weather-additional.scss';
 import './weather-additional-skeleton.scss';
@@ -12,8 +12,9 @@ import './weather-additional-skeleton.scss';
 const WeatherAdditional = (): JSX.Element => {
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
+	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
 
-	const skeletonClass = weatherLoading ? 'weather-additional__skeleton' : '';
+	const skeletonClass = weatherLoading || weatherErrors !== null ? 'weather-additional__skeleton' : '';
 
 	return (
 		<>
