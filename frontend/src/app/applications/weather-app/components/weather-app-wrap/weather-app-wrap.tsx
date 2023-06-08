@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 //components
 import {WeatherApplication, WeatherFullInfo} from "../";
@@ -11,11 +11,10 @@ import locationService from "../../../../services/location-service/location.serv
 //store
 import { SelectorGetLanguageState, SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 import { useAppDispatch, useAppSelector } from "../../../../generic-utils/hooks/hooks";
-import { setWeatherAllDaysAction, setWeatherCurrentDayAction } from "../../../../store/actions/weather-actions";
+import { setWeatherAllDaysAction, setWeatherCurrentDayAction, setWeatherLoadingAction } from "../../../../store/actions/weather-actions";
 import { SelectorGetWeatherAllDays } from "../../../../store/selectors/weather-selectors";
 import { setWeatherError } from "../../../../store/slices/weather-slice";
 import { setMyCityAction } from "../../../../store/actions/app-actions";
-import { setWeatherLoadingAction } from "../../../../store/actions/weather-actions";
 //types
 import type { SelectorGetWeatherAllDaysType } from "../../../../types/selector-types";
 
@@ -65,6 +64,7 @@ const WeatherAppWrap = (): JSX.Element => {
 
 			weatherApi.getWeather(myCity, myLanguage)
 				.then((response) => {
+					dispatch(setWeatherError({error: null}));
 					dispatch(setWeatherAllDaysAction({weather: response}));
 					dispatch(setWeatherLoadingAction({loading: false}));
 				})

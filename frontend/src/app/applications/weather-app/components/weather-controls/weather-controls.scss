@@ -1,6 +1,7 @@
 @import '../../../../variables/variables.scss';
 
 .weather-controls {
+	max-width: 100%;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr min-content;

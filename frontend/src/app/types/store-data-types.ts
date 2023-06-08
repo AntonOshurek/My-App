@@ -16,5 +16,5 @@ export interface IWeatherStoreDataType {
 	allWeatherDays: IWeatherAllDaysDataType | null,
 	currentWeatherDay: IWeatherOneDayDataType | null,
 	loading: boolean,
-	error: string,
+	error: string | null,
 };

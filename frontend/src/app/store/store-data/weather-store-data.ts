@@ -5,5 +5,5 @@ export const weatherAppStoreData: IWeatherStoreDataType = {
 	allWeatherDays: null,
 	currentWeatherDay: null,
 	loading: false,
-	error: '',
+	error: null,
 };

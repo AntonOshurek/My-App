@@ -1,13 +1,16 @@
 .weather-days {
 	max-width: 100%;
+	// width: 100%;
 	min-height: 120px;
 	overflow-X: auto;
 	overflow-y: hidden;
 
+	padding: 5px;
+
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	gap: 5px;
+	gap: 100px;
 
 	border-radius: var(--weather-basic-border-radius);
 	background: var(--bg);

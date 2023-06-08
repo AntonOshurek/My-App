@@ -1,0 +1,16 @@
+.error {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 20px;
+}
+
+.error__info {
+	font-family: var(--weather-basic-font);
+	color: var(--text-primary);
+	font-size: var(--error-text-size);
+	font-weight: var(--error-text-weight);
+	text-align: center;
+}

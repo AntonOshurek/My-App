@@ -8,7 +8,6 @@ import type { IWeatherHourDataType } from '../../../types/weather-data-types';
 //styles
 import './weather-full-info-item.scss';
 
-
 //https://fontawesome.com/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThermometerHalf, faTint, faWind } from '@fortawesome/free-solid-svg-icons'
@@ -27,7 +26,7 @@ const WeatherFullInfoItem = ({ hourWeather }: IWeatherFullInfoItemPropsType): JS
 			<article className='weather-full-info__day-article'>
 
 				<p className='weather-full-info__header'>
-					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} width='50' height='50' alt="" />
+					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} width='50' height='50' alt={hourWeather.condition.text} />
 					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
 				</p>
 
@@ -53,10 +52,6 @@ const WeatherFullInfoItem = ({ hourWeather }: IWeatherFullInfoItemPropsType): JS
 						Ветер:
 					</span>
 					<span className='weather-full-info__data weather-full-info__data--dark'>{convertWindKmhToMs(hourWeather.windKph)}м/с</span>
-				</p>
-
-				<p className='weather-full-info__point weather-full-info__text'>
-					{hourWeather.condition.text}
 				</p>
 
 			</article>

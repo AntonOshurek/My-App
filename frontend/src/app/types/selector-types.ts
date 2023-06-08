@@ -12,4 +12,4 @@ export type SelectorGetColorThemeStateType = ColorThemes;
 export type SelectorGetWeatherAllDaysType = IWeatherAllDaysDataType | null;
 export type SelectorGetWeatherCurrentDayType = IWeatherOneDayDataType | null;
 export type SelectorGetWeatherLoadingType = boolean;
-export type SelectorGetWeatherErrorType = string;
+export type SelectorGetWeatherErrorType = string | null;

@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplashApi from '../../api/unsplash-api';
+//utils
+import { getCurrentHourObject } from '../../../../generic-utils/utils/date-utils';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
-import { SelectorGetWeatherCurrentDay, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
+import { SelectorGetWeatherCurrentDay, SelectorGetWeatherError, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
+import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './current-weather.scss';
 import './current-weather-skeleton.scss';
@@ -16,8 +18,9 @@ const CurrentWeather = (): JSX.Element => {
 	const myCity: string | null = useAppSelector(SelectorGetMyCityState);
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
+	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
 
-	const skeletonClass = weatherLoading ? 'current-weather__skeleton' : '';
+	const skeletonClass = weatherLoading || weatherErrors !== null ? 'current-weather__skeleton' : '';
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
@@ -34,7 +37,7 @@ const CurrentWeather = (): JSX.Element => {
 	}, [myCity]);
 
 	return (
-		<article className={`current-weather ${weatherLoading && skeletonClass}`} style={styles}>
+		<article className={`current-weather ${skeletonClass}`} style={styles}>
 			<h3 className='visually-hidden'>Weather for {weatherCurrentDay?.date} date</h3>
 
 			<div className='current-weather__wrap'>
@@ -47,7 +50,7 @@ const CurrentWeather = (): JSX.Element => {
 
 				<img className='current-weather__image' src={weatherCurrentDay?.day.condition.icon} alt={weatherCurrentDay?.day.condition.text} width='70' height='70' />
 
-				<p className='current-weather__temperature'>{weatherCurrentDay?.day.avgTempC}°C</p>
+				<p className='current-weather__temperature'>{weatherCurrentDay && getCurrentHourObject(weatherCurrentDay) }°C</p>
 				<p className='current-weather__temperature-info'>{weatherCurrentDay?.day.condition.text}</p>
 			</div>
 			<div className='current-weather__image-info'>
