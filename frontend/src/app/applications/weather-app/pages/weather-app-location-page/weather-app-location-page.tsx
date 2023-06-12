@@ -40,7 +40,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 
 	const onSaveCityButtonHandler = (evt: MouseEvent<HTMLButtonElement>): void => {
 		evt.preventDefault();
-		console.log(city)
+
 		if (city.length > 0) {
 			locationService.isRealCity(city)
 				.then((result) => {
