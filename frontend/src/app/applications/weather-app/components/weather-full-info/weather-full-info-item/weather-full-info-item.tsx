@@ -20,37 +20,31 @@ const WeatherFullInfoItem = ({ hourWeather }: IWeatherFullInfoItemPropsType): JS
 	const temperatureColor = generateTemperatureColor(+hourWeather.tempC);
 	const windColor: string = generateWindColor(convertWindKmhToMs(hourWeather.windKph))
 
-
 	return (
 		<li className='weather-full-info__item'>
 			<article className='weather-full-info__day-article'>
+				<h3 className='visually-hidden'>info for hour</h3>
 
 				<p className='weather-full-info__header'>
-					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} width='50' height='50' alt={hourWeather.condition.text} />
 					<time className='weather-full-info__text' dateTime={hourWeather.time}>{getTimeFromString(hourWeather.time)}</time>
+					<img className='weather-full-info__weather-image' src={hourWeather.condition.icon} width='50' height='50' alt={hourWeather.condition.text} />
 				</p>
 
+				<h4 className='visually-hidden'>Осадки:</h4>
 				<p className='weather-full-info__point'>
-					<span className='weather-full-info__text weather-full-info__point-text'>
-						<FontAwesomeIcon icon={faTint} />
-						Осадки:
-					</span>
+					<FontAwesomeIcon className="weather-full-info__white-icon" icon={faTint} />
 					<span className='weather-full-info__data'>{hourWeather.precipMm} Mm</span>
 				</p>
 
+				<h4 className='visually-hidden'>Температура:</h4>
 				<p className='weather-full-info__point' style={{ backgroundColor: temperatureColor }}>
-					<span className='weather-full-info__text weather-full-info__text--dark weather-full-info__point-text'>
-						<FontAwesomeIcon icon={faThermometerHalf} />
-						Температура:
-					</span>
+					<FontAwesomeIcon icon={faThermometerHalf} />
 					<span className='weather-full-info__data weather-full-info__data--dark'>{hourWeather.tempC}°C</span>
 				</p>
 
+				<h4 className='visually-hidden'>Ветер:</h4>
 				<p className='weather-full-info__point' style={{ backgroundColor: windColor }}>
-					<span className='weather-full-info__text weather-full-info__text--dark weather-full-info__point-text'>
-						<FontAwesomeIcon icon={faWind} />
-						Ветер:
-					</span>
+					<FontAwesomeIcon icon={faWind} />
 					<span className='weather-full-info__data weather-full-info__data--dark'>{convertWindKmhToMs(hourWeather.windKph)}м/с</span>
 				</p>
 

@@ -1,5 +1,7 @@
+@import '../../../variables/variables.scss';
+
 .root-navigation {
-	// width: max-content;
+	width: min-content;
 	height: 100%;
 
 	display: flex;
@@ -15,6 +17,10 @@
 	border-radius: var(--root-header-border-radius);
 
 	box-shadow: var(--shadow);
+
+	@media (max-width: $mobile-width) {
+		padding: var(--standart-side-padding) 10px;
+	}
 }
 
 .root-navigation__title {
@@ -30,6 +36,10 @@
 	gap: 5px;
 
 	list-style: none;
+
+	@media (max-width: $mobile-width) {
+
+	}
 }
 
 .root-navigation__item {
@@ -79,6 +89,10 @@
 	&>svg>path {
 		fill: var(--text-primary);
 	}
+
+	@media (max-width: $mobile-width) {
+		padding: 10px;
+	}
 }
 
 .root-navigation__item-title {
@@ -86,6 +100,14 @@
 	font-size: var(--text-font-size);
 	font-weight: var(--text-font-weight);
 	color: var(--text-primary);
+
+	@media (max-width: $mobile-width) {
+		// position: absolute;
+		// width: 1px;
+		// height: 1px;
+		// overflow: hidden;
+		// clip: rect(0 0 0 0);
+	}
 }
 
 .root-navigation__link {

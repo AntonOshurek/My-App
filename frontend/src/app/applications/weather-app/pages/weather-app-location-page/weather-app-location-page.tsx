@@ -48,7 +48,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 						dispatch(setMyCityAction({ myCity: city }));
 						setMessage('New city saved');
 					} else {
-						setMessage('We couldn\'t find your city. Please check the spelling of the city.')
+						setMessage('We couldn\'t find your city. Please check the spelling of the city.');
 					};
 				})
 				.catch(error => {

@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //store
 import { useAppSelector } from "../../../../generic-utils/hooks/hooks";
@@ -16,12 +16,36 @@ interface IWeatherSearchLocationsPropsType {
 const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, city, message }: IWeatherSearchLocationsPropsType): JSX.Element => {
 	const myCity = useAppSelector(SelectorGetMyCityState);
 
+	const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
+
+    if (message) {
+			setIsVisible(true);
+      timer = setTimeout(() => {
+				setIsVisible(false);
+      }, 3000);
+    };
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      };
+    };
+  }, [message]);
+
 	return (
 		<form className='weather-search-location'>
 			<label className='weather-search-location__label'>
 				<span className='weather-search-location__placeholder'>
 					Search location
 				</span>
+
+				{
+					(message && isVisible) ? <p className="weather-search-location__message">{message}</p> : null
+				}
+
 				<input
 					className='weather-search-location__input'
 					type="text" placeholder={myCity !== null ? myCity : ''}
@@ -30,7 +54,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 				/>
 			</label>
 
-			<p className="weather-search-location__message">{message ? message : null}</p>
+
 
 			<div className="weather-search-location__controls">
 				<button

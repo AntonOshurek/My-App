@@ -1,7 +1,10 @@
+@import '../../../../../variables/variables.scss';
+
 .theme-switch {
+	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	gap: 20px;
+	grid-template-columns: 1fr ;
+	gap: 10px;
 }
 
 .theme-switch__title {
@@ -22,7 +25,23 @@
 	color: var(--text-secondary);
 }
 
+.theme-switch__list {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, $theme-switcher-item-width);
+	gap: 20px;
+
+	@media (min-width: $desctope-width) {
+		grid-template-columns: repeat(4, $theme-switcher-item-width);
+	}
+
+	@media (max-width: $mobile-width) {
+		grid-template-columns: $theme-switcher-item-width;
+	}
+}
+
 .theme-switch__item {
+	width: 200px;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
