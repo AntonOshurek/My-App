@@ -8,8 +8,8 @@
 
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: min-content;
-	grid-row-gap: 20px;
+	grid-template-rows: repeat(3, min-content);
+	// grid-row-gap: 20px;
 	justify-items: center;
 }
 
