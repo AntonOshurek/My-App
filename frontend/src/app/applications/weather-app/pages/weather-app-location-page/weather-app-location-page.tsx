@@ -40,7 +40,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 
 	const onSaveCityButtonHandler = (evt: MouseEvent<HTMLButtonElement>): void => {
 		evt.preventDefault();
-
+		console.log(city)
 		if (city.length > 0) {
 			locationService.isRealCity(city)
 				.then((result) => {
@@ -48,7 +48,7 @@ const WeatherAppLocationPage = (): JSX.Element => {
 						dispatch(setMyCityAction({ myCity: city }));
 						setMessage('New city saved');
 					} else {
-						setMessage('We couldn\'t find your city. Please check the spelling of the city.')
+						setMessage('We couldn\'t find your city. Please check the spelling of the city.');
 					};
 				})
 				.catch(error => {
