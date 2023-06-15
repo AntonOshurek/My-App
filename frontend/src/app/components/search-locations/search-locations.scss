@@ -1,4 +1,4 @@
-.weather-search-location {
+.search-location {
 	width: 300px;
 	height: 100%;
 	padding: 30px 20px;
@@ -11,7 +11,7 @@
 	gap: 40px;
 }
 
-.weather-search-location__label {
+.search-location__label {
 	position: relative;
 	width: 100%;
 	display: flex;
@@ -21,20 +21,20 @@
 	gap: 5px;
 	cursor: pointer;
 
-	&:focus-within .weather-search-location__input {
+	&:focus-within .search-location__input {
 		background-color: var(--overlay);
 		color: var(--text-primary);
 	}
 }
 
-.weather-search-location__placeholder {
+.search-location__placeholder {
 	font-family: var(--weather-basic-font);
 	font-size: var(--weather-location-input-placeholder-text-size);
 	font-weight: --weather-location-input-placeholder-text-weight;
 	color: var(--text-primary);
 }
 
-.weather-search-location__input {
+.search-location__input {
 	width: 100%;
 	padding: 10px 15px;
 
@@ -49,7 +49,7 @@
 	box-shadow: var(--shadow);
 }
 
-.weather-search-location__message {
+.search-location__message {
 	position: absolute;
 	top: -100%;
 	left: 0;
@@ -87,7 +87,7 @@
 	}
 }
 
-.weather-search-location__controls {
+.search-location__controls {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -95,7 +95,7 @@
 	gap: 10px;
 }
 
-.weather-search-location__submit {
+.search-location__submit {
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 //components
 import { WeatherAdditional, WeatherDays } from '../';
 //variables
-import { WeatherAppRoute } from '../../variables/weather-app-routes';
+import { AppRoute } from '../../../../variables/app-routes';
 //styles
 import './weather-controls.scss';
 
@@ -15,7 +15,7 @@ const WeatherControls = (): JSX.Element => {
 
 			<Link
 				className='weather-controls__change-location-link weather-button weather-button--main'
-				to={`../${WeatherAppRoute.WEATHER_APP_LOCATION_PAGE}`}>
+				to={`${AppRoute.CHANGE_LOCATION}`}>
 				Change location
 			</Link>
 		</div>
