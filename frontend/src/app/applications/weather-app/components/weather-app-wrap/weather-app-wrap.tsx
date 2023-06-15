@@ -7,14 +7,14 @@ import { compareDates } from "../../../../generic-utils/utils/date-utils";
 //api
 import weatherApi from "../../api/weather-api";
 //services
-import locationService from "../../../../services/location-service/location.service";
+// import locationService from "../../../../services/location-service/location.service";
 //store
 import { SelectorGetLanguageState, SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 import { useAppDispatch, useAppSelector } from "../../../../generic-utils/hooks/hooks";
 import { setWeatherAllDaysAction, setWeatherCurrentDayAction, setWeatherLoadingAction } from "../../../../store/actions/weather-actions";
 import { SelectorGetWeatherAllDays } from "../../../../store/selectors/weather-selectors";
 import { setWeatherError } from "../../../../store/slices/weather-slice";
-import { setMyCityAction } from "../../../../store/actions/app-actions";
+// import { setMyCityAction } from "../../../../store/actions/app-actions";
 //types
 import type { SelectorGetWeatherAllDaysType } from "../../../../types/selector-types";
 
@@ -27,23 +27,23 @@ const WeatherAppWrap = (): JSX.Element => {
 
 	const { location, day } = useParams();
 
-	useEffect(() => {
-		if((location && location.length !== 0) && (location !== myCity)) {
-			dispatch(setMyCityAction({myCity: location}));
-			//show modal for change your city "do you want change your city to - city name
-		} else if (!location && myCity === null ) {
-			locationService.getCurrentLocation()
-			.then((result) => {
-				dispatch(setMyCityAction({myCity: result}));
-			})
-			.catch(error => {
-				dispatch(setMyCityAction({myCity: null}));
-				console.log(error)
-				//if message === User denied Geolocation show error notification for client!
-				//user has denied access to location data - message
-			});
-		};
-	}, []);
+	// useEffect(() => {
+	// 	if((location && location.length !== 0) && (location !== myCity)) {
+	// 		dispatch(setMyCityAction({myCity: location}));
+	// 		//show modal for change your city "do you want change your city to - city name
+	// 	} else if (!location && myCity === null ) {
+	// 		locationService.getCurrentLocation()
+	// 		.then((result) => {
+	// 			dispatch(setMyCityAction({myCity: result}));
+	// 		})
+	// 		.catch(error => {
+	// 			dispatch(setMyCityAction({myCity: null}));
+	// 			console.log(error)
+	// 			//if message === User denied Geolocation show error notification for client!
+	// 			//user has denied access to location data - message
+	// 		});
+	// 	};
+	// }, []);
 
 	//проверка дня из url и назначение данных в currentWeather
 	useEffect(() => {

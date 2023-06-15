@@ -1,4 +1,3 @@
-import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 //utils
 import { getWeekday, getAbbreviationWeekday, compareDates } from '../../../../../generic-utils/utils/date-utils';
@@ -7,8 +6,9 @@ import type {
 	IWeatherOneDayDataType
 } from '../../../types/weather-data-types';
 //store
-import { useAppSelector } from '../../../../../generic-utils/hooks/hooks';
-import { SelectorGetMyCityState } from '../../../../../store/selectors/app-selectors';
+import { useAppSelector, useAppDispatch } from '../../../../../generic-utils/hooks/hooks';
+import { SelectorGetWeatherCurrentDay } from '../../../../../store/selectors/weather-selectors';
+import { setWeatherCurrentDayAction } from '../../../../../store/actions/weather-actions';
 //styles
 import './weather-day-item.scss';
 
@@ -17,14 +17,18 @@ interface IWeatherDayItemPropsType {
 };
 
 const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
-	const { day } = useParams();
-	const myCity = useAppSelector(SelectorGetMyCityState);
+	const currentDay = useAppSelector(SelectorGetWeatherCurrentDay);
+	const dispatch = useAppDispatch();
 
 	const [activeClass, setActiveClass] = useState<string | null>(null);
 
+	const onWeatherDayButtonhandler = (): void => {
+		dispatch(setWeatherCurrentDayAction({weather: weather}));
+	};
+
 	useEffect(() => {
-		if (day) {
-			if (compareDates(weather.date, day)) {
+		if (currentDay !== null) {
+			if (compareDates(weather.date, currentDay.date)) {
 				setActiveClass('weather-days__item--current');
 			} else {
 				setActiveClass('');
@@ -39,11 +43,11 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 				setActiveClass('')
 			};
 		};
-	}, [day]);
+	}, [currentDay]);
 
 	//weather-days__item--current
 	return (
-		<li className={'weather-days__item ' + activeClass}>
+		<li className={`weather-days__item ${activeClass && activeClass}`}>
 			<h4 className='visually-hidden'>{getWeekday(weather.date)}</h4>
 			<p className='weather-days__days-name'>{getAbbreviationWeekday(weather.date)}.</p>
 			<p className='weather-days__temperature'>
@@ -51,9 +55,9 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 			</p>
 			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text} width='30' height='30' />
 
-			<Link className='weather-days__link' to={`../${myCity}/${weather.date}`}>
+			<button className='weather-days__button' type='button' onClick={onWeatherDayButtonhandler}>
 				<span className='visually-hidden'>Detailed weather for the {weather.date} day</span>
-			</Link>
+			</button>
 		</li>
 	);
 };
