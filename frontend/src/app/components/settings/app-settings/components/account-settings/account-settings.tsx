@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
 //components
-import { SettingsInput, SettingsSelect } from '../../../../controls/';
+import { SettingsInput, SettingsLinkToSubsettings, SettingsSelect } from '../../../../controls/';
+//vars
+import { AppRoute } from '../../../../../variables/app-routes';
 //styles
 import './account-settings.scss';
 
@@ -9,10 +12,9 @@ const AccountSettings = (): JSX.Element => {
 			<h3 className='account-settings__title'>Account settings</h3>
 			<p className='account-settings__sub-title'>Settings will be saved after clicking on the "save settings" button</p>
 
-
 			<SettingsInput title={'Login'} value={''} />
-			<SettingsInput title={'City'} value={''} />
 			<SettingsSelect />
+			<SettingsLinkToSubsettings route={AppRoute.CHANGE_LOCATION} text={'Change locaation'}/>
 
 		</form>
 	);
