@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //store
 import { useAppSelector } from "../../../../generic-utils/hooks/hooks";
 import { SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
+import { WeatherAppRoute } from "../../variables/weather-app-routes";
 //styles
 import './weather-search-locations.scss';
 
@@ -70,7 +71,7 @@ const WeatherSearchLocations = ({ cityInputHandler, onSaveCityButtonHandler, cit
 
 				<Link
 					className='weather-button weather-button--second'
-					to={`../${myCity}`}
+					to={WeatherAppRoute.BACK_TO_WEATHER_APP}
 				>
 					back to forecast
 				</Link>
