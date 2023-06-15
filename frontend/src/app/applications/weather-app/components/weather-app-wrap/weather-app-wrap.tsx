@@ -29,10 +29,11 @@ const WeatherAppWrap = (): JSX.Element => {
 					dispatch(setWeatherError({error: error.toString()}));
 					dispatch(setWeatherLoadingAction({loading: false}));
 				});
+		} else if (myCity === null) {
+			dispatch(setWeatherError({error: 'Please, choice your city for show weatehr'}));
 		} else {
-			//do something.... without location
-			//show modal for choise city
-		}
+			dispatch(setWeatherError({error: 'Ooops... somthing wrong'}));
+		};
 	}, [myCity]);
 
 	return (
