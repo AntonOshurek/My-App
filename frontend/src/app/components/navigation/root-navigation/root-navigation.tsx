@@ -16,7 +16,7 @@ const RootNavigation = (): JSX.Element => {
 					<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40">
 						<path d="M527.957 485v-74.435h248.065V485H527.957Zm0-134.435v-74.913h352.326v74.913H527.957ZM285.681 961.37q-84.498 0-143.644-58.64T82.891 759.37q0-50.756 23.667-95.497 23.666-44.741 66.855-73.947V300.87q0-47.863 32.187-80.171 32.188-32.308 79.916-32.308 47.728 0 80.052 32.308 32.323 32.308 32.323 80.171v289.056q42.714 29.284 66.238 74.136 23.523 44.852 23.523 95.308 0 84.72-58.988 143.36-58.989 58.64-142.983 58.64Zm-125.485-202h250.152q0-41.479-20.437-74.508-20.437-33.029-54.042-50.536L320.587 629V300.87q0-14.281-10.28-24.608t-24.988-10.327q-14.522 0-24.442 10.327t-9.92 24.608V629l-15.044 5.326q-35.082 18.492-55.4 51.536-20.317 33.044-20.317 73.508Z" />
 					</svg>
-					<Link className='root-navigation__link' to={AppRoute.WEATHER_APP_LINK}>Link to Weather application</Link>
+					<Link className='root-navigation__link' to={AppRoute.WEATHER_APP}>Link to Weather application</Link>
 
 				</li>
 				<li className='root-navigation__item'>
@@ -33,7 +33,7 @@ const RootNavigation = (): JSX.Element => {
 					<svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 96 960 960" width="40">
 						<path d="M527.957 485v-74.435h248.065V485H527.957Zm0-134.435v-74.913h352.326v74.913H527.957ZM285.681 961.37q-84.498 0-143.644-58.64T82.891 759.37q0-50.756 23.667-95.497 23.666-44.741 66.855-73.947V300.87q0-47.863 32.187-80.171 32.188-32.308 79.916-32.308 47.728 0 80.052 32.308 32.323 32.308 32.323 80.171v289.056q42.714 29.284 66.238 74.136 23.523 44.852 23.523 95.308 0 84.72-58.988 143.36-58.989 58.64-142.983 58.64Zm-125.485-202h250.152q0-41.479-20.437-74.508-20.437-33.029-54.042-50.536L320.587 629V300.87q0-14.281-10.28-24.608t-24.988-10.327q-14.522 0-24.442 10.327t-9.92 24.608V629l-15.044 5.326q-35.082 18.492-55.4 51.536-20.317 33.044-20.317 73.508Z" />
 					</svg>
-					<Link className='root-navigation__link' to={AppRoute.WEATHER_APP_LINK}>Link to Weather application</Link>
+					<Link className='root-navigation__link' to={AppRoute.WEATHER_APP}>Link to Weather application</Link>
 
 				</li>
 				<li className='root-navigation__item'>

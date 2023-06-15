@@ -1,7 +1,7 @@
 //utils
-import { replaceNonEnglish } from "../../../generic-utils/utils/replaceNonEnglish";
+import { replaceNonEnglish } from "../../generic-utils/utils/replaceNonEnglish";
 //variables
-import { CITIES } from "../variables/cities";
+import { CITIES } from "../../applications/weather-app/variables/cities";
 
 class CityHintsService {
   private cities: string[];

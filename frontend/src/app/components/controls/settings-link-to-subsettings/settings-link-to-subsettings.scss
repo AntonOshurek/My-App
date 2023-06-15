@@ -1,0 +1,29 @@
+.settings-link-to-subsettings {
+	width: max-content;
+	padding: 10px;
+
+	border: 1px solid var(--text-primary);
+	background-color: transparent;
+	border-radius: var(--app-settings-border-radius);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--settings-input-label-font-size);
+	font-weight: var(--settings-input-label-font-weight);
+	color: var(--text-primary);
+	text-decoration: none;
+
+	transition: all 120ms ease-out;
+
+	&:hover,
+	&:focus {
+		background-color: var(--settings-color);
+		border-color: var(--settings-color);
+		box-shadow: var(--button-shadow);
+		color: var(--standart-white);
+	}
+
+	&:active {
+		transform: scale(0.98);
+		box-shadow: var(--button-inner-shadow);
+	}
+}

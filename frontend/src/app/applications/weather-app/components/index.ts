@@ -2,11 +2,10 @@ import CurrentWeather from "./current-weather/current-weather";
 import WeatherAdditional from "./weather-additional/weather-additional";
 import WeatherControls from "./weather-controls/weather-controls";
 import WeatherDays from "./weather-days/weather-days";
-import PopularLocaions from "./popular-locations/popular-locations";
-import WeatherSearchLocations from "./weather-search-locations/weather-search-locations";
+import WeatherSearchLocations from "../../../components/search-locations/search-locations";
 import WeatherFullInfo from "./weather-full-info/weather-full-info";
 import WeatherApplication from './weather-application/weather-application';
-import { WeatherLocationHeader, WeatherAppHeader } from './header';
+import { WeatherAppHeader } from './header';
 import WeatherAppWrap from "./weather-app-wrap/weather-app-wrap";
 
 export {
@@ -14,11 +13,9 @@ export {
 	WeatherAdditional,
 	WeatherControls,
 	WeatherDays,
-	PopularLocaions,
 	WeatherSearchLocations,
 	WeatherFullInfo,
 	WeatherAppHeader,
-	WeatherLocationHeader,
 	WeatherApplication,
 	WeatherAppWrap,
 };

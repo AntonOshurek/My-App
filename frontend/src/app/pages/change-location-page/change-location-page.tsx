@@ -1,16 +1,17 @@
 import { useState, ChangeEvent, MouseEvent } from "react";
-//components
-import { PopularLocaions, WeatherSearchLocations, WeatherLocationHeader } from '../../components';
-//services
-import cityHintsService from "../../services/city-hints-service";
-import locationService from "../../../../services/location-service/location.service";
 //store
-import { useAppDispatch } from "../../../../generic-utils/hooks/hooks";
-import { setMyCityAction } from "../../../../store/actions/app-actions";
+import { useAppDispatch } from "../../generic-utils/hooks/hooks";
+import { setMyCityAction } from "../../store/actions/app-actions";
+//services
+import cityHintsService from "../../services/city-hint-service/city-hints-service";
+import locationService from "../../services/location-service/location.service";
+//components
+import {ChangeLocationHeader, SearchLocations} from "../../components/";
+import PopularLocaions from "../../components/popular-locations/popular-locations";
 //styles
-import './weather-app-location.scss';
+import './change-location-page.scss';
 
-const WeatherAppLocationPage = (): JSX.Element => {
+const ChangeLocationPage = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 
 	const [hintCity, setHintCity] = useState<string[] | null>(null);
@@ -60,17 +61,17 @@ const WeatherAppLocationPage = (): JSX.Element => {
 	};
 
 	return (
-		<div className='weather-app-location-page'>
-			<WeatherLocationHeader />
+		<div className='change-location-page'>
+			<ChangeLocationHeader />
 
-			<main className='weather-app-location-page__main'>
+			<main className='change-location-page__main'>
 
-				<section className='weather-app-location-page__application'>
+				<section className='change-location-page__application'>
 					<h2 className='visually-hidden'>change location</h2>
 
 					<PopularLocaions hintCity={hintCity} cityButtonHandler={cityButtonHandler} />
 
-					<WeatherSearchLocations
+					<SearchLocations
 						cityInputHandler={cityInputHandler}
 						city={city}
 						onSaveCityButtonHandler={onSaveCityButtonHandler}
@@ -84,4 +85,4 @@ const WeatherAppLocationPage = (): JSX.Element => {
 	);
 };
 
-export default WeatherAppLocationPage;
+export default ChangeLocationPage;

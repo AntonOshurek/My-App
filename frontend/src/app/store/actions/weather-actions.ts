@@ -6,7 +6,16 @@ import { setWeatherAllDays, setWeatherCurrentDay, setWeatherLoading, setWeatherE
 export const setWeatherAllDaysAction =
 	(action: ISetWeatherAllDays): AppThunk =>
 		(dispatch, getState) => {
+			if(getState().weather.error !== null) {
+				dispatch(setWeatherError({error: null}));
+			};
+
 			dispatch(setWeatherAllDays(action));
+			dispatch(setWeatherCurrentDayAction({weather: action.weather[0]}));
+
+			if(getState().weather.loading) {
+				dispatch(setWeatherLoadingAction({loading: false}));
+			};
 		};
 
 export const setWeatherCurrentDayAction =
