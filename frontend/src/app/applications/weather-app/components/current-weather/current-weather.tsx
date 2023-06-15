@@ -9,13 +9,13 @@ import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
 import { SelectorGetWeatherCurrentDay, SelectorGetWeatherError, SelectorGetWeatherLoading } from '../../../../store/selectors/weather-selectors';
 //types
-import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
+import type { SelectorGetMyCityStateType, SelectorGetWeatherCurrentDayType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './current-weather.scss';
 import './current-weather-skeleton.scss';
 
 const CurrentWeather = (): JSX.Element => {
-	const myCity: string | null = useAppSelector(SelectorGetMyCityState);
+	const myCity: SelectorGetMyCityStateType = useAppSelector(SelectorGetMyCityState);
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
