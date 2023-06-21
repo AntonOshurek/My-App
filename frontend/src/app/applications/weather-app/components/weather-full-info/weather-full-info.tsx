@@ -25,15 +25,19 @@ const WeatherFullInfo = (): JSX.Element => {
 			<ul className='weather-full-info__list'>
 				<div className='weather-full-info__list-wrap'>
 					{
-						currentWeather.hour.map((hourWeather) => {
-							const hours = [1, 4, 7, 10, 13, 16, 19, 23];
-							const date = new Date(hourWeather.time);
+						// currentWeather.hour.map((hourWeather) => {
+						// 	const hours = [1, 4, 7, 10, 13, 16, 19, 23];
+						// 	const date = new Date(hourWeather.time);
 
-							if (hours.includes(date.getHours())) {
-								return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
-							} else {
-								return null;
-							};
+						// 	if (hours.includes(date.getHours())) {
+						// 		return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
+						// 	} else {
+						// 		return null;
+						// 	};
+						// })
+
+						currentWeather.hour.map((hourWeather) => {
+							return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
 						})
 					}
 				</div>

@@ -1,11 +1,7 @@
 .weather-full-info__item {
 	width: 100px;
 	height: 100%;
-	// padding: 5px;
-
 	border-radius: var(--weather-basic-border-radius);
-	// background-color: var(--surface);
-	// box-shadow: var(--weather-box-shadow-color);
 
 	background-color: transparent;
 }
@@ -17,7 +13,6 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	gap: 23px;
 }
 
 .weather-full-info__header {
@@ -28,6 +23,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 5px;
+	padding-bottom: 10px;
 }
 
 .weather-full-info__weather-image {
