@@ -50,9 +50,17 @@ const WeatherDayItem = ({ weather }: IWeatherDayItemPropsType): JSX.Element => {
 		<li className={`weather-days__item ${activeClass && activeClass}`}>
 			<h4 className='visually-hidden'>{getWeekday(weather.date)}</h4>
 			<p className='weather-days__days-name'>{getAbbreviationWeekday(weather.date)}.</p>
-			<p className='weather-days__temperature'>
+			{/* <p className='weather-days__temperature'>
 				{weather.day.avgTempC}°C
+			</p> */}
+
+			<p className='weather-days__temperature weather-days__temperature--min'>
+				{weather.day.minTempC}°C
 			</p>
+			<p className='weather-days__temperature weather-days__temperature--max'>
+				{weather.day.maxTempC}°C
+			</p>
+
 			<img className='weather-days__image' src={weather.day.condition.icon} alt={weather.day.condition.text} width='30' height='30' />
 
 			<button className='weather-days__button' type='button' onClick={onWeatherDayButtonhandler}>
