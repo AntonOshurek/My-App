@@ -59,11 +59,19 @@ export const getFullDate = (): string => {
   return fullDate;
 };
 
-export const getCurrentHourObject = (weather: IWeatherOneDayDataType): string => {
+interface ICurrentTempAndHour {
+	temp: string,
+	hour: string,
+};
+
+export const getCurrentTempAndHour = (weather: IWeatherOneDayDataType): ICurrentTempAndHour => {
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
 
-	let result;
+	let result: ICurrentTempAndHour = {
+		temp: '',
+		hour: currentHour.toString(),
+	};
 
 	if(compareDates(currentDate.toString(), weather.date)) {
 		const filtredItems = weather.hour.find((item) => {
@@ -76,13 +84,14 @@ export const getCurrentHourObject = (weather: IWeatherOneDayDataType): string =>
 		});
 
 		if(!filtredItems) {
-			result = weather.day.avgTempC.toString();
+			result.temp = weather.day.avgTempC.toString();
 		} else {
-			result = filtredItems.tempC.toString();
+			result.temp = filtredItems.tempC.toString();
 		};
 
 	} else {
-		result = weather.day.avgTempC.toString();
+		result.temp = weather.day.avgTempC.toString();
 	};
-	return result.toString();
+
+	return result;
 };

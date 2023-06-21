@@ -36,8 +36,16 @@
 .weather-days__temperature {
 	font-family: var(--weather-basic-font);
 	color: var(--text-secondary);
-	font-size: var(--weather-days-temp-text-size);
-	font-weight: var(--weather-days-temp-text-weight);
+
+	&--max {
+		font-size: var(--weather-days-temp-text-size);
+		font-weight: var(--weather-days-temp-text-weight);
+	}
+
+	&--min {
+		font-size: 18px;
+		font-weight: 400;
+	}
 }
 
 .weather-days__image {

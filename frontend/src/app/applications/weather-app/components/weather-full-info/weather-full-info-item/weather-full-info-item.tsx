@@ -47,7 +47,6 @@ const WeatherFullInfoItem = ({ hourWeather }: IWeatherFullInfoItemPropsType): JS
 					<FontAwesomeIcon icon={faWind} />
 					<span className='weather-full-info__data weather-full-info__data--dark'>{convertWindKmhToMs(hourWeather.windKph)}м/с</span>
 				</p>
-
 			</article>
 		</li>
 	);

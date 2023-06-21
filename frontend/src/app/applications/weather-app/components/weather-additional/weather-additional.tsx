@@ -34,6 +34,12 @@ const WeatherAdditional = (): JSX.Element => {
 				<dd className='weather-additional__info-content'>
 					{weatherCurrentDay ? convertWindKmhToMs(weatherCurrentDay.day.maxWindKph) : null}	m/s
 				</dd>
+
+				<dt className='weather-additional__info-subject'>Вероятность дождя:</dt>
+				<dd className='weather-additional__info-content'>
+					{weatherCurrentDay ? weatherCurrentDay.day.dailyChanceOfRain : null}	%
+				</dd>
+
 			</dl>
 		</>
 	);

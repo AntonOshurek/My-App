@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 //components
 import WeatherFullInfoItem from './weather-full-info-item/weather-full-info-item';
 import { Loading, Error } from '../../../../components';
@@ -8,11 +9,23 @@ import { SelectorGetWeatherCurrentDay, SelectorGetWeatherError, SelectorGetWeath
 import type { SelectorGetWeatherCurrentDayType, SelectorGetWeatherErrorType, SelectorGetWeatherLoadingType } from '../../../../types/selector-types';
 //styles
 import './weather-full-info.scss';
+import { compareDates } from '../../../../generic-utils/utils/date-utils';
 
 const WeatherFullInfo = (): JSX.Element => {
 	const currentWeather: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
 	const weatherLoading: SelectorGetWeatherLoadingType = useAppSelector(SelectorGetWeatherLoading);
 	const weatherErrors: SelectorGetWeatherErrorType = useAppSelector(SelectorGetWeatherError);
+
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+		if(parentRef.current) {
+			const item = parentRef.current.querySelector('[data-current="true"]');
+			if (item) {
+				item.scrollIntoView({ block: 'nearest'});
+			}
+		}
+  }, [parentRef, currentWeather]);
 
 	let content: JSX.Element;
 
@@ -23,17 +36,31 @@ const WeatherFullInfo = (): JSX.Element => {
 	} else if (currentWeather) {
 		content = (
 			<ul className='weather-full-info__list'>
-				<div className='weather-full-info__list-wrap'>
+				<div className='weather-full-info__list-wrap' ref={parentRef}>
 					{
-						currentWeather.hour.map((hourWeather) => {
-							const hours = [1, 4, 7, 10, 13, 16, 19, 23];
-							const date = new Date(hourWeather.time);
+						// currentWeather.hour.map((hourWeather) => {
+						// 	const hours = [1, 4, 7, 10, 13, 16, 19, 23];
+						// 	const date = new Date(hourWeather.time);
 
-							if (hours.includes(date.getHours())) {
-								return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
-							} else {
-								return null;
+						// 	if (hours.includes(date.getHours())) {
+						// 		return <WeatherFullInfoItem key={hourWeather.time} hourWeather={hourWeather} />
+						// 	} else {
+						// 		return null;
+						// 	};
+						// })
+
+						currentWeather.hour.map((hourWeather) => {
+							const itemHour = new Date(hourWeather.time).getHours();
+							const currentHour = new Date().getHours();
+							const isCurrentHour = itemHour === currentHour;
+
+							if(isCurrentHour) {
+								// console.log(hourWeather);
 							};
+
+							return <div key={itemHour} data-current={isCurrentHour ? true : false}>
+								<WeatherFullInfoItem  hourWeather={hourWeather} />
+							</div>
 						})
 					}
 				</div>
