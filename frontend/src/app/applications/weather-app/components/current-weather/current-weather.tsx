@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
 import unsplashApi from '../../../../api/unsplash-api/unsplash-api';
 //utils
-import { getCurrentHourObject } from '../../../../generic-utils/utils/date-utils';
+import { getCurrentTempAndHour } from '../../../../generic-utils/utils/date-utils';
 //store
 import { useAppSelector } from '../../../../generic-utils/hooks/hooks';
 import { SelectorGetMyCityState } from '../../../../store/selectors/app-selectors';
@@ -16,6 +16,11 @@ import './current-weather-skeleton.scss';
 //images
 import reserveWeatherImage from './images/reserve_weather_image.jpg';
 
+interface ICurrentTempAndHour {
+	temp: string,
+	hour: string,
+};
+
 const CurrentWeather = (): JSX.Element => {
 	const myCity: SelectorGetMyCityStateType = useAppSelector(SelectorGetMyCityState);
 	const weatherCurrentDay: SelectorGetWeatherCurrentDayType = useAppSelector(SelectorGetWeatherCurrentDay);
@@ -26,6 +31,13 @@ const CurrentWeather = (): JSX.Element => {
 
 	const [styles, setStyles] = useState<any>(null);
 	const [image, setImage] = useState<any>(null);
+	const [currentTempAndHour, setCurrentTempAndHout] = useState<ICurrentTempAndHour | null>(null);
+
+	useEffect(() => {
+		if(weatherCurrentDay) {
+			setCurrentTempAndHout(getCurrentTempAndHour(weatherCurrentDay));
+		}
+	}, [weatherCurrentDay]);
 
 	useEffect(() => {
 		if (myCity && myCity.length > 0) {
@@ -54,9 +66,15 @@ const CurrentWeather = (): JSX.Element => {
 
 				<p className='current-weather__city'>{myCity}</p>
 
-				<img className='current-weather__image' src={weatherCurrentDay?.day.condition.icon} alt={weatherCurrentDay?.day.condition.text} width='70' height='70' />
+				<div className='current-weather__image-time'>
+					<img className='current-weather__image' src={weatherCurrentDay?.day.condition.icon} alt={weatherCurrentDay?.day.condition.text} width='70' height='70' />
+					{currentTempAndHour && `${currentTempAndHour.hour}:00`}
+				</div>
 
-				<p className='current-weather__temperature'>{weatherCurrentDay && getCurrentHourObject(weatherCurrentDay) }°C</p>
+
+				<p className='current-weather__temperature'>
+					{currentTempAndHour && currentTempAndHour.temp} °C
+				</p>
 				<p className='current-weather__temperature-info'>{weatherCurrentDay?.day.condition.text}</p>
 			</div>
 

@@ -88,12 +88,23 @@
 	font-weight: var(--weather-current-location-date-text-weight);
 }
 
+.current-weather__image-time {
+	align-self: end; //for grid container
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 20px;
+
+	font-family: var(--weather-basic-font);
+	color: var(--standart-white);
+	font-size: var(--weather-current-temp-info-text-size);
+	font-weight: var(--weather-current-temp-info-text-weight);
+}
+
 .current-weather__image {
 	width: 70px;
 	height: 70px;
-
-	display: flex;
-	align-self: end;
 
 	object-fit: contain;
 }
