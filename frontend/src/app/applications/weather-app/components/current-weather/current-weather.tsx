@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 //services
 import { formatDate, getWeekday } from '../../../../generic-utils/utils/date-utils';
-import unsplashApi from '../../api/unsplash-api';
+import unsplashApi from '../../../../api/unsplash-api/unsplash-api';
 //utils
 import { getCurrentHourObject } from '../../../../generic-utils/utils/date-utils';
 //store
@@ -13,6 +13,8 @@ import type { SelectorGetMyCityStateType, SelectorGetWeatherCurrentDayType, Sele
 //styles
 import './current-weather.scss';
 import './current-weather-skeleton.scss';
+//images
+import reserveWeatherImage from './images/reserve_weather_image.jpg';
 
 const CurrentWeather = (): JSX.Element => {
 	const myCity: SelectorGetMyCityStateType = useAppSelector(SelectorGetMyCityState);
@@ -27,10 +29,14 @@ const CurrentWeather = (): JSX.Element => {
 
 	useEffect(() => {
 		if (myCity && myCity.length > 0) {
-			unsplashApi.searchCity(myCity).then(imageData => {
+			unsplashApi.getKeywordImage(myCity).then(imageData => {
 				setImage(imageData);
 				setStyles({
 					backgroundImage: `url(${imageData.imageUrl})`
+				})
+			}).catch(() => {
+				setStyles({
+					backgroundImage: `url(${reserveWeatherImage})`
 				})
 			});
 		};
@@ -53,11 +59,16 @@ const CurrentWeather = (): JSX.Element => {
 				<p className='current-weather__temperature'>{weatherCurrentDay && getCurrentHourObject(weatherCurrentDay) }°C</p>
 				<p className='current-weather__temperature-info'>{weatherCurrentDay?.day.condition.text}</p>
 			</div>
-			<div className='current-weather__image-info'>
-				<h4 className='current-weather__image-info-title'>image</h4>
-				<p className='current-weather__image-author'>{image?.userName}</p>
-				<a className='current-weather__image-link' href={image?.userPage} target="_blank" rel="noreferrer">unsplash</a>
-			</div>
+
+			{
+				image && <>
+					<div className='current-weather__image-info'>
+						<h4 className='current-weather__image-info-title'>image</h4>
+						<p className='current-weather__image-author'>{image?.userName}</p>
+						<a className='current-weather__image-link' href={image?.userPage} target="_blank" rel="noreferrer">unsplash</a>
+					</div>
+				</>
+			}
 		</article>
 	);
 };
