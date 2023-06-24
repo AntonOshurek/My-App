@@ -8,6 +8,8 @@ import locationService from "../../services/location-service/location.service";
 //components
 import {ChangeLocationHeader, SearchLocations} from "../../components/";
 import PopularLocaions from "../../components/popular-locations/popular-locations";
+//types
+import type { IInfoText } from "../../types/app-types";
 //styles
 import './change-location-page.scss';
 
@@ -16,7 +18,7 @@ const ChangeLocationPage = (): JSX.Element => {
 
 	const [hintCity, setHintCity] = useState<string[] | null>(null);
 	const [city, setCity] = useState<string>('')
-	const [message, setMessage] = useState<string>('');
+	const [message, setMessage] = useState<IInfoText>({error: '', message: ''});
 
 	const cityInputHandler = (event: ChangeEvent<HTMLInputElement>): void => {
 		const value = event.target.value.trim();
@@ -47,16 +49,40 @@ const ChangeLocationPage = (): JSX.Element => {
 				.then((result) => {
 					if (result === true) {
 						dispatch(setMyCityAction({ myCity: city }));
-						setMessage('New city saved');
+
+						setMessage((prev) => {
+							return Object.assign({}, {
+								...prev,
+								error: 'New city saved'
+							})
+						});
 					} else {
-						setMessage('We couldn\'t find your city. Please check the spelling of the city.');
+						// setMessage('We couldn\'t find your city. Please check the spelling of the city.');
+						setMessage((prev) => {
+							return Object.assign({}, {
+								...prev,
+								error: 'We couldn\'t find your city. Please check the spelling of the city.'
+							})
+						});
 					};
 				})
 				.catch(error => {
-					setMessage('error' + error.message)
+					// setMessage('error' + error.message)
+					setMessage((prev) => {
+						return Object.assign({}, {
+							...prev,
+							error: 'error' + error.message
+						})
+					});
 				});
 		} else {
-			setMessage('Please enter the name of your city or select it from the list.')
+			// setMessage('Please enter the name of your city or select it from the list.')
+			setMessage((prev) => {
+				return Object.assign({}, {
+					...prev,
+					error: 'Please enter the name of your city or select it from the list.'
+				})
+			});
 		};
 	};
 

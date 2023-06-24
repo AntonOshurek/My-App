@@ -51,7 +51,7 @@
 
 .search-location__message {
 	position: absolute;
-	top: -100%;
+	top: 110%;
 	left: 0;
 	height: max-content;
 	width: 100%;
@@ -77,13 +77,13 @@
 	&::before {
 		content: '';
 		position: absolute;
-		top: 99%;
+		top: -10px;
 		left: 10px;
 		width: 0;
 		height: 0;
 		border-left: 10px solid transparent;
 		border-right: 10px solid transparent;
-		border-top: 10px solid var(--primary);
+		border-bottom: 10px solid var(--primary);
 	}
 }
 
