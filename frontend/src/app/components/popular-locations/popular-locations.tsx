@@ -14,7 +14,7 @@ const PopularLocaions = ({ hintCity, cityButtonHandler }: IPopularLocaionsPropsT
 	const [cities, setCities] = useState<string[] | null>(hintCity)
 	const [title, setTitle] = useState<string>('Popular locations');
 
-	const defaultPopularCityes = ["New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"]
+	const defaultPopularCityes = ['Grodno', 'Poznan',"New York", "London", "Paris", "Berlin", "Tokyo", "Wroclaw"];
 
 	useEffect(() => {
 

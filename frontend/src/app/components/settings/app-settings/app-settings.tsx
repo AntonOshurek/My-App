@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 //components
 import { AccountSettings, ThemeSwitch } from './components/';
 import { SettingsButton } from '../../controls';
@@ -13,8 +14,6 @@ const AppSettings = (): JSX.Element => {
 			<ThemeSwitch />
 
 			<AccountSettings />
-
-			<SettingsButton />
 		</section>
 	);
 };

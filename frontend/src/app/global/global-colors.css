@@ -34,6 +34,24 @@
 		rgba(255, 255, 255, 0) 100%
 	);
 
+	--sunset-bg: #151c19;
+	--sunset-border: #424f4a;
+	--sunset-surface: #2f3834;
+	--light-overlay: #c3b9b9;
+	--sunset-text-primary: #ecd2c5;
+	--sunset-text-secondary: #C0AB92;
+	--sunset-primary: #C0AB92;
+	--sunset-text-inverse: #151c19;
+
+	--sunrise-bg: #ecd2c5;
+	--sunrise-border: #d7c9c6;
+	--sunrise-surface: #f3e8e5;
+	--sunrise-overlay: #edcec0;
+	--sunrise-text-primary: #4f2733;
+	--sunrise-text-secondary: #685844;
+	--sunrise-primary: #a04d66;
+	--sunrise-text-inverse: #f3e8e5;
+
 	/* SETTINGS COLORS */
 	--settings-input-bg: #ffffff;
 	--setting-input-text-color: #000000;
@@ -62,8 +80,6 @@
 		inset -0.2rem -0.2rem 0.5rem #fff;
 	--colored-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%),
 		-0.2rem -0.2rem 0.4rem #fff;
-
-
 }
 
 .theme-dark {
@@ -82,6 +98,46 @@
 	--button-shadow: var(--dark-button-shadow);
 	--button-inner-shadow: var(--dark-button-inner-shadow);
 	--input-shadow: var(--shadow);
+	--input-inner-shadow: var(--inner-shadow);
+	background-color: var(--bg);
+}
+
+.theme-sunset {
+	--bg: var(--sunset-bg);
+	--border: var(--sunset-border);
+	--surface: var(--sunset-surface);
+	--overlay: var(--sunset-overlay);
+	--text-primary: var(--sunset-text-primary);
+	--text-secondary: var(--sunset-text-secondary);
+	--primary: var(--sunset-primary);
+	--text-inverse: var(--sunset-text-inverse);
+	--skeleton-line: var(--dark-skeleton-line);
+
+	--shadow: var(--dark-shadow);
+	--inner-shadow: var(--dark-inner-shadow);
+	--button-shadow: var(--dark-button-shadow);
+	--button-inner-shadow: var(--dark-button-inner-shadow);
+	--input-shadow: var(--colored-shadow);
+	--input-inner-shadow: var(--inner-shadow);
+	background-color: var(--bg);
+}
+
+.theme-sunrise {
+	--bg: var(--sunrise-bg);
+	--border: var(--sunrise-border);
+	--surface: var(--sunrise-surface);
+	--overlay: var(--sunrise-overlay);
+	--text-primary: var(--sunrise-text-primary);
+	--text-secondary: var(--sunrise-text-secondary);
+	--primary: var(--sunrise-primary);
+	--text-inverse: var(--sunrise-text-inverse);
+	--skeleton-line: var(--dark-skeleton-line);
+
+	--shadow: var(--light-shadow);
+	--inner-shadow: var(--light-inner-shadow);
+	--button-shadow: var(--light-button-shadow);
+	--button-inner-shadow: var(--light-button-inner-shadow);
+	--input-shadow: var(--colored-shadow);
 	--input-inner-shadow: var(--inner-shadow);
 	background-color: var(--bg);
 }

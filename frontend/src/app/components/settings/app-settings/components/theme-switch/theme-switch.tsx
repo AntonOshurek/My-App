@@ -61,39 +61,59 @@ const ThemeSwitch = (): JSX.Element => {
 
 				</div>
 
-				{/* <div className='theme-switch__item theme-switch__item--sunset'>
-							<input className='theme-switch__radio visually-hidden' type="radio" name='theme' value='Sunset' id='theme-sunset' />
-							<label className='theme-switch__label' htmlFor='theme-sunset'>
-								<span className='theme-switch__label-text'>Sunset</span>
-								<svg fill="currentColor" aria-hidden='true' focusable='false' viewBox="0 0 24 24" width='24px' height='24px'><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg>
-								<div className="theme-switch__swatches">
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-bg)' }} title="bg"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-border)' }} title="border"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-surface)' }} title="surface"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-primary)' }} title="text-primary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-secondary)' }} title="text-secondary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-primary)' }} title="primary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-inverse)' }} title="text-inverse"></span>
-								</div>
-							</label>
-						</div> */}
+				<div className='theme-switch__item theme-switch__item--sunset'>
 
-				{/* <div className='theme-switch__item theme-switch__item--sunrise'>
-							<input className='theme-switch__radio visually-hidden' type="radio" name='theme' value='Sunrise' id='theme-sunrise' checked={true} />
-							<label className='theme-switch__label' htmlFor='theme-sunrise'>
-								<span className='theme-switch__label-text'>Sunrise</span>
-								<svg fill="currentColor" aria-hidden='true' focusable='false' viewBox="0 0 24 24" width='24px' height='24px'><path d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg>
-								<div className="theme-switch__swatches">
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-bg)' }} title="bg"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-border)' }} title="border"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-surface)' }} title="surface"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-primary)' }} title="text-primary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-secondary)' }} title="text-secondary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-primary)' }} title="primary"></span>
-									<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-inverse)' }} title="text-inverse"></span>
-								</div>
-							</label>
-						</div> */}
+					<input
+						className='theme-switch__radio visually-hidden'
+						type="radio"
+						name='theme'
+						value={ColorThemes.THEME_SUNSET}
+						id={ColorThemes.THEME_SUNSET}
+						checked={colorTheme === ColorThemes.THEME_SUNSET}
+						onChange={themeSwitcherHandler}
+					/>
+
+					<label className='theme-switch__label' htmlFor={ColorThemes.THEME_SUNSET}>
+						<span className='theme-switch__label-text'>{ColorThemes.THEME_SUNSET}</span>
+						<svg fill="currentColor" aria-hidden='true' focusable='false' viewBox="0 0 24 24" width='24px' height='24px'><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg>
+						<div className="theme-switch__swatches">
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-bg)' }} title="bg"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-border)' }} title="border"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-surface)' }} title="surface"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-primary)' }} title="text-primary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-secondary)' }} title="text-secondary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-primary)' }} title="primary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunset-text-inverse)' }} title="text-inverse"></span>
+						</div>
+					</label>
+				</div>
+
+				<div className='theme-switch__item theme-switch__item--sunrise'>
+
+					<input
+						className='theme-switch__radio visually-hidden'
+						type="radio"
+						name='theme'
+						value={ColorThemes.THEME_SUNRISE}
+						id={ColorThemes.THEME_SUNRISE}
+						checked={colorTheme === ColorThemes.THEME_SUNRISE}
+						onChange={themeSwitcherHandler}
+					/>
+
+					<label className='theme-switch__label' htmlFor={ColorThemes.THEME_SUNRISE}>
+						<span className='theme-switch__label-text'>{ColorThemes.THEME_SUNRISE}</span>
+						<svg fill="currentColor" aria-hidden='true' focusable='false' viewBox="0 0 24 24" width='24px' height='24px'><path d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"></path></svg>
+						<div className="theme-switch__swatches">
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-bg)' }} title="bg"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-border)' }} title="border"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-surface)' }} title="surface"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-primary)' }} title="text-primary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-secondary)' }} title="text-secondary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-primary)' }} title="primary"></span>
+							<span className="theme-switch__swatches-item" style={{ background: 'var(--sunrise-text-inverse)' }} title="text-inverse"></span>
+						</div>
+					</label>
+				</div>
 
 				<div className='theme-switch__item theme-switch__item--light'>
 

@@ -2,9 +2,14 @@ export type SetActiveLinkType = {
 	isActive: boolean,
 };
 
-export interface ISettingSelectOptionDataObjectType {
-	'text': string,
-	'value': string,
+export interface IInfoText {
+	error: string,
+	message: string,
 };
 
-export type ISettingSelectOptionsDataType = ISettingSelectOptionDataObjectType[];
+export interface ISettingsSelectOptionDataType {
+	['abbreviation']: string,
+	['fullName']: string,
+};
+
+export type SettingsSelectDataType = ISettingsSelectOptionDataType[];

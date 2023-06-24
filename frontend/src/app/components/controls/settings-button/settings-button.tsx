@@ -1,9 +1,15 @@
+import { MouseEvent } from 'react';
 //styles
 import './settings-button.scss';
 
-const SettingsButton = (): JSX.Element => {
+interface ISettingsButtonProps {
+	text: string,
+	onClickHandler: (evt: MouseEvent<HTMLButtonElement>) => void,
+};
+
+const SettingsButton = ({text, onClickHandler}: ISettingsButtonProps): JSX.Element => {
 	return (
-		<button className='settings-button' type='button'>Save settings</button>
+		<button className='settings-button' type='button' onClick={onClickHandler}>{text}</button>
 	);
 };
 
