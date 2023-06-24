@@ -1,16 +1,14 @@
 @import '../../../variables/variables.scss';
 
 .app-settings {
-	// width: max-content;
 	width: 100%;
 	background-color: var(--surface);
 	border: 2px solid var(--border);
 	border-radius: var(--app-settings-border-radius);
 	padding: var(--standart-side-padding);
 
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: max-content 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 40px;
 
 	box-shadow: var(--shadow);

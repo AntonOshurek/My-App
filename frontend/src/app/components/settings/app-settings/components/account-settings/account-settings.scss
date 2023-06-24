@@ -4,7 +4,7 @@
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(2, min-content);
-	grid-template-rows: min-content 1fr;
+	grid-template-rows: repeat(auto-fill, min-content);
 	align-items: center;
 	gap: 20px;
 
