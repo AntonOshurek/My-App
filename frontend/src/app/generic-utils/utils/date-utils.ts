@@ -95,3 +95,23 @@ export const getCurrentTempAndHour = (weather: IWeatherOneDayDataType): ICurrent
 
 	return result;
 };
+
+export const convertTo24HourFormat = (time: string): string => {
+  const timeParts = time.split(':');
+  const hours = parseInt(timeParts[0]);
+  const period = timeParts[1].split(' ')[1];
+
+  let convertedHours = hours;
+
+  if (period === 'PM' && hours !== 12) {
+    convertedHours += 12;
+  };
+
+  if (period === 'AM' && hours === 12) {
+    convertedHours = 0;
+  };
+
+	console.log(`time - ${time}. period - ${period}. convertedHours - ${convertedHours}`);
+
+  return convertedHours.toString();
+};

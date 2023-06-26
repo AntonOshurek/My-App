@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 //components
-import {WeatherApplication, WeatherFullInfo} from "../";
+import {WeatherApplication, WeatherFullInfo, SunRange} from "../";
 //api
 import weatherApi from "../../api/weather-api";
 //store
@@ -39,6 +39,7 @@ const WeatherAppWrap = (): JSX.Element => {
 	return (
 		<>
 			<WeatherApplication/>
+			{/* <SunRange/> */}
 			<WeatherFullInfo/>
 		</>
 	);
