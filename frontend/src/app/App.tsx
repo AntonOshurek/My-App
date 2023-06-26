@@ -11,6 +11,7 @@ import { SelectorGetColorThemeState } from './store/selectors/app-selectors';
 //global styles
 import './global/global-variables.css';
 import './global/global-colors.css';
+import './global/global-styles.scss';
 
 function App() {
 	const actuallyColorTheme = useAppSelector(SelectorGetColorThemeState);
