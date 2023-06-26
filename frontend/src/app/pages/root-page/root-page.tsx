@@ -9,7 +9,7 @@ const RootPage = (): JSX.Element => {
 	return (
 		<>
 			<div className="root-page container">
-				<MainAnimationLogo/>
+				{/* <MainAnimationLogo/> */}
 				<RootHeader />
 
 				<main className="root-page__main">
