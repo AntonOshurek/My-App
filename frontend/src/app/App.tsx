@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //pages
 import { RootPage, SettingsPage, ChangeLocationPage } from './pages/';
 //applications
-import { WeatherApp } from './applications';
+import { WeatherApp, SecurePassApp } from './applications';
 //consts and utils functions
 import { AppRoute } from './variables/app-routes';
 //store
@@ -23,6 +23,7 @@ function App() {
 					<Route path={AppRoute.SETTINGS} element={<SettingsPage />} />
 					<Route path={AppRoute.CHANGE_LOCATION} element={<ChangeLocationPage />} />
 					<Route path={AppRoute.WEATHER_APP} element={<WeatherApp />} />
+					<Route path={AppRoute.SECURE_PASS_GENERATOR} element={<SecurePassApp />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

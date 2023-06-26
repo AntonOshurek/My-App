@@ -4,4 +4,5 @@ export const enum AppRoute {
 	SETTINGS = '/settings',
 	WEATHER_APP = '/weather-app',
 	CHANGE_LOCATION = '/change-location',
+	SECURE_PASS_GENERATOR = 'secure-pass-generator',
 };
