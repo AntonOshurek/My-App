@@ -1,0 +1,42 @@
+.buy-subscription {
+	width: 100%;
+	height: min-content;
+	padding: 30px var(--standart-side-padding);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.buy-subscription__title {
+	font-family: var(--app-basic-font);
+	font-size: var(--block-title-font-size);
+	font-weight: var(--block-title-font-weight);
+	color: var(--text-primary);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.buy-subscription__text {
+	font-family: var(--app-basic-font);
+	font-size: var(--text-font-size);
+	font-weight: var(--text-font-weight);
+	color: var(--text-primary);
+}
+
+.buy-subscription__link {
+	font-family: var(--app-basic-font);
+	font-size: var(--sub-title-font-size);
+	font-weight: var(--sub-title-font-weight);
+	color: var(--settings-color);
+
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
