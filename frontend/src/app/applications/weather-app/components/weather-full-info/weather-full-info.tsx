@@ -39,6 +39,7 @@ const WeatherFullInfo = (): JSX.Element => {
 	return (
 		<section className='weather-full-info'>
 			<h2 className='visually-hidden'>full information about current day weather</h2>
+
 			{
 				content
 			}

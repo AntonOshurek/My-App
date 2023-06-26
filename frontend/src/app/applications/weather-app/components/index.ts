@@ -7,6 +7,7 @@ import WeatherFullInfo from "./weather-full-info/weather-full-info";
 import WeatherApplication from './weather-application/weather-application';
 import { WeatherAppHeader } from './header';
 import WeatherAppWrap from "./weather-app-wrap/weather-app-wrap";
+import SunRange from "./sun-range/sun-range";
 
 export {
 	CurrentWeather,
@@ -18,4 +19,5 @@ export {
 	WeatherAppHeader,
 	WeatherApplication,
 	WeatherAppWrap,
+	SunRange,
 };
