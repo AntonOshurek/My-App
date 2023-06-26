@@ -28,7 +28,7 @@
 
 	background-color: var(--surface);
 	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--weather-box-shadow-color);
+	box-shadow: var(--box-shadow-color);
 
 	@media (max-width: $mobile-width) {
 		display: flex;

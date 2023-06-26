@@ -80,6 +80,9 @@
 		inset -0.2rem -0.2rem 0.5rem #fff;
 	--colored-shadow: 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%),
 		-0.2rem -0.2rem 0.4rem #fff;
+
+	--box-shadow-color: 0 0 20px 3px rgba(0, 0, 0, 0.4);
+	--after-gradient: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
 }
 
 .theme-dark {

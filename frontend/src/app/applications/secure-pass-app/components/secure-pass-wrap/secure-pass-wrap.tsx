@@ -1,15 +1,13 @@
 //components
-import { BySubscription } from '../../../../components';
+import  {BySubscription} from '../../../../components';
+import {SecurePassGenerator} from '../';
 //styles
-import './secure-pass-wrap';
+import './secure-pass-wrap.scss';
 
 const SecurePassWrap = (): JSX.Element => {
 	return (
 		<div className='secure-pass-wrap'>
-			<section>
-				<h2>Password generator</h2>
-			</section>
-
+			<SecurePassGenerator/>
 			<BySubscription text='if you want sava all your password in our database, you need buy a subscripton'/>
 		</div>
 	);

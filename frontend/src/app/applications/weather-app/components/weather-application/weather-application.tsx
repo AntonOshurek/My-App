@@ -5,7 +5,7 @@ import './weather-application.scss';
 
 const WeatherApplication = (): JSX.Element => {
 	return (
-		<section className='weather-application container'>
+		<section className='weather-application container application-block-shadows'>
 			<h2 className='visually-hidden'>Weather</h2>
 
 			<CurrentWeather/>
