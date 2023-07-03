@@ -1,6 +1,16 @@
+import { ChangeEvent } from 'react';
+//components
+import { AppRange } from '../../../../components/controls';
+//styles
 import './secure-pass-generator.scss';
 
 const SecurePassGenerator = (): JSX.Element => {
+
+	const callback = (evt: ChangeEvent<HTMLInputElement>): void => {
+		console.log(evt.target.value);
+	};
+
+
 	return (
 		<section className='pass-generator'>
 			<h2 className='pass-generator__title unselectable'>Password generator</h2>
@@ -17,10 +27,7 @@ const SecurePassGenerator = (): JSX.Element => {
 				<div className='pass-generator__options unselectable'>
 					<h3 className='pass-generator__subtitle'>choise options</h3>
 
-					<label className='pass-generator__option pass-generator__option--full-width'>
-						<span>Length</span>
-						<input className='pass-generator__range' type="range" />
-					</label>
+					<AppRange callback={callback} name={'Length'} rangeValues={{min: 0, max: 40}}/>
 
 					<label className='pass-generator__option'>
 						<span className='pass-generator__option-title'>Include Uppercase</span>
