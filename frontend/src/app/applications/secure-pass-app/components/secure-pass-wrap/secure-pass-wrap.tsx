@@ -8,7 +8,7 @@ const SecurePassWrap = (): JSX.Element => {
 	return (
 		<div className='secure-pass-wrap'>
 			<SecurePassGenerator/>
-			<BySubscription text='if you want sava all your password in our database, you need buy a subscripton'/>
+			<BySubscription text='if you want save all your password in our database, you need buy a subscripton'/>
 		</div>
 	);
 };
