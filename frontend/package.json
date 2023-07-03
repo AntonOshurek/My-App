@@ -23,6 +23,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
+    "secure-crypto-random": "^1.0.2",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
@@ -30,8 +31,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-   	"predeploy": "npm run build",
-	  "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
