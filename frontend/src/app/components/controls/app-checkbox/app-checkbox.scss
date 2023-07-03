@@ -1,0 +1,74 @@
+:root {
+	--app-checkbox-width: 60px;
+	--app-checkbox-height: 30px;
+	--app-checkbox-border-radius: 20px;
+	--app-checkbox-switch-size: 20px;
+	--app-checkbox-switch-transition: all 0.4s ease;
+}
+
+.app-checkbox {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+
+	cursor: pointer;
+}
+
+.app-checkbox__title {
+	font-family: var(--app-basic-font);
+	font-size: var(--app-checkbox-font-size);
+	font-weight: var(--app-checkbox-wont-weight);
+	color: var(--text-primary);
+}
+
+.app-checkbox__switch {
+	position: relative;
+	width: var(--app-checkbox-width);
+	height: var(--app-checkbox-height);
+
+	display: flex;
+	align-items: center;
+
+	background-color: var(--app-checkbox-backgroud-color);
+	border-radius: var(--app-checkbox-border-radius);
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: var(--app-checkbox-switch-size);
+		height: var(--app-checkbox-switch-size);
+		left: calc(var(--app-checkbox-switch-size) - 5px);
+		transform: translateX(-50%);
+
+		background: var(--standart-white);
+		border-radius: 50%;
+		transition: var(--app-checkbox-switch-transition);
+	}
+
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+
+		border-radius: var(--app-checkbox-border-radius);
+		transition: var(--app-checkbox-switch-transition);
+		opacity: 0;
+
+		background: var(--app-controls-background-gradient);
+	}
+}
+
+.app-checkbox__input:checked {
+	& ~ .app-checkbox__switch{
+		&::before {
+			opacity: 1;
+		}
+
+		&::after {
+			left: calc(100% - (var(--app-checkbox-switch-size) - 5px));
+		}
+	}
+}
