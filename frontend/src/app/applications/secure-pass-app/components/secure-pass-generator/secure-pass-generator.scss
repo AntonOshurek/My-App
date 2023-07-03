@@ -3,6 +3,7 @@
 .pass-generator {
 	width: 100%;
 	height: max-content;
+
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: min-content 1fr;
@@ -26,18 +27,15 @@
 }
 
 .pass-generator__wrap {
-	width: 800px;
+	width: 100%;
+	max-width: 900px;
 	height: 100%;
+
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
 
-	@media (max-width: $tablet-width) {
-		width: 100%;
-	}
-
 	@media (max-width: $mobile-width) {
-		width: 100%;
 		grid-template-columns: 1fr;
 		grid-template-rows: min-content min-content;
 	}
@@ -59,6 +57,17 @@
 	}
 }
 
+.pass-generator__pass-result {
+	padding: 10px 5px;
+	border-radius: 5px;
+	background-color: var(--overlay);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--text-font-size);
+	font-weight: 500;
+	color: var(--text-inverse);
+}
+
 .pass-generator__options {
 	display: flex;
 	flex-direction: column;
@@ -73,15 +82,4 @@
 	font-size: var(--block-title-font-size);
 	font-weight: var(--block-title-font-weight);
 	color: var(--text-secondary);
-}
-
-.pass-generator__pass-result {
-	padding: 10px 5px;
-	border-radius: 5px;
-	background-color: var(--overlay);
-
-	font-family: var(--app-basic-font);
-	font-size: var(--text-font-size);
-	font-weight: 500;
-	color: var(--text-inverse);
 }
