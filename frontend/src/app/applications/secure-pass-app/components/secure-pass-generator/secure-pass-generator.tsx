@@ -9,7 +9,7 @@ const SecurePassGenerator = (): JSX.Element => {
 				<div className='pass-generator__result'>
 					<h3 className='pass-generator__subtitle unselectable'>Your new Password</h3>
 
-					<span className='pass-generator__pass-result pass-generator__item-styles'>
+					<span className='pass-generator__pass-result'>
 						06v~E:73oG~*mH2!WVN8+h62BxtRrc
 					</span>
 
@@ -17,29 +17,33 @@ const SecurePassGenerator = (): JSX.Element => {
 				<div className='pass-generator__options unselectable'>
 					<h3 className='pass-generator__subtitle'>choise options</h3>
 
-					<label className='pass-generator__option pass-generator__option--full-width pass-generator__item-styles'>
+					<label className='pass-generator__option pass-generator__option--full-width'>
 						<span>Length</span>
-						<input type="range" />
+						<input className='pass-generator__range' type="range" />
 					</label>
 
-					<label className='pass-generator__option pass-generator__item-styles'>
-						<span>Include Uppercase</span>
-						<input type="checkbox" />
+					<label className='pass-generator__option'>
+						<span className='pass-generator__option-title'>Include Uppercase</span>
+						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
+						<div className='pass-generator__option-switch'></div>
 					</label>
 
-					<label className='pass-generator__option pass-generator__item-styles'>
-						<span>Include Lowercase</span>
-						<input type="checkbox" />
+					<label className='pass-generator__option'>
+						<span className='pass-generator__option-title'>Include Lowercase</span>
+						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
+						<div className='pass-generator__option-switch'></div>
 					</label>
 
-					<label className='pass-generator__option pass-generator__item-styles'>
-						<span>Include Numbers</span>
-						<input type="checkbox" />
+					<label className='pass-generator__option'>
+						<span className='pass-generator__option-title'>Include Numbers</span>
+						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
+						<div className='pass-generator__option-switch'></div>
 					</label>
 
-					<label className='pass-generator__option pass-generator__item-styles'>
-						<span>Include Symbols</span>
-						<input type="checkbox" />
+					<label className='pass-generator__option'>
+						<span className='pass-generator__option-title'>Include Symbols</span>
+						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
+						<div className='pass-generator__option-switch'></div>
 					</label>
 				</div>
 			</div>

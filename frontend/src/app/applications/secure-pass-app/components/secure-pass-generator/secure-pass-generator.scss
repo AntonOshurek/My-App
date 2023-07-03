@@ -76,6 +76,10 @@
 }
 
 .pass-generator__pass-result {
+	padding: 10px 5px;
+	border-radius: 5px;
+	background-color: var(--overlay);
+
 	font-family: var(--app-basic-font);
 	font-size: var(--text-font-size);
 	font-weight: 500;
@@ -87,7 +91,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 10px;
+	gap: 20px;
 
 	font-family: var(--app-basic-font);
 	font-size: var(--text-font-size);
@@ -101,7 +105,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		gap: 0;
+		gap: 10px;
 
 		& > input {
 			width: 100%;
@@ -109,12 +113,129 @@
 	}
 }
 
-.pass-generator__item-styles {
-	padding: 15px 25px;
-	background-color: var(--overlay);
-	border-radius: 5px;
+.pass-generator__option-title {
+	font-family: var(--app-basic-font);
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--text-primary);
+}
 
-	@media (max-width: $mobile-width) {
-		padding: 8px 20px;
+:root {
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #c8d0e7;
+  --greyLight-3: #bec8e4;
+  --greyDark: #9baacf;
+}
+
+$shadow: .3rem .3rem .6rem var(--greyLight-2);
+
+.pass-generator__option-switch {
+	position: relative;
+	width: 60px;
+	height: 30px;
+
+	display: flex;
+	align-items: center;
+
+	background-color: var(--greyLight-3);
+	border-radius: 20px;
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		left: 15px;
+		transform: translateX(-50%);
+
+		background: var(--standart-white);
+		border-radius: 50%;
+		transition: all .4s ease;
+	}
+
+	&::before {
+		content: '';
+		width: 100%;
+		height: 100%;
+
+		border-radius: 20px;
+		transition: all .4s ease;
+		opacity: 0;
+
+		background: linear-gradient(330deg, #5b0eeb 0%, var(--settings-color) 50%, #8abdff 100%);
+	}
+}
+
+.pass-generator__option__checkbox:checked {
+	& ~ .pass-generator__option-switch{
+		&::before {
+			opacity: 1;
+		}
+
+		&::after {
+			left: calc(100% - 15px);
+		}
+	}
+}
+
+.pass-generator__range {
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	width: 100%; /* Specific width is required for Firefox. */
+	background: transparent; /* Otherwise white in Chrome */
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+	}
+
+	&:focus {
+		outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	}
+
+	&::-ms-track {
+		width: 100%;
+		cursor: pointer;
+
+		/* Hides the slider so custom styles can be added */
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background: #ffffff;
+		cursor: pointer;
+		transform: translateY(-5px); /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+		border: 1px solid var(--settings-color);
+	}
+
+	&::-moz-range-thumb {
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background: #ffffff;
+		cursor: pointer;
+	}
+
+	&::-ms-thumb {
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background: #ffffff;
+		cursor: pointer;
+	}
+
+	&::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 10px;
+		cursor: pointer;
+		background: linear-gradient(330deg, #5b0eeb 0%, var(--settings-color) 50%, #8abdff 100%);
+		border-radius: 10px;
 	}
 }
