@@ -86,6 +86,7 @@
 
 	--app-controls-background-gradient: linear-gradient(330deg, #5b0eeb 0%, var(--settings-color) 50%, #8abdff 100%);
 	--app-range-thumb-border: #8abdff;
+	--app-checkbox-backgroud-color: #bec8e4;
 }
 
 .theme-dark {

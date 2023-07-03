@@ -1,13 +1,20 @@
 import { ChangeEvent } from 'react';
 //components
-import { AppRange } from '../../../../components/controls';
+import { AppRange, AppCheckbox } from '../../../../components/controls';
 //styles
 import './secure-pass-generator.scss';
 
 const SecurePassGenerator = (): JSX.Element => {
 
-	const callback = (evt: ChangeEvent<HTMLInputElement>): void => {
+	const onLengthRangeHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 		console.log(evt.target.value);
+	};
+
+	const onOptionCheckboxHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
+		const optionName = evt.target.value;
+		const optionChecked = evt.target.checked;
+
+		console.log(`${optionName} - ${optionChecked}`);
 	};
 
 
@@ -27,31 +34,12 @@ const SecurePassGenerator = (): JSX.Element => {
 				<div className='pass-generator__options unselectable'>
 					<h3 className='pass-generator__subtitle'>choise options</h3>
 
-					<AppRange callback={callback} name={'Length'} rangeValues={{min: 0, max: 40}}/>
+					<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40}}/>
 
-					<label className='pass-generator__option'>
-						<span className='pass-generator__option-title'>Include Uppercase</span>
-						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
-						<div className='pass-generator__option-switch'></div>
-					</label>
-
-					<label className='pass-generator__option'>
-						<span className='pass-generator__option-title'>Include Lowercase</span>
-						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
-						<div className='pass-generator__option-switch'></div>
-					</label>
-
-					<label className='pass-generator__option'>
-						<span className='pass-generator__option-title'>Include Numbers</span>
-						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
-						<div className='pass-generator__option-switch'></div>
-					</label>
-
-					<label className='pass-generator__option'>
-						<span className='pass-generator__option-title'>Include Symbols</span>
-						<input className='visually-hidden pass-generator__option__checkbox' type="checkbox" />
-						<div className='pass-generator__option-switch'></div>
-					</label>
+					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Uppercase' value='Uppercase'/>
+					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Lowercase' value='Lowercase'/>
+					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Numbers' value='Numbers'/>
+					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Symbols' value='Symbols'/>
 				</div>
 			</div>
 		</section>

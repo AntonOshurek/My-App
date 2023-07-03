@@ -26,6 +26,8 @@
 
 	--app-range-font-size: 16px;
 	--app-range-font-weight: 400;
+	--app-checkbox-font-size: 16px;
+	--app-checkbox-wont-weight: 500;
 
 	--loading-text-size: 28px;
 	--loading-text-weight: 600;
@@ -49,15 +51,6 @@
 
 	/* WIDTH */
 	--settings-input-width: 250px;
-
-
-
-
-
-
-
-
-
 
 	/* BASIC COLORS */
 	--app-basic-white: #ffffff;
