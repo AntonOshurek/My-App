@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 //components
-import {WeatherApplication, WeatherFullInfo, SunRange} from "../";
+import {WeatherApplication, WeatherFullInfo, SunRange} from "..";
 //api
 import weatherApi from "../../api/weather-api";
+
 //store
 import { SelectorGetLanguageState, SelectorGetMyCityState } from "../../../../store/selectors/app-selectors";
 import { useAppDispatch, useAppSelector } from "../../../../generic-utils/hooks/hooks";
@@ -11,7 +12,7 @@ import { setWeatherError } from "../../../../store/slices/weather-slice";
 //types
 import type { SelectorGetLanguageStateType, SelectorGetMyCityStateType } from "../../../../types/selector-types";
 
-const WeatherAppWrap = (): JSX.Element => {
+const WeatherPageWrap = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 
 	const myCity: SelectorGetMyCityStateType = useAppSelector(SelectorGetMyCityState);
@@ -45,4 +46,4 @@ const WeatherAppWrap = (): JSX.Element => {
 	);
 };
 
-export default WeatherAppWrap;
+export default WeatherPageWrap;

@@ -22,7 +22,7 @@ const AppRange = ({ name, callback, rangeValues }: IAppRangePropsType): JSX.Elem
 
 	return (
 		<label className='app-range'>
-			<span className='app-range__name'>
+			<span className='app-range__name unselectable'>
 				{name} - {value}
 			</span>
 			<input

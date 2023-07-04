@@ -6,7 +6,7 @@ import WeatherSearchLocations from "../../../components/search-locations/search-
 import WeatherFullInfo from "./weather-full-info/weather-full-info";
 import WeatherApplication from './weather-application/weather-application';
 import { WeatherAppHeader } from './header';
-import WeatherAppWrap from "./weather-app-wrap/weather-app-wrap";
+import WeatherPageWrap from "./weather-page-wrap/weather-page-wrap";
 import SunRange from "./sun-range/sun-range";
 
 export {
@@ -18,6 +18,6 @@ export {
 	WeatherFullInfo,
 	WeatherAppHeader,
 	WeatherApplication,
-	WeatherAppWrap,
+	WeatherPageWrap,
 	SunRange,
 };

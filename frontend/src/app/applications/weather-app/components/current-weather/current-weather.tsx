@@ -55,7 +55,7 @@ const CurrentWeather = (): JSX.Element => {
 	}, [myCity]);
 
 	return (
-		<article className={`current-weather ${skeletonClass}`} style={styles}>
+		<article className={`current-weather global-styles__left-block-of-double ${skeletonClass}`} style={styles}>
 			<h3 className='visually-hidden'>Weather for {weatherCurrentDay?.date} date</h3>
 
 			<div className='current-weather__wrap'>

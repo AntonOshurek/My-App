@@ -2,9 +2,6 @@
 
 .current-weather {
 	position: relative;
-	width: 100%;
-	min-height: 300px;
-	padding: 30px 20px 20px 20px;
 
 	display: grid;
 	grid-template-columns: 1fr;
@@ -13,12 +10,8 @@
 
 	background-position: center;
 	background-size: cover;
+	background-color: var(--surface);
 
-	border-radius: var(--weather-basic-border-radius);
-	box-shadow: var(--box-shadow-color);
-	background-color: var(--bg);
-
-	transition: transform 0.3s ease;
 	transform: scale(1.05);
 
 	&::after {
@@ -32,16 +25,14 @@
 		pointer-events: none;
 		background-image: var(--after-gradient);
 		opacity: 0.5;
-		border-radius: var(--weather-basic-border-radius);
+		border-radius: var(--basic-app-block-border-radius);
 	}
 
 	@media (max-width: $mobile-width) {
-		width: 100%;
 		transform: scale(1);
-		border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
 
 		&::after {
-			border-radius: 0 0 var(--weather-basic-border-radius) var(--weather-basic-border-radius);
+			border-radius: 0 0 var(--basic-app-block-border-radius) var(--basic-app-block-border-radius);
 		}
 
 		&:hover {

@@ -1,18 +1,19 @@
 //components
-import { BySubscription } from '../../../../components';
-import { SecurePassAppHeader, SecurePassGenerator } from '../../components';
+import { SecurePassAppHeader, SecurePassPageWrap } from '../../components';
 //styles
 import './secure-pass-page.scss';
 
 const SecurePassPage = (): JSX.Element => {
 	return (
-		<div className='secure-pass-page container'>
+		// <div className='secure-pass-page'>
+		// <main className='secure-pass-page__main'>
+		<div className='global-styles__application-page'>
 			<SecurePassAppHeader/>
 
-			<main className='secure-pass-page__main'>
-				<SecurePassGenerator/>
+			<main className='global-styles__application-main'>
 
-				<BySubscription text='if you want save all your password in our database, you need buy a subscripton'/>
+				<SecurePassPageWrap/>
+
 			</main>
 		</div>
 	);
