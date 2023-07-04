@@ -48,5 +48,17 @@
 		width: 100%;
 		grid-template-columns: 1fr;
 		grid-template-rows: min-content min-content;
+		border-radius: 0 0 var(--basic-app-block-border-radius) var(--basic-app-block-border-radius);
+	}
+}
+
+.global-styles__left-block-of-double {
+	padding: 30px 20px 20px 20px;
+	box-shadow: var(--box-shadow-color);
+	border-radius: var(--basic-app-block-border-radius);
+
+	@media (max-width: $mobile-width) {
+		padding: 20px 10px;
+		border-radius: 0 0 var(--basic-app-block-border-radius) var(--basic-app-block-border-radius);
 	}
 }
