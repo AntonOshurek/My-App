@@ -1,6 +1,52 @@
-.application-block-shadows {
+@import '../variables/variables.scss';
+
+.global-styles__application-block-shadows {
 	background-color: var(--surface);
 	box-shadow: var(--box-shadow-color);
 	border: 1px solid var(--border);
 	border-radius: var(--basic-app-block-border-radius);
+}
+
+.global-styles__application-page {
+	width: 100%;
+	height: 100%;
+	min-height: 100vh;
+	background-color: var(--bg);
+}
+
+.global-styles__application-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 30px;
+
+	padding: 40px 0 var(--padding-for-menu) 0;
+
+	@media (max-width: $mobile-width) {
+		padding: 0 0 var(--padding-for-menu) 0;
+		gap: 20px;
+	}
+}
+
+.global-styles__double-app-block {
+	width: $mobile-width;
+
+	max-width: $desctope-width;
+	margin: 0 auto;
+
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+
+	background-color: var(--surface);
+	box-shadow: var(--box-shadow-color);
+	border: 1px solid var(--border);
+	border-radius: var(--basic-app-block-border-radius);
+
+	@media (max-width: $mobile-width) {
+		width: 100%;
+		grid-template-columns: 1fr;
+		grid-template-rows: min-content min-content;
+	}
 }

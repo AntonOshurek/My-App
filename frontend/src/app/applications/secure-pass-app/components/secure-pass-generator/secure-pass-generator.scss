@@ -1,46 +1,5 @@
 @import '../../../../variables/variables.scss';
 
-.pass-generator {
-	width: 100%;
-	height: max-content;
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: min-content 1fr;
-	justify-items: center;
-	gap: 40px;
-
-	padding: 0 var(--standart-side-padding);
-
-	@media (max-width: $mobile-width) {
-		padding: 0;
-	}
-}
-
-.pass-generator__title {
-	font-family: var(--app-basic-font);
-	font-size: var(--main-title-font-size);
-	font-weight: var(--main-title-font-weight);
-	color: var(--text-primary);
-
-	text-align: center;
-}
-
-.pass-generator__wrap {
-	width: 100%;
-	max-width: 900px;
-	height: 100%;
-
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr;
-
-	@media (max-width: $mobile-width) {
-		grid-template-columns: 1fr;
-		grid-template-rows: min-content min-content;
-	}
-}
-
 .pass-generator__result {
 	display: flex;
 	flex-direction: column;

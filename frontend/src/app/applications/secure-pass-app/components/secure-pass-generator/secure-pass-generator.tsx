@@ -19,28 +19,26 @@ const SecurePassGenerator = (): JSX.Element => {
 
 
 	return (
-		<section className='pass-generator'>
-			<h2 className='pass-generator__title unselectable'>Password generator</h2>
+		<section className='global-styles__double-app-block'>
+			<h2 className='pass-generator__title unselectable visually-hidden'>Password generator</h2>
 
-			<div className='pass-generator__wrap application-block-shadows'>
-				<div className='pass-generator__result'>
-					<h3 className='pass-generator__subtitle unselectable'>Your new Password</h3>
+			<div className='pass-generator__result'>
+				<h3 className='pass-generator__subtitle unselectable'>Your new Password</h3>
 
-					<span className='pass-generator__pass-result'>
-						06v~E:73oG~*mH2!WVN8+h62BxtRrc
-					</span>
+				<span className='pass-generator__pass-result'>
+					06v~E:73oG~*mH2!WVN8+h62BxtRrc
+				</span>
 
-				</div>
-				<div className='pass-generator__options unselectable'>
-					<h3 className='pass-generator__subtitle'>choise options</h3>
+			</div>
+			<div className='pass-generator__options unselectable'>
+				<h3 className='pass-generator__subtitle'>choise options</h3>
 
-					<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40}}/>
+				<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40}}/>
 
-					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Uppercase' value='Uppercase'/>
-					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Lowercase' value='Lowercase'/>
-					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Numbers' value='Numbers'/>
-					<AppCheckbox callback={onOptionCheckboxHandler} name='Include Symbols' value='Symbols'/>
-				</div>
+				<AppCheckbox callback={onOptionCheckboxHandler} name='Include Uppercase' value='Uppercase'/>
+				<AppCheckbox callback={onOptionCheckboxHandler} name='Include Lowercase' value='Lowercase'/>
+				<AppCheckbox callback={onOptionCheckboxHandler} name='Include Numbers' value='Numbers'/>
+				<AppCheckbox callback={onOptionCheckboxHandler} name='Include Symbols' value='Symbols'/>
 			</div>
 		</section>
 	);
