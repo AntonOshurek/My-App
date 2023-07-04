@@ -1,7 +1,5 @@
 //components
 import { PasswordResult, PasswordGeneratorOptions } from '../';
-//styles
-import './secure-pass-generator.scss';
 
 const SecurePassGenerator = (): JSX.Element => {
 
