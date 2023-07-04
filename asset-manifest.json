@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/My-App/static/css/main.c1472c91.css",
-    "main.js": "/My-App/static/js/main.f83e3eb9.js",
+    "main.css": "/My-App/static/css/main.5bda47e5.css",
+    "main.js": "/My-App/static/js/main.6acb5078.js",
     "static/media/reserve_weather_image.jpg": "/My-App/static/media/reserve_weather_image.2de07b80c1a71d52b06e.jpg",
     "index.html": "/My-App/index.html",
-    "main.c1472c91.css.map": "/My-App/static/css/main.c1472c91.css.map",
-    "main.f83e3eb9.js.map": "/My-App/static/js/main.f83e3eb9.js.map"
+    "main.5bda47e5.css.map": "/My-App/static/css/main.5bda47e5.css.map",
+    "main.6acb5078.js.map": "/My-App/static/js/main.6acb5078.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1472c91.css",
-    "static/js/main.f83e3eb9.js"
+    "static/css/main.5bda47e5.css",
+    "static/js/main.6acb5078.js"
   ]
 }
