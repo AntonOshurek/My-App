@@ -18,7 +18,7 @@ const PasswordGeneratorOptions = (): JSX.Element => {
 
 	return (
 		<div className='pass-generator__options unselectable'>
-			<h3 className='pass-generator__subtitle'>choise options</h3>
+			<h3 className='secure-pass-generator__block-title'>choise options</h3>
 
 			<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40}}/>
 
