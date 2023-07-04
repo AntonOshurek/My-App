@@ -11,7 +11,7 @@ interface IAppCheckboxPropsType {
 const AppCheckbox = ({ name, callback, value }: IAppCheckboxPropsType): JSX.Element => {
 	return (
 		<label className='app-checkbox'>
-			<span className='app-checkbox__title'>{name}</span>
+			<span className='app-checkbox__title unselectable'>{name}</span>
 			<input
 				className='visually-hidden app-checkbox__input'
 				type="checkbox"
