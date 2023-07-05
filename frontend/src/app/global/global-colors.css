@@ -7,7 +7,8 @@
 	--dark-bg: #101214;
 	--dark-border: #22272B;
 	--dark-surface: #161A1D;
-	--dark-overlay: rgb(255 255 255 / 10%);
+	/* --dark-overlay: rgb(255 255 255 / 10%); */
+	--dark-overlay: #393939;
 	--dark-text-primary: #DEE4EA;
 	--dark-text-secondary: #738496;
 	--dark-primary: #1D7AFC;
