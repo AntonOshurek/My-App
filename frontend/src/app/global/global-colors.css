@@ -37,7 +37,7 @@
 	--sunset-bg: #151c19;
 	--sunset-border: #424f4a;
 	--sunset-surface: #2f3834;
-	--light-overlay: #c3b9b9;
+	--sunset-overlay: #c3b9b9;
 	--sunset-text-primary: #ecd2c5;
 	--sunset-text-secondary: #C0AB92;
 	--sunset-primary: #C0AB92;
@@ -86,7 +86,6 @@
 
 	--app-controls-background-gradient: linear-gradient(330deg, #5b0eeb 0%, var(--settings-color) 50%, #8abdff 100%);
 	--app-range-thumb-border: #8abdff;
-	--app-checkbox-backgroud-color: #bec8e4;
 }
 
 .theme-dark {

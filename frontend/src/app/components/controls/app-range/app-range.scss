@@ -81,6 +81,7 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 
 		cursor: pointer;
 	}
@@ -92,6 +93,7 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 	}
 
 	&::-ms-track {
@@ -101,5 +103,6 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 	}
 }
