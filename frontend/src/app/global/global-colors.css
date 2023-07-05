@@ -87,6 +87,7 @@
 
 	--app-controls-background-gradient: linear-gradient(330deg, #5b0eeb 0%, var(--settings-color) 50%, #8abdff 100%);
 	--app-range-thumb-border: #8abdff;
+	--app-controls-outline-color: #8abdff;
 }
 
 .theme-dark {
