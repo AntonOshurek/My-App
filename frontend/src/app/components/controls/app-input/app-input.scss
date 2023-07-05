@@ -1,0 +1,51 @@
+.app-input {
+	width: 100%;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 10px;
+
+	cursor: pointer;
+}
+
+.app-input__name {
+	font-family: var(--app-basic-font);
+	font-size: var(--app-checkbox-font-size);
+	font-weight: var(--app-checkbox-wont-weight);
+	color: var(--text-primary);
+}
+
+.app-input__wrap {
+	position: relative;
+	width: calc(100% + 2px);
+	padding: 2px;
+	margin-left: -2px;
+
+	border-radius: 10px;
+
+	&:hover,
+	&:focus-within {
+		background: var(--app-controls-background-gradient);
+	}
+}
+
+.app-input__input {
+	position: relative;
+	width: 100%;
+	padding: 8px 18px;
+
+	border: none;
+	background-color: var(--overlay);
+	border-radius: 10px;
+	box-shadow: var(--shadow);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--app-checkbox-font-size);
+	font-weight: var(--app-checkbox-wont-weight);
+	color: var(--text-primary);
+
+	outline: none;
+}

@@ -31,8 +31,9 @@
 	display: flex;
 	align-items: center;
 
-	background-color: var(--app-checkbox-backgroud-color);
+	background-color: var(--overlay);
 	border-radius: var(--app-checkbox-border-radius);
+	box-shadow: var(--shadow);
 	cursor: pointer;
 
 	&::after {
@@ -61,8 +62,14 @@
 	}
 }
 
+.app-checkbox__input {
+	&:focus-within ~ .app-checkbox__switch {
+		outline: 2px solid var(--app-controls-outline-color);
+	}
+}
+
 .app-checkbox__input:checked {
-	& ~ .app-checkbox__switch{
+	& ~ .app-checkbox__switch {
 		&::before {
 			opacity: 1;
 		}

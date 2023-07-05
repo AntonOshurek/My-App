@@ -31,8 +31,9 @@
 		-webkit-appearance: none;
 	}
 
-	&:focus {
-		outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	&:focus-within {
+		outline: 2px solid var(--app-controls-outline-color);
+		border-radius: var(--app-range-track-radius);
 	}
 
 	&::-ms-track {
@@ -81,6 +82,7 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 
 		cursor: pointer;
 	}
@@ -92,6 +94,7 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 	}
 
 	&::-ms-track {
@@ -101,5 +104,6 @@
 
 		background: var(--app-controls-background-gradient);
 		border-radius: var(--app-range-track-radius);
+		box-shadow: var(--shadow);
 	}
 }
