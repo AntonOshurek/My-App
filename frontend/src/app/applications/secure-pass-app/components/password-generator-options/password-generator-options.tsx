@@ -6,9 +6,16 @@ import { InputsTypes } from '../../../../variables/app-variables';
 //styles
 import './password-generator-options.scss';
 
-const PasswordGeneratorOptions = (): JSX.Element => {
+interface IPasswordGeneratorOptionsPropsType {
+	lengtHandler: (length: number) => void,
+	// optionsHandler: (optionName: string) => void,
+};
+
+const PasswordGeneratorOptions = ({ lengtHandler }: IPasswordGeneratorOptionsPropsType): JSX.Element => {
 	const onLengthRangeHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
-		console.log(evt.target.value);
+		const length = +evt.target.value;
+
+		lengtHandler(length);
 	};
 
 	const onOptionCheckboxHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
@@ -18,7 +25,7 @@ const PasswordGeneratorOptions = (): JSX.Element => {
 		console.log(`${optionName} - ${optionChecked}`);
 	};
 
-	const onUserValueInputHandler = (evt: ChangeEvent<HTMLInputElement>) => {
+	const onUserValueInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 
 	};
 
