@@ -3,18 +3,20 @@ import { ChangeEvent } from 'react';
 import { AppCheckbox, AppRange, AppInput } from '../../../../components/controls';
 //variables
 import { InputsTypes } from '../../../../variables/app-variables';
+//types
+import type { IPassOptions } from '../../../../types/app-types';
 //styles
 import './password-generator-options.scss';
 
 interface IPasswordGeneratorOptionsPropsType {
+	passOptions: IPassOptions,
 	lengtHandler: (length: number) => void,
 	// optionsHandler: (optionName: string) => void,
 };
 
-const PasswordGeneratorOptions = ({ lengtHandler }: IPasswordGeneratorOptionsPropsType): JSX.Element => {
+const PasswordGeneratorOptions = ({ lengtHandler, passOptions }: IPasswordGeneratorOptionsPropsType): JSX.Element => {
 	const onLengthRangeHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 		const length = +evt.target.value;
-
 		lengtHandler(length);
 	};
 
@@ -33,7 +35,7 @@ const PasswordGeneratorOptions = ({ lengtHandler }: IPasswordGeneratorOptionsPro
 		<div className='pass-generator__options'>
 			<h3 className='secure-pass-generator__block-title unselectable'>choise options</h3>
 
-			<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40}}/>
+			<AppRange callback={onLengthRangeHandler} name={'Length'} rangeValues={{min: 4, max: 40, value: passOptions.length}}/>
 
 			<AppCheckbox callback={onOptionCheckboxHandler} name='Include Uppercase' value='Uppercase'/>
 			<AppCheckbox callback={onOptionCheckboxHandler} name='Include Lowercase' value='Lowercase'/>

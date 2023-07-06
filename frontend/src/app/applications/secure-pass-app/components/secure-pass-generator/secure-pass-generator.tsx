@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
 //components
 import { PasswordResult, PasswordGeneratorOptions } from '../';
+//types
+import { IPassOptions } from '../../../../types/app-types';
 //styles
 import './secure-pass-generator.scss';
 
-interface IPassOptions {
-	length: number,
-	uppercase: boolean,
-	lowercase: boolean,
-	numbers: boolean,
-	symbols: boolean,
-	phrase: string,
-};
-
 const SecurePassGenerator = (): JSX.Element => {
 	const defaulstPassOptions: IPassOptions = {
-		length: 20,
+		length: 10,
 		uppercase: true,
 		lowercase: true,
 		numbers: true,
@@ -36,6 +29,7 @@ const SecurePassGenerator = (): JSX.Element => {
 	};
 
 	useEffect(() => {
+		//here we will be generation new password
 		// console.log(passOptions);
 	}, [passOptions])
 
@@ -44,7 +38,7 @@ const SecurePassGenerator = (): JSX.Element => {
 			<h2 className='visually-hidden'>Password generator</h2>
 
 			<PasswordResult resultPssword={resultPassword}/>
-			<PasswordGeneratorOptions lengtHandler={lengthHandler}/>
+			<PasswordGeneratorOptions lengtHandler={lengthHandler} passOptions={passOptions}/>
 		</section>
 	);
 };
