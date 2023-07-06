@@ -8,6 +8,7 @@ interface IAppInputPropsType {
 	name?: string,
 	type: InputsTypes,
 	placeholder: string,
+	value: string,
 	onChange: (evt: ChangeEvent<HTMLInputElement>) => void,
 }
 

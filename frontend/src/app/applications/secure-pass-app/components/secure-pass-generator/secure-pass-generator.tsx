@@ -25,12 +25,21 @@ const SecurePassGenerator = (): JSX.Element => {
 				...prev,
 				length: length,
 			}
-		})
+		});
+	};
+
+	const userValueHandler = (userPhrase: string): void => {
+		setPassOptions((prev) => {
+			return {
+				...prev,
+				phrase: userPhrase,
+			}
+		});
 	};
 
 	useEffect(() => {
 		//here we will be generation new password
-		// console.log(passOptions);
+		console.log(passOptions);
 	}, [passOptions])
 
 	return (
@@ -38,7 +47,11 @@ const SecurePassGenerator = (): JSX.Element => {
 			<h2 className='visually-hidden'>Password generator</h2>
 
 			<PasswordResult resultPssword={resultPassword}/>
-			<PasswordGeneratorOptions lengtHandler={lengthHandler} passOptions={passOptions}/>
+			<PasswordGeneratorOptions
+				lengtHandler={lengthHandler}
+				passOptions={passOptions}
+				userValueHandler={userValueHandler}
+			/>
 		</section>
 	);
 };
