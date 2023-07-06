@@ -1,21 +1,14 @@
 import { useEffect, useState } from 'react';
 //components
 import { PasswordResult, PasswordGeneratorOptions } from '../';
+//variables
+import { defaulstPassOptions } from '../../../../variables/app-variables';
 //types
 import { IPassOptions } from '../../../../types/app-types';
 //styles
 import './secure-pass-generator.scss';
 
 const SecurePassGenerator = (): JSX.Element => {
-	const defaulstPassOptions: IPassOptions = {
-		length: 10,
-		uppercase: true,
-		lowercase: true,
-		numbers: true,
-		symbols: false,
-		phrase: '',
-	};
-
 	const [resultPassword, setResultPassword] = useState<string>('');
 	const [passOptions, setPassOptions] = useState<IPassOptions>(defaulstPassOptions);
 
@@ -24,7 +17,7 @@ const SecurePassGenerator = (): JSX.Element => {
 			return {
 				...prev,
 				length: length,
-			}
+			};
 		});
 	};
 
@@ -33,7 +26,18 @@ const SecurePassGenerator = (): JSX.Element => {
 			return {
 				...prev,
 				phrase: userPhrase,
-			}
+			};
+		});
+	};
+
+	const optionsCheckboxHandler = (optionName: string): void => {
+		const indexString: keyof IPassOptions = optionName as keyof IPassOptions;
+
+		setPassOptions((prev) => {
+			return {
+				...prev,
+				[optionName]: !prev[indexString],
+			};
 		});
 	};
 
@@ -51,6 +55,7 @@ const SecurePassGenerator = (): JSX.Element => {
 				lengtHandler={lengthHandler}
 				passOptions={passOptions}
 				userValueHandler={userValueHandler}
+				optionsCheckboxHandler={optionsCheckboxHandler}
 			/>
 		</section>
 	);

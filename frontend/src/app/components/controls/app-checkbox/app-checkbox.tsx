@@ -6,9 +6,10 @@ interface IAppCheckboxPropsType {
 	name: string,
 	callback: (evt: ChangeEvent<HTMLInputElement>) => void,
 	value: string,
+	checked: boolean,
 }
 
-const AppCheckbox = ({ name, callback, value }: IAppCheckboxPropsType): JSX.Element => {
+const AppCheckbox = ({ name, callback, value, checked }: IAppCheckboxPropsType): JSX.Element => {
 	return (
 		<label className='app-checkbox'>
 			<span className='app-checkbox__title unselectable'>{name}</span>
@@ -17,6 +18,7 @@ const AppCheckbox = ({ name, callback, value }: IAppCheckboxPropsType): JSX.Elem
 				type="checkbox"
 				value={value}
 				onChange={callback}
+				checked={checked}
 			/>
 			<div className='app-checkbox__switch'></div>
 		</label>

@@ -1,3 +1,6 @@
+//variables
+import { passGeneratorCheckboxOptionsID } from "../variables/app-variables";
+
 export type SetActiveLinkType = {
 	isActive: boolean,
 };
@@ -15,10 +18,10 @@ export interface ISettingsSelectOptionDataType {
 export type SettingsSelectDataType = ISettingsSelectOptionDataType[];
 
 export interface IPassOptions {
-	length: number,
-	uppercase: boolean,
-	lowercase: boolean,
-	numbers: boolean,
-	symbols: boolean,
-	phrase: string,
+	'length': number,
+	[passGeneratorCheckboxOptionsID.LOWERCASE]: boolean,
+	[passGeneratorCheckboxOptionsID.UPPERCASE]: boolean,
+	[passGeneratorCheckboxOptionsID.NUMBERS]: boolean,
+	[passGeneratorCheckboxOptionsID.SYMBOLS]: boolean,
+	'phrase': string,
 };
