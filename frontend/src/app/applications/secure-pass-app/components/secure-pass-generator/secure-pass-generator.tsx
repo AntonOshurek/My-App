@@ -12,6 +12,7 @@ import './secure-pass-generator.scss';
 const SecurePassGenerator = (): JSX.Element => {
 	const [resultPassword, setResultPassword] = useState<string>('');
 	const [passOptions, setPassOptions] = useState<IPassOptions>(defaulstPassOptions);
+	const [generationError, setGenerationError] = useState<string>('')
 
 	const lengthHandler = (length: number): void => {
 		setPassOptions((prev) => {
@@ -43,29 +44,34 @@ const SecurePassGenerator = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		//here we will be generation new password
-
 		const generatePasswordParams = {
-			passLength: 15,
-			uppercase: false,
-			lowercase: false,
-			numbers: true,
-			symbols: true,
-			userString: 'Anton Ashurek'
+			passLength: passOptions.length,
+			uppercase: passOptions.upercase,
+			lowercase: passOptions.lowercase,
+			numbers: passOptions.numbers,
+			symbols: passOptions.symbols,
+			userString: passOptions.phrase,
 		};
 
-		// console.log(secureCryptoRandom.createPssword(generatePasswordParams));
+		try {
+			setResultPassword(secureCryptoRandom.createPassword(generatePasswordParams));
 
+			if(generationError.length > 0) {
+				setGenerationError('');
+			}
+		} catch(err) {
+			if(err instanceof Error) {
+				setGenerationError(err.message)
+			};
+		};
 
-        console.log(secureCryptoRandom)
-		console.log(passOptions);
 	}, [passOptions])
 
 	return (
 		<section className='global-styles__double-app-block'>
 			<h2 className='visually-hidden'>Password generator</h2>
 
-			<PasswordResult resultPssword={resultPassword}/>
+			<PasswordResult resultPssword={resultPassword} errorMessage={generationError}/>
 			<PasswordGeneratorOptions
 				lengtHandler={lengthHandler}
 				passOptions={passOptions}
