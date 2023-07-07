@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import secureCryptoRandom from 'secure-crypto-random';
 //components
 import { PasswordResult, PasswordGeneratorOptions } from '../';
 //variables
@@ -43,6 +44,20 @@ const SecurePassGenerator = (): JSX.Element => {
 
 	useEffect(() => {
 		//here we will be generation new password
+
+		const generatePasswordParams = {
+			passLength: 15,
+			uppercase: false,
+			lowercase: false,
+			numbers: true,
+			symbols: true,
+			userString: 'Anton Ashurek'
+		};
+
+		// console.log(secureCryptoRandom.createPssword(generatePasswordParams));
+
+
+        console.log(secureCryptoRandom)
 		console.log(passOptions);
 	}, [passOptions])
 
