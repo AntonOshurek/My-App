@@ -35,11 +35,11 @@
 .app-input__input {
 	position: relative;
 	width: 100%;
-	padding: 8px 18px;
+	padding: var(--app-control-basic-paddings);
 
 	border: none;
 	background-color: var(--overlay);
-	border-radius: 10px;
+	border-radius: var(--app-control-basic-border-radius);
 	box-shadow: var(--shadow);
 
 	font-family: var(--app-basic-font);
