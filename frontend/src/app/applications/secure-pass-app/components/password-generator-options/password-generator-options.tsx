@@ -23,8 +23,6 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 
 	const onOptionCheckboxHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 		const optionName = evt.target.value;
-		const optionChecked = evt.target.checked;
-
 		optionsCheckboxHandler(optionName);
 	};
 
@@ -38,16 +36,10 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 		[passGeneratorCheckboxOptionsID.UPPERCASE]: passOptions.upercase,
 		[passGeneratorCheckboxOptionsID.SYMBOLS]: passOptions.symbols,
 	};
-	// Функция, которая возвращает количество выбранных чекбоксов
-	const getCheckedCount = (name: passGeneratorCheckboxOptionsID) => {
 
-
-		return Object.values(checkboxes).filter((isChecked) => isChecked).length;
-	};
-
-	// Функция, которая проверяет, нужно ли заблокировать все чекбоксы
 	const shouldDisableCheckboxes = (checkboxName: passGeneratorCheckboxOptionsID) => {
-		return checkboxes[checkboxName] && getCheckedCount(checkboxName) === 1;
+		const isDisabled = Object.values(checkboxes).filter((isChecked) => isChecked).length;
+		return checkboxes[checkboxName] && isDisabled === 1;
 	};
 
 	return (

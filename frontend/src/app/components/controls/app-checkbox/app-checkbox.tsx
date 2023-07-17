@@ -7,8 +7,8 @@ interface IAppCheckboxPropsType {
 	callback: (evt: ChangeEvent<HTMLInputElement>) => void,
 	value: string,
 	checked: boolean,
-	disabled?: boolean,
-}
+	disabled: boolean,
+};
 
 const AppCheckbox = ({ name, callback, value, checked, disabled }: IAppCheckboxPropsType): JSX.Element => {
 	return (
