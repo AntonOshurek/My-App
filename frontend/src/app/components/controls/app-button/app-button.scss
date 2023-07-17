@@ -1,0 +1,31 @@
+.app-button {
+	width: 100%;
+	padding: var(--app-control-basic-paddings);
+
+	border: 2px solid transparent;
+	border-radius: var(--app-control-basic-border-radius);
+	cursor: pointer;
+
+	background-color: var(--overlay);
+	box-shadow: var(--shadow);
+
+	font-family: var(--app-basic-font);
+	font-size: var(--app-button-font-size);
+	font-weight: var(--app-button-font-weight);
+	color: var(--text-primary);
+	text-align: center;
+	text-decoration: none;
+
+	transition: all 0.2s ease;
+
+	outline: none;
+
+	&:hover,
+	&:focus {
+		border: 2px solid var(--app-controls-outline-color);
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+}

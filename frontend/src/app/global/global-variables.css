@@ -28,6 +28,8 @@
 	--app-range-font-weight: 400;
 	--app-checkbox-font-size: 16px;
 	--app-checkbox-wont-weight: 500;
+	--app-button-font-size: 16px;
+	--app-button-font-weight: 400;
 
 	--loading-text-size: 28px;
 	--loading-text-weight: 600;
@@ -42,12 +44,14 @@
 	--padding-for-menu: 100px;
 	--app-navigation-padding: 10px;
 	--settings-button-padding: 15px 30px;
+	--app-control-basic-paddings: 8px 18px;
 
 	/* BORDERS */
 	--app-navigation-border-radius: 10px;
 	--root-header-border-radius: 10px;
 	--app-settings-border-radius: 10px;
 	--basic-app-block-border-radius: 20px;
+	--app-control-basic-border-radius: 10px;
 
 	/* WIDTH */
 	--settings-input-width: 250px;

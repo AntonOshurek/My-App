@@ -14,6 +14,11 @@
 	gap: 10px;
 
 	cursor: pointer;
+
+	&--disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
 }
 
 .app-checkbox__title {
@@ -68,14 +73,22 @@
 	}
 }
 
-.app-checkbox__input:checked {
-	& ~ .app-checkbox__switch {
+.app-checkbox__input {
+	&:checked ~ .app-checkbox__switch {
 		&::before {
 			opacity: 1;
 		}
 
 		&::after {
 			left: calc(100% - (var(--app-checkbox-switch-size) - 5px));
+		}
+	}
+
+	&:disabled ~ .app-checkbox__switch {
+		cursor: not-allowed;
+
+		&::before {
+			opacity: 0.3;
 		}
 	}
 }

@@ -21,3 +21,7 @@ export const getZero = (num: number): string => {
 export const getRandomInt = (count: number): number => {
 	return Math.floor(Math.random() * (count + 1));
 };
+
+export const replaceMultipleSpacesWithOne = (str: string): string => {
+  return str.replace(/\s+/g, ' ');
+};

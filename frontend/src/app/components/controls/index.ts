@@ -5,6 +5,7 @@ import SettingsLinkToSubsettings from './settings-link-to-subsettings/settings-l
 import AppRange from './app-range/app-range';
 import AppCheckbox from './app-checkbox/app-checkbox';
 import AppInput from './app-input/app-input';
+import AppButton from './app-button/app-button';
 
 export {
 	SettingsButton,
@@ -14,4 +15,5 @@ export {
 	AppRange,
 	AppCheckbox,
 	AppInput,
+	AppButton,
 };
