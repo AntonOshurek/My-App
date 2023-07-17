@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 //components
 import { AppCheckbox, AppRange, AppInput } from '../../../../components/controls';
 //variables
@@ -26,8 +26,8 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 		optionsCheckboxHandler(optionName);
 	};
 
-	const onUserValueInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
-		userValueHandler(evt.target.value);
+	const onUserValueInputHandler = (text: string): void => {
+		userValueHandler(text);
 	};
 
 	const checkboxes = {
@@ -88,8 +88,9 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 				onChange={onUserValueInputHandler}
 				name='Include phrase'
 				type={InputsTypes.TEXT}
-				placeholder=''
+				placeholder='Write here your phrase'
 				value={passOptions.phrase}
+				maxLength={passOptions.length}
 			/>
 		</div>
 	);

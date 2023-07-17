@@ -57,13 +57,13 @@ const SecurePassGenerator = (): JSX.Element => {
 		try {
 			setResultPassword(secureCryptoRandom.createPassword(generatePasswordParams));
 
-			if(generationError.length > 0) {
-				setGenerationError('');
-			}
+			// if(generationError.length > 0) {
+			// 	setGenerationError('');
+			// }
 		} catch(err) {
-			if(err instanceof Error) {
-				setGenerationError(err.message)
-			};
+			// if(err instanceof Error) {
+			// 	setGenerationError(err.message)
+			// };
 		};
 
 	}, [passOptions])
