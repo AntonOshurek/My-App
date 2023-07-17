@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 //components
 import { AppCheckbox, AppRange, AppInput } from '../../../../components/controls';
 //variables
@@ -25,13 +25,29 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 		const optionName = evt.target.value;
 		const optionChecked = evt.target.checked;
 
-		console.log(`${optionName} - ${optionChecked}`);
-
 		optionsCheckboxHandler(optionName);
 	};
 
 	const onUserValueInputHandler = (evt: ChangeEvent<HTMLInputElement>): void => {
 		userValueHandler(evt.target.value);
+	};
+
+	const checkboxes = {
+		[passGeneratorCheckboxOptionsID.LOWERCASE]: passOptions.lowercase,
+		[passGeneratorCheckboxOptionsID.NUMBERS]: passOptions.numbers,
+		[passGeneratorCheckboxOptionsID.UPPERCASE]: passOptions.upercase,
+		[passGeneratorCheckboxOptionsID.SYMBOLS]: passOptions.symbols,
+	};
+	// Функция, которая возвращает количество выбранных чекбоксов
+	const getCheckedCount = (name: passGeneratorCheckboxOptionsID) => {
+
+
+		return Object.values(checkboxes).filter((isChecked) => isChecked).length;
+	};
+
+	// Функция, которая проверяет, нужно ли заблокировать все чекбоксы
+	const shouldDisableCheckboxes = (checkboxName: passGeneratorCheckboxOptionsID) => {
+		return checkboxes[checkboxName] && getCheckedCount(checkboxName) === 1;
 	};
 
 	return (
@@ -49,6 +65,7 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 				name='Include Uppercase'
 				value={passGeneratorCheckboxOptionsID.UPPERCASE}
 				checked={passOptions[passGeneratorCheckboxOptionsID.UPPERCASE]}
+				disabled={shouldDisableCheckboxes(passGeneratorCheckboxOptionsID.UPPERCASE)}
 			/>
 
 			<AppCheckbox
@@ -56,6 +73,7 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 				name='Include Lowercase'
 				value={passGeneratorCheckboxOptionsID.LOWERCASE}
 				checked={passOptions[passGeneratorCheckboxOptionsID.LOWERCASE]}
+				disabled={shouldDisableCheckboxes(passGeneratorCheckboxOptionsID.LOWERCASE)}
 			/>
 
 			<AppCheckbox
@@ -63,6 +81,7 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 				name='Include Numbers'
 				value={passGeneratorCheckboxOptionsID.NUMBERS}
 				checked={passOptions[passGeneratorCheckboxOptionsID.NUMBERS]}
+				disabled={shouldDisableCheckboxes(passGeneratorCheckboxOptionsID.NUMBERS)}
 			/>
 
 			<AppCheckbox
@@ -70,6 +89,7 @@ const PasswordGeneratorOptions = ({ lengtHandler, passOptions, userValueHandler,
 				name='Include Symbols'
 				value={passGeneratorCheckboxOptionsID.SYMBOLS}
 				checked={passOptions[passGeneratorCheckboxOptionsID.SYMBOLS]}
+				disabled={shouldDisableCheckboxes(passGeneratorCheckboxOptionsID.SYMBOLS)}
 			/>
 
 			<AppInput
